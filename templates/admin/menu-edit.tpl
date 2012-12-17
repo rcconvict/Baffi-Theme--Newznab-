@@ -1,70 +1,67 @@
- 
-<h1>{$page->title}</h1>
+<div class="page-header">
+	<h1>{if $page->title ==''}Add Menu Item{else}{$page->title}{/if}</h1>
+</div>
 
-<form action="{$SCRIPT_NAME}?action=submit" method="POST">
+<form class="form-horizontal" action="{$SCRIPT_NAME}?action=submit" method="POST">
 
-<table class="input">
+	<div class="control-group">
+		<label class="control-label" for="title">Title</label>
+		<div class="controls">
+			<input type="hidden" name="id" value="{$menu.ID}" />
+			<input class="input input-xxlarge" id="title" class="long" name="title" type="text" value="{$menu.title|escape:'htmlall'}" />
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<label class="control-label" for="href">Href</label>
+		<div class="controls">
+			<input class="input input-xxlarge" id="href" class="long" name="href" type="text" value="{$menu.href|escape:'htmlall'}" />
+			<span class="help-block">Use full <code>http://</code> path for external URLs, otherwise use no prefix.</span>
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<label class="control-label" for="tooltip">Tooltip</label>
+		<div class="controls">
+			<input class="input input-xxlarge" id="tooltip" class="long" name="tooltip" type="text" value="{$menu.tooltip|escape:'htmlall'}" />
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<label class="control-label" for="menueval">Evaluate</label>
+		<div class="controls">
+			<input class="input input-xxlarge" id="menueval" class="long" name="menueval" type="text" value="{$menu.menueval|escape:'htmlall'}" />
+			<span class="help-block">Smarty expression returning -1 if the menu item should be disabled.</span>
+		</div>
+	</div>
 
-<tr>
-	<td><label for="title">Title</label>:</td>
-	<td>
-		<input type="hidden" name="id" value="{$menu.ID}" />
-		<input id="title" class="long" name="title" type="text" value="{$menu.title|escape:'htmlall'}" />
-	</td>
-</tr>
+	<div class="control-group">
+		<label class="control-label" for="role">Role</label>
+		<div class="controls">
+			{html_radios id="role" name='role' values=$role_ids output=$role_names selected=$menu.role separator=''}
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<label class="control-label" for="ordinal">Ordinal</label>
+		<div class="controls">
+			<input class="input input-xxlarge" id="ordinal" class="short" name="ordinal" type="text" value="{$menu.ordinal}" />
+		</div>
+	</div>
 
-<tr>
-	<td><label for="href">Href</label>:</td>
-	<td>
-		<input id="href" class="long" name="href" type="text" value="{$menu.href|escape:'htmlall'}" />
-		<div class="hint">Use full http:// path for external URLs, otherwise use no prefix.</div>
-	</td>
-</tr>
-
-<tr>
-	<td><label for="tooltip">Tooltip</label>:</td>
-	<td>
-		<input id="tooltip" class="long" name="tooltip" type="text" value="{$menu.tooltip|escape:'htmlall'}" />
-	</td>
-</tr>
-
-<tr>
-	<td><label for="menueval">Evaluate</label>:</td>
-	<td>
-		<input id="menueval" class="long" name="menueval" type="text" value="{$menu.menueval|escape:'htmlall'}" />
-		<div class="hint">Smarty expression returning -1 if the menu item should be disabled.</div>
-	</td>
-</tr>
-
-<tr>
-	<td><label for="role">Role</label>:</td>
-	<td>
-		{html_radios id="role" name='role' values=$role_ids output=$role_names selected=$menu.role separator='<br />'}
-	</td>
-</tr>
-
-<tr>
-	<td><label for="ordinal">Ordinal</label>:</td>
-	<td>
-		<input id="ordinal" class="short" name="ordinal" type="text" value="{$menu.ordinal}" />
-	</td>
-</tr>
-
-<tr>
-	<td><label for="newwindow">New Window</label>:</td>
-	<td>
-		{html_radios id="newwindow" name='newwindow' values=$yesno_ids output=$yesno_names selected=$menu.newwindow separator='<br />'}
-		<div class="hint">Whether the menu item should open in a new window.</div>
-	</td>
-</tr>
-
-<tr>
-	<td></td>
-	<td>
-		<input type="submit" value="Save" />
-	</td>
-</tr>
-
-</table>
+	<div class="control-group">
+		<label class="control-label" for="newwindow">New Window</label>
+		<div class="controls">
+			{html_radios id="newwindow" name='newwindow' values=$yesno_ids output=$yesno_names selected=$menu.newwindow separator=''}
+			<span class="help-block">Whether the menu item should open in a new window.</span>
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<label class="control-label" > </label>
+		<div class="controls">
+			<input class="btn btn-success" type="submit" value="Save" />
+		</div>
+	</div>
 
 </form>

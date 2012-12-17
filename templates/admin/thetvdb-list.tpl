@@ -1,22 +1,25 @@
-<h1>{$page->title}</h1>
+<div class="page-header">
+	<h1>{$page->title}</h1>
+</div>
 
 {if $serieslist}
 
-<div style="float:right;">
-
-	<form name="thetvdbsearch" action="">
-		<label for="seriesname">Title</label>
-		<input id="seriesname" type="text" name="seriesname" value="{$seriesname}" size="15" />
-		&nbsp;&nbsp;
-		<input type="submit" value="Go" />
-	</form>
+<div class="navbar">
+	<div class="navbar-inner">
+		<form method="get" class="navbar-form pull-left" name="thetvdbsearch" action="">
+			<div class="input-append">
+				<input class="input input-xlagre" id="seriesname" type="text" name="seriesname" value="{$seriesname}" placeholder="Title" />
+				<input class="btn btn-success" type="submit" value="Search" />
+			</div>
+		</form>
+	</div>
 </div>
 
 {$pager}
 
 <br/><br/>
 
-<table style="width:100%;margin-top:10px;" class="data Sortable highlight">
+<table class="data Sortable highlight table table-striped">
 
 	<tr>
 		<th style="width:90px;">TheTVDB ID</th>
@@ -28,11 +31,20 @@
 	<tr class="{cycle values=",alt"}">
 		<td class="less"><a href="{$site->dereferrer_link}http://thetvdb.com/?tab=series&id={$thetvdb.tvdbID}" title="View in TheTVDB">{$thetvdb.tvdbID}</a></td>
 		<td><a title="Edit" href="{$smarty.const.WWW_TOP}/thetvdb-edit.php?id={$thetvdb.tvdbID}">{$thetvdb.seriesname|escape:"htmlall"}</a></td>
-		<td class="right"><a title="Delete this TheTVDB entry" href="{$smarty.const.WWW_TOP}/thetvdb-delete.php?id={$thetvdb.tvdbID}">delete</a> | <a title="Remove this tvdbID from all releases" href="{$smarty.const.WWW_TOP}/thetvdb-remove.php?id={$thetvdb.tvdbID}">remove</a></td>
+		<td class="right">
+			<div class="btn-group">
+				<a class="btn btn-mini btn-warning" title="Delete this TheTVDB entry" href="{$smarty.const.WWW_TOP}/thetvdb-delete.php?id={$thetvdb.tvdbID}">Delete</a>
+				<a class="btn btn-mini btn-danger" title="Remove this tvdbID from all releases" href="{$smarty.const.WWW_TOP}/thetvdb-remove.php?id={$thetvdb.tvdbID}">Remove</a>
+			</div>
+		</td>
 	</tr>
 	{/foreach}
 
 </table>
 {else}
-<p>No TheTVDB episodes available.</p>
+
+<div class="alert">
+	<strong>Ups!</strong>
+	No TheTVDB episodes available.
+</div>
 {/if}

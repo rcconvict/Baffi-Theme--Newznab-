@@ -1,7 +1,7 @@
- 
-<h1>{$page->title}</h1>
-
-<table style="margin-top:10px;" class="data Sortable">
+<div class="page-header">
+	<h1>{$page->title}</h1>
+</div>
+<table style="margin-top:10px;" class="data Sortable table table-striped">
 
 	<tr>
 		<th>message</th>

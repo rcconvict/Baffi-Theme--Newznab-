@@ -1,22 +1,25 @@
-<h1>{$page->title}</h1> 
+<div class="page-header">
+	<h1>{$page->title}</h1>
+</div>
 
 {if $movielist}
 
-<div style="float:right;">
-
-	<form name="moviesearch" action="">
-		<label for="moviename">Title</label>
-		<input id="moviename" type="text" name="moviename" value="{$moviename}" size="15" />
-		&nbsp;&nbsp;
-		<input type="submit" value="Go" />
-	</form>
+<div class="navbar">
+	<div class="navbar-inner">
+		<form method="get" class="navbar-form pull-left" name="moviesearch" action="">
+			<div class="input-append">
+				<input class="input input-xlagre" id="moviename" type="text" name="moviename" value="{$moviename}" placeholder="Title" />
+				<input class="btn btn-success" type="submit" value="Search" />
+			</div>
+		</form>
+	</div>
 </div>
 
 {$pager}
 
 <br/><br/>
 
-<table style="width:100%;margin-top:10px;" class="data Sortable highlight">
+<table class="data Sortable highlight table table-striped">
 
 	<tr>
 		<th>IMDB ID</th>
@@ -35,15 +38,20 @@
 		<td><a title="Edit" href="{$smarty.const.WWW_TOP}/movie-edit.php?id={$movie.imdbID}">{$movie.title} ({$movie.year})</a></td>
 		<td class="less mid">{if $movie.cover == "1"}Yes{else}No{/if}</td>
 		<td class="less mid">{if $movie.backdrop == "1"}Yes{else}No{/if}</td>
-		<td class="less">{$movie.createddate|date_format}</td>
+		<td class="less" style="width:100px;">{$movie.createddate|date_format}</td>
 		<td class="right">
-			<a title="update" href="{$smarty.const.WWW_TOP}/movie-add.php?id={$movie.imdbID}&amp;update=1">update</a> | 
-			<a title="delete" href="{$smarty.const.WWW_TOP}/movie-delete.php?id={$movie.imdbID}">delete</a>
+			<div class="btn-group">
+			<a class="btn btn-mini btn-warning" title="update" href="{$smarty.const.WWW_TOP}/movie-add.php?id={$movie.imdbID}&amp;update=1">Udate</a> | 
+			<a class="btn btn-mini btn-danger" title="delete" href="{$smarty.const.WWW_TOP}/movie-delete.php?id={$movie.imdbID}">Delete</a>
+			</div>
 		</td>
 	</tr>
 	{/foreach}
 
 </table>
 {else}
-<p>No Movies available.</p>
+<div class="alert">
+	<strong>Ups!</strong>
+	No Movies available.
+</div>
 {/if}

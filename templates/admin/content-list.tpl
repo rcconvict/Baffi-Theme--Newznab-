@@ -1,7 +1,8 @@
- 
-<h1>{$page->title}</h1>
+<div class="page-header">
+	<h1>{$page->title}</h1>
+</div>
 
-<table class="data Sortable highlight">
+<table class="data Sortable highlight table table-striped">
 
 	<tr>
 		<th width="60">ordinal</th>
@@ -56,7 +57,7 @@
 			{/if}
 		</td>
 		<td title="{$content.body|escape:'htmlall'}">{$content.body|truncate:100|escape:'htmlall'}</td>
-		<td>{if $content.contenttype != "3"}<a class="confirm_action" href="{$smarty.const.WWW_TOP}/content-delete.php?id={$content.id}">delete</a>{/if}</td>
+		<td>{if $content.contenttype != "3"}<a class="confirm_action btn btn-mini btn-danger" href="{$smarty.const.WWW_TOP}/content-delete.php?id={$content.id}">delete</a>{/if}</td>
 	</tr>
 	{/foreach}
 

@@ -1,9 +1,10 @@
- 
-<h1>{$page->title}</h1>
+<div class="page-header">
+	<h1>{$page->title}</h1>
+</div>
 
-<h2>For {$rel.searchname|escape:'htmlall'}</h2>
+<h3>For {$rel.searchname|escape:'htmlall'}</h3>
 
-<table style="width:100%;" class="data Sortable">
+<table class="data Sortable table table-striped">
 
 	<tr>
 		<th>#</th>

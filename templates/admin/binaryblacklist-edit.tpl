@@ -1,71 +1,67 @@
-
-<h1>{$page->title}</h1>
+<div class="page-header">
+	<h1>{$page->title}</h1>
+</div>
 
 {if $error != ''}
-	<div class="error">{$error}</div>
+	<div class="alert alert-error"><strong>Error!</strong> {$error}</div>
 {/if}
 
-<form action="{$SCRIPT_NAME}?action=submit" method="POST">
+<form class="form-horizontal" action="{$SCRIPT_NAME}?action=submit" method="POST">
 
-<table class="input">
-
-
-<tr>
-	<td>Group:</td>
-	<td>
-		<input type="hidden" name="id" value="{$regex.ID}" />
-		<input type="text" id="groupname" name="groupname" value="{$regex.groupname|escape:html}" />
-		<div class="hint">The full name of a valid newsgroup. (Wildcard in the format 'alt.binaries.*')</div>		
-	</td>
-</tr>
-
-<tr>
-	<td>Regex:</td>
-	<td>
-		<textarea id="regex" name="regex" >{$regex.regex|escape:html}</textarea>
-		<div class="hint">The regex to be applied. (Note: Beginning and Ending / are already included)</div>		
-	</td>
-</tr>
-
-<tr>
-	<td>Description:</td>
-	<td>
-		<textarea id="description" name="description" >{$regex.description|escape:html}</textarea>
-		<div class="hint">A description for this regex</div>		
-	</td>
-</tr>
-
-<tr>
-	<td><label for="msgcol">Message Field</label>:</td>
-	<td>
-		{html_radios id="msgcol" name='msgcol' values=$msgcol_ids output=$msgcol_names selected=$regex.msgcol separator='<br />'}
-		<div class="hint">Which field in the message to apply the black/white list to.</div>		
-	</td>
-</tr>
-
-<tr>
-	<td><label for="status">Active</label>:</td>
-	<td>
-		{html_radios id="status" name='status' values=$status_ids output=$status_names selected=$regex.status separator='<br />'}
-		<div class="hint">Only active regexes are applied during the release process.</div>		
-	</td>
-</tr>
-
-<tr>
-	<td><label for="optype">Type</label>:</td>
-	<td>
-		{html_radios id="optype" name='optype' values=$optype_ids output=$optype_names selected=$regex.optype separator='<br />'}
-		<div class="hint">Black will exclude all messages for a group which match this regex. White will include only those which match.</div>		
-	</td>
-</tr>
-
-<tr>
-	<td></td>
-	<td>
-		<input type="submit" value="Save" />
-	</td>
-</tr>
-
-</table>
+	<div class="control-group">
+		<label class="control-label" for="groupname">Group</label>
+		<div class="controls">
+			<input type="hidden" name="id" value="{$regex.ID}" />
+			<input class="input input-xxlarge" type="text" id="groupname" name="groupname" value="{$regex.groupname|escape:html}" />
+			<span class="help-block">The full name of a valid newsgroup. (Wildcard in the format <code>alt.binaries.*</code>)</span>
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<label class="control-label" for="regex">Regex</label>
+		<div class="controls">
+			<textarea class="input input-xxlarge" cols="100" rows="3" id="regex" name="regex" >{$regex.regex|escape:html}</textarea>
+			<span class="help-block">The regex to be applied. (Note: Beginning and Ending / are already included)</span>
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<label class="control-label" for="description">Description</label>
+		<div class="controls">
+			<textarea class="input input-xxlarge" cols="100" rows="3" id="description" name="description" >{$regex.description|escape:html}</textarea>
+			<span class="help-block">A description for this regex</span>
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<label class="control-label" for="msgcol">Message Field</label>
+		<div class="controls">
+			{html_radios id="msgcol" name='msgcol' values=$msgcol_ids output=$msgcol_names selected=$regex.msgcol separator=''}
+			<span class="help-block">Which field in the message to apply the black/white list to.</span>
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<label class="control-label" for="status">Active</label>
+		<div class="controls">
+			{html_radios id="status" name='status' values=$status_ids output=$status_names selected=$regex.status separator=''}
+			<span class="help-block">Only active regexes are applied during the release process.</span>
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<label class="control-label" for="optype">Type</label>
+		<div class="controls">
+			{html_radios id="optype" name='optype' values=$optype_ids output=$optype_names selected=$regex.optype separator=''}
+			<span class="help-block">Black will exclude all messages for a group which match this regex. White will include only those which match.</span>
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<label class="control-label" ></label>
+		<div class="controls">
+			<input class="btn btn-success" type="submit" value="Save" />
+		</div>
+	</div>
 
 </form>

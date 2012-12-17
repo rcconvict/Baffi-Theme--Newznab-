@@ -1,8 +1,10 @@
-<h1>{$page->title}</h1> 
+<div class="page-header">
+	<h1>{$page->title}</h1>
+</div>
 
 {if $menulist}
 
-<table style="margin-top:10px;" class="data Sortable highlight">
+<table style="margin-top:10px;" class="data Sortable highlight table table-striped">
 
 	<tr>
 		<th>name</th>
@@ -22,11 +24,15 @@
 		<td>{if $menu.role == 0}Guests{elseif $menu.role == 1}Users{elseif $menu.role == 2}Admin{else}Other{/if}</td>
 		<td>{$menu.ordinal}</td>
 		<td class="mid">{if $menu.newwindow == 1}Yes{else}No{/if}</td>
-		<td><a href="{$smarty.const.WWW_TOP}/menu-delete.php?id={$menu.ID}">delete</a></td>
+		<td><a class="btn btn-mini btn-danger" href="{$smarty.const.WWW_TOP}/menu-delete.php?id={$menu.ID}">delete</a></td>
 	</tr>
 	{/foreach}
 
 </table>
 {else}
-<p>No menus available.</p>
+<div class="alert">
+	<strong>Ups!</strong>
+	No menus available.
+</div>
+
 {/if}

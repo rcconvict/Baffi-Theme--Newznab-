@@ -1,11 +1,12 @@
- 
-<h1>{$page->title}</h1>
+<div class="page-header">
+	<h1>{$page->title}</h1>
+</div>
 
 <p>
 	Make a category inactive to remove it from the menu. This does not prevent binaries being matched into an appropriate category. Disable preview prevents ffmpeg being used for releases in the category.
 </p>
 
-<table style="margin-top:10px;" class="data Sortable highlight">
+<table style="margin-top:10px;" class="data Sortable highlight table table-striped">
 
 	<tr>
 		<th>id</th>

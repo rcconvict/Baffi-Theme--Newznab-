@@ -1,13 +1,16 @@
-<!doctype html> 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html lang="en">
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=9" />
 	<meta name="keywords" content="" />
+	<meta name="robots" content="noindex,nofollow"/>
 	<meta name="description" content="" />	
 	<title>{$site->title|default:'newznab'} - {$page->meta_title|default:$page->title}</title>
+	<!--
 	<link href="{$smarty.const.WWW_TOP}/../views/styles/style.css" rel="stylesheet" type="text/css" media="screen" />
 	<link href="{$smarty.const.WWW_TOP}/../views/styles/admin.css" rel="stylesheet" type="text/css" media="screen" />
+	-->
 	{if $site->style != "" && $site->style != "/"}<link href="{$smarty.const.WWW_TOP}/../views/themes/{$site->style}/style.css" rel="stylesheet" type="text/css" media="screen" />
 <link href="{$smarty.const.WWW_TOP}/../views/themes/{$site->style}/admin.css" rel="stylesheet" type="text/css" media="screen" />	
 	{/if}
@@ -18,58 +21,56 @@
 	<script type="text/javascript" src="{$smarty.const.WWW_TOP}/../views/scripts/jquery.multifile.js"></script>
 	<script type="text/javascript">var WWW_TOP = "{$smarty.const.WWW_TOP}/..";</script>
 	
-	{$page->head}
+	<!-- Added the Bootstrap JS -->
+	<script type="text/javascript" src="{$smarty.const.WWW_TOP}/views/scripts/bootstrap.min.js"></script>
+	
+	{$page->head}	
 </head>
+
 <body>
-	<div id="logo" style="cursor: pointer;">
-		<h1><a href="/"></a></h1>
-		<p><em></em></p>
-	</div>
-	<hr />
-	
-	<div id="header">
-		<div id="menu"> 
-		</div> 
-		<!-- end #menu --> 
-	</div>
-	
-	<div id="page">
-
-		<div id="adpanel">
-
+	<div class="navbar navbar-inverted navbar-fixed-top">
+		<div class="navbar-inner" style="padding-left:30px; padding-right:30px;">
+			<div class="container">
+				<a class="brand" href="{$smarty.const.WWW_TOP}{$site->home_link}">{$site->title}</a>
+			</div>
 		</div>
+	</div>
+	</br>
+	</br>
+	</br>
+	
+	<!-- Container
+		================================================== -->
+		<div class="container-fluid">
+			<div class="row-fluid">
+				<div class="span3">
+					<ul style="margin: 0px;">
+					{$admin_menu}
 
-		<div id="content">
-			{$page->content}
+					</ul>
+				</div>
+
+				<div class="span9">
+					{$page->content}
+				</div>
+
+
+			</div>
 		</div>
-		<!-- end #content -->
-
-		<div id="sidebar">
-		<ul>		
-		<li>
-		{$admin_menu}
-		</li>
-
-		</ul>
+	
+	<!-- footer -->
+	<footer class="footer navbar-fixed-bottom">
+		<div class="container">
+			<p>{$site->footer} All rights reserved {$smarty.now|date_format:"%Y"}</p>
+			<ul class="footer-links">
+				<li><a href="http://getbootstrap.com">Themed with Bootstrap</a></li>
+				<li class="muted">·</li>
+				<li><a href="http://fortawesome.github.com/Font-Awesome/">Icons from FontAwesome</a></li>
+				<li class="muted">·</li>
+				<li><a href="{$smarty.const.WWW_TOP}/terms-and-conditions">{$site->title} terms and conditions</a></li>
+			</ul>
 		</div>
-		<!-- end #sidebar -->
-	
-		<div style="clear: both;">&nbsp;</div>
-			
-	</div>
-	<!-- end #page -->
-	
-	<div id="searchfooter">
-		<center>
-		</center>
-	</div>
-	
-	<div class="footer">
-	<p>
-		{$site->footer}
-		<br /><br /><br />Copyright &copy; {$smarty.now|date_format:"%Y"} {$site->title}. All rights reserved.
-	</p>
-	</div>
+	</footer>
 	<!-- end #footer -->
 	
 	{if $site->google_analytics_acc != ''}

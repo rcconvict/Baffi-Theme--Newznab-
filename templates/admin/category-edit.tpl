@@ -1,57 +1,55 @@
- 
-<h1>{$page->title}</h1>
+<div class="page-header">
+	<h1>{$page->title}</h1>
+</div>
 
 {if $error != ''}
-	<div class="error">{$error}</div>
+	<div class="alert alert-error"><strong>Error!</strong> {$error}</div>
 {/if}
 
-<form action="{$SCRIPT_NAME}?action=submit" method="POST">
+<form class="form-horizontal" action="{$SCRIPT_NAME}?action=submit" method="POST">
 
-<table class="input">
+	<div class="control-group">
+		<label class="control-label" for="id">Title</label>
+		<div class="controls">
+			<input type="hidden" name="id" value="{$category.ID}" />
+			{$category.title}
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<label class="control-label" for="id">Parent</label>
+		<div class="controls">
+			{$category.parentID}
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<label class="control-label" for="desc">Description</label>
+		<div class="controls">
+			<input class="input input-medium" type="text" id="desc" class="long" name="description" value="{$category.description}" />
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<label class="control-label" for="status">Active</label>
+		<div class="controls">
+			{html_radios id="status" name='status' values=$status_ids output=$status_names selected=$category.status separator=''}
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<label class="control-label" for="disablepreview">Disable Preview</label>
+		<div class="controls">
+			{html_radios id="disablepreview" name='disablepreview' values=$status_ids output=$status_names selected=$category.disablepreview separator=''}
+		</div>
+	</div>
 
-<tr>
-	<td>Title:</td>
-	<td>
-		<input type="hidden" name="id" value="{$category.ID}" />
-		{$category.title}
-	</td>
-</tr>
+	<div class="control-group">
+		<label class="control-label" ></label>
+		<div class="controls">
+			<input class="btn btn-success" type="submit" value="Save" />
+		</div>
+	</div>
 
-<tr>
-	<td>Parent:</td>
-	<td>
-		{$category.parentID}
-	</td>
-</tr>
-
-<tr>
-	<td>Description:</td>
-	<td>
-		<input type="text" class="long" name="description" value="{$category.description}" />
-	</td>
-</tr>
-
-<tr>
-	<td><label for="status">Active</label>:</td>
-	<td>
-		{html_radios id="status" name='status' values=$status_ids output=$status_names selected=$category.status separator='<br />'}
-	</td>
-</tr>
-
-<tr>
-	<td><label for="disablepreview">Disable Preview</label>:</td>
-	<td>
-		{html_radios id="disablepreview" name='disablepreview' values=$status_ids output=$status_names selected=$category.disablepreview separator='<br />'}
-	</td>
-</tr>
-
-<tr>
-	<td></td>
-	<td>
-		<input type="submit" value="Save" />
-	</td>
-</tr>
-
-</table>
 
 </form>

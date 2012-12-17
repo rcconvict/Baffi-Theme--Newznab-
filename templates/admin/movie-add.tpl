@@ -1,30 +1,28 @@
- 
-<h1>{$page->title}</h1>
+<div class="page-header">
+	<h1>{$page->title}</h1>
+</div>
 
-<form enctype="multipart/form-data" action="{$SCRIPT_NAME}" method="post">
+<form class="form-horizontal" enctype="multipart/form-data" action="{$SCRIPT_NAME}" method="post">
 
+	<div class="control-group">
+		<label class="control-label" ></label>
+		<div class="controls">
+			Enter the full 7 digit IMDB id into the box below and click Add.
+		</div>
+	</div>
 
-<table class="input">
+	<div class="control-group">
+		<label class="control-label" for="title">IMDB ID</label>
+		<div class="controls">
+			<input class="input input-large" id="id" class="long" name="id" type="text" value="" />
+		</div>
+	</div>
 
-<tr>
-	<td></td>
-	<td>Enter the full 7 digit IMDB id into the box below and click Add.</td>
-</tr>
-
-<tr>
-	<td><label for="title">IMDB ID</label>:</td>
-	<td>
-		<input id="id" class="long" name="id" type="text" value="" />
-	</td>
-</tr>
-
-<tr>
-	<td></td>
-	<td>
-		<input type="submit" value="Add" />
-	</td>
-</tr>
-
-</table>
+	<div class="control-group">
+		<label class="control-label" ></label>
+		<div class="controls">
+			<input class="btn btn-success" type="submit" value="Add" />
+		</div>
+	</div>
 
 </form>

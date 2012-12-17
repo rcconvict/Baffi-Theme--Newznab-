@@ -1,10 +1,12 @@
- 
-<h1>{$page->title}</h1>
+<div class="page-header">
+	<h1>{$page->title}</h1>
+</div>
+
 
 {if $topgrabs|count > 0}
-	<h2>Top Grabbers</h2>
+	<h3>Top Grabbers</h3>
 
-	<table style="width:100%;margin-top:10px;" class="data highlight">
+	<table class="data highlight table table-striped">
 		<tr>
 			<th>User</th>
 			<th>Grabs</th>
@@ -19,12 +21,12 @@
 		
 	</table>
 
-	<br/><br/>
+	<br/>
 {/if}
 
-<h2>Signups</h2>
+<h3>Signups</h3>
 
-<table style="width:100%;margin-top:10px;" class="data highlight Sortable">
+<table class="data highlight Sortable table table-striped">
 	<tr>
 		<th>Month</th>
 		<th>Signups</th>
@@ -40,11 +42,11 @@
 	<tr><td><strong>Total</strong></td><td><strong>{$totusers}</strong></td></tr>
 </table>
 
-<br/><br/>
+<br/>
 
-<h2>Users by Role</h2>
+<h3>Users by Role</h3>
 
-<table style="width:100%;margin-top:10px;" class="data highlight Sortable">
+<table class="data highlight Sortable table table-striped">
 	<tr>
 		<th>Role</th>
 		<th>Users</th>
@@ -60,11 +62,11 @@
 	<tr><td><strong>Total</strong></td><td><strong>{$totrusers}</strong></td></tr>
 </table>
 
-<br/><br/>
+<br/>
 
-<h2>Users by Hosthash</h2>
+<h3>Users by Hosthash</h3>
 
-<table style="width:100%;margin-top:10px;" class="data highlight Sortable">
+<table class="data highlight Sortable table table-striped">
 	<tr>
 		<th>Hosthash</th>
 		<th>User IDs (Edit)</th>
@@ -91,11 +93,11 @@
 	{/foreach}
 </table>
 
-<br/><br/>
+<br/>
 
-<h2>Access by Date</h2>
+<h3>Access by Date</h3>
 
-<table style="width:100%;margin-top:10px;" class="data highlight Sortable">
+<table  class="data highlight Sortable table table-striped">
 	<tr>
 		<th>Type</th>
 		<th>Last Day</th>
@@ -108,23 +110,23 @@
 
 	{foreach from=$loginsbymonth item=result}
 		<tr class="{cycle values=",alt"}">
-			<td width="75%">{$result.type}</td>
-			<td>{$result.1day}</td>
-			<td>{$result.7day}</td>
-			<td>{$result.1month}</td>
-			<td>{$result.3month}</td>
-			<td>{$result.6month}</td>
-			<td>{$result.12month}</td>
+			<td>{$result.type}</td>
+			<td style="width:80px;">{$result.1day}</td>
+			<td style="width:80px;">{$result.7day}</td>
+			<td style="width:80px;">{$result.1month}</td>
+			<td style="width:80px;">{$result.3month}</td>
+			<td style="width:80px;">{$result.6month}</td>
+			<td style="width:80px;">{$result.12month}</td>
 		</tr>
 	{/foreach}
 </table>
 
-<br/><br/>
+<br/>
 
 {if $topdownloads|count > 0}
-	<h2>Top Downloads</h2>
+	<h3>Top Downloads</h3>
 
-	<table style="width:100%;margin-top:10px;" class="data highlight">
+	<table class="data highlight table table-striped">
 		<tr>
 			<th>Release</th>
 			<th>Grabs</th>
@@ -142,12 +144,12 @@
 		
 	</table>
 
-	<br/><br/>
+	<br/>
 {/if}
 
-<h2>Releases Added In Last 7 Days</h2>
+<h3>Releases Added In Last 7 Days</h3>
 
-<table style="width:100%;margin-top:10px;" class="data highlight">
+<table class="data highlight table table-striped">
 	<tr>
 		<th>Category</th>
 		<th>Releases</th>
@@ -162,12 +164,12 @@
 	
 </table>
 
-<br/><br/>
+<br/>
 
 {if $topcomments|count > 0}
-	<h2>Top Comments</h2>
+	<h3>Top Comments</h3>
 
-	<table style="width:100%;margin-top:10px;" class="data highlight">
+	<table class="data highlight table table-striped">
 		<tr>
 			<th>Release</th>
 			<th>Comments</th>

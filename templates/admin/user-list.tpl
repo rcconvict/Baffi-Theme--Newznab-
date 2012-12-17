@@ -1,45 +1,103 @@
  
-<h1>{$page->title}</h1>
+<h1>{$page->title}</h1><div class="page-header">
+	<h1>{$page->title}</h1>
+</div>
 
-<div style="float:right;">
 
-	<form name="usersearch" action="">
-		<label for="username">username</label>
-		<input id="username" type="text" name="username" value="{$username}" size="10" />
-		&nbsp;&nbsp;
-		<label for="email">email</label>
-		<input id="email" type="text" name="email" value="{$email}" size="10" />
-		&nbsp;&nbsp;
-		<label for="host">host</label>
-		<input id="host" type="text" name="host" value="{$host}" size="10" />
-		&nbsp;&nbsp;
-		<label for="role">role</label>
-		<select name="role">
+<div class="well well-small">
+	<form class="navbar-form" name="usersearch" action="">
+		<input class="input input-xlarge" id="username" type="text" name="username" value="{$username}" placeholder="Username"/>
+		<input class="input input-xlarge" id="email" type="text" name="email" value="{$email}" placeholder="Email"/>
+		<input class="input input-large" id="host" type="text" name="host" value="{$host}"  placeholder="Host"/>
+		<select class="input input-medium" name="role">
 			<option value="">-- any --</option>
 			{html_options values=$role_ids output=$role_names selected=$role}
 		</select>
-		&nbsp;&nbsp;
-		<input type="submit" value="Go" />
+		<input class="btn btn-success pull-right" type="submit" value="Search" />
 	</form>
 </div>
 
 {$pager}
 
-<br/><br/>
 
-<table style="width:100%;margin-top:10px;" class="data highlight">
+<table class="data highlight table table-striped">
 
 	<tr>
-		<th>name<br/><a title="Sort Descending" href="{$orderbyusername_desc}"><img src="{$smarty.const.WWW_TOP}/../views/images/sorting/arrow_down.gif" alt="" /></a><a title="Sort Ascending" href="{$orderbyusername_asc}"><img src="{$smarty.const.WWW_TOP}/../views/images/sorting/arrow_up.gif" alt="" /></a></th>
-		<th>email<br/><a title="Sort Descending" href="{$orderbyemail_desc}"><img src="{$smarty.const.WWW_TOP}/../views/images/sorting/arrow_down.gif" alt="" /></a><a title="Sort Ascending" href="{$orderbyemail_asc}"><img src="{$smarty.const.WWW_TOP}/../views/images/sorting/arrow_up.gif" alt="" /></a></th>
-		<th>host<br/><a title="Sort Descending" href="{$orderbyhost_desc}"><img src="{$smarty.const.WWW_TOP}/../views/images/sorting/arrow_down.gif" alt="" /></a><a title="Sort Ascending" href="{$orderbyhost_asc}"><img src="{$smarty.const.WWW_TOP}/../views/images/sorting/arrow_up.gif" alt="" /></a></th>
-		<th>join date<br/><a title="Sort Descending" href="{$orderbycreateddate_desc}"><img src="{$smarty.const.WWW_TOP}/../views/images/sorting/arrow_down.gif" alt="" /></a><a title="Sort Ascending" href="{$orderbycreateddate_asc}"><img src="{$smarty.const.WWW_TOP}/../views/images/sorting/arrow_up.gif" alt="" /></a></th>
-		<th>last login<br/><a title="Sort Descending" href="{$orderbylastlogin_desc}"><img src="{$smarty.const.WWW_TOP}/../views/images/sorting/arrow_down.gif" alt="" /></a><a title="Sort Ascending" href="{$orderbylastlogin_asc}"><img src="{$smarty.const.WWW_TOP}/../views/images/sorting/arrow_up.gif" alt="" /></a></th>
-		<th>api access<br/><a title="Sort Descending" href="{$orderbyapiaccess_desc}"><img src="{$smarty.const.WWW_TOP}/../views/images/sorting/arrow_down.gif" alt="" /></a><a title="Sort Ascending" href="{$orderbyapiaccess_asc}"><img src="{$smarty.const.WWW_TOP}/../views/images/sorting/arrow_up.gif" alt="" /></a></th>
-		<th class="mid">grabs<br/><a title="Sort Descending" href="{$orderbygrabs_desc}"><img src="{$smarty.const.WWW_TOP}/../views/images/sorting/arrow_down.gif" alt="" /></a><a title="Sort Ascending" href="{$orderbygrabs_asc}"><img src="{$smarty.const.WWW_TOP}/../views/images/sorting/arrow_up.gif" alt="" /></a></th>
+		<th>name<br/>
+			<a title="Sort Descending" href="{$orderbyusername_desc}">
+				<i class="fa-icon-caret-down"></i>
+			</a>
+			<a title="Sort Ascending" href="{$orderbyusername_asc}">
+				<i class="fa-icon-caret-up"></i>
+			</a>
+		</th>
+		
+		<th>email<br/>
+			<a title="Sort Descending" href="{$orderbyemail_desc}">
+				<i class="fa-icon-caret-down"></i>
+			</a>
+			<a title="Sort Ascending" href="{$orderbyemail_asc}">
+				<i class="fa-icon-caret-up"></i>
+			</a>
+		</th>
+		
+		<th>host<br/>
+			<a title="Sort Descending" href="{$orderbyhost_desc}">
+				<i class="fa-icon-caret-down"></i>
+			</a>
+			<a title="Sort Ascending" href="{$orderbyhost_asc}">
+				<i class="fa-icon-caret-up"></i>
+			</a>
+		</th>
+		<th>join date<br/>
+			<a title="Sort Descending" href="{$orderbycreateddate_desc}">
+				<i class="fa-icon-caret-down"></i>
+			</a>
+			<a title="Sort Ascending" href="{$orderbycreateddate_asc}">
+				<i class="fa-icon-caret-up"></i>
+			</a>
+		</th>
+			
+		<th>last login<br/>
+			<a title="Sort Descending" href="{$orderbylastlogin_desc}">
+				<i class="fa-icon-caret-down"></i>
+			</a>
+			<a title="Sort Ascending" href="{$orderbylastlogin_asc}">
+				<i class="fa-icon-caret-up"></i>
+			</a>
+		</th>
+				
+		<th>api access<br/>
+			<a title="Sort Descending" href="{$orderbyapiaccess_desc}">
+				<i class="fa-icon-caret-down"></i>
+			</a>
+			<a title="Sort Ascending" href="{$orderbyapiaccess_asc}">
+				<i class="fa-icon-caret-up"></i>
+			</a>
+		</th>
+				
+		<th class="mid">grabs<br/>
+			<a title="Sort Descending" href="{$orderbygrabs_desc}">
+				<i class="fa-icon-caret-down"></i>
+			</a>
+			<a title="Sort Ascending" href="{$orderbygrabs_asc}">
+				<i class="fa-icon-caret-up"></i>
+			</a>
+		</th>
+				
 		<th class="mid">invites</th>
+		
 		<th class="mid">notes</th>
-		<th>role<br/><a title="Sort Descending" href="{$orderbyrole_desc}"><img src="{$smarty.const.WWW_TOP}/../views/images/sorting/arrow_down.gif" alt="" /></a><a title="Sort Ascending" href="{$orderbyrole_asc}"><img src="{$smarty.const.WWW_TOP}/../views/images/sorting/arrow_up.gif" alt="" /></a></th>
+		
+		<th>role<br/>
+			<a title="Sort Descending" href="{$orderbyrole_desc}">
+				<i class="fa-icon-caret-down"></i>
+			</a>
+			<a title="Sort Ascending" href="{$orderbyrole_asc}">
+				<i class="fa-icon-caret-up"></i>
+			</a>
+		</th>
+		
 		<th>options</th>
 	</tr>
 
@@ -56,7 +114,7 @@
 		<td class="mid">{$user.invites}</td>
 		<td class="mid"><a title="{if $user.notes|count_characters > 0}View{else}Add{/if} Notes" href="{$smarty.const.WWW_TOP}/user-edit.php?id={$user.ID}#notes"><img src="{$smarty.const.WWW_TOP}/../views/images/icons/{if $user.notes|count_characters > 0}note_edit.png{else}note_add.png{/if}" alt="" /></a></td>
 		<td>{$user.rolename}</td>
-		<td>{if $user.role!="2"}<a class="confirm_action" href="{$smarty.const.WWW_TOP}/user-delete.php?id={$user.ID}">delete</a>{/if}</td>
+		<td>{if $user.role!="2"}<a class="confirm_action btn btn-mini btn-danger" href="{$smarty.const.WWW_TOP}/user-delete.php?id={$user.ID}">delete</a>{/if}</td>
 	</tr>
 	{/foreach}
 

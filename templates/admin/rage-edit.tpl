@@ -1,78 +1,74 @@
- 
-<h1>{$page->title}</h1>
+<div class="page-header">
+	<h1>{$page->title}</h1>
+</div>
 
-<a href="?action=update&id={$rage.ID}">Update from TV Rage</a>
+<a class="btn btn-small" href="?action=update&id={$rage.ID}">Update from TV Rage</a>
 
-<br/><br/>
+<br/><br/><br/>
 
-<form enctype="multipart/form-data" action="{$SCRIPT_NAME}?action=submit" method="POST">
+<form class="form-horizontal" enctype="multipart/form-data" action="{$SCRIPT_NAME}?action=submit" method="POST">
 
-<input type="hidden" name="from" value="{$smarty.get.from}" />
+	<input type="hidden" name="from" value="{$smarty.get.from}" />
 
-<table class="input">
-
-<tr>
-	<td><label for="rageID">Rage Id</label>:</td>
-	<td>
-		<input type="hidden" name="id" value="{$rage.ID}" />
-		<input id="rageID" class="short" name="rageID" type="text" value="{$rage.rageID}" />
-		<div class="hint">The numeric TVRage Id.</div>
-	</td>
-</tr>
-
-<tr>
-	<td><label for="releasetitle">Show Name</label>:</td>
-	<td>
-		<input id="releasetitle" class="long" name="releasetitle" type="text" value="{$rage.releasetitle|escape:'htmlall'}" />
-		<div class="hint">The title of the TV show.</div>
-	</td>
-</tr>
-
-<tr>
-	<td><label for="description">Description</label>:</td>
-	<td>
-		<textarea id="description" name="description">{$rage.description|escape:'htmlall'}</textarea>
-	</td>
-</tr>
-
-<tr>
-	<td><label for="genre">Show Genres</label>:</td>
-	<td>
-		<input id="genre" class="long" name="genre" type="text" value="{$rage.genre|escape:'htmlall'}" />
-		<div class="hint">The genres for the TV show. Separated by pipes ( | )</div>
-	</td>
-</tr>
-
-<tr>
-	<td><label for="country">Show Country</label>:</td>
-	<td>
-		<input id="country" name="country" type="text" value="{$rage.country|escape:'htmlall'}" maxlength="2" />
-		<div class="hint">The country for the TV show.</div>
-	</td>
-</tr>
-
-<tr>
-	<td><label for="imagedata">Series Image</label>:</td>
-	<td>
-		{if $rage.imgdata != ""}
+	<div class="control-group">
+		<label class="control-label" for="rageID">Rage Id</label>
+		<div class="controls">
+			<input type="hidden" name="id" value="{$rage.ID}" />
+			<input class="input input-xxlarge" id="rageID" class="short" name="rageID" type="text" value="{$rage.rageID}" />
+			<span class="help-block">The numeric TVRage Id.</span>
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<label class="control-label" for="releasetitle">Show Name</label>
+		<div class="controls">
+			<input class="input input-xxlarge" id="releasetitle" class="long" name="releasetitle" type="text" value="{$rage.releasetitle|escape:'htmlall'}" />
+			<span class="help-block">The title of the TV show.</span>
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<label class="control-label" for="description">Description</label>
+		<div class="controls">
+			<textarea cols="100" rows="3" class="input input-xxlarge" id="description" name="description">{$rage.description|escape:'htmlall'}</textarea>
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<label class="control-label" for="genre">Show Genres</label>
+		<div class="controls">
+			<input class="input input-xxlarge" id="genre" class="long" name="genre" type="text" value="{$rage.genre|escape:'htmlall'}" />
+			<span class="help-block">The genres for the TV show. Separated by pipes ( | )</span>
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<label class="control-label" for="country">Show Country</label>
+		<div class="controls">
+			<input class="input input-xxlarge" id="country" name="country" type="text" value="{$rage.country|escape:'htmlall'}" maxlength="2" />
+			<span class="help-block">The country for the TV show.</span>
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<label class="control-label" for="imagedata">Series Image</label>
+		<div class="controls">
+			{if $rage.imgdata != ""}
 			<img style="max-width:200px; display:block;" src="{$smarty.const.WWW_TOP}/../getimage?type=tvrage&id={$rage.ID}">
-		{/if}
-		<input type="file" id="imagedata" name="imagedata">
-		<div class="hint">Shown in the TV series view page.</div>
-	</td>
-</tr>
+			{/if}
+			<input class="input input-xxlarge" type="file" id="imagedata" name="imagedata">
+			<span class="help-block">Shown in the TV series view page.</span>
+		</div>
+	</div>
 
-
-<tr>
-	<td></td>
-	<td>
-		<input type="submit" value="Save" />
-		&nbsp;
-		<input onclick="doDelete(); return false;" type="button" value="Delete" />
-	</td>
-</tr>
-
-</table>
+	<div class="control-group">
+		<label class="control-label" ></label>
+		<div class="controls">
+			<input class="btn btn-success" type="submit" value="Save" />
+			&nbsp;
+			<input class="btn btn-danger" onclick="doDelete(); return false;" type="button" value="Delete" />
+		</div>
+	</div>
 
 </form>
 

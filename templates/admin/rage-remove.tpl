@@ -1,4 +1,8 @@
- 
-<h1>{$page->title}</h1>
+<div class="page-header">
+	<h1>{$page->title}</h1>
+</div>
 
-Removed rageid from {$numtv} releases.
+<div class="alert alert-success">
+	<strong>Done!</strong>
+	Removed rageid from {$numtv} releases.
+</div>

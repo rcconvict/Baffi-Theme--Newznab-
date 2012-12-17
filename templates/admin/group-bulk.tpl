@@ -1,8 +1,9 @@
- 
-<h1>{$page->title}</h1>
+<div class="page-header">
+	<h1>{$page->title}</h1>
+</div>
 
 {if $groupmsglist}
-<table class="data Sortable">
+<table class="data Sortable table table-striped">
 
 	<tr>
 		<th>group</th>
@@ -21,33 +22,31 @@
 <p>View <a href="group-list.php">all groups</a>.</p>
 
 {else}
-<p>Regex of groups to add to the site.</p>
 
-<form action="{$SCRIPT_NAME}?action=submit" method="POST">
-<table class="input">
+<form class="form-horizontal" action="{$SCRIPT_NAME}?action=submit" method="POST">
+	
+	<div class="control-group">
+		<label class="control-label" for="groupfilter">Group List</label>
+		<div class="controls">
+			<textarea cols="100" rows="3" class="input input-xlarge" id="groupfilter" name="groupfilter"></textarea>
+			<span class="help-block">Regex of groups to add to the site. <br/>e.g. <code>alt.binaries.cd.image.linux|alt.binaries.warez.linux</code></span>
+		</div>
+	</div>
 
-<tr>
-	<td width="90">Group List:</td>
-	<td>
-		<textarea id="groupfilter" name="groupfilter"></textarea>
-		<div class="hint">e.g. alt.binaries.cd.image.linux|alt.binaries.warez.linux</div>	
-	</td>
-</tr>
-<tr>
-	<td><label for="active">Active</label>:</td>
-	<td>
-		{html_radios id="active" name='active' values=$yesno_ids output=$yesno_names selected=1 separator='<br />'}
-		<div class="hint">Inactive groups will not have headers downloaded for them.</div>		
-	</td>
-</tr>
-<tr>
-	<td></td>
-	<td>
-		<input type="submit" value="Add Groups" />
-	</td>
-</tr>
-
-</table>
+	<div class="control-group">
+		<label class="control-label" for="active">Active</label>
+		<div class="controls">
+			{html_radios id="active" name='active' values=$yesno_ids output=$yesno_names selected=1 separator=''}
+			<span class="help-block">Inactive groups will not have headers downloaded for them.</span>
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<label class="control-label"></label>
+		<div class="controls">
+			<input class="btn btn-success" type="submit" value="Add Groups" />
+		</div>
+	</div>
 
 </form>
 {/if}

@@ -23,11 +23,21 @@ group:
 	<i class="fa-icon-group"></i>
 
 
+			<div class="control-group">
+				<label class="control-label" 
+				<div class="controls">
+					<span class="help-block"></span>
+				</div>
+			</div>
 
 
+<div class="page-header">
+	<h1>{$page->title}</h1>
+</div>
 
-
-
-
+<div class="alert">
+	<strong>Ups!</strong>
+	No menus available.
+</div>
 
 

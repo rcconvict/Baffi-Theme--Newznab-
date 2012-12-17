@@ -3,10 +3,9 @@
 @import url('css/font-awesome-ie7.css');
 
 .footer {
-	display:none;
 	text-align: center;
-	padding: 30px 0;
-	margin-top: 70px;
+	padding: 10px 0;
+	margin-top: 20px;
 	border-top: 1px solid #e5e5e5;
 	background-color: #f5f5f5;
 }

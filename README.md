@@ -5,6 +5,13 @@ This is a "theme" for newznab, its more then the normal theme. This is not just 
 
 ----------
 
+## Status
+
+
+* Frontend - Working on
+* Admin - Next
+* Common - Done
+* Install - Not going to do
 
 
 ## Quick start
@@ -17,7 +24,6 @@ Two quick start options are available:
 
 
 ## Instalation
-
 
 * Copy the `Baffi`-folder to the path `../newznab/www/views/themes` within the application folder.
 * Copy the `templates`-folder to the path `../newznab/www/views/`, this will ask to overwrite, allow it.

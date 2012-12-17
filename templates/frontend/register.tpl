@@ -1,37 +1,48 @@
+<div class="span6 offset2" 
+style="
+background-color:#d9edf7; 
+padding:40px;
+background-color: #f7f7f9;
+border: 1px solid #e1e1e8;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+">
  
 <h1>Register</h1>
-
-{if $error != ''}
-	<div class="error">{$error}</div>
-{/if}
-
+	<p>
+		Enter you information below, all the fields are required.
+	</p>
+<br/>
 {if $showregister != "0"}
-	<form method="post" action="register?action=submit">
+	<form class="form-horizontal" action="register?action=submit" method="post">
+		<table class="data">
 
-		<table style="width:500px;" class="data">
-			<tr><th width="75px;"><label for="username">Username</label>: <em>*</em></th>
-				<td>
-					<input autocomplete="off" id="username" name="username" value="{$username}" type="text"/>
-					<div class="hint">Should be at least three characters and start with a letter.</div>
-				</td>
-			</tr>
-			<tr><th><label for="password">Password</label>: <em>*</em></th>
-				<td>
-					<input id="password" autocomplete="off" name="password" value="{$password}" type="password"/>
-					<input id="invitecode" name="invitecode" type="hidden" value="{$invitecode|escape:html_all}" />
-					<div class="hint">Should be at least six characters long.</div>
-				</td>
-			</tr>
-			<tr><th><label for="confirmpassword">Confirm Password</label>: <em>*</em></th><td><input autocomplete="off" id="confirmpassword" name="confirmpassword" value="{$confirmpassword}" type="password"/></td></tr>
-			<tr><th><label for="email">Email</label>: <em>*</em></th><td><input autocomplete="off" id="email" name="email" value="{$email}" type="text" /></td></tr>
-			{if $site->registerrecaptcha == "1"}
-			<tr><th><label for="recaptcha">Captcha</label>: <em>*</em></th><td>{$recaptcha}</td></tr>
-			{/if}
-		</table>
-
-		<table style="width:500px; margin-top:10px;" class="data">
-			<tr><th width="75px;"></th><td><input type="submit" value="Register"/><div style="float:right;" class="hint"><em>*</em> Indicates mandatory field.</div></td></tr>
-		</table>
+		{if $error != ''}
+			<div class="alert alert-error">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				  <h4>Error!</h4>
+				  {$error}
+			</div>
+		{/if}
+		<input class="input-block-level" autocomplete="off" id="username" name="username" value="{$username}" type="text" placeholder="Username" style="margin-bottom:5px;"/>
+		<input class="input-block-level" id="password" name="password" type="password" value="{$password}" placeholder="Password" style="margin-bottom:5px;"/>
+		<input id="invitecode" name="invitecode" type="hidden" value="{$invitecode|escape:html_all}" />
+		<input class="input-block-level" autocomplete="off" id="confirmpassword" name="confirmpassword" value="{$confirmpassword}" type="password" placeholder="Confim password" style="margin-bottom:5px;"/>
+		<input class="input-block-level" autocomplete="off" id="email" name="email" value="{$email}" type="text" placeholder="Email" style="margin-bottom:20px;"/>
 		
+		{if $site->registerrecaptcha == "1"}
+			<div class="well well-mini">
+				<center>
+					{$recaptcha}
+				</center>
+			</div>
+		{/if}
+		
+		
+			<button type="submit" class="btn btn-success pull-right">Register</button>
+		</table>
 	</form>
 {/if}
+
+</div>

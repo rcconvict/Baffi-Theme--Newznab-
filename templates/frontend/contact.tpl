@@ -1,45 +1,48 @@
- 
-			<h1>{$page->title}</h1>
-			<h2>Getting in touch</h2>
+<div class="page-header">
+	<h1>{$page->title}</h1>
+</div>
 
-			<p>
-				Please send any questions or comments you have in an email to {mailto address=$site->email text=$site->title}.
-			</p>
+<h4>Getting in touch</h4>
 
-			{$msg}
+<p>
+	Please send any questions or comments you have in an email to {mailto address=$site->email text=$site->title}.
+</p>
+<br/><br/><br/>
 
-			{if $msg == ""}
-			<h2>Contact form</h2>
-			<p>
-				Alternatively use our contact form to get in touch.
-			</p>
-			
-			<form method="post" action="contact-us">
-				<table>
-					<tr>
-						<td width="100px">Your name: </td>
-						<td>
-							<input id="username" type="text" name="username" value="" />
-						</td>
-					</tr>
-					<tr>
-						<td>Your email address: </td>
-						<td>
-							<input type="text" name="useremail" value="" />
-						</td>
-					</tr>
-					<tr>
-						<td>Your comment or review: </td>
-						<td>
-							<textarea rows="10" cols="40" name="comment"></textarea>
-						</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td>
-							<input type="submit" value="Submit" />
-						</td>
-					</tr>
-				</table>
-			</form>
-			{/if}
+{if $msg != ""}
+<div class="alert alert-success span8">
+	<center>{$msg}</center>
+</div>
+
+{else}
+<h4>Contact form</h4>
+<p>
+	Alternatively use our contact form to get in touch.
+</p>
+
+<form class="form-horizontal" method="post" action="contact-us">
+	<div class="control-group">
+		<label class="control-label" for="username">Your name:</label>
+		<div class="controls">
+			<input id="username" type="text" name="username" value="" />
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="username">Your email address:</label>
+		<div class="controls">
+			<input type="text" name="useremail" value="" />
+		</div>
+	</div>
+	<div class="control-group">
+		<label class="control-label" for="username">Your comment or review:</label>
+		<div class="controls">
+				<textarea rows="10" cols="40" name="comment"></textarea>
+		</div>
+	</div>
+	<div class="control-group">
+		<div class="controls">
+			<input class="btn btn-inverse" type="submit" value="Submit" />
+		</div>
+	</div>
+</form>
+{/if}

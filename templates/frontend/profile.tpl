@@ -135,7 +135,7 @@
 	{if $user.ID==$userdata.ID}
 		<tr>
 			<th></th>
-			<td><a href="{$smarty.const.WWW_TOP}/profileedit" class="btn btn-small btn-info">Edit</a></td>
+			<td><a href="{$smarty.const.WWW_TOP}/profileedit" class="btn btn-small btn-warning">Edit</a></td>
 		</tr>
 	{/if}
 </table>

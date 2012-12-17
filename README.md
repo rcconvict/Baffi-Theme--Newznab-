@@ -2,11 +2,7 @@
 This is a "theme" for newznab, its more then the normal theme. This is not just a themebased css. This is a rewrite of the template files to make it a good theme.
 
 
-
-----------
-
 ## Status
-
 
 * Frontend - Working on
 * Admin - Next
@@ -25,8 +21,8 @@ Two quick start options are available:
 
 ## Instalation
 
-* Copy the `Baffi`-folder to the path `../newznab/www/views/themes` within the application folder.
-* Copy the `templates`-folder to the path `../newznab/www/views/`, this will ask to overwrite, allow it.
+1. Copy the `Baffi`-folder to the path `../newznab/www/views/themes` within the application folder.
+2. Copy the `templates`-folder to the path `../newznab/www/views/`, this will ask to overwrite, allow it.
 
 
 

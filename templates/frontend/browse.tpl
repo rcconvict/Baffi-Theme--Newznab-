@@ -16,13 +16,14 @@
 <br/>
 {/if}
 
+
+{if $section != ''}View: <a href="{$smarty.const.WWW_TOP}/{$section}?t={$category}">Covers</a> | <b>List</b><br />{/if}
 {if $results|@count > 0}
 
 <form id="nzb_multi_operations_form" action="get">
 
 	<div class="well">
 		<div class="nzb_multi_operations">
-			{if $section != ''}View: <a href="{$smarty.const.WWW_TOP}/{$section}?t={$category}">Covers</a> | <b>List</b><br />{/if}
 			With Selected:
 			<div class="btn-group">
 				<input type="button" class="nzb_multi_operations_download btn btn-small btn-success" value="Download NZBs" />

@@ -1,5 +1,5 @@
 # Baffi - the theme for Newznab
-This is a "theme" for newznab, its more then the normal theme. This is not just a themebased css. This is a rewrite of the template files to make it a good theme.
+A "theme" for newznab, it's more then the normal theme, this is a complete rewrite of the template files in effort to make a good theme.
 
 
 ## Status

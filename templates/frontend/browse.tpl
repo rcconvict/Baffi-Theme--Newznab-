@@ -6,11 +6,14 @@
 {$site->adbrowse}	
 
 {if $shows}
-<p>
-	<a href="{$smarty.const.WWW_TOP}/series" title="View available TV series">Series List</a> | 
-	<a title="Manage your shows" href="{$smarty.const.WWW_TOP}/myshows">Manage My Shows</a> | 
-	<a title="All releases in your shows as an RSS feed" href="{$smarty.const.WWW_TOP}/rss?t=-3&amp;dl=1&amp;i={$userdata.ID}&amp;r={$userdata.rsstoken}">Rss Feed</a>
-</p>
+<center>
+<div class="btn-group">
+	<a class="btn btn-small" href="{$smarty.const.WWW_TOP}/series" title="View available TV series">Series List</a> | 
+	<a class="btn btn-small" title="Manage your shows" href="{$smarty.const.WWW_TOP}/myshows">Manage My Shows</a> | 
+	<a class="btn btn-small" title="All releases in your shows as an RSS feed" href="{$smarty.const.WWW_TOP}/rss?t=-3&amp;dl=1&amp;i={$userdata.ID}&amp;r={$userdata.rsstoken}">Rss <i class="fa-icon-rss"></i></a>
+</div>
+</center>
+<br/>
 {/if}
 
 {if $results|@count > 0}
@@ -260,8 +263,8 @@
 </form>
 
 {else}
-<div class="pull-left alert alert-info">
-  <h4>Sorry!</h4>
-  There is nothing here at the moment!
+<div class="alert">
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<strong>Ups!</strong> There is nothing here at the moment.
 </div>
 {/if}

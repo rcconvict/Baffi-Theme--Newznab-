@@ -19,6 +19,7 @@ Two quick start options are available:
 
 1. Copy the `Baffi` folder to the path `../newznab/www/views/themes` within the application folder.
 2. Copy the `templates` folder to the path `../newznab/www/views/`, this will ask to overwrite, allow it.
+3. Copy the `bootstrap.min.js` file located in `baffi/js` folder to the path `../newznab/www/views/scripts`.
 
 
 

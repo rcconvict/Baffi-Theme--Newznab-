@@ -1,6 +1,6 @@
-
-<h1>My Cart</h1>
-
+<div class="page-header">
+	<h1>My Cart</h1>
+</div>
 <p>
 	Your cart can be downloaded as an <a href="{$smarty.const.WWW_TOP}/rss?t=-2&amp;dl=1&amp;i={$userdata.ID}&amp;r={$userdata.rsstoken}&amp;del=1">Rss Feed</a>.
 </p>

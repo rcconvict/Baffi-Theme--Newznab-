@@ -1,0 +1,33 @@
+RARlock:
+
+	<i class="fa-icon-lock"></i>
+
+Comments:
+
+	<i class="fa-icon-comments-alt">
+
+grabs:
+
+	<i class="icon-download-alt">
+
+filelist:
+
+	<i class="fa-icon-search"></i>
+
+nfo:
+
+	<i class="fa-icon-info-sign">
+
+group:
+
+	<i class="fa-icon-group"></i>
+
+
+
+
+
+
+
+
+
+

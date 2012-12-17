@@ -1,4 +1,6 @@
-<h1>{$page->title}</h1>
+<div class="page-header">
+	<h1>{$page->title}</h1>
+</div>
 
 <p>
 <b>Jump to</b>:
@@ -6,19 +8,23 @@
 {foreach $seriesrange as $range}
 {if $range == $seriesletter}<b><u>{/if}<a href="{$smarty.const.WWW_TOP}/series/{$range}">{$range}</a>{if $range == $seriesletter}</u></b>{/if} 
 {/foreach}]
-&nbsp;<a class="btn btn-mini" href="{$smarty.const.WWW_TOP}/myshows" title="List my watched shows">My Shows</a>
-&nbsp;<a class="btn btn-mini" href="{$smarty.const.WWW_TOP}/myshows/browse" title="browse your shows">Browse My Shows</a>
 </p>
-
-		<form class="form pull-right" style="margin-top:-35px;">
-			<form name="ragesearch" class="navbar-form" action="" method="get">
-				<div class="input-append">
-					<input class="input-medium" id="title appendedInputButton" type="text" name="title" value="{$ragename}" class="span2" placeholder="Search here"/>
-					<button type="submit" class="btn">GO</button>
-				</div>
-			</form>
-		</form>
-
+<form class="form pull-right" style="margin-top:-35px;">
+	<form name="ragesearch" class="navbar-form" action="" method="get">
+		<div class="input-append">
+			<input class="input-medium" id="title appendedInputButton" type="text" name="title" value="{$ragename}" class="span2" placeholder="Search here"/>
+			<button type="submit" class="btn">GO</button>
+		</div>
+	</form>
+</form>
+<br/>
+<center>
+<div class="btn-group">
+	<a class="btn btn-small" href="{$smarty.const.WWW_TOP}/myshows" title="List my watched shows">My Shows</a>
+	<a class="btn btn-small" href="{$smarty.const.WWW_TOP}/myshows/browse" title="browse your shows">Browse My Shows</a>
+</div>
+</center>	
+<br/><br/>
 {$site->adbrowse}	
 
 {if $serieslist|@count > 0}
@@ -54,7 +60,7 @@
 					<a title="View series" href="{$smarty.const.WWW_TOP}/series/{$s.rageID}">Series</a>&nbsp;&nbsp;
 					{if $s.rageID > 0}
 						<a title="View at TVRage" target="_blank" href="{$site->dereferrer_link}http://www.tvrage.com/shows/id-{$s.rageID}">TVRage</a>&nbsp;&nbsp;
-						<a class="fa-icon-rss" title="RSS Feed for {$s.releasetitle|escape:"htmlall"}" href="{$smarty.const.WWW_TOP}/rss?rage={$s.rageID}&amp;dl=1&amp;i={$userdata.ID}&amp;r={$userdata.rsstoken}"></a>
+						<a title="RSS Feed for {$s.releasetitle|escape:"htmlall"}" href="{$smarty.const.WWW_TOP}/rss?rage={$s.rageID}&amp;dl=1&amp;i={$userdata.ID}&amp;r={$userdata.rsstoken}"><i class="fa-icon-rss"></i></a>
 					{/if}
 				</td>
 			</tr>
@@ -63,5 +69,8 @@
 </table>
 
 {else}
-<h2>No results</h2>
+<div class="alert">
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<strong>Hmm!</strong> No result on that search term.
+</div>
 {/if}

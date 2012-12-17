@@ -1,5 +1,6 @@
- 
-<h1>Browse Books</h1>
+<div class="page-header">
+	<h1>Browse Books</h1>
+</div>
 
 <form name="browseby" action="books">
 <table class="rndbtn" border="0" cellpadding="2" cellspacing="0">
@@ -11,7 +12,7 @@
 	<tr>
 		<td><input id="author" type="text" name="author" value="{$author}" size="15" /></td>
 		<td><input id="title" type="text" name="title" value="{$title}" size="15" /></td>
-		<td><input type="submit" value="Go" /></td>
+		<td><input class="btn" type="submit" value="Go" /></td>
 	</tr>
 </table>
 </form>
@@ -19,18 +20,21 @@
 
 {$site->adbrowse}	
 
+View: <b>Covers</b> | <a href="{$smarty.const.WWW_TOP}/browse?t=7020">List</a><br />
+
 {if $results|@count > 0}
 
-<form id="nzb_multi_operations_form" action="get">
-
-<div class="nzb_multi_operations">
-	View: <b>Covers</b> | <a href="{$smarty.const.WWW_TOP}/browse?t=7020">List</a><br />
-	<small>With Selected:</small>
-	<input type="button" class="nzb_multi_operations_download" value="Download NZBs" />
-	<input type="button" class="nzb_multi_operations_cart" value="Add to Cart" />
-	{if $sabintegrated}<input type="button" class="nzb_multi_operations_sab" value="Send to SAB" />{/if}
-</div>
-<br/>
+<form id="nzb_multi_operations_form" action="get">	
+	<div class="well">
+		<div class="nzb_multi_operations">
+			With Selected:
+			<div class="btn-group">
+				<input type="button" class="nzb_multi_operations_download btn btn-small btn-success" value="Download NZBs" />
+				<input type="button" class="nzb_multi_operations_cart btn btn-small btn-info" value="Add to Cart" />
+				{if $sabintegrated}<input type="button" class="nzb_multi_operations_sab btn btn-small btn-primary" value="Send to SAB" />{/if}
+			</div>
+		</div>
+	</div>
 
 {$pager}
 

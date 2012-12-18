@@ -6088,3 +6088,7 @@ a.badge:hover {
 .affix {
 	position: fixed;
 }
+
+.halffade {
+	opacity: 0.5;
+}

@@ -1,20 +1,25 @@
-<h1>{$page->title}</h1>
+<div class="page-header">
+	<h1>{$page->title}</h1>
+</div>
 
-<p>
-<a href="{$smarty.const.WWW_TOP}/upcoming/1">Box Office</a> | 
-<a href="{$smarty.const.WWW_TOP}/upcoming/2">In Theatre</a> | 
-<a href="{$smarty.const.WWW_TOP}/upcoming/3">Opening</a> | 
-<a href="{$smarty.const.WWW_TOP}/upcoming/4">Upcoming</a> | 
-<a href="{$smarty.const.WWW_TOP}/upcoming/5">DVD Releases</a>
-</p>
+<center>
+<div class="btn-group">
+<a class="btn btn-small" href="{$smarty.const.WWW_TOP}/upcoming/1">Box Office</a> | 
+<a class="btn btn-small" href="{$smarty.const.WWW_TOP}/upcoming/2">In Theatre</a> | 
+<a class="btn btn-small" href="{$smarty.const.WWW_TOP}/upcoming/3">Opening</a> | 
+<a class="btn btn-small" href="{$smarty.const.WWW_TOP}/upcoming/4">Upcoming</a> | 
+<a class="btn btn-small" href="{$smarty.const.WWW_TOP}/upcoming/5">DVD Releases</a>
+</div>
+</center>
+<br/><br/>
 
 {$site->adbrowse}	
 
 {if $data|@count > 0}
 
-<table style="width:100%;" class="data highlight icons" id="coverstable">
+<table class="data highlight icons table table-striped" id="coverstable">
 		<tr>
-			<th></th>
+			<th style="width:140px;"></th>
 			<th>Name</th>
 		</tr>
 
@@ -22,10 +27,14 @@
 		<tr class="{cycle values=",alt"}">
 			<td class="mid">
 				<div class="movcover">
-					<img class="shadow" src="{$result->posters->profile}" width="120" border="0" alt="{$result->title|escape:"htmlall"}" />
+					<center>
+					<img class="shadow img img-polaroid" src="{$result->posters->profile}" width="120" border="0" alt="{$result->title|escape:"htmlall"}" />
+					</center>
 					<div class="movextra">
-						<a class="rndbtn" target="_blank" href="{$site->dereferrer_link}{$result->links->alternate}" title="View Rotten Tomatoes Details">Rotten Tomatoes</a>
-						<a class="rndbtn" target="_blank" href="{$site->dereferrer_link}http://www.imdb.com/title/tt{$result->alternate_ids->imdb}" title="View Imdb Details">Imdb</a>				
+						<center>
+						<a class="rndbtn badge badge-success" target="_blank" href="{$site->dereferrer_link}{$result->links->alternate}" title="View Rotten Tomatoes Details">Rotten</a>
+						<a class="rndbtn badge badge-imdb" target="_blank" href="{$site->dereferrer_link}http://www.imdb.com/title/tt{$result->alternate_ids->imdb}" title="View Imdb Details">Imdb</a>				
+						</center>
 					</div>
 				</div>
 			</td>
@@ -44,11 +53,12 @@
 				{/if}
 
 				{if $ourmovies[$result->alternate_ids->imdb] != ""}
-					<a class="rndbtn" href="{$smarty.const.WWW_TOP}/movies?imdb={$result->alternate_ids->imdb}">Download</a>
+					<a class="rndbtn btn btn-mini btn-success" href="{$smarty.const.WWW_TOP}/movies?imdb={$result->alternate_ids->imdb}">Download</a>
 				{else}
-					<a style="display:{if $userimdbs[$result->alternate_ids->imdb] == ""}inline{else}none;{/if}" onclick="mymovie_add('{$result->alternate_ids->imdb}', this);return false;" class="rndbtn" href="#">Add To My Movies</a>
+					<a {if $userimdbs[$result->alternate_ids->imdb] != ""}style="display:none;"{/if} onclick="mymovie_add('{$result->alternate_ids->imdb}', this);return false;" class="rndbtn btn btn-mini btn-info" href="#">Add To My Movies</a>
 				{/if}
-				<a style="display:{if $userimdbs[$result->alternate_ids->imdb] != ""}inline{else}none;{/if}" onclick="mymovie_del('{$result->alternate_ids->imdb}', this);return false;" href="#" class="rndbtn">Remove From My Movies</a>
+				<a style="display:{if $userimdbs[$result->alternate_ids->imdb] != ""}inline{else}none;{/if}" onclick="mymovie_del('{$result->alternate_ids->imdb}', this);return false;" href="#" class="rndbtn btn btn-mini btn-danger">Remove From My Movies</a>
+				<br/><br/>
 
 
 			</td>
@@ -57,5 +67,8 @@
 </table>
 
 {else}
-<h2>No results</h2>
+<div class="alert">
+	<strong>Ups!</strong>
+	No results.
+</div>
 {/if}

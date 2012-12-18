@@ -60,8 +60,11 @@
 {if $results|@count > 0}
 
 <form id="nzb_multi_operations_form" action="get">
+
 View: <b>Covers</b> | <a href="{$smarty.const.WWW_TOP}/browse?t={$category}">List</a><br />
-<div class="well">
+<br/>
+
+<div class="well well-small">
 <div class="nzb_multi_operations">
 	With Selected:
 	<div class="btn-group">
@@ -185,7 +188,7 @@ View: <b>Covers</b> | <a href="{$smarty.const.WWW_TOP}/browse?t={$category}">Lis
 
 {$pager}
 
-<div class="well">
+<div class="well well-small">
 <div class="nzb_multi_operations">
 	With Selected:
 	<div class="btn-group">

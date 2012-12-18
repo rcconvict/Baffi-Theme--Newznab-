@@ -1,14 +1,15 @@
-
-<h1><a href="{$smarty.const.WWW_TOP}/forum">Forum</a></h1>
+<div class="page-header">
+	<h1><a href="{$smarty.const.WWW_TOP}/forum">Forum</a></h1>
+</div>
 
 {if $results|@count > 0}
 
 <h2>{$results[0].subject|escape:"htmlall"}</h2>
 
-<div style="float:right;margin-bottom:5px;"><a href="#reply">Reply</a></div>
+<div style="float:right;margin-bottom:5px;"><a class="btn btn-small btn-primary" href="#reply">Reply</a></div>
 
 <a id="top"></a>
-<table style="width:100%;" class="data highlight" id="forumtable">
+<table style="width:100%;" class="data highlight table table-striped" id="forumtable">
 	<tr>
 		<th>By</th>
 		<th>Message</th>
@@ -24,7 +25,7 @@
 				on <span title="{$result.createddate}">{$result.createddate|date_format}</span> <div class="hint">({$result.createddate|timeago})</div>
 				{if $userdata.role==2}
 				<div>
-					<a class="rndbtn confirm_action" href="{$smarty.const.WWW_TOP}/admin/forum-delete.php?id={$result.ID}&amp;from={$smarty.server.REQUEST_URI|escape:"url"}" title="Delete Post">Delete</a>
+					<a class="rndbtn confirm_action btn btn-mini btn-danger" href="{$smarty.const.WWW_TOP}/admin/forum-delete.php?id={$result.ID}&amp;from={$smarty.server.REQUEST_URI|escape:"url"}" title="Delete Post">Delete</a>
 				</div>
 				{/if}
 				
@@ -35,17 +36,27 @@
 	
 </table>
 
-<div style="float:right;margin-top:5px;"><a href="#">Top</a></div>
+<div style="float:right;margin-top:5px;"><a class="btn btn-small" href="#">Top</a></div>
 
 
 <div style="margin-top:10px;">
 <h3>Add Reply</h3>
 <a id="reply"></a>
-<form action="" method="post">
-	<label for="addReply">Message</label>:<br/>
-	<textarea maxlength="5000" id="addReply" name="addReply" rows="6" cols="60"></textarea>
-	<br/>
-	<input class="forumreplysubmit" type="submit" value="submit"/>
+<form class="form-horizontal" action="" method="post">
+	
+	<div class="control-group">
+		<label class="control-label" for="addReply">Message</label>
+		<div class="controls">
+			<textarea class="input input-xlarge" maxlength="5000" id="addReply" name="addReply" rows="6" cols="100"></textarea>
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<label class="control-label"></label>
+		<div class="controls">
+			<input class="forumreplysubmit btn btn-success" type="submit" value="submit"/>
+		</div>
+	</div>
 </form>
 </div>
 

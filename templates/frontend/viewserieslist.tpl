@@ -53,7 +53,7 @@
 							<a href="{$smarty.const.WWW_TOP}/myshows/delete/{$s.rageID}?from={$smarty.server.REQUEST_URI|escape:"url"}" class="myshows btn btn-mini btn-danger" rel="remove" name="series{$s.rageID}" title="Remove from My Shows">Remove</a>
 						</div>	
 					{else}
-						<a href="{$smarty.const.WWW_TOP}/myshows/add/{$s.rageID}?from={$smarty.server.REQUEST_URI|escape:"url"}" class="myshows btn btn-mini btn-info" rel="add" name="series{$s.rageID}" title="Add to My Shows">Add</a>
+						<a href="{$smarty.const.WWW_TOP}/myshows/add/{$s.rageID}?from={$smarty.server.REQUEST_URI|escape:"url"}" class="myshows btn btn-mini btn-success" rel="add" name="series{$s.rageID}" title="Add to My Shows">Add</a>
 					{/if}
 				</td>
 				<td class="mid">

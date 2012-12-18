@@ -35,11 +35,11 @@
 
 				<br/><br/>
 				{if $ourmovies[$imdbid] != ""}
-					<a class="rndbtn label label-success" href="{$smarty.const.WWW_TOP}/movies?imdb={$imdbid}">Download</a>
+					<a class="rndbtn btn btn-mini btn-success" href="{$smarty.const.WWW_TOP}/movies?imdb={$imdbid}">Download</a>
 				{else}
-					<a style="display:{if $userimdbs[$imdbid] == ""}inline{else}none;{/if}" onclick="mymovie_add('{$imdbid}', this);return false;" class="rndbtn label label-info" href="#">Add To My Movies</a>
+					<a {if $userimdbs[$imdbid] != ""}style="display:none;"{/if} onclick="mymovie_add('{$imdbid}', this);return false;" class="rndbtn btn btn-mini btn-info" href="#">Add To My Movies</a>
 				{/if}
-				<a style="display:{if $userimdbs[$imdbid] != ""}inline{else}none;{/if}" onclick="mymovie_del('{$imdbid}', this);return false;" href="#" class="rndbtn label label-danger">Remove From My Movies</a>
+				<a {if $userimdbs[$imdbid] == ""}style="display:none;"{/if} onclick="mymovie_del('{$imdbid}', this);return false;" href="#" class="rndbtn btn btn-mini btn-danger">Remove From My Movies</a>
 			</td>
 		</tr>
 		{/if}
@@ -47,5 +47,8 @@
 </table>
 
 {else}
-<h2>No results</h2>
+<div class="alert">
+	<strong>Ups!</strong>
+	No results
+</div>
 {/if}

@@ -16,7 +16,7 @@
 
 	{foreach item=i name=iteration from=$files item=file}
 	<tr class="{cycle values=",alt"}">
-		<td width="20">{$smarty.foreach.iteration.index+1}</td>
+		<td width="30">{$smarty.foreach.iteration.index+1}</td>
 		<td>{$file.title|escape:'htmlall'}</td>
 		
 		{assign var="icon" value='views/images/fileicons/'|cat:$file.ext|cat:".png"} 
@@ -32,9 +32,9 @@
 			{assign var="completion" value=0|number_format:1}
 		{/if}
 		
-		<td><img title=".{$file.ext}" alt="{$file.ext}" src="{$smarty.const.WWW_TOP}/views/images/fileicons/{$icon}.png" /></td>
+		<td width="30"><img title=".{$file.ext}" alt="{$file.ext}" src="{$smarty.const.WWW_TOP}/views/images/fileicons/{$icon}.png" /></td>
 		<td class="less right">{if $completion < 100}<span class="label label-important">{$completion}%</span>{else}<span class="label label-success">{$completion}%</span>{/if}</td>
-		<td class="less right">{if $file.size < 100000}{$file.size|fsize_format:"KB"}{else}{$file.size|fsize_format:"MB"}{/if}</td>
+		<td width="50" class="less right">{if $file.size < 100000}{$file.size|fsize_format:"KB"}{else}{$file.size|fsize_format:"MB"}{/if}</td>
 	</tr>
 	{/foreach}
 

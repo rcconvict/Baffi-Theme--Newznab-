@@ -18,11 +18,12 @@
 
 
 {if $section != ''}View: <a href="{$smarty.const.WWW_TOP}/{$section}?t={$category}">Covers</a> | <b>List</b><br />{/if}
+<br/>
 {if $results|@count > 0}
 
 <form id="nzb_multi_operations_form" action="get">
 
-	<div class="well">
+	<div class="well well-small">
 		<div class="nzb_multi_operations">
 			With Selected:
 			<div class="btn-group">
@@ -242,7 +243,7 @@
 	{$pager}
 
 	{if $results|@count > 10}
-	<div class="well">
+	<div class="well well-small">
 		<div class="nzb_multi_operations">
 			With Selected:
 			<div class="btn-group">
@@ -264,6 +265,7 @@
 </form>
 
 {else}
+<br/>
 <div class="alert">
 	<button type="button" class="close" data-dismiss="alert">&times;</button>
 	<strong>Ups!</strong> There is nothing here at the moment.

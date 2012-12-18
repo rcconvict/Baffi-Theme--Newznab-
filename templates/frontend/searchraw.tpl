@@ -1,13 +1,19 @@
- 
-<h1>Search Binaries</h1>
+<div class="page-header">
+	<h1>Search Binaries</h1>
+</div>
 
-<form method="get" action="{$smarty.const.WWW_TOP}/searchraw">
-	<div style="text-align:center;">
-		<label for="search" style="display:none;">Search</label>
-		<input id="search" name="search" value="{$search|escape:'htmlall'}" type="text"/>
-		<input id="searchraw_search_button" type="submit" value="search" />
+<div class="navbar">
+	<div class="navbar-inner">
+		<form method="get" class="navbar-form pull-left" action="{$smarty.const.WWW_TOP}/searchraw">
+			<div class="input-append">
+				
+				<input id="search" class="input-xlarge" name="search" value="{$search|escape:'htmlall'}" type="text" placeholder="Search text" />
+				<input id="search_search_button" class="btn btn-success" type="submit" value="search" />
+				
+			</div>
+		</form>
 	</div>
-</form>
+</div>
 
 {if $results|@count == 0 && $search != ""}
 	<div class="nosearchresults">
@@ -28,7 +34,7 @@
 {$site->adbrowse}	
 
 <form method="post" id="dl" name="dl" action="{$smarty.const.WWW_TOP}/searchraw">
-<table style="width:100%;" class="data" id="browsetable">
+<table style="width:100%;" class="data table table-striped" id="browsetable">
 	<tr>
 		<!--<th width="10"></th>-->
 		<th>filename</th>
@@ -49,9 +55,9 @@
 			<td class="less" title="{$result.date}">{$result.date|date_format}</td>
 			{if $isadmin}
 			<td><span title="procstat">{$result.procstat}</span>/<span title="procattempts">{$result.procattempts}</span>/<span title="totalparts">{$result.totalParts}</span>/<span title="regex">{if $result.regexID==""}_{else}{$result.regexID}{/if}</span>/<span title="relpart">{$result.relpart}</span>/<span title="reltotalpart">{$result.reltotalpart}</span></td>
-			<td class="less">{if $result.binnum < $result.totalParts}<span style="color:red;">{$result.binnum}/{$result.totalParts}</span>{else}100%{/if}</td>
+			<td class="less">{if $result.binnum < $result.totalParts}<span class="label label-danger">{$result.binnum}/{$result.totalParts}</span>{else}<span class="label label-success">100%</span>{/if}</td>
 			{/if}			
-			<td class="less">{if $result.releaseID > 0}<a title="View Nzb details" href="{$smarty.const.WWW_TOP}/details/{$result.guid}/{$result.filename|escape:"seourl"}">Yes</a>{/if}</td>
+			<td class="less">{if $result.releaseID > 0}<a class="btn btn-mini" title="View Nzb details" href="{$smarty.const.WWW_TOP}/details/{$result.guid}/{$result.filename|escape:"seourl"}">Yes</a>{/if}</td>
 		</tr>
 	{/foreach}
 	

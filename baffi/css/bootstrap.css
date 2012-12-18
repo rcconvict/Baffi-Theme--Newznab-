@@ -5670,6 +5670,31 @@ a.badge:hover {
 	color: #000000;
 }
 
+.label-amaz,
+.badge-amaz {
+	background-color: #f89406;
+	color: #000000;
+}
+
+.label-amaz[href],
+.badge-amaz[href] {
+	background-color: #c67605;
+	color: #000000;
+}
+
+.label-amaz:hover,
+.badge-amaz:hover{
+	background-color: #f89406;
+	color: #000000;
+}
+
+.label-amaz[href]:hover,
+.badge-amaz[href]:hover {
+	background-color: #c67605;
+	color: #000000;
+}
+
+
 .btn .label,
 .btn .badge {
 	position: relative;

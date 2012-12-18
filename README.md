@@ -4,6 +4,8 @@ A "theme" for newznab, it's more then the normal theme, this is a complete rewri
 
 ## Status
 
+Working on: `frontend`
+
 ######Not done:
 
 Admin

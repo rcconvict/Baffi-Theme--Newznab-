@@ -1,9 +1,11 @@
-<h1>{$page->title}</h1> 
+<div class="page-header">
+	<h1>{$page->title}</h1>
+</div>
 
 {if $musiclist}
 {$pager}
 
-<table style="margin-top:10px;" class="data Sortable highlight">
+<table style="margin-top:10px;" class="data Sortable highlight table table-striped">
 
 	<tr>
 		<th>ID</th>
@@ -23,5 +25,8 @@
 
 </table>
 {else}
-<p>No Music available.</p>
+<div class="alert">
+	<strong>Ups!</strong>
+	No Music available.
+</div>
 {/if}

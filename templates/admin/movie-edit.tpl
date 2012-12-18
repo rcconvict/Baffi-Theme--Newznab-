@@ -88,7 +88,7 @@
 		<div class="controls">
 			<input type="file" id="cover" name="cover" />
 			{if $movie.cover == 1}
-				<img style="max-width:200px; display:block;" src="{$smarty.const.WWW_TOP}/../covers/movies/{$movie.imdbID}-cover.jpg" alt="" />
+				<img class="img img-polaroid" style="max-width:200px; display:block;" src="{$smarty.const.WWW_TOP}/../covers/movies/{$movie.imdbID}-cover.jpg" alt="" />
 			{/if}
 		</div>
 	</div>
@@ -98,7 +98,7 @@
 		<div class="controls">
 			<input type="file" name="backdrop" />
 			{if $movie.backdrop == 1}
-				<img style="max-width:200px; display:block;" src="{$smarty.const.WWW_TOP}/../covers/movies/{$movie.imdbID}-backdrop.jpg" alt="" />
+				<img class="img img-polaroid" style="max-width:200px; display:block;" src="{$smarty.const.WWW_TOP}/../covers/movies/{$movie.imdbID}-backdrop.jpg" alt="" />
 			{/if}
 		</div>
 	</div>

@@ -1,9 +1,11 @@
-<h1>{$page->title}</h1> 
+<div class="page-header">
+	<h1>{$page->title}</h1>
+</div>
 
 {if $booklist}
 {$pager}
 
-<table style="margin-top:10px;" class="data Sortable highlight">
+<table style="margin-top:10px;" class="data Sortable highlight table table-striped">
 
 	<tr>
 		<th>ID</th>
@@ -23,5 +25,8 @@
 
 </table>
 {else}
-<p>No books available.</p>
+<div class="alert">
+	<strong>Ups!</strong>
+	No books available.
+</div>
 {/if}

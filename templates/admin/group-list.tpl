@@ -5,9 +5,9 @@
 <div class="alert alert-block">
 	<h4>NB!</h4>
 	Below is a list of all usenet groups available to be indexed. Click 'Activate' to enable a group to be indexed.<br/>
-	&bull; Reset will update the last indexed date of the group so it will appear as the first time you have ever activated that group.<br/>
-	&bull; Delete will delete the group but leave all releases.<br/>
-	&bull; Purge will delete all releases for the group.
+	&bull; <strong>Reset</strong> will update the last indexed date of the group so it will appear as the first time you have ever activated that group.<br/>
+	&bull; <strong>Delete</strong> will delete the group but leave all releases.<br/>
+	&bull; <strong>Purge</strong> will delete all releases for the group.
 </div>
 
 
@@ -30,6 +30,7 @@
 
 {$pager}
 
+<div id="message" class="alert alert-info" style="display: none;"></div>
 <table class="data highlight table table-striped">
 
 	<tr>

@@ -1,7 +1,7 @@
- 
-<h1>{$page->title}</h1>
-
-<table style="margin-top:10px;" class="data highlight">
+<div class="page-header">
+	<h1>{$page->title}</h1>
+</div>
+<table class="data highlight table table-striped">
 
 	<tr>
 		<th>name</th>
@@ -24,7 +24,13 @@
 		<td>{if $role.canpreview == 1}Yes{else}No{/if}</td>
 		<td>{if $role.canpre == 1}Yes{else}No{/if}</td>
 		<td>{if $role.isdefault=="1"}Yes{else}No{/if}</td>
-		<td><a href="{$smarty.const.WWW_TOP}/role-edit.php?id={$role.ID}">edit</a>&nbsp;{if $role.ID>"3"}<a class="confirm_action" href="{$smarty.const.WWW_TOP}/role-delete.php?id={$role.ID}">delete</a>{/if}</td>
+		<td><div class="btn-group">
+			<a class="btn btn-mini btn-warning" href="{$smarty.const.WWW_TOP}/role-edit.php?id={$role.ID}">Edit</a>
+			{if $role.ID>"3"}
+			<a class="confirm_action btn btn-mini btn-danger" href="{$smarty.const.WWW_TOP}/role-delete.php?id={$role.ID}">Delete</a>
+			{/if}
+			</div>
+		</td>
 	</tr>
 	{/foreach}
 

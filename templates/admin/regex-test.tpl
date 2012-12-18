@@ -1,50 +1,46 @@
- 
-<h1>{$page->title}</h1>
-
+<div class="page-header">
+	<h1>{$page->title}</h1>
+</div>
 {if $error != ''}
 	<div class="error">{$error}</div>
 {/if}
 
-<form action="{$SCRIPT_NAME}?action=submit" method="POST">
+<form class="form-horizontal" action="{$SCRIPT_NAME}?action=submit" method="POST">
 
-<table class="input">
+	<div class="control-group">
+		<label class="control-label">Group</label>
+		<div class="controls">
+			<select name="groupname" class="input input-xxlarge">
+			{html_options  values=$gid output=$gname selected=$gselected}
+			</select>
+		</div>
+	</div>
 
-<tr>
-	<td>Group:</td>
-	<td>
-		<select name="groupname">
-		{html_options values=$gid output=$gname selected=$gselected}
-		</select>
-	</td>
-</tr>
+	<div class="control-group">
+		<label class="control-label" for="regex">Regex</label>
+		<div class="controls">
+			<input class="input input-xxlarge" id="regex" name="regex" class="long" value="{$gregex|escape:html}" />
+		</div>
+	</div>
 
-<tr>
-	<td>Regex:</td>
-	<td>
-		<input id="regex" name="regex" class="long" value="{$gregex|escape:html}" />
-	</td>
-</tr>
-
-<tr>
-	<td></td>
-	<td>
-		<input type="checkbox" name="unreleased"{if $gunreleased == 'on'}checked="checked"{/if} /> Ignore binaries that are released, duplicates, or already matched by a regex
-	</td>
-</tr>
-
-<tr>
-	<td></td>
-	<td>
-		<input type="submit" value="Test Regex" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="{$smarty.const.WWW_TOP}/regex-edit.php?action=addtest&regex={$gregex|urlencode}&groupname={$gname.$gselected}">Add Regex</a>
-	</td>
-</tr>
-</table>
-
+	<div class="control-group">
+		<label class="control-label"></label>
+		<div class="controls">
+			<input type="checkbox" name="unreleased"{if $gunreleased == 'on'}checked="checked"{/if} /> Ignore binaries that are released, duplicates, or already matched by a regex
+		</div>
+	</div>
+	
+	<div class="control-group">
+		<label class="control-label"></label> 
+		<div class="controls">
+			<input class="btn btn-success" type="submit" value="Test Regex" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-info" href="{$smarty.const.WWW_TOP}/regex-edit.php?action=addtest&regex={$gregex|urlencode}&groupname={$gname.$gselected}">Add Regex</a>
+		</div>
+	</div>
 </form>
 
 {if $matches}
 {$pager}
-<table style="margin-top:10px;" class="data Sortable highlight">
+<table style="margin-top:10px;" class="data Sortable highlight table table-striped">
 
 	<tr>
 		<th>ID</th>

@@ -19,6 +19,13 @@ Main
 * `Console`
 * `PreList`
 
+## Preview
+
+* [Single Movie View](http://cl.ly/image/2q2P1z000Q3T "Single Movie View")
+* [Movie List View](http://cl.ly/image/0r2J0V3T2i2r "Movie List View")
+* [Admin interface](http://cl.ly/image/0g1I2R1v020I "Admin interface")
+
+
 ## Quick start
 
 Two quick start options are available:

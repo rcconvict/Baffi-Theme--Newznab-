@@ -1,82 +1,76 @@
- 
-<h1>Browse {$catname}</h1>
+<h2>Browse {$catname}</h2>
 
-<form name="browseby" action="movies">
-<table class="rndbtn table" style="max-width:100%;"
-	<tr>
-		<th class="left"><label for="movietitle">Title</label></th>
-		<th class="left"><label for="movieactors">Actor</label></th>
-		<th class="left"><label for="moviedirector">Director</label></th>
-		<th class="left"><label for="rating">Rating</label></th>
-		<th class="left"><label for="genre">Genre</label></th>
-		<th class="left"><label for="year">Year</label></th>
-		<th class="left"><label for="category">Category</label></th>
-		<th></th>
-	</tr>
-	<tr>
-		<td><input class="input" id="movietitle" type="text" name="title" value="{$title}"  /></td>
-		<td><input class="input" id="movieactors" type="text" name="actors" value="{$actors}"  /></td>
-		<td><input class="input" id="moviedirector" type="text" name="director" value="{$director}"  /></td>
-		<td>
-			<select class="input-small" id="rating" name="rating">
-			<option class="grouping" value=""></option>
-			{foreach from=$ratings item=rate}
+<div class="well well-small">
+<center>
+<form class="form-inline" name="browseby" action="movies" style="margin:0;">
+
+		<input class="input input-medium" id="movietitle" type="text" name="title" value="{$title}" placeholder="Title" />
+		<input class="input input-medium" id="movieactors" type="text" name="actors" value="{$actors}" placeholder="Actor" />
+		<input class="input input-medium" id="moviedirector" type="text" name="director" value="{$director}"  placeholder="Director" />
+		
+		<div class="input-prepend">
+			<span class="add-on">Rating</span>
+			<select class="input input-mini" id="rating" name="rating">
+				<option class="grouping" value=""></option>
+				{foreach from=$ratings item=rate}
 				<option {if $rating==$rate}selected="selected"{/if} value="{$rate}">{$rate}</option>
-			{/foreach}
+				{/foreach}
 			</select>
-		</td>
-		<td>
-			<select class="input-small" id="genre" name="genre">
-			<option class="grouping" value=""></option>
-			{foreach from=$genres item=gen}
-				<option {if $gen==$genre}selected="selected"{/if} value="{$gen}">{$gen}</option>
-			{/foreach}
+		</div>
+		<div class="input-prepend">
+			<span class="add-on">Genre</span>
+			<select class="input input-small" id="genre" name="genre">
+				<option class="grouping" value=""></option>
+				{foreach from=$genres item=gen}
+					<option {if $gen==$genre}selected="selected"{/if} value="{$gen}">{$gen}</option>
+				{/foreach}
 			</select>
-		</td>
-		<td>
-			<select class="input-small" id="year" name="year">
-			<option class="grouping" value=""></option>
-			{foreach from=$years item=yr}
-				<option {if $yr==$year}selected="selected"{/if} value="{$yr}">{$yr}</option>
-			{/foreach}
+		</div>
+		<div class="input-prepend">
+			<span class="add-on">Year</span>
+			<select class="input input-small" id="year" name="year">
+				<option class="grouping" value=""></option>
+				{foreach from=$years item=yr}
+					<option {if $yr==$year}selected="selected"{/if} value="{$yr}">{$yr}</option>
+				{/foreach}
 			</select>
-		</td>
-		<td>
-			<select class="input-small" id="category" name="t">
+		</div>
+		<div class="input-prepend">
+			<span class="add-on">Category</span>
+			<select class="input input-small" id="category" name="t">
 			<option class="grouping" value="2000"></option>
-			{foreach from=$catlist item=ct}
+				{foreach from=$catlist item=ct}
 				<option {if $ct.ID==$category}selected="selected"{/if} value="{$ct.ID}">{$ct.title}</option>
-			{/foreach}
+				{/foreach}
 			</select>
-		</td>
-		<td><input class="btn btn-success" type="submit" value="Go" /></td>
-	</tr>
-</table>
+		</div>
+		<input class="btn btn-success" type="submit" value="Go" />
 </form>
-<p></p>
+</center>
+</div>
 
 {$site->adbrowse}	
 
 {if $results|@count > 0}
 
+<div style="margin-bottom:-40px;">
+{$pager}
+</div>
+
 <form id="nzb_multi_operations_form" action="get">
 
 View: <b>Covers</b> | <a href="{$smarty.const.WWW_TOP}/browse?t={$category}">List</a><br />
-<br/>
 
 <div class="well well-small">
-<div class="nzb_multi_operations">
-	With Selected:
-	<div class="btn-group">
-		<input type="button" class="nzb_multi_operations_download btn btn-small btn-success" value="Download NZBs" />
-		<input type="button" class="nzb_multi_operations_cart btn btn-small btn-info" value="Add to Cart" />
-		{if $sabintegrated}<input type="button" class="nzb_multi_operations_sab btn btn-small btn-primary" value="Send to SAB" />{/if}
+	<div class="nzb_multi_operations">
+		With Selected:
+		<div class="btn-group">
+			<input type="button" class="nzb_multi_operations_download btn btn-small btn-success" value="Download NZBs" />
+			<input type="button" class="nzb_multi_operations_cart btn btn-small btn-info" value="Add to Cart" />
+			{if $sabintegrated}<input type="button" class="nzb_multi_operations_sab btn btn-small btn-primary" value="Send to SAB" />{/if}
+		</div>
 	</div>
 </div>
-</div>
-
-
-{$pager}
 
 <table style="width:100%;" class="data highlight icons table table-striped" id="coverstable">
 	<tr>

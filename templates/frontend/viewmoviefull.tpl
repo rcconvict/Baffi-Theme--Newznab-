@@ -6,10 +6,10 @@
 		{if $result.cover == 1}<img class="shadow pic img-polaroid pull-right" style="margin-right:50px;" alt="{$result.title|escape:"htmlall"} Logo" src="{$smarty.const.WWW_TOP}/covers/movies/{$result.imdbID}-cover.jpg" />{/if}
 		
 		 <div class="page-header">
-			<h1 style="display:inline;">{$result.title|escape:"htmlall"} ({$result.year})</h1>    <a class="rndbtn badge badge-imdb" target="_blank" href="{$site->dereferrer_link}http://www.imdb.com/title/tt{$result.imdbID}/" name="imdb{$result.imdbID}" title="View imdb page">Imdb</a>
+			<h2 style="display:inline;">{$result.title|escape:"htmlall"} ({$result.year})</h2>    <a class="rndbtn badge badge-imdb" target="_blank" href="{$site->dereferrer_link}http://www.imdb.com/title/tt{$result.imdbID}/" name="imdb{$result.imdbID}" title="View imdb page">Imdb</a>
 		</div>
 		
-		<h3>{if $result.genre != ''}{$result.genre|replace:"|":" / "}{/if}</h3>
+		<h4>{if $result.genre != ''}{$result.genre|replace:"|":" / "}{/if}</h4>
 		
 		
 		{if $result.tagline != ''}
@@ -40,7 +40,7 @@
 		</div>
 		
 		<form id="nzb_multi_operations_form" action="get">
-		<div class="well">
+		<div class="well well-small">
 			<div class="nzb_multi_operations">
 				{if $section != ''}View: <a href="{$smarty.const.WWW_TOP}/{$section}?t={$category}">Covers</a> | <b>List</b><br />{/if}
 				With Selected:
@@ -205,7 +205,7 @@
 	
 	{$pager}
 	{if $results|@count > 10}
-		<div class="well">
+		<div class="well well-small">
 			<div class="nzb_multi_operations">
 				{if $section != ''}View: <a href="{$smarty.const.WWW_TOP}/{$section}?t={$category}">Covers</a> | <b>List</b><br />{/if}
 				With Selected:

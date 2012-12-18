@@ -10,9 +10,6 @@ Working on: `frontend`
 
 Admin
 * `ajax_release-edit`
-* `book`
-* `console`
-* `music`
  
 Main
 * `+++++`

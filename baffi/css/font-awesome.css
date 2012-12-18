@@ -23,8 +23,7 @@ Work: http://lemonwi.se co-founder
 */
 @font-face {
 	font-family: "FontAwesome";
-	src: url('../font/fontawesome-webfont.eot');
-	src: url('../font/fontawesome-webfont.eot?#iefix') format('eot'), url('../font/fontawesome-webfont.woff') format('woff'), url('../font/fontawesome-webfont.ttf') format('truetype'), url('../font/fontawesome-webfont.svg#FontAwesome') format('svg');
+	src: url('http://fortawesome.github.com/Font-Awesome/assets/font/fontawesome-webfont.ttf')
 	font-weight: normal;
 	font-style: normal;
 }

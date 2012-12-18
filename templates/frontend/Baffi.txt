@@ -35,9 +35,32 @@ group:
 	<h1>{$page->title}</h1>
 </div>
 
+class="form-horizontal"
+
 <div class="alert">
 	<strong>Ups!</strong>
 	No menus available.
 </div>
 
+
+<div class="well">
+		<div class="nzb_multi_operations">
+			With Selected:
+			<div class="btn-group">
+				<input type="button" class="nzb_multi_operations_download btn btn-small btn-success" value="Download NZBs" />
+				<input type="button" class="nzb_multi_operations_cart btn btn-small btn-info" value="Add to Cart" />
+				{if $sabintegrated}<input type="button" class="nzb_multi_operations_sab btn btn-small btn-primary" value="Send to SAB" />{/if}
+			</div>
+
+			{if $isadmin}
+			<div class="pull-right">
+				Admin: 	
+				<div class="btn-group">	
+					<input type="button" class="nzb_multi_operations_edit btn btn-small btn-warning" value="Edit" />
+					<input type="button" class="nzb_multi_operations_delete btn btn-small btn-danger" value="Delete" />
+				</div>
+			</div>
+			{/if}	
+		</div>
+	</div>
 

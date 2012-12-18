@@ -133,55 +133,55 @@
 				<div class="resextra">
 					<div class="btns">{strip}
 						{if $result.nfoID > 0}
-						<a href="{$smarty.const.WWW_TOP}/nfo/{$result.guid}" title="View Nfo" class="modal_nfo badge" rel="nfo">Nfo</a> 
+						<a href="{$smarty.const.WWW_TOP}/nfo/{$result.guid}" title="View Nfo" class="modal_nfo badge halffade" rel="nfo">Nfo</a> 
 						{/if}
 
 						{if $result.preID > 0 && $userdata.canpre == 1}
-						<span class="preinfo badge" title="{$result.searchname}">Pre'd {$result.ctime|timeago}</span> 
+						<span class="preinfo badge halffade" title="{$result.searchname}">Pre'd {$result.ctime|timeago}</span> 
 						{/if}
 
 						{if $result.movieinfoID > 0}
-						<a href="{$smarty.const.WWW_TOP}/movies?imdb={$result.imdbID}" title="View movie info" class="badge badge-inverse" rel="movie" >Movie</a> 
+						<a href="{$smarty.const.WWW_TOP}/movies?imdb={$result.imdbID}" title="View movie info" class="badge badge-inverse halffade" rel="movie" >Movie</a> 
 						{/if}
 
 						{if $result.haspreview == 1 && $userdata.canpreview == 1}
 						<a href="{$smarty.const.WWW_TOP}/covers/preview/{$result.guid}_thumb.jpg" name="name{$result.guid}" 
-						title="View Screenshot" class="modal_prev badge badge-success" rel="preview">Preview</a> 
+						title="View Screenshot" class="modal_prev badge badge-success halffade" rel="preview">Preview</a> 
 						{/if}
 
 						{if $result.haspreview == 2 && $userdata.canpreview == 1}
-						<a href="#" name="audio{$result.guid}" title="Listen to Preview" class="audioprev badge badge-success" rel="audio">Listen</a> 
+						<a href="#" name="audio{$result.guid}" title="Listen to Preview" class="audioprev badge badge-success halffade" rel="audio">Listen</a> 
 						<audio id="audprev{$result.guid}" src="{$smarty.const.WWW_TOP}/covers/audio/{$result.guid}.mp3" preload="none"></audio>
 						{/if}
 
 						{if $result.musicinfoID > 0}
-						<a href="#" name="name{$result.musicinfoID}" title="View music info" class="modal_music badge badge-success" rel="music" >Cover</a> 
+						<a href="#" name="name{$result.musicinfoID}" title="View music info" class="modal_music badge badge-success halffade" rel="music" >Cover</a> 
 						{/if}
 
 						{if $result.consoleinfoID > 0}
-						<a href="#" name="name{$result.consoleinfoID}" title="View console info" class="modal_console badge badge-success" rel="console" >Cover</a> 
+						<a href="#" name="name{$result.consoleinfoID}" title="View console info" class="modal_console badge badge-success halffade" rel="console" >Cover</a> 
 						{/if}
 
 						{if $result.bookinfoID > 0}
-						<a href="#" name="name{$result.bookinfoID}" title="View book info" class="modal_book badge badge-success" rel="console" >Cover</a> 
+						<a href="#" name="name{$result.bookinfoID}" title="View book info" class="modal_book badge badge-success halffade" rel="console" >Cover</a> 
 						{/if}
 
 						{if $result.rageID > 0}
-						<a class="badge badge-inverse" href="{$smarty.const.WWW_TOP}/series/{$result.rageID}" title="View all episodes">View Series</a> 
+						<a class="badge badge-inverse halffade" href="{$smarty.const.WWW_TOP}/series/{$result.rageID}" title="View all episodes">View Series</a> 
 						{/if}
 
 						{if $result.anidbID > 0}
-						<a class="badge badge-inverse" href="{$smarty.const.WWW_TOP}/anime/{$result.anidbID}" title="View all episodes">View Anime</a> 
+						<a class="badge badge-inverse halffade" href="{$smarty.const.WWW_TOP}/anime/{$result.anidbID}" title="View all episodes">View Anime</a> 
 						{/if}
 
 						{if $result.tvairdate != ""}
-						<span class="seriesinfo badge badge-success" title="{$result.guid}">Aired {if $result.tvairdate|strtotime > $smarty.now}in future{else}{$result.tvairdate|daysago}
+						<span class="seriesinfo badge badge-success halffade" title="{$result.guid}">Aired {if $result.tvairdate|strtotime > $smarty.now}in future{else}{$result.tvairdate|daysago}
 							{/if}
 						</span> 
 						{/if}
 
 						{if $result.reID > 0}
-						<span class="mediainfo badge badge-inverse" title="{$result.guid}">Media</span> 
+						<span class="mediainfo badge badge-inverse halffade" title="{$result.guid}">Media</span> 
 						{/if}
 
 						{/strip}

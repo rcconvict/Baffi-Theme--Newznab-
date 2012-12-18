@@ -54,7 +54,7 @@
 		<label class="control-label" for="imagedata">Series Image</label>
 		<div class="controls">
 			{if $rage.imgdata != ""}
-			<img style="max-width:200px; display:block;" src="{$smarty.const.WWW_TOP}/../getimage?type=tvrage&id={$rage.ID}">
+			<img class="img img-polaroid" style="max-width:200px; display:block;" src="{$smarty.const.WWW_TOP}/../getimage?type=tvrage&id={$rage.ID}">
 			{/if}
 			<input class="input input-xxlarge" type="file" id="imagedata" name="imagedata">
 			<span class="help-block">Shown in the TV series view page.</span>

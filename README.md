@@ -23,7 +23,7 @@ Two quick start options are available:
 
 
 
-## Instalation
+## Installation
 
 1. Copy the `baffi` folder to the path `../newznab/www/views/themes` within the application folder.
 2. Rename the `templates` folder in `../newznab/www/views/` on the website, to `templates_old`.

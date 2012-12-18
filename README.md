@@ -4,7 +4,13 @@ A "theme" for newznab, it's more then the normal theme, this is a complete rewri
 
 ## Status
 
-Working on `Frontend`
+######Not done:
+
+Admin
+* `ajax_release-edit`
+* `book`
+* `console`
+* `music`
 
 ## Quick start
 
@@ -27,3 +33,4 @@ Two quick start options are available:
 ## Thanks to
 
 Themed with [Bootstrap](http://getbootstrap.com) and [FontAwesome](http://fortawesome.github.com/Font-Awesome/)
+

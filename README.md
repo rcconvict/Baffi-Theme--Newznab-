@@ -12,7 +12,12 @@ Admin
 * `ajax_release-edit`
  
 Main
-* `+++++`
+* `Download page via SAB`
+* `Music`
+* `Book`
+* `Anime`
+* `Console`
+* `PreList`
 
 ## Quick start
 

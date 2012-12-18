@@ -53,9 +53,11 @@
 
 {if $results|@count > 0}
 
-<div style="margin-bottom:-40px;">
-{$pager}
-</div>
+{if $results|@count == 50}
+	<div {if $section != ''}style="margin-bottom:-40px;"{else}style="margin-bottom:-20px;"{/if}>
+	{$pager}
+	</div>
+{/if}
 
 <form id="nzb_multi_operations_form" action="get">
 
@@ -74,11 +76,11 @@ View: <b>Covers</b> | <a href="{$smarty.const.WWW_TOP}/browse?t={$category}">Lis
 
 <table style="width:100%;" class="data highlight icons table table-striped" id="coverstable">
 	<tr>
-		<th width="130">
+		<th width="130" style="padding-top:0px; padding-bottom:0px;">
 			<input type="checkbox" class="nzb_check_all" />
 		</th>
 		
-		<th>title<br/>
+		<th style="padding-top:0px; padding-bottom:0px;">title<br/>
 			<a title="Sort Descending" href="{$orderbytitle_desc}">
 				<i class="fa-icon-caret-down"></i>
 			</a>
@@ -87,7 +89,7 @@ View: <b>Covers</b> | <a href="{$smarty.const.WWW_TOP}/browse?t={$category}">Lis
 			</a>
 		</th>
 		
-		<th>year<br/>
+		<th style="padding-top:0px; padding-bottom:0px;">year<br/>
 			<a title="Sort Descending" href="{$orderbyyear_desc}">
 				<i class="fa-icon-caret-down"></i>
 			</a>
@@ -96,7 +98,7 @@ View: <b>Covers</b> | <a href="{$smarty.const.WWW_TOP}/browse?t={$category}">Lis
 			</a>
 		</th>
 		
-		<th>rating<br/>
+		<th style="padding-top:0px; padding-bottom:0px;">rating<br/>
 			<a title="Sort Descending" href="{$orderbyrating_desc}">
 				<i class="fa-icon-caret-down"></i>
 			</a>
@@ -177,21 +179,23 @@ View: <b>Covers</b> | <a href="{$smarty.const.WWW_TOP}/browse?t={$category}">Lis
 	{/foreach}
 	
 </table>
-
-<br/>
-
-{$pager}
-
-<div class="well well-small">
-<div class="nzb_multi_operations">
-	With Selected:
-	<div class="btn-group">
-		<input type="button" class="nzb_multi_operations_download btn btn-small btn-success" value="Download NZBs" />
-		<input type="button" class="nzb_multi_operations_cart btn btn-small btn-info" value="Add to Cart" />
-		{if $sabintegrated}<input type="button" class="nzb_multi_operations_sab btn btn-small btn-primary" value="Send to SAB" />{/if}
+{if $results|@count > 10}
+<div class="well well-small" style="margin-bottom:-9px;">
+	<div class="nzb_multi_operations">
+		With Selected:
+		<div class="btn-group">
+			<input type="button" class="nzb_multi_operations_download btn btn-small btn-success" value="Download NZBs" />
+			<input type="button" class="nzb_multi_operations_cart btn btn-small btn-info" value="Add to Cart" />
+			{if $sabintegrated}<input type="button" class="nzb_multi_operations_sab btn btn-small btn-primary" value="Send to SAB" />{/if}
+		</div>
 	</div>
 </div>
-</div>
+{/if}
+{if $results|@count == 50}
+	<div style="margin-top:-20px;">
+	{$pager}
+	</div>
+{/if}
 
 </form>
 

@@ -16,11 +16,14 @@
 <br/>
 {/if}
 
-
-{if $section != ''}View: <a href="{$smarty.const.WWW_TOP}/{$section}?t={$category}">Covers</a> | <b>List</b><br />{/if}
-<br/>
 {if $results|@count > 0}
 
+{if $results|@count == 50}
+	<div {if $section != ''}style="margin-bottom:-40px;"{else}style="margin-bottom:-20px;"{/if}>
+	{$pager}
+	</div>
+{/if}
+{if $section != ''}View: <a href="{$smarty.const.WWW_TOP}/{$section}?t={$category}">Covers</a> | <b>List</b><br />{/if}
 <form id="nzb_multi_operations_form" action="get">
 
 	<div class="well well-small">
@@ -44,17 +47,15 @@
 		</div>
 	</div>
 
-	{$pager}
-
 	<table style="100%" class="data highlight icons table table-striped" id="browsetable">
 
 		<tr>
-			<th>
+			<th style="padding-top:0px; padding-bottom:0px;">
 				<input id="chkSelectAll" type="checkbox" class="nzb_check_all" />
 				<label for="chkSelectAll" style="display:none;">Select All</label>
 			</th>
 
-			<th>name<br/>
+			<th style="padding-top:0px; padding-bottom:0px;">name<br/>
 				<a title="Sort Descending" href="{$orderbyname_desc}">
 					<i class="fa-icon-caret-down"></i>
 				</a>
@@ -63,7 +64,7 @@
 				</a>
 			</th>
 
-			<th>category<br/>
+			<th style="padding-top:0px; padding-bottom:0px;">category<br/>
 				<a title="Sort Descending" href="{$orderbycat_desc}">
 					<i class="fa-icon-caret-down"></i>
 				</a>
@@ -72,7 +73,7 @@
 				</a>
 			</th>
 
-			<th>posted<br/>
+			<th style="padding-top:0px; padding-bottom:0px;">posted<br/>
 				<a title="Sort Descending" href="{$orderbyposted_desc}">
 					<i class="fa-icon-caret-down"></i>
 				</a>
@@ -81,7 +82,7 @@
 				</a>
 			</th>
 
-			<th>size<br/>
+			<th style="padding-top:0px; padding-bottom:0px;">size<br/>
 				<a title="Sort Descending" href="{$orderbysize_desc}">
 					<i class="fa-icon-caret-down"></i>
 				</a>
@@ -90,7 +91,7 @@
 				</a>
 			</th>
 
-			<th>files<br/>
+			<th style="padding-top:0px; padding-bottom:0px;">files<br/>
 				<a title="Sort Descending" href="{$orderbyfiles_desc}">
 					<i class="fa-icon-caret-down"></i>
 				</a>
@@ -99,7 +100,7 @@
 				</a>
 			</th>
 
-			<th>stats<br/>
+			<th style="padding-top:0px; padding-bottom:0px;">stats<br/>
 				<a title="Sort Descending" href="{$orderbystats_desc}">
 					<i class="fa-icon-caret-down"></i>
 				</a>
@@ -238,12 +239,8 @@
 		{/foreach}
 	</table>
 
-		<br/>
-
-	{$pager}
-
 	{if $results|@count > 10}
-	<div class="well well-small">
+	<div class="well well-small" style="margin-bottom:-9px;">
 		<div class="nzb_multi_operations">
 			With Selected:
 			<div class="btn-group">
@@ -261,11 +258,14 @@
 		</div>
 	</div>
 	{/if}
-
+	{if $results|@count == 50}
+		<div style="margin-top:-20px;">
+		{$pager}
+		</div>
+	{/if}
 </form>
 
 {else}
-<br/>
 <div class="alert">
 	<button type="button" class="close" data-dismiss="alert">&times;</button>
 	<strong>Ups!</strong> There is nothing here at the moment.

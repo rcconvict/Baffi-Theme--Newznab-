@@ -26,9 +26,11 @@ Two quick start options are available:
 ## Instalation
 
 1. Copy the `baffi` folder to the path `../newznab/www/views/themes` within the application folder.
-2. Copy the `templates` folder to the path `../newznab/www/views/`, this will ask to overwrite, allow it.
-3. Copy the `bootstrap.min.js` file located in `baffi/js` folder to the path `../newznab/www/views/scripts`.
-4. Copy the `utils-admin.js` file located in `baffi/js` folder to the path `../newznab/www/views/scripts`. Let it overwrite.
+2. Rename the `templates` folder in `../newznab/www/views/` on the website, to `templates_old`.
+3. Copy the `templates` folder to the path `../newznab/www/views/`.
+4. Copy the `bootstrap.min.js` file located in `baffi/js` folder to the path `../newznab/www/views/scripts`.
+5. Rename the `utils-admin.js` file located in `../newznab/www/views/scripts` to `utils-admin_old.js`.
+6. Copy the `utils-admin.js` file located in `baffi/js` folder to the path `../newznab/www/views/scripts`.
 
 
 

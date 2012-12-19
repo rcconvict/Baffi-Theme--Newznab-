@@ -18,6 +18,7 @@ Main
 * `Anime`
 * `Console`
 * `PreList`
+* `IMDB modal`, the popout with info of a movie
 
 ## Preview
 

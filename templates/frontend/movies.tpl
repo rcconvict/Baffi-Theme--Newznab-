@@ -54,11 +54,9 @@
 
 {if $results|@count > 0}
 
-{if $results|@count == 50}
-	<div {if $section != ''}style="margin-bottom:-40px;"{else}style="margin-bottom:-20px;"{/if}>
+<div {if $section != ''}style="margin-bottom:-40px;"{else}style="margin-bottom:-20px;"{/if}>
 	{$pager}
-	</div>
-{/if}
+</div>
 
 <form id="nzb_multi_operations_form" action="get">
 
@@ -192,11 +190,9 @@ View: <b>Covers</b> | <a href="{$smarty.const.WWW_TOP}/browse?t={$category}">Lis
 	</div>
 </div>
 {/if}
-{if $results|@count == 50}
-	<div style="margin-top:-20px;">
+<div style="margin-top:-20px;">
 	{$pager}
-	</div>
-{/if}
+</div>
 
 </form>
 

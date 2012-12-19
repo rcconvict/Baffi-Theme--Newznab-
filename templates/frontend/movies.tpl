@@ -3,47 +3,48 @@
 <div class="well well-small">
 <center>
 <form class="form-inline" name="browseby" action="movies" style="margin:0;">
-
+		
+		<i class="fa-icon-film"></i>
 		<input class="input input-medium" id="movietitle" type="text" name="title" value="{$title}" placeholder="Title" />
+		
+		<i class="fa-icon-group"></i>
 		<input class="input input-medium" id="movieactors" type="text" name="actors" value="{$actors}" placeholder="Actor" />
+		
+		<i class="fa-icon-bullhorn"></i>
 		<input class="input input-medium" id="moviedirector" type="text" name="director" value="{$director}"  placeholder="Director" />
 		
-		<div class="input-prepend">
-			<span class="add-on">Rating</span>
+		<i class="fa-icon-star"></i>
 			<select class="input input-mini" id="rating" name="rating">
 				<option class="grouping" value=""></option>
 				{foreach from=$ratings item=rate}
 				<option {if $rating==$rate}selected="selected"{/if} value="{$rate}">{$rate}</option>
 				{/foreach}
 			</select>
-		</div>
-		<div class="input-prepend">
-			<span class="add-on">Genre</span>
+			
+		<i class="fa-icon-inbox"></i>
 			<select class="input input-small" id="genre" name="genre">
 				<option class="grouping" value=""></option>
 				{foreach from=$genres item=gen}
 					<option {if $gen==$genre}selected="selected"{/if} value="{$gen}">{$gen}</option>
 				{/foreach}
 			</select>
-		</div>
-		<div class="input-prepend">
-			<span class="add-on">Year</span>
+		
+		<i class="fa-icon-calendar"></i>
 			<select class="input input-small" id="year" name="year">
 				<option class="grouping" value=""></option>
 				{foreach from=$years item=yr}
 					<option {if $yr==$year}selected="selected"{/if} value="{$yr}">{$yr}</option>
 				{/foreach}
 			</select>
-		</div>
-		<div class="input-prepend">
-			<span class="add-on">Category</span>
+			
+		<i class="fa-icon-flag"></i>
 			<select class="input input-small" id="category" name="t">
 			<option class="grouping" value="2000"></option>
 				{foreach from=$catlist item=ct}
 				<option {if $ct.ID==$category}selected="selected"{/if} value="{$ct.ID}">{$ct.title}</option>
 				{/foreach}
 			</select>
-		</div>
+		
 		<input class="btn btn-success" type="submit" value="Go" />
 </form>
 </center>
@@ -131,7 +132,7 @@ View: <b>Covers</b> | <a href="{$smarty.const.WWW_TOP}/browse?t={$category}">Lis
 				{if $result.director != ''}<b>Director:</b> {$result.director}<br />{/if}
 				{if $result.actors != ''}<b>Starring:</b> {$result.actors}<br /><br />{/if}
 				<div class="movextra">
-					<table class="table">
+					<table class="table" style="margin-bottom:0px;">
 						{assign var="msplits" value=","|explode:$result.grp_release_id}
 						{assign var="mguid" value=","|explode:$result.grp_release_guid}
 						{assign var="mnfo" value=","|explode:$result.grp_release_nfoID}

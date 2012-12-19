@@ -634,6 +634,7 @@ a:hover {
 	max-width:1500px;
 	margin-right: auto;
 	margin-left: auto;
+	padding-right:15px;
 	margin-bottom: 80px;
 	*zoom: 1;
 }
@@ -5560,10 +5561,10 @@ a.thumbnail:hover {
 .label,
 .badge {
 	display: inline-block;
-	padding: 2px 4px;
-	font-size: 11.844px;
+	padding: 2px 3px;
+	font-size: 10.844px;
 	font-weight: bold;
-	line-height: 14px;
+	line-height: 10px;
 	color: #ffffff;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 	white-space: nowrap;
@@ -5578,8 +5579,8 @@ a.thumbnail:hover {
 }
 
 .badge {
-	padding-right: 9px;
-	padding-left: 9px;
+	padding-right: 6px;
+	padding-left: 6px;
 	-webkit-border-radius: 9px;
 	-moz-border-radius: 9px;
 	border-radius: 9px;
@@ -6115,5 +6116,5 @@ a.badge:hover {
 }
 
 .halffade {
-	opacity: 0.5;
+	opacity: 0.65;
 }

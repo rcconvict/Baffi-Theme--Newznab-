@@ -58,7 +58,7 @@
 								<a id="dropUser" class="dropdown-toggle" data-toggle="dropdown" href="#">{$userdata.username} <b class="caret"></b></a>
 								<ul class="dropdown-menu" role="menu" aria-labelledby="dropUser">
 									<li class="">
-										<a href="{$smarty.const.WWW_TOP}/profile">Profil</a>
+										<a href="{$smarty.const.WWW_TOP}/profile">Profile</a>
 									</li>
 									<li class="divider"></li>
 									<li class="">

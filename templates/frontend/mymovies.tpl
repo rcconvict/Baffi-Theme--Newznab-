@@ -1,6 +1,5 @@
-<div class="page-header">
-	<h1>{$page->title}</h1>
-</div>
+<h2>{$page->title}</h2>
+
 
 <p>
 Using 'My Movies' you can search for movies, and add them to a wishlist. If the movie becomes available it will be added to an <a href="{$smarty.const.WWW_TOP}/rss?t=-4&amp;dl=1&amp;i={$userdata.ID}&amp;r={$userdata.rsstoken}">Rss Feed</a> you can use to automatically download. <br>

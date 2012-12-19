@@ -1,29 +1,28 @@
 {if $nodata != ""}
-<div class="page-header">
-	<h1>View TV Series</h1>
-</div>
+
+<h2>View TV Series</h2>
+
 <div class="alert">
 	<strong>Ups!</strong>
 	{$nodata}
 </div>
 {else}
 
-<div class="page-header">
-	<h1>
-		{foreach $rage as $r}
-		{if $isadmin}
-		<a title="Edit rage data" href="{$smarty.const.WWW_TOP}/admin/rage-edit.php?id={$r.ID}&amp;from={$smarty.server.REQUEST_URI|escape:"url"}">{$r.releasetitle} </a>
-		{else}
-		{$r.releasetitle} 
-		{/if}
-		{if !$r@last} / {/if}
-		{/foreach}
+<h2>
+	{foreach $rage as $r}
+	{if $isadmin}
+	<a title="Edit rage data" href="{$smarty.const.WWW_TOP}/admin/rage-edit.php?id={$r.ID}&amp;from={$smarty.server.REQUEST_URI|escape:"url"}">{$r.releasetitle} </a>
+	{else}
+	{$r.releasetitle} 
+	{/if}
+	{if !$r@last} / {/if}
+	{/foreach}
 
-		{if $catname != ''} in {$catname|escape:"htmlall"}{/if}
+	{if $catname != ''} in {$catname|escape:"htmlall"}{/if}
 
-	</h1>
-</div>
-<div style="margin-top:-25px;">
+</h2>
+
+<div>
 	<b><a title="Manage your shows" href="{$smarty.const.WWW_TOP}/myshows">My Shows</a></b>:
 	<div class="btn-group">
 

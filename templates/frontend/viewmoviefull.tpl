@@ -5,9 +5,8 @@
 		<div id="moviefull" style="min-height:340px;">
 		{if $result.cover == 1}<img class="shadow pic img-polaroid pull-right" style="margin-right:50px;" alt="{$result.title|escape:"htmlall"} Logo" src="{$smarty.const.WWW_TOP}/covers/movies/{$result.imdbID}-cover.jpg" />{/if}
 		
-		 <div class="page-header">
-			<h2 style="display:inline;">{$result.title|escape:"htmlall"} ({$result.year})</h2>    <a class="rndbtn badge badge-imdb" target="_blank" href="{$site->dereferrer_link}http://www.imdb.com/title/tt{$result.imdbID}/" name="imdb{$result.imdbID}" title="View imdb page">Imdb</a>
-		</div>
+
+		<h2 style="display:inline;">{$result.title|escape:"htmlall"} ({$result.year})</h2>    <a class="rndbtn badge badge-imdb" target="_blank" href="{$site->dereferrer_link}http://www.imdb.com/title/tt{$result.imdbID}/" name="imdb{$result.imdbID}" title="View imdb page">Imdb</a>
 		
 		<h4>{if $result.genre != ''}{$result.genre|replace:"|":" / "}{/if}</h4>
 		

@@ -1,10 +1,8 @@
-<div class="page-header">
-	<h1>Search</h1>
-</div>
+<h2>Search</h2>
 
-	<div style="display:none;text-align:right;">
-		<a href="#" onclick="if(jQuery(this).text()=='Advanced Search')jQuery(this).text('Basic Search');else jQuery(this).text('Advanced Search');jQuery('#sbasic,#sadvanced').toggle();return false;">{if $sadvanced}Basic{else}Advanced{/if} Search</a>
-	</div>
+<div style="display:none;text-align:right;">
+	<a href="#" onclick="if(jQuery(this).text()=='Advanced Search')jQuery(this).text('Basic Search');else jQuery(this).text('Advanced Search');jQuery('#sbasic,#sadvanced').toggle();return false;">{if $sadvanced}Basic{else}Advanced{/if} Search</a>
+</div>
 	
 <div class="navbar">
 	<div class="navbar-inner">
@@ -85,9 +83,7 @@
 
 <form style="padding-top:10px;" id="nzb_multi_operations_form" method="get" action="{$smarty.const.WWW_TOP}/search">
 
-{$pager}
-
-<div class="well">
+<div class="well well-small">
 	<div class="nzb_multi_operations">
 		With Selected:
 		<div class="btn-group">
@@ -105,17 +101,21 @@
 		{/if}	
 	</div>
 </div>
-
+{if $results|@count == 50}
+<div {if $section != ''}style="margin-bottom:-40px;"{else}style="margin-bottom:-20px;"{/if}>
+	{$pager}
+</div>
+{/if}
 
 <table style="100%" class="data highlight icons table table-striped" id="browsetable">
 
 	<tr>
-		<th>
+		<th style="padding-top:0px; padding-bottom:0px;">
 			<input id="chkSelectAll" type="checkbox" class="nzb_check_all" />
 			<label for="chkSelectAll" style="display:none;">Select All</label>
 		</th>
 
-		<th>name<br/>
+		<th style="padding-top:0px; padding-bottom:0px;">name<br/>
 			<a title="Sort Descending" href="{$orderbyname_desc}">
 				<i class="fa-icon-caret-down"></i>
 			</a>
@@ -124,7 +124,7 @@
 			</a>
 		</th>
 
-		<th>category<br/>
+		<th style="padding-top:0px; padding-bottom:0px;">category<br/>
 			<a title="Sort Descending" href="{$orderbycat_desc}">
 				<i class="fa-icon-caret-down"></i>
 			</a>
@@ -133,7 +133,7 @@
 			</a>
 		</th>
 
-		<th>posted<br/>
+		<th style="padding-top:0px; padding-bottom:0px;">posted<br/>
 			<a title="Sort Descending" href="{$orderbyposted_desc}">
 				<i class="fa-icon-caret-down"></i>
 			</a>
@@ -142,7 +142,7 @@
 			</a>
 		</th>
 
-		<th>size<br/>
+		<th style="padding-top:0px; padding-bottom:0px;">size<br/>
 			<a title="Sort Descending" href="{$orderbysize_desc}">
 				<i class="fa-icon-caret-down"></i>
 			</a>
@@ -151,7 +151,7 @@
 			</a>
 		</th>
 
-		<th>files<br/>
+		<th style="padding-top:0px; padding-bottom:0px;">files<br/>
 			<a title="Sort Descending" href="{$orderbyfiles_desc}">
 				<i class="fa-icon-caret-down"></i>
 			</a>
@@ -160,7 +160,7 @@
 			</a>
 		</th>
 
-		<th>stats<br/>
+		<th style="padding-top:0px; padding-bottom:0px;">stats<br/>
 			<a title="Sort Descending" href="{$orderbystats_desc}">
 				<i class="fa-icon-caret-down"></i>
 			</a>
@@ -168,7 +168,7 @@
 				<i class="fa-icon-caret-up"></i>
 			</a>
 		</th>
-		<th>action</th>
+		<th style="padding-top:0px; padding-bottom:0px;"></th>
 	</tr>
 
 	{foreach from=$results item=result}

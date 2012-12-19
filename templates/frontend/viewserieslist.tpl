@@ -1,6 +1,6 @@
-<div class="page-header">
-	<h1>{$page->title}</h1>
-</div>
+
+<h2>{$page->title}</h2>
+
 
 <p>
 <b>Jump to</b>:
@@ -17,14 +17,12 @@
 		</div>
 	</form>
 </form>
-<br/>
 <center>
-<div class="btn-group">
+<div class="btn-group" style="margin-top:-65px; margin-left:30px;">
 	<a class="btn btn-small" href="{$smarty.const.WWW_TOP}/myshows" title="List my watched shows">My Shows</a>
 	<a class="btn btn-small" href="{$smarty.const.WWW_TOP}/myshows/browse" title="browse your shows">Browse My Shows</a>
 </div>
-</center>	
-<br/><br/>
+</center>
 {$site->adbrowse}	
 
 {if $serieslist|@count > 0}

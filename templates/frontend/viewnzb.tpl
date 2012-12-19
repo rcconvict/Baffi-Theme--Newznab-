@@ -1,6 +1,5 @@
-<div class="page-header">
-	<h1>{$release.searchname|escape:"htmlall"}</h1>
-</div>
+<h2>{$release.searchname|escape:"htmlall"}</h2>
+
 
 {$site->addetail}	
 
@@ -12,14 +11,12 @@
 {if $book && $book.cover == 1}<img class="shadow img-polaroid pull-right" style="margin-right:50px; margin-top:80px;" src="{$smarty.const.WWW_TOP}/covers/book/{$book.ID}.jpg" width="160" alt="{$book.title|escape:"htmlall"}" />{/if}
 
 	{if $isadmin}
-	<div class="well">
-		<div class="pull-left">
-			For the admin :   	
+	<div class="well well-small">
+			Admin :   	
 			<div class="btn-group">	
 				<a href="{$smarty.const.WWW_TOP}/admin/release-edit.php?id={$release.ID}&amp;from={$smarty.server.REQUEST_URI}" class="btn btn-small btn-warning" >Edit</a>
 				<a href="{$smarty.const.WWW_TOP}/admin/release-delete.php?id={$release.ID}&amp;from={$smarty.server.HTTP_REFERER}" class=" btn btn-small btn-danger" >Delete</a>
 			</div>
-		</div>
 	</div>
 	{/if}
 	

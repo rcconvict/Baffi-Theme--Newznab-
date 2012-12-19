@@ -1,6 +1,4 @@
-<div class="page-header">
-	<h1>{$page->title}</h1>
-</div>
+<h2>{$page->title}</h2>
 
 <center>
 <div class="btn-group">
@@ -11,8 +9,7 @@
 <a class="btn btn-small" href="{$smarty.const.WWW_TOP}/upcoming/5">DVD Releases</a>
 </div>
 </center>
-<br/><br/>
-
+<br />
 {$site->adbrowse}	
 
 {if $data|@count > 0}
@@ -58,7 +55,7 @@
 					<a {if $userimdbs[$result->alternate_ids->imdb] != ""}style="display:none;"{/if} onclick="mymovie_add('{$result->alternate_ids->imdb}', this);return false;" class="rndbtn btn btn-mini btn-info" href="#">Add To My Movies</a>
 				{/if}
 				<a style="display:{if $userimdbs[$result->alternate_ids->imdb] != ""}inline{else}none;{/if}" onclick="mymovie_del('{$result->alternate_ids->imdb}', this);return false;" href="#" class="rndbtn btn btn-mini btn-danger">Remove From My Movies</a>
-				<br/><br/>
+				<br/>
 
 
 			</td>

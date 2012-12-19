@@ -8,7 +8,7 @@
 			<div class="input-append">
 				
 				<input id="search" class="input-xlarge" name="search" value="{$search|escape:'htmlall'}" type="text" placeholder="Search text" />
-				<input id="search_search_button" class="btn btn-success" type="submit" value="search" />
+				<input id="searchraw_search_button" class="btn btn-success" type="submit" value="search" />
 				
 			</div>
 		</form>

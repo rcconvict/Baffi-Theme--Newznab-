@@ -1,6 +1,4 @@
-<div class="page-header">
-	<h1>{$page->title}</h1>
-</div>
+<h2>{$page->title}</h2>
 
 <center>
 <div class="btn-group">
@@ -9,8 +7,7 @@
 	<a class="btn btn-small" title="All releases in your shows as an RSS feed" href="{$smarty.const.WWW_TOP}/rss?t=-3&amp;dl=1&amp;i={$userdata.ID}&amp;r={$userdata.rsstoken}">Rss <i class="fa-icon-rss"></i></a>
 </div>
 </center>
-<br/>
-<br/>
+<br>
 
 {if $shows|@count > 0}
 

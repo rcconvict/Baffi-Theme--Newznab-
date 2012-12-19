@@ -1,6 +1,4 @@
-<div class="page-header">
-	<h1>{$page->title}</h1>
-</div>
+<h2>{$page->title}</h2>
 
 <p>
 Use this page to manage movies added to your personal list. If the movie becomes available it will be added to an <a href="{$smarty.const.WWW_TOP}/rss?t=-4&amp;dl=1&amp;i={$userdata.ID}&amp;r={$userdata.rsstoken}">Rss Feed</a> you can use to automatically download. <br>
@@ -12,11 +10,11 @@ To add more movies use the <a href="{$smarty.const.WWW_TOP}/mymovies">My Movies<
 <table class="data highlight Sortable table table-striped" id="browsetable">
 	<tr>
 
-		<th></th>
-		<th>name</th>
-		<th>category</th>
-		<th>added</th>
- 		<th class="mid">options</th>
+		<th style="padding-top:0px; padding-bottom:0px;"></th>
+		<th style="padding-top:0px; padding-bottom:0px;">name</th>
+		<th style="padding-top:0px; padding-bottom:0px;">category</th>
+		<th style="padding-top:0px; padding-bottom:0px;">added</th>
+ 		<th class="mid" style="padding-top:0px; padding-bottom:0px;">options</th>
 	</tr>
 
 	{foreach from=$movies item=movie}
@@ -36,7 +34,7 @@ To add more movies use the <a href="{$smarty.const.WWW_TOP}/mymovies">My Movies<
 
 
 			<td>
-				<h2>{$movie.title|escape:"htmlall"} ({$movie.year})</h2>
+				<h4>{$movie.title|escape:"htmlall"} ({$movie.year})</h4>
 				{if $movie.tagline != ''}<b>{$movie.tagline}</b><br />{/if}
 				{if $movie.plot != ''}{$movie.plot}<br /><br />{/if}
 				{if $movie.genre != ''}<b>Genre:</b> {$movie.genre}<br />{/if}

@@ -2,8 +2,8 @@
 
 <table style="width:100%;" class="data highlight icons table table-striped" id="coverstable">
 		<tr>
-			<th></th>
-			<th>Name</th>
+			<th style="padding-top:0px; padding-bottom:0px;"></th>
+			<th style="padding-top:0px; padding-bottom:0px;">Name</th>
 		</tr>
 
 		{foreach $data as $result}
@@ -25,11 +25,11 @@
 				</div>
 			</td>
 			<td colspan="3" class="left">
-				<h2>
+				<h4>
 				<a href="{$smarty.const.WWW_TOP}/movies?title={$result->name}">{$result->name|escape:"htmlall"}</a> 
 				{if $result->released != ""}(<a class="title" href="{$smarty.const.WWW_TOP}/movies?year={$result->released|date_format:"Y"}">{$result->released|date_format:"Y"}</a>){/if}
 				{if $result->rating > 0}{$result->rating}/10{/if}
-				</h2>				
+				</h4>				
 				
 				{$result->overview}
 

@@ -10,8 +10,8 @@
 	<title>{$page->meta_title}{if $page->meta_title != "" && $site->metatitle != ""} - {/if}{$site->metatitle}</title>
 {if $loggedin=="true"}	<link rel="alternate" type="application/rss+xml" title="{$site->title} Full Rss Feed" href="{$smarty.const.WWW_TOP}/rss?t=0&amp;dl=1&amp;i={$userdata.ID}&amp;r={$userdata.rsstoken}" />{/if}
 
-{*	<link href="{$smarty.const.WWW_TOP}/views/styles/style.css" rel="stylesheet" type="text/css" media="screen" />	*}
-	<link href="{$smarty.const.WWW_TOP}/views/styles/jquery.qtip.css" rel="stylesheet" type="text/css" media="screen" />
+{*	<link href="{$smarty.const.WWW_TOP}/views/styles/style.css" rel="stylesheet" type="text/css" media="screen" />	
+	<link href="{$smarty.const.WWW_TOP}/views/styles/jquery.qtip.css" rel="stylesheet" type="text/css" media="screen" /> *}
 
 {if $site->google_adsense_acc != ''}	<link href="http://www.google.com/cse/api/branding.css" rel="stylesheet" type="text/css" media="screen" />{/if}
 {if $site->style != "" && $site->style != "/"}	<link href="{$smarty.const.WWW_TOP}/views/themes/{$site->style}/style.css" rel="stylesheet" type="text/css" media="screen" />{/if}
@@ -79,8 +79,8 @@
 		================================================== -->
 		<div class="container-fluid">
 			<div class="row-fluid">
-				<div class="span2">
-					<ul class="nav nav-list affix">
+				<div class="span1-5">
+					<ul class="nav nav-list">
 					{$main_menu}
 
 					{$article_menu}
@@ -92,7 +92,7 @@
 					</ul>
 				</div>
 
-				<div class="span10">
+				<div class="span10-5">
 					{$page->content}
 				</div>
 

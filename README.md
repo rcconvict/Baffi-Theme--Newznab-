@@ -21,7 +21,7 @@ Main
 
 ## Preview
 
-* [NZB View](http://cl.ly/image/2O0u3n1U2B3E "NZB View")
+* [Series View](http://cl.ly/image/3i023e0M2f3h "Series View")
 * [Movie List View](http://cl.ly/image/3C3D0X1D2t1M "Movie List View")
 
 

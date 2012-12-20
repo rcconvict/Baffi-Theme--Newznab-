@@ -1,18 +1,17 @@
-<div class="page-header">
-	<h1><a href="{$smarty.const.WWW_TOP}/forum">Forum</a></h1>
-</div>
+<h2><a href="{$smarty.const.WWW_TOP}/forum">Forum</a></h2>
+
 
 {if $results|@count > 0}
 
-<h2>{$results[0].subject|escape:"htmlall"}</h2>
+<h3>{$results[0].subject|escape:"htmlall"}</h3>
 
 <div style="float:right;margin-bottom:5px;"><a class="btn btn-small btn-primary" href="#reply">Reply</a></div>
 
 <a id="top"></a>
 <table style="width:100%;" class="data highlight table table-striped" id="forumtable">
 	<tr>
-		<th>By</th>
-		<th>Message</th>
+		<th style="padding-top:0px; padding-bottom:0px;">By</th>
+		<th style="padding-top:0px; padding-bottom:0px;">Message</th>
 	</tr>
 
 	{foreach from=$results item=result name=result}

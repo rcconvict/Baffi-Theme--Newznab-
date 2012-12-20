@@ -1,6 +1,5 @@
-<div class="page-header">
-	<h1>{if $page->title !=''}{$page->title}{else}Forum{/if}</h1>
-</div>
+<h2>{if $page->title !=''}{$page->title}{else}Forum{/if}</h2>
+
 
 {if $results|@count > 0}
 
@@ -12,10 +11,10 @@
 
 <table style="width:100%;" class="data highlight table table-striped" id="forumtable">
 	<tr>
-		<th width="60%">Topic</th>
-		<th>Posted By</th>
-		<th>Last Update</th>
-		<th width="5%" class="mid">Replies</th>
+		<th style="padding-top:0px; padding-bottom:0px;" width="60%">Topic</th>
+		<th style="padding-top:0px; padding-bottom:0px;">Posted By</th>
+		<th style="padding-top:0px; padding-bottom:0px;">Last Update</th>
+		<th style="padding-top:0px; padding-bottom:0px;" width="5%" class="mid">Replies</th>
 	</tr>
 
 	{foreach from=$results item=result}

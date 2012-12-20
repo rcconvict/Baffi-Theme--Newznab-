@@ -6,7 +6,7 @@ A "theme" for newznab, it's more then the normal theme, this is a complete rewri
 
 Working on: `frontend`
 
-######Not done:
+######Not fully skinned:
 
 Admin
 * `ajax_release-edit`
@@ -18,7 +18,6 @@ Main
 * `Anime`
 * `Console`
 * `PreList`
-* `IMDB modal`, the popout with info of a movie
 
 ## Preview
 

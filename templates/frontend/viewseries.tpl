@@ -38,7 +38,7 @@
 <br/><br/>
 <div class="tvseriesheading">
 	{if $rage[0].imgdata != ""}
-	<img class="shadow img img-polaroid" alt="{$rage[0].releasetitle} Logo" src="{$smarty.const.WWW_TOP}/getimage?type=tvrage&amp;id={$rage[0].ID}" />{/if}
+	<img class="shadow img img-polaroid pull-right" style="margin-left:30px;" alt="{$rage[0].releasetitle} Logo" src="{$smarty.const.WWW_TOP}/getimage?type=tvrage&amp;id={$rage[0].ID}" />{/if}
 	<p>
 		{if $seriesGenre != ''}<b>{$seriesgenre}</b><br />{/if}
 		<span class="descinitial">{$seriesdescription|escape:"htmlall"|nl2br|magicurl}</span>

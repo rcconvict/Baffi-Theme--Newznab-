@@ -41,9 +41,13 @@ Two quick start options are available:
 1. Copy the `baffi` folder to the path `../newznab/www/views/themes` within the application folder.
 2. Rename the `templates` folder in `../newznab/www/views/` on the website, to `templates_old`.
 3. Copy the `templates` folder to the path `../newznab/www/views/`.
-4. Copy the `bootstrap.min.js` file located in `baffi/js` folder to the path `../newznab/www/views/scripts`.
-5. Rename the `utils-admin.js` file located in `../newznab/www/views/scripts` to `utils-admin_old.js`.
-6. Copy the `utils-admin.js` file located in `baffi/js` folder to the path `../newznab/www/views/scripts`.
+4. Copy the `bootstrap.min.js` file located in `scripts` folder to the path `../newznab/www/views/scripts`.
+5. Rename the `utils-admin.js`, `jquery.qtip2.js`, `utils-admin.js`, `utils.js` files located in `../newznab/www/views/scripts` by adding `_old` to them.
+6. Copy the `utils-admin.js`, `jquery.qtip2.js`, `utils-admin.js`, `utils.js` file located in `scripts` folder to the path `../newznab/www/views/scripts`.
+7. Rename the `jquery.qtip.css` file located in `../newznab/www/views/styles` by adding `_old` to them.
+8. Copy the `jquery.qtip.css` file located in `styles` folder to the path `../newznab/www/views/styles`.
+9. Select the `baffi` theme under Admin -> Site edit 
+
 
 
 

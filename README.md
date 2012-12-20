@@ -21,9 +21,8 @@ Main
 
 ## Preview
 
-* [Single Movie View](http://cl.ly/image/2q2P1z000Q3T "Single Movie View")
-* [Movie List View](http://cl.ly/image/0r2J0V3T2i2r "Movie List View")
-* [Admin interface](http://cl.ly/image/0g1I2R1v020I "Admin interface")
+* [NZB View](http://cl.ly/image/2O0u3n1U2B3E "NZB View")
+* [Movie List View](http://cl.ly/image/3C3D0X1D2t1M "Movie List View")
 
 
 ## Quick start

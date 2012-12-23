@@ -42,6 +42,14 @@ Two quick start options are available:
 4. Copy the `bootstrap.min.js` file located in `scripts` folder to the path `../newznab/www/views/scripts`.
 5. Select the `baffi` theme under Admin -> Site edit 
 
+## Revert to old.
+
+1. Select some other theme then `baffi` under Admin -> Site edit and save/refresh (to see that the `baffi` theme is broken.)
+2. Delete the `bootstrap.min.js` file located in `../newznab/www/views/scripts`.
+3. Delete the `templates` folder located in `../newznab/www/views/`, and rename `templates_old` to `templates`.
+4. Delete the `baffi` folder in `../newznab/www/views/themes`.
+
+
 
 
 

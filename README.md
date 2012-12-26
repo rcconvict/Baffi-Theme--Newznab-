@@ -48,8 +48,7 @@ Two quick start options are available:
 2. Delete the `bootstrap.min.js` file located in `../newznab/www/views/scripts`.
 3. Delete the `templates` folder located in `../newznab/www/views/`, and rename `templates_old` to `templates`.
 4. Delete the `baffi` folder in `../newznab/www/views/themes`.
-
-
+5. Delete any files in the folder `../newznab/www/lib/smarty/templates_c`, this is a cache issue, Thanks to sinfuljosh figuring it out.
 
 
 

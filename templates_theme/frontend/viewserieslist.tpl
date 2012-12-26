@@ -18,7 +18,7 @@
 	</form>
 </form>
 <center>
-<div class="btn-group" style="margin-top:-65px; margin-left:30px;">
+<div class="btn-group" style="margin-top:-65px; margin-left:250px;">
 	<a class="btn btn-small" href="{$smarty.const.WWW_TOP}/myshows" title="List my watched shows">My Shows</a>
 	<a class="btn btn-small" href="{$smarty.const.WWW_TOP}/myshows/browse" title="browse your shows">Browse My Shows</a>
 </div>

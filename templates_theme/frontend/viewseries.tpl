@@ -35,10 +35,13 @@
 	</div>
 </div>
 
-<br/><br/>
 <div class="tvseriesheading">
 	{if $rage[0].imgdata != ""}
-	<img class="shadow img img-polaroid pull-right" style="margin-left:30px;" alt="{$rage[0].releasetitle} Logo" src="{$smarty.const.WWW_TOP}/getimage?type=tvrage&amp;id={$rage[0].ID}" />{/if}
+	<center>
+		<img class="shadow img img-polaroid" style="max-height:300px;" alt="{$rage[0].releasetitle} Logo" src="{$smarty.const.WWW_TOP}/getimage?type=tvrage&amp;id={$rage[0].ID}" />
+	</center>
+	<br/>
+	{/if}
 	<p>
 		{if $seriesGenre != ''}<b>{$seriesgenre}</b><br />{/if}
 		<span class="descinitial">{$seriesdescription|escape:"htmlall"|nl2br|magicurl}</span>

@@ -28,7 +28,7 @@
 </head>
 
 <body>
-	<div class="navbar navbar-inverted navbar-fixed-top">
+	<div class="navbar navbar-inverse navbar-fixed-top">
 		<div class="navbar-inner" style="padding-left:30px; padding-right:30px;">
 			<div class="container">
 				<a class="brand" href="{$smarty.const.WWW_TOP}{$site->home_link}">{$site->title}</a>

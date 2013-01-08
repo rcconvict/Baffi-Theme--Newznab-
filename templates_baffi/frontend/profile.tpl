@@ -74,7 +74,7 @@
 				<div style="display:none;" class="invitesuccess alert alert-success " id="divInviteSuccess">Invite Sent</div>
 				<div style="display:none;" class="invitefailed alert alert-error" id="divInviteError"></div>
 				<form id="frmSendInvite" method="GET">
-					<input class="input-block-level" type="text" id="txtInvite " placeholder="Email"/>
+					<input class="input-block-level" type="text" id="txtInvite" placeholder="Email"/>
 					<input class="btn btn-success" type="submit" value="Send"/>
 				</form>
 			</div>

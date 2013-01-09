@@ -1,0 +1,53 @@
+@import url('../baffi/bootstrap.css');
+@import url('../baffi/font-awesome.css');
+
+
+/* Color of the links on the site */
+a{
+    color: #B30000;
+}
+
+a:hover {
+    color: #7F0000;
+}
+
+
+a.thumbnail:hover {
+    border-color: #B30000;
+}
+
+.nav .dropdown-toggle .caret {          
+    border-top-color: #B30000;         
+    border-bottom-color: #B30000;       
+}
+
+.dropdown-menu li > a:hover,
+.dropdown-menu li > a:focus,
+.dropdown-submenu:hover > a {
+    background-image: -moz-linear-gradient(top, #B30000, #7F0000);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#B30000), to(#7F0000));
+    background-image: -webkit-linear-gradient(top, #B30000, #7F0000);
+    background-image: -o-linear-gradient(top, #B30000, #7F0000);
+    background-image: linear-gradient(to bottom, #B30000, #7F0000);
+}
+
+.dropdown-menu .active > a,
+.dropdown-menu .active > a:hover {
+    background-color: #B30000;
+    background-image: -moz-linear-gradient(top, #B30000, #7F0000);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#B30000), to(#7F0000));
+    background-image: -webkit-linear-gradient(top, #B30000, #7F0000);
+    background-image: -o-linear-gradient(top, #B30000, #7F0000);
+    background-image: linear-gradient(to bottom, #B30000, #7F0000);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0077b3', GradientType=0);
+}
+
+.nav-list > .active > a,
+.nav-list > .active > a:hover {
+    background-color: #B30000;
+}
+
+
+/* Hide the footer? Uncomment this. 
+   .footer {display:none;} 
+*/

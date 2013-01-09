@@ -22,6 +22,8 @@ if [ $WISH0 = "1" ] ; then
 	echo " "
 	echo " Copying the Baffi:Theme"
 	cp -r baffi ../www/views/themes/baffi
+	cp -r baffi-green ../www/views/themes/baffi-green
+	cp -r baffi-red ../www/views/themes/baffi-red
 	
 	cp bootstrap.js ../www/views/scripts/bootstrap.js
 	
@@ -56,7 +58,7 @@ fi
 if [ $WISH0 = "2" ] ; then
 	clear
 	echo " "
-	echo -n " Have you choosed another theme in the admin->site edit? [y/n] "
+	echo -n " Have you choosen another theme in the admin->site edit? [y/n] "
 	read WISH2
 	if [ $WISH2 = "n" ] ; then
 		echo " Please do so first"
@@ -66,6 +68,8 @@ if [ $WISH0 = "2" ] ; then
 	echo " "
 	echo " Removing the Baffi:Theme"
 	rm -r ../www/views/themes/baffi
+	rm -r ../www/views/themes/baffi-green
+	rm -r ../www/views/themes/baffi-red
 	rm ../www/views/scripts/bootstrap.js
 	
 	echo " "

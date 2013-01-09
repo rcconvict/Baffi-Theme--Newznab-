@@ -36,19 +36,14 @@ Two quick start options are available:
 
 ## Installation
 
-1. Copy the `baffi` folder to the path `../newznab/www/views/themes` within the application folder.
-2. Rename the `templates` folder in `../newznab/www/views/` on the website, to `templates_old`.
-3. Copy the `templates` folder to the path `../newznab/www/views/`.
-4. Copy the `bootstrap.min.js` file located in `scripts` folder to the path `../newznab/www/views/scripts`.
-5. Select the `baffi` theme under Admin -> Site edit 
+1. Unzip to the root of the `newznab`
+2. run the `runme.sh` (linux) 
+3. follow the instructions
 
 ## Revert to old.
 
-1. Select some other theme then `baffi` under Admin -> Site edit and save/refresh (to see that the `baffi` theme is broken.)
-2. Delete the `bootstrap.min.js` file located in `../newznab/www/views/scripts`.
-3. Delete the `templates` folder located in `../newznab/www/views/`, and rename `templates_old` to `templates`.
-4. Delete the `baffi` folder in `../newznab/www/views/themes`.
-5. Delete any files in the folder `../newznab/www/lib/smarty/templates_c`, this is a cache issue, Thanks to sinfuljosh figuring it out.
+1. run the `runme.sh` (linux) 
+2. follow the instructions
 
 
 

@@ -104,6 +104,32 @@ if [ $WISH0 = "3" ] ; then
 		rm -r ../www/views/templates_baffi
 		rm ../www/lib/framework/basepage.php 
 		mv ../www/lib/framework/basepage_old.php ../www/lib/framework/basepage.php 
+		
+		clear
+		echo " "
+		echo " Updating"
+	
+		git pull
+	
+		clear
+		echo " "
+		echo " Installing"
+	
+		cp -r baffi ../www/views/themes/baffi
+		cp -r baffi-green ../www/views/themes/baffi-green
+		cp -r baffi-red ../www/views/themes/baffi-red
+		cp bootstrap.js ../www/views/scripts/bootstrap.js
+		cp -r templates_baffi ../www/views/templates_baffi
+		mv ../www/lib/framework/basepage.php ../www/lib/framework/basepage_old.php 
+		cp basepage.php ../www/lib/framework/basepage.php 
+	
+		clear
+	
+		Reset
+	
+		clear
+		echo " "
+		echo " Done"
 	fi
 	
 	clear
@@ -113,16 +139,8 @@ if [ $WISH0 = "3" ] ; then
 	git pull
 	
 	clear
-	echo " "
-	echo " Installing"
-	
-	cp -r baffi ../www/views/themes/baffi
-	cp -r baffi-green ../www/views/themes/baffi-green
-	cp -r baffi-red ../www/views/themes/baffi-red
-	cp bootstrap.js ../www/views/scripts/bootstrap.js
-	cp -r templates_baffi ../www/views/templates_baffi
-	mv ../www/lib/framework/basepage.php ../www/lib/framework/basepage_old.php 
-	cp basepage.php ../www/lib/framework/basepage.php 
+	 
+	Install
 	
 	clear
 	

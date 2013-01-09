@@ -1,15 +1,7 @@
 #!/bin/sh
 set -e
-clear
-echo " "
-echo " 1. Install baffi:theme "
-echo " 2. Remove baffi:theme "
-echo " 3. Update baffi:theme [Not yet implemented]"
-echo " "
-echo -n " What do you want? "
-read WISH0
-
-if [ $WISH0 = "1" ] ; then
+# Define Install
+Install () {
 	clear
 	echo " "
 	echo -n " Is this folder located in the root of the newznab folder? [y/n] "
@@ -52,19 +44,10 @@ if [ $WISH0 = "1" ] ; then
 	echo " "
 	echo " I think we are about done for now."
 	echo " "
-fi
+}
 
-
-if [ $WISH0 = "2" ] ; then
-	clear
-	echo " "
-	echo -n " Have you choosen another theme in the admin->site edit? [y/n] "
-	read WISH2
-	if [ $WISH2 = "n" ] ; then
-		echo " Please do so first"
-		exit
-	fi
-	
+Remove () {
+	clear	
 	echo " "
 	echo " Removing the Baffi:Theme"
 	rm -r ../www/views/themes/baffi
@@ -91,6 +74,41 @@ if [ $WISH0 = "2" ] ; then
 	echo " "
 	echo " I think we are about done for now."
 	echo " "
+}
+
+
+clear
+echo " "
+echo " 1. Install baffi:theme "
+echo " 2. Remove baffi:theme "
+echo " 3. Update baffi:theme [Not yet implemented]"
+echo " "
+echo -n " What do you want? "
+read WISH0
+
+if [ $WISH0 = "1" ] ; then
+	Install
 fi
+
+if [ $WISH0 = "2" ] ; then
+	Remove
+fi
+
+if [ $WISH0 = "3" ] ; then
+	Remove
+	
+	clear
+	
+	echo " "
+	echo " Updating"
+	
+	git pull
+	
+	clear
+	
+	Install
+	
+fi
+
 
 exit

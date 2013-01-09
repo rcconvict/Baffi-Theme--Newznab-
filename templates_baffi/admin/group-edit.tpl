@@ -31,7 +31,7 @@
 	<div class="control-group">
 		<label class="control-label" for="minfilestoformrelease">Minimum Files <br/>To Form Release</label>
 		<div class="controls">
-			<input class="input input-xxlarge" class="small" id="minfilestoformrelease" name="minfilestoformrelease" type="text" value="{$group.minfilestoformrelease}" />>
+			<input class="input input-xxlarge" class="small" id="minfilestoformrelease" name="minfilestoformrelease" type="text" value="{$group.minfilestoformrelease}" />
 			<span class="help-block">The minimum number of files to make a release. i.e. if set to two, then releases which only contain one file will not be created. If left blank, will use the site wide setting.</span>
 		</div>
 	</div>

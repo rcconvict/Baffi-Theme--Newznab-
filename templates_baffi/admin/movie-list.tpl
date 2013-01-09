@@ -41,7 +41,7 @@
 		<td class="less" style="width:100px;">{$movie.createddate|date_format}</td>
 		<td class="right">
 			<div class="btn-group">
-			<a class="btn btn-mini btn-warning" title="update" href="{$smarty.const.WWW_TOP}/movie-add.php?id={$movie.imdbID}&amp;update=1">Udate</a> | 
+			<a class="btn btn-mini btn-warning" title="update" href="{$smarty.const.WWW_TOP}/movie-add.php?id={$movie.imdbID}&amp;update=1">Update</a> | 
 			<a class="btn btn-mini btn-danger" title="delete" href="{$smarty.const.WWW_TOP}/movie-delete.php?id={$movie.imdbID}">Delete</a>
 			</div>
 		</td>

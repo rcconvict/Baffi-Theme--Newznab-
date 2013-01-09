@@ -11,11 +11,11 @@ Install () {
 	fi
 	
 	echo "Copying the Baffi:Theme"
-	cp -r baffi ../www/views/themes/baffi
-	cp -r baffi-green ../www/views/themes/baffi-green
-	cp -r baffi-red ../www/views/themes/baffi-red
+	cp -r baffi ../www/views/themes/
+	cp -r baffi-green ../www/views/themes/
+	cp -r baffi-red ../www/views/themes/
 	
-	cp bootstrap.js ../www/views/scripts/bootstrap.js
+	cp bootstrap.js ../www/views/scripts/
 	
 	clear
 	echo -n "Go and select the Baffi theme in admin->site edit. Have you done it? [y/n] "
@@ -23,13 +23,13 @@ Install () {
 	if [ $WISH12 = "y" ] ; then
 	
 		echo "Copying the Baffi:Templates"
-		cp -r templates_baffi ../www/views/templates_baffi
+		cp -r templates_baffi ../www/views/
 		
 		echo "Backuping the basepage"
 		mv ../www/lib/framework/basepage.php ../www/lib/framework/basepage_old.php 
 
 		echo "Feeding the Baffi:basepage"
-		cp basepage.php ../www/lib/framework/basepage.php 
+		cp basepage.php ../www/lib/framework/
 	
 	fi
 
@@ -104,13 +104,13 @@ if [ $WISH0 = "3" ] ; then
 		clear
 		echo "Installing"
 	
-		cp -r baffi ../www/views/themes/baffi
-		cp -r baffi-green ../www/views/themes/baffi-green
-		cp -r baffi-red ../www/views/themes/baffi-red
-		cp bootstrap.js ../www/views/scripts/bootstrap.js
-		cp -r templates_baffi ../www/views/templates_baffi
+		cp -r baffi ../www/views/themes/
+		cp -r baffi-green ../www/views/themes/
+		cp -r baffi-red ../www/views/themes/
+		cp bootstrap.js ../www/views/scripts/
+		cp -r templates_baffi ../www/views/
 		mv ../www/lib/framework/basepage.php ../www/lib/framework/basepage_old.php 
-		cp basepage.php ../www/lib/framework/basepage.php 
+		cp basepage.php ../www/lib/framework/
 	
 		clear
 	

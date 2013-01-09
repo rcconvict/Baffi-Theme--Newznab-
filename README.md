@@ -1,7 +1,7 @@
 # Baffi - the theme for Newznab
 A "theme" for newznab, it's more then the normal theme, this is a complete rewrite of the template files in effort to make a good theme.
 
-
+Join Synirc #newznab-baffi for more talk about the theme.
 
 #### Status
 

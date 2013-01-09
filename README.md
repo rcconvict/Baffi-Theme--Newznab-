@@ -37,13 +37,13 @@ Two quick start options are available:
 ## Installation
 
 1. Unzip to the root of the `newznab`
-2. run the `runme.sh` (linux) 
-3. follow the instructions
+2. Run the `runme.sh` (linux) 
+3. Follow the instructions
 
 ## Revert to old.
 
-1. run the `runme.sh` (linux) 
-2. follow the instructions
+1. Run the `runme.sh` (linux) 
+2. Follow the instructions
 
 
 

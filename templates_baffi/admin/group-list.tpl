@@ -8,6 +8,7 @@
 	&bull; <strong>Reset</strong> will update the last indexed date of the group so it will appear as the first time you have ever activated that group.<br/>
 	&bull; <strong>Delete</strong> will delete the group but leave all releases.<br/>
 	&bull; <strong>Purge</strong> will delete all releases for the group.
+	&bull; You can <a href="group-edit.php">add your own groups</a>. Here is a <a target="_blank" href="http://www.lightningnews.com/grouplist.txt">fairly comprehensive list of newsgroups</a>.<br/>
 </div>
 
 

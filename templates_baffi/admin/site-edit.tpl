@@ -134,7 +134,7 @@
 			<label class="control-label" for="newznabID">newznab ID</label>
 			<div class="controls">
 				<input class="input input-xxlarge" id="newznabID" class="long" name="newznabID" type="text" value="{$fsite->newznabID}" />
-				<span class="help-block">Your registered newznab ID. Used for access to additional features.</span>
+				<span class="help-block">Your registered newznab ID.</span>
 			</div>
 		</div>
 
@@ -449,10 +449,10 @@
 		<legend>Lookup Settings</legend>
 
 		<div class="control-group">
-			<label class="control-label" for="reqidurl">Allfilled Request Id Lookup URL</label>
+			<label class="control-label" for="reqidurl">Allfilled Lookup URL</label>
 			<div class="controls">
 				<input class="input input-xxlarge" class="long" id="reqidurl" name="reqidurl" type="text" value="{$fsite->reqidurl}" />
-				<span class="help-block">The url to use to translate allfilled style reqid usenet posts into real release titles. Leave blank to not perform lookup.</span>
+				<span class="help-block">The url for allfilled posts. Leave blank to not perform lookup.</span>
 			</div>
 		</div>
 
@@ -460,7 +460,7 @@
 			<label class="control-label" for="reqidurl">Latest Regex Lookup URL</label>
 			<div class="controls">
 				<input class="input input-xxlarge" class="long" id="latestregexurl" name="latestregexurl" type="text" value="{$fsite->latestregexurl}" />
-				<span class="help-block">The url to use to get the latest regexs. Leave blank to not perform lookup. This will retrieve all user contributed regexes.</span>
+				<span class="help-block">TThe url to use to retrieve all community contributed regexes. Leave blank to not perform lookup.</span>
 			</div>
 		</div>
 
@@ -476,7 +476,7 @@
 			<label class="control-label" for="lookuptvrage">Lookup TV Rage</label>
 			<div class="controls">
 				{html_radios id="lookuptvrage" name='lookuptvrage' values=$yesno_ids output=$yesno_names selected=$fsite->lookuptvrage separator=''}
-				<span class="help-block">Whether to attempt to lookup tv rage ids on the web when processing binaries.</span>
+				<span class="help-block">Whether to attempt to lookup tv rage ids on the web when processing.</span>
 			</div>
 		</div>
 
@@ -484,7 +484,7 @@
 			<label class="control-label" for="lookupthetvdb">Lookup TheTVDB</label>
 			<div class="controls">
 				{html_radios id="lookupthetvdb" name='lookupthetvdb' values=$yesno_ids output=$yesno_names selected=$fsite->lookupthetvdb separator=''}
-				<span class="help-block">Whether to attempt to lookup addidional series information from TheTVDB when processing binaries.</span>
+				<span class="help-block">Whether to attempt to lookup additional series information from TheTVDB when processing.</span>
 			</div>
 		</div>
 
@@ -492,7 +492,7 @@
 			<label class="control-label" for="lookupimdb">Lookup Movies</label>
 			<div class="controls">
 				{html_radios id="lookupimdb" name='lookupimdb' values=$yesno_ids output=$yesno_names selected=$fsite->lookupimdb separator=''}
-				<span class="help-block">Whether to attempt to lookup film information from IMDB or TheMovieDB when processing binaries.</span>
+				<span class="help-block">Whether to attempt to lookup film information from IMDB or TheMovieDB when processing.</span>
 			</div>
 		</div>
 
@@ -500,7 +500,7 @@
 			<label class="control-label" for="lookupanidb">Lookup AniDB</label>
 			<div class="controls">
 				{html_radios id="lookupanidb" name='lookupanidb' values=$yesno_ids output=$yesno_names selected=$fsite->lookupanidb separator=''}
-				<span class="help-block">Whether to attempt to lookup anime information from AniDB when processing binaries.</span>
+				<span class="help-block">Whether to attempt to lookup anime information from AniDB when processing.</span>
 			</div>
 		</div>
 
@@ -508,7 +508,7 @@
 			<label class="control-label" for="lookupmusic">Lookup Music</label>
 			<div class="controls">
 				{html_radios id="lookupmusic" name='lookupmusic' values=$yesno_ids output=$yesno_names selected=$fsite->lookupmusic separator=''}
-				<span class="help-block">Whether to attempt to lookup music information from Amazon when processing binaries.</span>
+				<span class="help-block">Whether to attempt to lookup music information from Amazon when processing.</span>
 			</div>
 		</div>
 
@@ -516,7 +516,7 @@
 			<label class="control-label" for="lookupgames">Lookup Games</label>
 			<div class="controls">
 				{html_radios id="lookupgames" name='lookupgames' values=$yesno_ids output=$yesno_names selected=$fsite->lookupgames separator=''}
-				<span class="help-block">Whether to attempt to lookup game information from Amazon when processing binaries.</span>
+				<span class="help-block">Whether to attempt to lookup game information from Amazon when processing.</span>
 			</div>
 		</div>
 
@@ -524,7 +524,7 @@
 			<label class="control-label" for="lookupbooks">Lookup Books</label>
 			<div class="controls">
 				{html_radios id="lookupbooks" name='lookupbooks' values=$yesno_ids output=$yesno_names selected=$fsite->lookupbooks separator=''}
-				<span class="help-block">Whether to attempt to lookup book information from Amazon when processing binaries.</span>
+				<span class="help-block">Whether to attempt to lookup book information from Amazon when processing.</span>
 			</div>
 		</div>
 

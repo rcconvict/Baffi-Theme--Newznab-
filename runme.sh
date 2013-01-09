@@ -25,8 +25,6 @@ Install () {
 	read WISH12
 	if [ $WISH12 = "y" ] ; then
 	
-		rm -r ../www/lib/smarty/templates_c/*
-	
 		echo " "
 		echo " Copying the Baffi:Templates"
 		cp -r templates_baffi ../www/views/templates_baffi
@@ -41,47 +39,41 @@ Install () {
 	
 	fi
 
-	echo " "
-	echo " I think we are about done for now."
-	echo " "
 }
 
 Remove () {
 	clear	
 	echo " "
 	echo " Removing the Baffi:Theme"
+	
 	rm -r ../www/views/themes/baffi
 	rm -r ../www/views/themes/baffi-green
 	rm -r ../www/views/themes/baffi-red
 	rm ../www/views/scripts/bootstrap.js
 	
-	echo " "
 	echo " Removing the Baffi:Templates"
+	
 	rm -r ../www/views/templates_baffi
 
-	echo " "
 	echo " Removing the Baffi:basepage"
 	rm ../www/lib/framework/basepage.php 
 
-	echo " "
 	echo " Reverting back to the backup of the basepage"
 	mv ../www/lib/framework/basepage_old.php ../www/lib/framework/basepage.php 
 
-	echo " "
-	echo " Reseting the cache"
-	rm -r ../www/lib/smarty/templates_c/*
-	
-	echo " "
-	echo " I think we are about done for now."
-	echo " "
+
 }
 
+Reset () {
+	rm -r ../www/lib/smarty/templates_c/*
+}
 
 clear
 echo " "
 echo " 1. Install baffi:theme "
 echo " 2. Remove baffi:theme "
-echo " 3. Update baffi:theme [Not yet implemented]"
+echo " 3. Update baffi:theme (Need git)"
+echo " 4. Clear cache "
 echo " "
 echo -n " What do you want? "
 read WISH0
@@ -95,20 +87,56 @@ if [ $WISH0 = "2" ] ; then
 fi
 
 if [ $WISH0 = "3" ] ; then
-	Remove
 	
 	clear
+	echo " "
+	echo -n " Is Baffi:theme installed? [y/n] "
+	read WISH3
+	if [ $WISH3 = "y" ] ; then
 	
+		clear
+		echo " "
+		echo " Removing old"
+		rm -r ../www/views/themes/baffi
+		rm -r ../www/views/themes/baffi-green
+		rm -r ../www/views/themes/baffi-red
+		rm ../www/views/scripts/bootstrap.js
+		rm -r ../www/views/templates_baffi
+		rm ../www/lib/framework/basepage.php 
+		mv ../www/lib/framework/basepage_old.php ../www/lib/framework/basepage.php 
+	fi
+	
+	clear
 	echo " "
 	echo " Updating"
 	
 	git pull
 	
 	clear
+	echo " "
+	echo " Installing"
 	
-	Install
+	cp -r baffi ../www/views/themes/baffi
+	cp -r baffi-green ../www/views/themes/baffi-green
+	cp -r baffi-red ../www/views/themes/baffi-red
+	cp bootstrap.js ../www/views/scripts/bootstrap.js
+	cp -r templates_baffi ../www/views/templates_baffi
+	mv ../www/lib/framework/basepage.php ../www/lib/framework/basepage_old.php 
+	cp basepage.php ../www/lib/framework/basepage.php 
+	
+	clear
+	
+	Reset
+	
+	clear
+	echo " "
+	echo " Done"
+	
 	
 fi
 
+if [ $WISH0 = "4" ] ; then
+	Reset
+fi
 
 exit

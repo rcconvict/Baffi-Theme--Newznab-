@@ -10,11 +10,12 @@
 	<title>{$page->meta_title}{if $page->meta_title != "" && $site->metatitle != ""} - {/if}{$site->metatitle}</title>
 {if $loggedin=="true"}	<link rel="alternate" type="application/rss+xml" title="{$site->title} Full Rss Feed" href="{$smarty.const.WWW_TOP}/rss?t=0&amp;dl=1&amp;i={$userdata.ID}&amp;r={$userdata.rsstoken}" />{/if}
 
-{*	<link href="{$smarty.const.WWW_TOP}/views/styles/style.css" rel="stylesheet" type="text/css" media="screen" />	
-	<link href="{$smarty.const.WWW_TOP}/views/styles/jquery.qtip.css" rel="stylesheet" type="text/css" media="screen" /> *}
-
-{if $site->google_adsense_acc != ''}	<link href="http://www.google.com/cse/api/branding.css" rel="stylesheet" type="text/css" media="screen" />{/if}
-{if $site->style != "" && $site->style != "/"}	<link href="{$smarty.const.WWW_TOP}/views/themes/{$site->style}/style.css" rel="stylesheet" type="text/css" media="screen" />{/if}
+{if $site->google_adsense_acc != ''}	
+	<link href="http://www.google.com/cse/api/branding.css" rel="stylesheet" type="text/css" media="screen" />
+{/if}
+{if $site->style != "" && $site->style != "/"}
+	<link href="{$smarty.const.WWW_TOP}/views/themes/{$site->style}/style.css" rel="stylesheet" type="text/css" media="screen" />
+{/if}
 
 	<!-- FAVICON -->
 	<link rel="shortcut icon" type="image/ico" href="{$smarty.const.WWW_TOP}/views/images/favicon.ico"/>
@@ -26,10 +27,10 @@
 	<script type="text/javascript" src="{$smarty.const.WWW_TOP}/views/scripts/jquery.qtip2.js"></script>
 	<script type="text/javascript" src="{$smarty.const.WWW_TOP}/views/scripts/utils.js"></script>
 	<script type="text/javascript" src="{$smarty.const.WWW_TOP}/views/scripts/sorttable.js"></script>
-
+	
 	<!-- Added the Bootstrap JS -->
-	<script type="text/javascript" src="{$smarty.const.WWW_TOP}/views/scripts/bootstrap.min.js"></script>
-
+	<script type="text/javascript" src="{$smarty.const.WWW_TOP}/views/scripts/bootstrap.js"></script>
+	
 	<script type="text/javascript">
 	/* <![CDATA[ */	
 		var WWW_TOP = "{$smarty.const.WWW_TOP}";

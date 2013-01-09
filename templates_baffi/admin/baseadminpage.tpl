@@ -7,12 +7,10 @@
 	<meta name="robots" content="noindex,nofollow"/>
 	<meta name="description" content="" />	
 	<title>{$site->title|default:'newznab'} - {$page->meta_title|default:$page->title}</title>
-	<!--
-	<link href="{$smarty.const.WWW_TOP}/../views/styles/style.css" rel="stylesheet" type="text/css" media="screen" />
-	<link href="{$smarty.const.WWW_TOP}/../views/styles/admin.css" rel="stylesheet" type="text/css" media="screen" />
-	-->
-	{if $site->style != "" && $site->style != "/"}<link href="{$smarty.const.WWW_TOP}/../views/themes/{$site->style}/style.css" rel="stylesheet" type="text/css" media="screen" />
-<link href="{$smarty.const.WWW_TOP}/../views/themes/{$site->style}/admin.css" rel="stylesheet" type="text/css" media="screen" />	
+
+	{if $site->style != "" && $site->style != "/"}
+		<link href="{$smarty.const.WWW_TOP}/../views/themes/{$site->style}/style.css" rel="stylesheet" type="text/css" media="screen" />
+		<link href="{$smarty.const.WWW_TOP}/../views/themes/{$site->style}/admin.css" rel="stylesheet" type="text/css" media="screen" />	
 	{/if}
 	<link rel="shortcut icon" type="image/ico" href="{$smarty.const.WWW_TOP}/../views/images/favicon.ico"/>
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -22,7 +20,7 @@
 	<script type="text/javascript">var WWW_TOP = "{$smarty.const.WWW_TOP}/..";</script>
 	
 	<!-- Added the Bootstrap JS -->
-	<script type="text/javascript" src="{$smarty.const.WWW_TOP}/views/scripts/bootstrap.min.js"></script>
+	<script type="text/javascript" src="{$smarty.const.WWW_TOP}/views/scripts/bootstrap.js"></script>
 	
 	{$page->head}	
 </head>

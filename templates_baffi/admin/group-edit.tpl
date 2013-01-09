@@ -8,6 +8,7 @@
 	<div class="control-group">
 		<label class="control-label" for="name">Name</label>
 		<div class="controls">
+			<input type="hidden" name="id" value="{$group.ID}" />
 			<input class="input input-xxlarge" id="name" class="long" name="name" type="text" value="{$group.name}" />
 			<span class="help-block">Changing the name to an invalid group will break things.</span>
 		</div>

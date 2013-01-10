@@ -4,16 +4,16 @@
 <center>
 <form class="form-inline" name="browseby" action="movies" style="margin:0;">
 		
-		<i class="fa-icon-film fa-icon-large fa-midt"></i>
+		<i class="fa-icon-film fa-midt"></i>
 		<input class="input input-medium" id="movietitle" type="text" name="title" value="{$title}" placeholder="Title" />
 		
-		<i class="fa-icon-group fa-icon-large fa-midt"></i>
+		<i class="fa-icon-group fa-midt"></i>
 		<input class="input input-medium" id="movieactors" type="text" name="actors" value="{$actors}" placeholder="Actor" />
 		
-		<i class="fa-icon-bullhorn fa-icon-large fa-midt"></i>
+		<i class="fa-icon-bullhorn fa-midt"></i>
 		<input class="input input-medium" id="moviedirector" type="text" name="director" value="{$director}"  placeholder="Director" />
 		
-		<i class="fa-icon-star fa-icon-large fa-midt"></i>
+		<i class="fa-icon-star fa-midt"></i>
 			<select class="input span1" id="rating" name="rating">
 				<option class="grouping" value=""></option>
 				{foreach from=$ratings item=rate}
@@ -21,7 +21,7 @@
 				{/foreach}
 			</select>
 			
-		<i class="fa-icon-inbox fa-icon-large fa-midt"></i>
+		<i class="fa-icon-inbox fa-midt"></i>
 			<select class="input input-small" id="genre" name="genre">
 				<option class="grouping" value=""></option>
 				{foreach from=$genres item=gen}
@@ -29,7 +29,7 @@
 				{/foreach}
 			</select>
 		
-		<i class="fa-icon-calendar fa-icon-large fa-midt"></i>
+		<i class="fa-icon-calendar fa-midt"></i>
 			<select class="input input-small" id="year" name="year">
 				<option class="grouping" value=""></option>
 				{foreach from=$years item=yr}
@@ -37,7 +37,7 @@
 				{/foreach}
 			</select>
 			
-		<i class="fa-icon-flag fa-icon-large fa-midt"></i>
+		<i class="fa-icon-flag fa-midt"></i>
 			<select class="input input-small" id="category" name="t">
 			<option class="grouping" value="2000"></option>
 				{foreach from=$catlist item=ct}

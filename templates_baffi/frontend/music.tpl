@@ -64,7 +64,7 @@ View: <b>Covers</b> | <a href="{$smarty.const.WWW_TOP}/browse?t={$category}">Lis
 
 <table style="width:100%;" class="data highlight icons table table-striped" id="coverstable">
 	<tr>
-		<th width="130"><input type="checkbox" class="nzb_check_all" /></th>
+		<th width="130" style="padding-top:0px; padding-bottom:0px;"><input type="checkbox" class="nzb_check_all" /></th>
 		<th>artist<br/>
 			<a title="Sort Descending" href="{$orderbyartist_desc}">
 				<i class="fa-icon-caret-down"></i>
@@ -73,7 +73,7 @@ View: <b>Covers</b> | <a href="{$smarty.const.WWW_TOP}/browse?t={$category}">Lis
 				<i class="fa-icon-caret-up"></i>
 			</a>
 		</th>
-		<th>year<br/>
+		<th style="padding-top:0px; padding-bottom:0px;">year<br/>
 			<a title="Sort Descending" href="{$orderbyyear_desc}">
 				<i class="fa-icon-caret-down"></i>
 			</a>
@@ -81,7 +81,7 @@ View: <b>Covers</b> | <a href="{$smarty.const.WWW_TOP}/browse?t={$category}">Lis
 				<i class="fa-icon-caret-up"></i>
 			</a>
 		</th>
-		<th>genre<br/>
+		<th style="padding-top:0px; padding-bottom:0px;">genre<br/>
 			<a title="Sort Descending" href="{$orderbygenre_desc}">
 				<i class="fa-icon-caret-down"></i>
 			</a>
@@ -89,7 +89,7 @@ View: <b>Covers</b> | <a href="{$smarty.const.WWW_TOP}/browse?t={$category}">Lis
 				<i class="fa-icon-caret-up"></i>
 			</a>
 		</th>
-		<th>posted<br/>
+		<th style="padding-top:0px; padding-bottom:0px;">posted<br/>
 			<a title="Sort Descending" href="{$orderbyposted_desc}">
 				<i class="fa-icon-caret-down"></i>
 			</a>
@@ -97,7 +97,7 @@ View: <b>Covers</b> | <a href="{$smarty.const.WWW_TOP}/browse?t={$category}">Lis
 				<i class="fa-icon-caret-up"></i>
 			</a>
 		</th>
-		<th>size<br/>
+		<th style="padding-top:0px; padding-bottom:0px;">size<br/>
 			<a title="Sort Descending" href="{$orderbysize_desc}">
 				<i class="fa-icon-caret-down"></i>
 			</a>
@@ -105,7 +105,7 @@ View: <b>Covers</b> | <a href="{$smarty.const.WWW_TOP}/browse?t={$category}">Lis
 				<i class="fa-icon-caret-up"></i>
 			</a>
 		</th>
-		<th>files<br/>
+		<th style="padding-top:0px; padding-bottom:0px;">files<br/>
 			<a title="Sort Descending" href="{$orderbyfiles_desc}">
 				<i class="fa-icon-caret-down"></i>
 			</a>
@@ -113,7 +113,7 @@ View: <b>Covers</b> | <a href="{$smarty.const.WWW_TOP}/browse?t={$category}">Lis
 				<i class="fa-icon-caret-up"></i>
 			</a>
 		</th>
-		<th>stats<br/>
+		<th style="padding-top:0px; padding-bottom:0px;">stats<br/>
 			<a title="Sort Descending" href="{$orderbystats_desc}">
 				<i class="fa-icon-caret-down"></i>
 			</a>
@@ -145,16 +145,16 @@ View: <b>Covers</b> | <a href="{$smarty.const.WWW_TOP}/browse?t={$category}">Lis
 				{if $result.publisher != ""}<b>Publisher:</b> {$result.publisher|escape:"htmlall"}<br />{/if}
 				{if $result.releasedate != ""}<b>Released:</b> {$result.releasedate|date_format}<br />{/if}
 				{if $result.haspreview == 2 && $userdata.canpreview == 1}<b>Preview:</b> <a href="#" name="audio{$result.guid}" title="Listen to {$result.searchname|escape:"htmlall"}" class="audioprev rndbtn" rel="audio">Listen</a><audio id="audprev{$result.guid}" src="{$smarty.const.WWW_TOP}/covers/audio/{$result.guid}.mp3" preload="none"></audio>{/if}
-				<br />
 				
 				<div class="movextra">
-					<b>{$result.searchname|escape:"htmlall"}</b> <a class="rndbtn btn btn-mini btn-info" href="{$smarty.const.WWW_TOP}/music?artist={$result.artist|escape:"url"}" title="View similar nzbs">Similar</a>
-					{if $isadmin}
+					<b>{$result.searchname|escape:"htmlall"}</b> 
+					<a class="rndbtn btn btn-mini btn-info" href="{$smarty.const.WWW_TOP}/music?artist={$result.artist|escape:"url"}" title="View similar nzbs">Similar</a>
 					
-					<a class="rndbtn btn btn-mini btn-warning" href="{$smarty.const.WWW_TOP}/admin/release-edit.php?id={$result.releaseID}&amp;from={$smarty.server.REQUEST_URI|escape:"url"}" title="Edit Release">Edit</a> 
-					<a class="rndbtn confirm_action btn btn-mini btn-danger" href="{$smarty.const.WWW_TOP}/admin/release-delete.php?id={$result.releaseID}&amp;from={$smarty.server.REQUEST_URI|escape:"url"}" title="Delete Release">Delete</a>
+					{if $isadmin}
+						<a class="rndbtn btn btn-mini btn-warning" href="{$smarty.const.WWW_TOP}/admin/release-edit.php?id={$result.releaseID}&amp;from={$smarty.server.REQUEST_URI|escape:"url"}" title="Edit Release">Edit</a> 
+						<a class="rndbtn confirm_action btn btn-mini btn-danger" href="{$smarty.const.WWW_TOP}/admin/release-delete.php?id={$result.releaseID}&amp;from={$smarty.server.REQUEST_URI|escape:"url"}" title="Delete Release">Delete</a>
 					{/if}
-					<br />
+					
 					<br />
 					<ul class="inline">
 						<li width="50px"><b>Info:</b></li>
@@ -163,8 +163,7 @@ View: <b>Covers</b> | <a href="{$smarty.const.WWW_TOP}/browse?t={$category}">Lis
 						<li width="50px"><a title="View file list" href="{$smarty.const.WWW_TOP}/filelist/{$result.guid}">{$result.totalpart}</a> <i class="fa-icon-file"></i></li>
 						<li width="50px"><a title="View comments for {$result.searchname|escape:"htmlall"}" href="{$smarty.const.WWW_TOP}/details/{$result.guid}/#comments">{$result.comments}</a> <i class="fa-icon-comments-alt"></i></li>
 						<li width="50px">{$result.grabs} <i class="fa-icon-download-alt"></i></li>
-					</ul>
-					<ul class="inline">
+						<li width="50px"> </li>
 						<li><div class="icon"><input type="checkbox" class="nzb_check" value="{$result.guid}" /></div></li>
 						<li><div class="icon icon_nzb"><a title="Download Nzb" href="{$smarty.const.WWW_TOP}/getnzb/{$result.guid}/{$result.searchname|escape:"url"}"><img src="/views/images/icons/nzbup.png"></a></div></li>
 						<li><div class="icon icon_cart" title="Add to Cart"><img src="/views/images/icons/cartup.png"></div></li>

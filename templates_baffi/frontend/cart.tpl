@@ -13,7 +13,7 @@
 			With Selected:
 			<div class="btn-group">
 				<input type="button" class="nzb_multi_operations_cartdelete btn btn-small btn-danger" value="Delete"/>
-				{if $sabintegrated}<input type="button" class="nzb_multi_operations_cartsab btn btn-small" value="Send To Sab"/>{/if}
+				{if $sabintegrated}<input type="button" class="nzb_multi_operations_cartsab btn btn-small btn-primary" value="Send To Sab"/>{/if}
 				<input type="button" class="nzb_multi_operations_download btn btn-small btn-success" value="Download">
 			</div>
 		</div>

@@ -46,20 +46,21 @@
 		</div>
 		<div id="signups" class="accordion-body collapse" style="height: 0px;">
 			<div class="accordion-inner">
-				<tr>
-					<th>Month</th>
-					<th>Signups</th>
-				</tr>
-
-				{foreach from=$usersbymonth item=result}
-					{assign var="totusers" value=$totusers+$result.num}
-					<tr class="{cycle values=",alt"}">
-						<td width="75%">{$result.mth}</td>
-						<td>{$result.num}</td>
+				<table class="data highlight table table-striped">
+					<tr>
+						<th>Month</th>
+						<th>Signups</th>
 					</tr>
-				{/foreach}
-				<tr><td><strong>Total</strong></td><td><strong>{$totusers}</strong></td></tr>
-			</table>
+
+					{foreach from=$usersbymonth item=result}
+						{assign var="totusers" value=$totusers+$result.num}
+						<tr class="{cycle values=",alt"}">
+							<td width="75%">{$result.mth}</td>
+							<td>{$result.num}</td>
+						</tr>
+					{/foreach}
+					<tr><td><strong>Total</strong></td><td><strong>{$totusers}</strong></td></tr>
+				</table>
 				
 			</div>
 		</div>
@@ -92,6 +93,7 @@
 		</div>
 	</div>
 	
+	{if $usersbyhosthash|count > 0}
 	<div class="accordion-group">
 		<div class="accordion-heading">
 			<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#sitestatus" href="#hosthash">
@@ -129,6 +131,7 @@
 			</div>
 		</div>
 	</div>
+	{/if}
 	
 	<div class="accordion-group">
 		<div class="accordion-heading">

@@ -4,13 +4,13 @@
 <center>
 <form class="form-inline" name="browseby" action="music" style="margin:0;">
 		
-		<i class="fa-icon-user fa-icon-large fa-midt"></i>
+		<i class="fa-icon-user fa-midt"></i>
 		<input class="input input-medium" id="musicartist" type="text" name="artist" value="{$artist}" placeholder="Artist" />
 		
-		<i class="fa-icon-music fa-icon-large fa-midt"></i>
+		<i class="fa-icon-music fa-midt"></i>
 		<input class="input input-medium" id="musictitle" type="text" name="title" value="{$title}" placeholder="Title" />
 			
-		<i class="fa-icon-inbox fa-icon-large fa-midt"></i>
+		<i class="fa-icon-inbox fa-midt"></i>
 			<select class="input input-small" id="genre" name="genre">
 				<option class="grouping" value=""></option>
 				{foreach from=$genres item=gen}
@@ -18,7 +18,7 @@
 				{/foreach}
 			</select>
 		
-		<i class="fa-icon-calendar fa-icon-large fa-midt"></i>
+		<i class="fa-icon-calendar fa-midt"></i>
 			<select class="input input-small" id="year" name="year">
 				<option class="grouping" value=""></option>
 				{foreach from=$years item=yr}
@@ -26,7 +26,7 @@
 				{/foreach}
 			</select>
 			
-		<i class="fa-icon-flag fa-icon-large fa-midt"></i>
+		<i class="fa-icon-flag fa-midt"></i>
 			<select class="input input-small" id="category" name="t">
 			<option class="grouping" value="3000"></option>
 				{foreach from=$catlist item=ct}
@@ -155,6 +155,7 @@ View: <b>Covers</b> | <a href="{$smarty.const.WWW_TOP}/browse?t={$category}">Lis
 					<a class="rndbtn confirm_action btn btn-mini btn-danger" href="{$smarty.const.WWW_TOP}/admin/release-delete.php?id={$result.releaseID}&amp;from={$smarty.server.REQUEST_URI|escape:"url"}" title="Delete Release">Delete</a>
 					{/if}
 					<br />
+					<br />
 					<ul class="inline">
 						<li width="50px"><b>Info:</b></li>
 						<li width="100px">Posted {$result.postdate|timeago}</li>
@@ -163,11 +164,12 @@ View: <b>Covers</b> | <a href="{$smarty.const.WWW_TOP}/browse?t={$category}">Lis
 						<li width="50px"><a title="View comments for {$result.searchname|escape:"htmlall"}" href="{$smarty.const.WWW_TOP}/details/{$result.guid}/#comments">{$result.comments}</a> <i class="fa-icon-comments-alt"></i></li>
 						<li width="50px">{$result.grabs} <i class="fa-icon-download-alt"></i></li>
 					</ul>
-					
-					<div class="icon"><input type="checkbox" class="nzb_check" value="{$result.guid}" /></div>
-					<div class="icon icon_nzb"><a title="Download Nzb" href="{$smarty.const.WWW_TOP}/getnzb/{$result.guid}/{$result.searchname|escape:"url"}"><img src="/views/images/icons/nzbup.png"></a></div>
-					<div class="icon icon_cart" title="Add to Cart"><img src="/views/images/icons/cartup.png"></div>
-					{if $sabintegrated}<div class="icon icon_sab" title="Send to my Sabnzbd"><img src="/views/images/icons/sabup.png"></div>{/if}
+					<ul class="inline">
+						<li><div class="icon"><input type="checkbox" class="nzb_check" value="{$result.guid}" /></div></li>
+						<li><div class="icon icon_nzb"><a title="Download Nzb" href="{$smarty.const.WWW_TOP}/getnzb/{$result.guid}/{$result.searchname|escape:"url"}"><img src="/views/images/icons/nzbup.png"></a></div></li>
+						<li><div class="icon icon_cart" title="Add to Cart"><img src="/views/images/icons/cartup.png"></div></li>
+						<li>{if $sabintegrated}<div class="icon icon_sab" title="Send to my Sabnzbd"><img src="/views/images/icons/sabup.png"></div>{/if}</li>
+					</ul>
 				</div>
 			</td>
 		</tr>
@@ -186,7 +188,7 @@ View: <b>Covers</b> | <a href="{$smarty.const.WWW_TOP}/browse?t={$category}">Lis
 	</div>
 </div>
 {/if}
-<div style="margin-top:-20px;">
+<div style="margin-top:-10px;">
 	{$pager}
 </div>
 

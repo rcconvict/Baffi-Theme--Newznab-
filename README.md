@@ -37,7 +37,6 @@ Admin
  
 Main
 * `Download page via SAB`
-* `Music`
 * `Book`
 * `Anime`
 * `Console`

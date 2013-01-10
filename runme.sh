@@ -2,7 +2,6 @@
 set -e
 # Define Install
 Install () {
-	clear
 	echo -n "Is this folder located in the root of the newznab folder? [y/n] "
 	read WISH1
 	if [ $WISH1 = "n" ] ; then
@@ -17,7 +16,7 @@ Install () {
 	
 	cp bootstrap.js ../www/views/scripts/
 	
-	clear
+	echo " "
 	echo -n "Go and select the Baffi theme in admin->site edit. Have you done it? [y/n] "
 	read WISH12
 	if [ $WISH12 = "y" ] ; then
@@ -58,6 +57,7 @@ Remove () {
 }
 # Define Resting of the cache
 Reset () {
+	
 	rm -r ../www/lib/smarty/templates_c/*
 }
 
@@ -86,7 +86,6 @@ if [ $WISH0 = "3" ] ; then
 	read WISH3
 	if [ $WISH3 = "y" ] ; then
 	
-		clear
 		echo "Removing old"
 		rm -r ../www/views/themes/baffi
 		rm -r ../www/views/themes/baffi-green
@@ -96,12 +95,10 @@ if [ $WISH0 = "3" ] ; then
 		rm ../www/lib/framework/basepage.php 
 		mv ../www/lib/framework/basepage_old.php ../www/lib/framework/basepage.php 
 		
-		clear
 		echo "Updating"
 	
 		git pull
 	
-		clear
 		echo "Installing"
 	
 		cp -r baffi ../www/views/themes/
@@ -112,34 +109,32 @@ if [ $WISH0 = "3" ] ; then
 		mv ../www/lib/framework/basepage.php ../www/lib/framework/basepage_old.php 
 		cp basepage.php ../www/lib/framework/
 	
-		clear
-	
+		echo " "
+		echo "Reseting cache, if it failes it just because there is no cache for the theme :)"
 		Reset
 	
-		clear
 		echo "Done"
 	fi
 	
-	clear
 	echo "Updating"
 	
 	git pull
 	
-	clear
-	 
+	echo "Installing"
 	Install
 	
-	clear
-	
+	echo " "
+	echo "Reseting cache, if it failes it just because there is no cache for the theme :)"
 	Reset
 	
-	clear
 	echo "Done"
 	
 	
 fi
 
 if [ $WISH0 = "4" ] ; then
+	echo " "
+	echo "Reseting cache, if it failes it just because there is no cache for the theme :)"
 	Reset
 fi
 

@@ -1,51 +1,49 @@
-<div class="page-header">
-	<h1>Browse Console</h1>
-</div>
+<h2>Browse Console</h2>
 
-<form name="browseby" action="console">
-<table class="rndbtn table" border="0">
-	<tr>
-		<th class="left"><label for="title">Title</label></th>
-		<th class="left"><label for="platform">Platform</label></th>
-		<th class="left"><label for="genre">Genre</label></th>
-		<th class="left"><label for="category">Category</label></th>
-		<th></th>
-	</tr>
-	<tr>
-		<td><input input input-xlarge id="title" type="text" name="title" value="{$title}"/></td>
-		<td><input input input-xlarge id="platform" type="text" name="platform" value="{$platform}" /></td>
-		<td>
-			<select id="genre" name="genre">
-			<option class="grouping input input-medium" value=""></option>
-			{foreach from=$genres item=gen}
-				<option {if $gen.ID == $genre}selected="selected"{/if} value="{$gen.ID}">{$gen.title}</option>
-			{/foreach}
+<div class="well well-small">
+<center>
+<form class="form-inline" name="browseby" action="console" style="margin:0;">
+		
+		<i class="fa-icon-font fa-icon-large fa-midt"></i>
+		<input class="input input-medium" id="title" type="text" name="title" value="{$title}" placeholder="Title" />
+		
+		<i class="fa-icon-desktop fa-icon-large fa-midt"></i>
+		<input class="input input-medium" id="platform" type="text" name="platform" value="{$platform}" placeholder="Platform" />
+			
+		<i class="fa-icon-inbox fa-icon-large fa-midt"></i>
+			<select class="input input-small" id="genre" name="genre">
+				<option class="grouping" value=""></option>
+				{foreach from=$genres item=gen}
+					<option {if $gen.ID == $genre}selected="selected"{/if} value="{$gen.ID}">{$gen.title}</option>
+				{/foreach}
 			</select>
-		</td>
-		<td>
-			<select id="category" name="t">
-			<option class="grouping input input-medium" value="1000"></option>
-			{foreach from=$catlist item=ct}
+			
+		<i class="fa-icon-flag fa-icon-large fa-midt"></i>
+			<select class="input input-small" id="category" name="t">
+			<option class="grouping" value="1000"></option>
+				{foreach from=$catlist item=ct}
 				<option {if $ct.ID==$category}selected="selected"{/if} value="{$ct.ID}">{$ct.title}</option>
-			{/foreach}
+				{/foreach}
 			</select>
-		</td>
-		<td><input class="btn btn-success" type="submit" value="Go" /></td>
-	</tr>
-</table>
+		
+		<input class="btn btn-success" type="submit" value="Go" />
 </form>
-<p></p>
+</center>
+</div>
 
 {$site->adbrowse}	
 
-View: <b>Covers</b> | <a href="{$smarty.const.WWW_TOP}/browse?t={$category}">List</a><br />
-<br/>
-
 {if $results|@count > 0}
+
+<div {if $section != ''}style="margin-bottom:-40px;"{else}style="margin-bottom:-20px;"{/if}>
+	{$pager}
+</div>
 
 <form id="nzb_multi_operations_form" action="get">
 
-<div class="well">
+View: <b>Covers</b> | <a href="{$smarty.const.WWW_TOP}/browse?t={$category}">List</a><br />
+
+<div class="well well-small">
 	<div class="nzb_multi_operations">
 		With Selected:
 		<div class="btn-group">
@@ -55,8 +53,6 @@ View: <b>Covers</b> | <a href="{$smarty.const.WWW_TOP}/browse?t={$category}">Lis
 		</div>
 	</div>
 </div>
-
-{$pager}
 
 <table style="width:100%;" class="data highlight icons" id="coverstable">
 	<tr>

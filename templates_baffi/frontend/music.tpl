@@ -4,10 +4,10 @@
 <center>
 <form class="form-inline" name="browseby" action="music" style="margin:0;">
 		
-		<i class="fa-icon-film fa-icon-large fa-midt"></i>
+		<i class="fa-icon-user fa-icon-large fa-midt"></i>
 		<input class="input input-medium" id="musicartist" type="text" name="artist" value="{$artist}" placeholder="Artist" />
 		
-		<i class="fa-icon-group fa-icon-large fa-midt"></i>
+		<i class="fa-icon-music fa-icon-large fa-midt"></i>
 		<input class="input input-medium" id="musictitle" type="text" name="title" value="{$title}" placeholder="Title" />
 			
 		<i class="fa-icon-inbox fa-icon-large fa-midt"></i>

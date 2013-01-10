@@ -3,7 +3,7 @@
 <ul class="inline">
 	<li><h2>Profile for {$user.username|escape:"htmlall"}</h2></li>
 	{if $user.ID==$userdata.ID}
-		<li><a href="{$smarty.const.WWW_TOP}/profileedit" class="btn btn-small btn-warning">Edit</a></tli>
+		<li style="vertical-align:text-bottom;"><a href="{$smarty.const.WWW_TOP}/profileedit" class="btn btn-small btn-warning">Edit</a></tli>
 	{/if}
 </ul>
 
@@ -118,11 +118,11 @@
 		<tr>
 			<th>SABnzbd Integration:</th>
 			<td>
-				Url: {if $saburl == ''}N/A{else}{$saburl}{/if}<br/>
-				Key: {if $sabapikey == ''}N/A{else}{$sabapikey}{/if}<br/>
-				Type: {if $sabapikeytype == ''}N/A{else}{$sabapikeytype}{/if}<br/>
-				Priority: {if $sabpriority == ''}N/A{else}{$sabpriority}{/if}<br/>
-				Storage: {if $sabsetting == ''}N/A{else}{$sabsetting}{/if}
+				<b>Url:</b> {if $saburl == ''}N/A{else}{$saburl}{/if}<br/>
+				<b>Key:</b> {if $sabapikey == ''}N/A{else}{$sabapikey}{/if}<br/>
+				<b>Type:</b> {if $sabapikeytype == ''}N/A{else}{$sabapikeytype}{/if}<br/>
+				<b>Priority:</b> {if $sabpriority == ''}N/A{else}{$sabpriority}{/if}<br/>
+				<b>Storage:</b> {if $sabsetting == ''}N/A{else}{$sabsetting}{/if}
 			</td>
 		</tr>
 	{/if}
@@ -136,14 +136,6 @@
 				<th>My Movies:</th>
 				<td><a href="{$smarty.const.WWW_TOP}/mymovies" class="btn btn-mini btn-info">Manage my movies</a></td>
 			</tr>
-	{/if}
-	
-	
-	{if $user.ID==$userdata.ID}
-		<tr>
-			<th></th>
-			<td><a href="{$smarty.const.WWW_TOP}/profileedit" class="btn btn-small btn-warning">Edit</a></td>
-		</tr>
 	{/if}
 </table>
 
@@ -177,7 +169,7 @@
 {if $commentslist|@count > 0}
 <div style="padding-top:20px;">
 	<a id="comments"></a>
-	<h2>Comments</h2>
+	<h3>Comments</h3>
 
 	{$pager}
 

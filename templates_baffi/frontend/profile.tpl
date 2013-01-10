@@ -1,5 +1,12 @@
 <div class="span8">
-<h1>Profile for {$user.username|escape:"htmlall"}</h1>
+
+<ul class="inline">
+	<li><h2>Profile for {$user.username|escape:"htmlall"}</h2></li>
+	{if $user.ID==$userdata.ID}
+		<li><a href="{$smarty.const.WWW_TOP}/profileedit" class="btn btn-small btn-warning">Edit</a></tli>
+	{/if}
+</ul>
+
 <table class="data table">
 	<tr>
 		<th>Username:</th>
@@ -123,11 +130,11 @@
 	{if $user.ID==$userdata.ID}
 			<tr>
 				<th>My TV Shows:</th>
-				<td><a href="{$smarty.const.WWW_TOP}/myshows" class="btn btn-small btn-info">Manage my shows</a></td>
+				<td><a href="{$smarty.const.WWW_TOP}/myshows" class="btn btn-mini btn-info">Manage my shows</a></td>
 			</tr>
 			<tr>
 				<th>My Movies:</th>
-				<td><a href="{$smarty.const.WWW_TOP}/mymovies" class="btn btn-small btn-info">Manage my movies</a></td>
+				<td><a href="{$smarty.const.WWW_TOP}/mymovies" class="btn btn-mini btn-info">Manage my movies</a></td>
 			</tr>
 	{/if}
 	
@@ -143,7 +150,7 @@
 
 {if $userdata.role==2 && $downloadlist|@count > 0}
 <div style="padding-top:20px;">
-	<h2>Downloads for User and Host</h2>
+	<h3>Downloads for User and Host</h3>
 
 	<table style="margin-top:10px;" class="data table">
 

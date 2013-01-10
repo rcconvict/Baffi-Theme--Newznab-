@@ -2,7 +2,6 @@
 	<h2>{$page->title}</h2>
 </div>
 
-
 <div class="well well-small">
 	<form class="navbar-form" name="usersearch" action="">
 		<input class="input input-xlarge" id="username" type="text" name="username" value="{$username}" placeholder="Username"/>
@@ -17,7 +16,6 @@
 </div>
 
 {$pager}
-
 
 <table class="data highlight table table-striped">
 

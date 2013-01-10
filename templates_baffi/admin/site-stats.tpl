@@ -12,7 +12,7 @@
 				Top Grabbers
 			</a>
 		</div>
-		<div id="grabbers" class="accordion-body in collapse" style="height: auto;">
+		<div id="grabbers" class="accordion-body collapse in" style="height: auto;">
 			<div class="accordion-inner">
 				
 					<table class="data highlight table table-striped">
@@ -40,7 +40,7 @@
 	
 	<div class="accordion-group">
 		<div class="accordion-heading">
-			<a class="accordion-toggle" data-toggle="collapse" data-parent="#sitestatus" href="#signups">
+			<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#sitestatus" href="#signups">
 				Signups
 			</a>
 		</div>
@@ -67,7 +67,7 @@
 	
 	<div class="accordion-group">
 		<div class="accordion-heading">
-			<a class="accordion-toggle" data-toggle="collapse" data-parent="#sitestatus" href="#role">
+			<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#sitestatus" href="#role">
 				Users by Role
 			</a>
 		</div>
@@ -94,7 +94,7 @@
 	
 	<div class="accordion-group">
 		<div class="accordion-heading">
-			<a class="accordion-toggle" data-toggle="collapse" data-parent="#sitestatus" href="#hosthash">
+			<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#sitestatus" href="#hosthash">
 				Users by Hosthash
 			</a>
 		</div>
@@ -132,7 +132,7 @@
 	
 	<div class="accordion-group">
 		<div class="accordion-heading">
-			<a class="accordion-toggle" data-toggle="collapse" data-parent="#sitestatus" href="#date">
+			<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#sitestatus" href="#date">
 				Access by Date
 			</a>
 		</div>
@@ -168,7 +168,7 @@
 	{if $topdownloads|count > 0}
 	<div class="accordion-group">
 		<div class="accordion-heading">
-			<a class="accordion-toggle" data-toggle="collapse" data-parent="#sitestatus" href="#downloads">
+			<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#sitestatus" href="#downloads">
 				Top Downloads
 			</a>
 		</div>
@@ -198,7 +198,7 @@
 	
 	<div class="accordion-group">
 		<div class="accordion-heading">
-			<a class="accordion-toggle" data-toggle="collapse" data-parent="#sitestatus" href="#week">
+			<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#sitestatus" href="#week">
 				Releases Added In Last 7 Days
 			</a>
 		</div>
@@ -225,7 +225,7 @@
 	{if $topcomments|count > 0}
 	<div class="accordion-group">
 		<div class="accordion-heading">
-			<a class="accordion-toggle" data-toggle="collapse" data-parent="#sitestatus" href="#comments">
+			<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#sitestatus" href="#comments">
 				Top Comments
 			</a>
 		</div>

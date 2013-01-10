@@ -20,7 +20,7 @@
 	<script type="text/javascript">var WWW_TOP = "{$smarty.const.WWW_TOP}/..";</script>
 	
 	<!-- Added the Bootstrap JS -->
-	<script type="text/javascript" src="{$smarty.const.WWW_TOP}/views/scripts/bootstrap.js"></script>
+	<script type="text/javascript" src="{$smarty.const.WWW_TOP}../views/scripts/bootstrap.js"></script>
 	
 	{$page->head}	
 </head>

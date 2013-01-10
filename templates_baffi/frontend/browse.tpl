@@ -218,7 +218,7 @@
 			</td>
 			<td class="less nowrap">
 				<a title="View comments" href="{$smarty.const.WWW_TOP}/details/{$result.guid}/#comments">{$result.comments}</a> <i class="fa-icon-comments-alt"></i>
-				<br/>{$result.grabs} <i class="icon-download-alt"></i>
+				<br/>{$result.grabs} <i class="fa-icon-download-alt"></i>
 			</td>
 			<td class="icons">
 				<div class="icon icon_nzb">

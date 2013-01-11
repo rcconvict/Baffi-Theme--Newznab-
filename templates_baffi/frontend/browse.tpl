@@ -10,7 +10,7 @@
 <div class="btn-group">
 	<a class="btn btn-small" href="{$smarty.const.WWW_TOP}/series" title="View available TV series">Series List</a> | 
 	<a class="btn btn-small" title="Manage your shows" href="{$smarty.const.WWW_TOP}/myshows">Manage My Shows</a> | 
-	<a class="btn btn-small" title="All releases in your shows as an RSS feed" href="{$smarty.const.WWW_TOP}/rss?t=-3&amp;dl=1&amp;i={$userdata.ID}&amp;r={$userdata.rsstoken}">Rss <i class="icon-rss"></i></a>
+	<a class="btn btn-small" title="All releases in your shows as an RSS feed" href="{$smarty.const.WWW_TOP}/rss?t=-3&amp;dl=1&amp;i={$userdata.ID}&amp;r={$userdata.rsstoken}">Rss <i class="fa-icon-rss"></i></a>
 </div>
 </center>
 <br/>
@@ -48,7 +48,7 @@
 								</div>
 								&nbsp;
 							{/if}
-								<a href="{$smarty.const.WWW_TOP}/{$section}?t={$category}"><i class="icon-th-list"></i></a>
+								<a href="{$smarty.const.WWW_TOP}/{$section}?t={$category}"><i class="fa-icon-th-list"></i></a>
 								&nbsp;
 							</div>
 						{/if}
@@ -70,55 +70,55 @@
 
 			<th style="padding-top:0px; padding-bottom:0px;">name<br/>
 				<a title="Sort Descending" href="{$orderbyname_desc}">
-					<i class="icon-caret-down"></i>
+					<i class="fa-icon-caret-down"></i>
 				</a>
 				<a title="Sort Ascending" href="{$orderbyname_asc}">
-					<i class="icon-caret-up"></i>
+					<i class="fa-icon-caret-up"></i>
 				</a>
 			</th>
 
 			<th style="padding-top:0px; padding-bottom:0px;">category<br/>
 				<a title="Sort Descending" href="{$orderbycat_desc}">
-					<i class="icon-caret-down"></i>
+					<i class="fa-icon-caret-down"></i>
 				</a>
 				<a title="Sort Ascending" href="{$orderbycat_asc}">
-					<i class="icon-caret-up"></i>
+					<i class="fa-icon-caret-up"></i>
 				</a>
 			</th>
 
 			<th style="padding-top:0px; padding-bottom:0px;">posted<br/>
 				<a title="Sort Descending" href="{$orderbyposted_desc}">
-					<i class="icon-caret-down"></i>
+					<i class="fa-icon-caret-down"></i>
 				</a>
 				<a title="Sort Ascending" href="{$orderbyposted_asc}">
-					<i class="icon-caret-up"></i>
+					<i class="fa-icon-caret-up"></i>
 				</a>
 			</th>
 
 			<th style="padding-top:0px; padding-bottom:0px;">size<br/>
 				<a title="Sort Descending" href="{$orderbysize_desc}">
-					<i class="icon-caret-down"></i>
+					<i class="fa-icon-caret-down"></i>
 				</a>
 				<a title="Sort Ascending" href="{$orderbysize_asc}">
-					<i class="icon-caret-up"></i>
+					<i class="fa-icon-caret-up"></i>
 				</a>
 			</th>
 
 			<th style="padding-top:0px; padding-bottom:0px;">files<br/>
 				<a title="Sort Descending" href="{$orderbyfiles_desc}">
-					<i class="icon-caret-down"></i>
+					<i class="fa-icon-caret-down"></i>
 				</a>
 				<a title="Sort Ascending" href="{$orderbyfiles_asc}">
-					<i class="icon-caret-up"></i>
+					<i class="fa-icon-caret-up"></i>
 				</a>
 			</th>
 
 			<th style="padding-top:0px; padding-bottom:0px;">stats<br/>
 				<a title="Sort Descending" href="{$orderbystats_desc}">
-					<i class="icon-caret-down"></i>
+					<i class="fa-icon-caret-down"></i>
 				</a>
 				<a title="Sort Ascending" href="{$orderbystats_asc}">
-					<i class="icon-caret-up"></i>
+					<i class="fa-icon-caret-up"></i>
 				</a>
 			</th>
 			<th>action</th>
@@ -136,9 +136,9 @@
 				</label>
 
 				{if $result.passwordstatus == 2}
-				<i class="icon-lock"></i>
+				<i class="fa-icon-lock"></i>
 				{elseif $result.passwordstatus == 1}
-				<i class="icon-lock"></i>
+				<i class="fa-icon-lock"></i>
 				{/if}
 
 				{if $userdata.canpre == 1 && $result.nuketype != ''}
@@ -221,7 +221,7 @@
 				{/if}
 			</td>
 			<td class="less mid">
-				<a title="View file list" href="{$smarty.const.WWW_TOP}/filelist/{$result.guid}">{$result.totalpart}</a> <i class="icon-file"></i>
+				<a title="View file list" href="{$smarty.const.WWW_TOP}/filelist/{$result.guid}">{$result.totalpart}</a> <i class="fa-icon-file"></i>
 				
 				{if $result.rarinnerfilecount > 0}
 				<div class="rarfilelist">
@@ -230,8 +230,8 @@
 				{/if}
 			</td>
 			<td class="less nowrap">
-				<a title="View comments" href="{$smarty.const.WWW_TOP}/details/{$result.guid}/#comments">{$result.comments}</a> <i class="icon-comments-alt"></i>
-				<br/>{$result.grabs} <i class="icon-download-alt"></i>
+				<a title="View comments" href="{$smarty.const.WWW_TOP}/details/{$result.guid}/#comments">{$result.comments}</a> <i class="fa-icon-comments-alt"></i>
+				<br/>{$result.grabs} <i class="fa-icon-download-alt"></i>
 			</td>
 			<td class="icons">
 				<div class="icon icon_nzb">
@@ -281,7 +281,7 @@
 								</div>
 								&nbsp;
 							{/if}
-								<a href="{$smarty.const.WWW_TOP}/{$section}?t={$category}"><i class="icon-th-list"></i></a>
+								<a href="{$smarty.const.WWW_TOP}/{$section}?t={$category}"><i class="fa-icon-th-list"></i></a>
 								&nbsp;
 							</div>
 						{/if}

@@ -29,11 +29,11 @@
 	    	url('fontawesome-webfont.woff') format('woff'),
 	   	 	url('fontawesome-webfont.ttf') format('truetype');
 	*/
-	src: 	url("fontawesome-webfont.eot");
+	src: 	url("//fortawesome.github.com/Font-Awesome/assets/font/fontawesome-webfont.eot");
 	src: 	local("☺"),
-			url("fontawesome-webfont.eot?#iefix") format("embedded-opentype"),
-			url("fontawesome-webfont.ttf") format("truetype"),
-			url("fontawesome-webfont.woff") format("woff");
+			url("//fortawesome.github.com/Font-Awesome/assets/font/fontawesome-webfont.eot?#iefix") format("embedded-opentype"),
+			url("//fortawesome.github.com/Font-Awesome/assets/font/fontawesome-webfont.ttf") format("truetype"),
+			url("//fortawesome.github.com/Font-Awesome/assets/font/fontawesome-webfont.woff") format("woff");
 	
 	font-weight: normal;
 	font-style: normal;

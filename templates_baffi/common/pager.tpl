@@ -3,7 +3,7 @@
 {assign var="upperhalfwaypoint" value=((($pages-$currentpage)/2)|roundup)+$currentpage}
 
 {if $pages > 1}
-<div class="pagination pagination-centered">
+<div class="pagination" style="max-width='500px';">
 	<ul>
 		<li><a href="{$pagerquerybase}{$pageroffset-$pageritemsperpage}{$pagerquerysuffix}">«</a></li>
 	{if $currentpage > 1}

@@ -162,10 +162,6 @@ View: <b>Covers</b> | <a href="{$smarty.const.WWW_TOP}/browse?t={$category}">Lis
 					<li>{if $sabintegrated}<div class="icon icon_sab" title="Send to my Sabnzbd"><img src="/views/images/icons/sabup.png"></div>{/if}</li>
 				</ul>
 				
-				<h2><a class="title" title="View details" href="{$smarty.const.WWW_TOP}/details/{$result.guid}/{$result.searchname|escape:"seourl"}">{$result.title|escape:"htmlall"} - {$result.platform|escape:"htmlall"}</a></h2>
-				
-				
-				
 				{if $result.genre != ""}<b>Genre:</b> {$result.genre}<br />{/if}
 				{if $result.esrb != ""}<b>Rating:</b> {$result.esrb}<br />{/if}
 				{if $result.publisher != ""}<b>Publisher:</b> {$result.publisher}<br />{/if}

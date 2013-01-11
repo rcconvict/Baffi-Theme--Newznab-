@@ -255,29 +255,44 @@
 	</table>
 
 	{if $results|@count > 10}
-	<div class="well well-small" style="margin-bottom:-9px;">
+	<div class="well well-small">
 		<div class="nzb_multi_operations">
-			With Selected:
-			<div class="btn-group">
-				<input type="button" class="nzb_multi_operations_download btn btn-small btn-success" value="Download NZBs" />
-				<input type="button" class="nzb_multi_operations_cart btn btn-small btn-info" value="Add to Cart" />
-				{if $sabintegrated}<input type="button" class="nzb_multi_operations_sab btn btn-small btn-primary" value="Send to SAB" />{/if}
-			</div>
-			{if $isadmin}
-			<div class="btn-group pull-right">	
-				Admin: 		
-				<input type="button" class="nzb_multi_operations_edit btn btn-small btn-warning" value="Edit" />
-				<input type="button" class="nzb_multi_operations_delete btn btn-small btn-danger" value="Delete" />
-			</div>
-			{/if}	
+			<table width="100%">
+				<tr>
+					<td width="33%">
+						With Selected:
+						<div class="btn-group">
+							<input type="button" class="nzb_multi_operations_download btn btn-small btn-success" value="Download NZBs" />
+							<input type="button" class="nzb_multi_operations_cart btn btn-small btn-info" value="Add to Cart" />
+							{if $sabintegrated}<input type="button" class="nzb_multi_operations_sab btn btn-small btn-primary" value="Send to SAB" />{/if}
+						</div>
+					</td>
+					<td width="33%">
+						<center>
+							{$pager}
+						</center>
+					</td>
+					<td width="33%">
+						{if $section != ''}
+							<div class="pull-right">
+							{if $isadmin}
+								Admin: 	
+								<div class="btn-group">	
+									<input type="button" class="nzb_multi_operations_edit btn btn-small btn-warning" value="Edit" />
+									<input type="button" class="nzb_multi_operations_delete btn btn-small btn-danger" value="Delete" />
+								</div>
+								&nbsp;
+							{/if}
+								<a href="{$smarty.const.WWW_TOP}/{$section}?t={$category}"><i class="fa-icon-th-list"></i></a>
+								&nbsp;
+							</div>
+						{/if}
+					</td>
+				</tr>
+			</table>
 		</div>
 	</div>
-	{/if}
-	{if $results|@count == 50}
-		<div style="margin-top:-20px;">
-		{$pager}
-		</div>
-	{/if}
+	
 </form>
 
 {else}

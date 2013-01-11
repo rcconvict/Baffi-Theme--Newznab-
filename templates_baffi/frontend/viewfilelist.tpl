@@ -1,7 +1,6 @@
- <div class="page-header">
-	<h1>{$page->title} </h1>
-</div>
-<h3>For <a href="{$smarty.const.WWW_TOP}/details/{$rel.guid}/{$rel.searchname|escape:"seourl"}">{$rel.searchname|escape:'htmlall'}</a></h3>
+<h2>{$page->title} </h2>
+
+<h4>For <a href="{$smarty.const.WWW_TOP}/details/{$rel.guid}/{$rel.searchname|escape:"seourl"}">{$rel.searchname|escape:'htmlall'}</a></h4>
 <br/>
 
 <table class="data Sortable highlight table table-striped">
@@ -33,8 +32,8 @@
 		{/if}
 		
 		<td width="30"><img title=".{$file.ext}" alt="{$file.ext}" src="{$smarty.const.WWW_TOP}/views/images/fileicons/{$icon}.png" /></td>
-		<td class="less right">{if $completion < 100}<span class="label label-important">{$completion}%</span>{else}<span class="label label-success">{$completion}%</span>{/if}</td>
-		<td width="50" class="less right">{if $file.size < 100000}{$file.size|fsize_format:"KB"}{else}{$file.size|fsize_format:"MB"}{/if}</td>
+		<td class="less right"><center>{if $completion < 100}<span class="label label-important">{$completion}%</span>{else}<span class="label label-success">{$completion}%</span>{/if}</center></td>
+		<td width="80" class="less right">{if $file.size < 100000}{$file.size|fsize_format:"KB"}{else}{$file.size|fsize_format:"MB"}{/if}</td>
 	</tr>
 	{/foreach}
 

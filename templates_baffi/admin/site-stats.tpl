@@ -8,11 +8,11 @@
 	{if $topgrabs|count > 0}
 	<div class="accordion-group">
 		<div class="accordion-heading">
-			<a class="accordion-toggle" data-toggle="collapse" data-parent="#sitestatus" href="#grabbers">
+			<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#sitestatus" href="#grabbers">
 				Top Grabbers
 			</a>
 		</div>
-		<div id="grabbers" class="accordion-body collapse in" style="height: auto;">
+		<div id="grabbers" class="accordion-body collapse" style="height: auto;">
 			<div class="accordion-inner">
 				
 					<table class="data highlight table table-striped">

@@ -60,8 +60,6 @@
 
 <form id="nzb_multi_operations_form" action="get">
 
-View: <b>Covers</b> | <a href="{$smarty.const.WWW_TOP}/browse?t={$category}">List</a><br />
-
 <div class="well well-small">
 	<div class="nzb_multi_operations">
 		With Selected:
@@ -69,6 +67,10 @@ View: <b>Covers</b> | <a href="{$smarty.const.WWW_TOP}/browse?t={$category}">Lis
 			<input type="button" class="nzb_multi_operations_download btn btn-small btn-success" value="Download NZBs" />
 			<input type="button" class="nzb_multi_operations_cart btn btn-small btn-info" value="Add to Cart" />
 			{if $sabintegrated}<input type="button" class="nzb_multi_operations_sab btn btn-small btn-primary" value="Send to SAB" />{/if}
+		</div>
+		
+		<div class="pull-right">
+			<a href="{$smarty.const.WWW_TOP}/browse?t={$category}"><i class="fa-icon-align-justify"></i></a>
 		</div>
 	</div>
 </div>

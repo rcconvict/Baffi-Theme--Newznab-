@@ -23,7 +23,7 @@
 	{$pager}
 	</div>
 {/if}
-{if $section != ''}View: <a href="{$smarty.const.WWW_TOP}/{$section}?t={$category}">Covers</a> | <b>List</b><br />{/if}
+
 <form id="nzb_multi_operations_form" action="get">
 
 	<div class="well well-small">
@@ -34,16 +34,19 @@
 				<input type="button" class="nzb_multi_operations_cart btn btn-small btn-info" value="Add to Cart" />
 				{if $sabintegrated}<input type="button" class="nzb_multi_operations_sab btn btn-small btn-primary" value="Send to SAB" />{/if}
 			</div>
-
-			{if $isadmin}
-			<div class="pull-right">
-				Admin: 	
-				<div class="btn-group">	
-					<input type="button" class="nzb_multi_operations_edit btn btn-small btn-warning" value="Edit" />
-					<input type="button" class="nzb_multi_operations_delete btn btn-small btn-danger" value="Delete" />
+			{if $section != ''}
+				<div class="pull-right">
+				{if $isadmin}
+					Admin: 	
+					<div class="btn-group">	
+						<input type="button" class="nzb_multi_operations_edit btn btn-small btn-warning" value="Edit" />
+						<input type="button" class="nzb_multi_operations_delete btn btn-small btn-danger" value="Delete" />
+					</div>
+					&nbsp;
+				{/if}
+					<a href="{$smarty.const.WWW_TOP}/{$section}?t={$category}"><i class="fa-icon-th-list"></i></a>
 				</div>
-			</div>
-			{/if}	
+			{/if}
 		</div>
 	</div>
 

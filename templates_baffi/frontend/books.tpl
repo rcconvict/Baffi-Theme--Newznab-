@@ -73,7 +73,7 @@ View: <b>Covers</b> | <a href="{$smarty.const.WWW_TOP}/browse?t=7020">List</a><b
 			<td class="mid">
 				<div class="movcover">
 					<a class="title" href="{$site->dereferrer_link}{$result.url}">
-						<img class="shadow polarized" src="{$smarty.const.WWW_TOP}/covers/book/{if $result.cover == 1}{$result.bookinfoID}.jpg{else}no-cover.jpg{/if}" width="120" border="0" alt="{$result.author|escape:"htmlall"} - {$result.title|escape:"htmlall"}" />
+						<img class="shadow img-polaroid" src="{$smarty.const.WWW_TOP}/covers/book/{if $result.cover == 1}{$result.bookinfoID}.jpg{else}no-cover.jpg{/if}" width="120" border="0" alt="{$result.author|escape:"htmlall"} - {$result.title|escape:"htmlall"}" />
 					</a>
 					<div class="movextra">
 						{if $result.url != ""}<a class="rndbtn badge badge-amaz" target="_blank" href="{$site->dereferrer_link}{$result.url}" name="amazon{$result.bookinfoID}" title="View amazon page">Amazon</a>{/if}
@@ -140,11 +140,12 @@ View: <b>Covers</b> | <a href="{$smarty.const.WWW_TOP}/browse?t=7020">List</a><b
 								</ul>
 							</td>
 							<td class="icons">
-								<div class="icon icon_nzb"><a title="Download Nzb" href="{$smarty.const.WWW_TOP}/getnzb/{$mguid[$m@index]}/{$mname[$m@index]|escape:"url"}">&nbsp;</a></div>
-								<div class="icon icon_cart" title="Add to Cart"></div>
-								{if $sabintegrated}
-									<div class="icon icon_sab" title="Send to my Sabnzbd"></div>
-								{/if}
+								<ul class="inline">
+									<li><div class="icon icon_nzb"><a title="Download Nzb" href="{$smarty.const.WWW_TOP}/getnzb/{$result.guid}/{$result.searchname|escape:"url"}"><img src="/views/images/icons/nzbup.png"></a></div></li>
+									<li><div class="icon icon_cart" title="Add to Cart"><img src="/views/images/icons/cartup.png"></div></li>
+									<li>{if $sabintegrated}<div class="icon icon_sab" title="Send to my Sabnzbd"><img src="/views/images/icons/sabup.png"></div>{/if}</li>
+								</ul>
+								
 							</td>
 						</tr>
 						{if $m@index == 1 && $m@total > 2}

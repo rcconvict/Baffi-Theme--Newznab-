@@ -17,6 +17,8 @@
 		<ul class="dropdown-menu" role="menu" aria-labelledby="drop2">	
 			<li><a href="{$smarty.const.WWW_TOP}/movies">{$parentcat.title}</a></li>
 			<li class="divider"></li>
+			<li><a href="{$smarty.const.WWW_TOP}/upcoming">In Theatres</a></li>
+			<li class="divider"></li>
 			{foreach from=$parentcat.subcatlist item=subcat}
 			<li><a title="Browse {$subcat.title}" href="{$smarty.const.WWW_TOP}/movies?t={$subcat.ID}">{$subcat.title}</a></li>
 			{/foreach}
@@ -33,6 +35,24 @@
 			<li><a title="Browse {$subcat.title}" href="{$smarty.const.WWW_TOP}/browse?t={$subcat.ID}">{$subcat.title}</a></li>
 			{else}
 			<li><a title="Browse {$subcat.title}" href="{$smarty.const.WWW_TOP}/music?t={$subcat.ID}">{$subcat.title}</a></li>
+			{/if}
+			{/foreach}
+		</ul>
+	</li>
+	{elseif ($parentcat.ID == 5000}
+	<li class="dropdown">
+		<a id="drop{$parentcat.ID}" class="dropdown-toggle" data-toggle="dropdown" href="#">{$parentcat.title} <b class="caret"></b></a>
+		<ul class="dropdown-menu" role="menu" aria-labelledby="drop{$parentcat.ID}">
+			<li><a href="{$smarty.const.WWW_TOP}/browse?t={$parentcat.ID}">{$parentcat.title}</a></li>
+			<li class="divider"></li>
+			<li><a href="{$smarty.const.WWW_TOP}/series">TV Series</a></li>
+			<li><a href="{$smarty.const.WWW_TOP}/calendar">TV Calendar</a></li>
+			<li class="divider"></li>
+			{foreach from=$parentcat.subcatlist item=subcat}
+			{if ($subcat.ID == 7020 && $userdata.bookview=="1")}
+			<li><a title="Browse {$subcat.title}" href="{$smarty.const.WWW_TOP}/books">{$subcat.title}</a></li>
+			{else}
+			<li><a title="Browse {$subcat.title}" href="{$smarty.const.WWW_TOP}/browse?t={$subcat.ID}">{$subcat.title}</a></li>
 			{/if}
 			{/foreach}
 		</ul>

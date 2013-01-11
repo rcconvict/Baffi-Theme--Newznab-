@@ -39,7 +39,7 @@
 			{/foreach}
 		</ul>
 	</li>
-	{elseif ($parentcat.ID == 5000}
+	{elseif ($parentcat.ID == 5000)}
 	<li class="dropdown">
 		<a id="drop{$parentcat.ID}" class="dropdown-toggle" data-toggle="dropdown" href="#">{$parentcat.title} <b class="caret"></b></a>
 		<ul class="dropdown-menu" role="menu" aria-labelledby="drop{$parentcat.ID}">

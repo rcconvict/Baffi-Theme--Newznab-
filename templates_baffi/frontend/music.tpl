@@ -129,24 +129,26 @@ View: <b>Covers</b> | <a href="{$smarty.const.WWW_TOP}/browse?t={$category}">Lis
 		<tr class="{cycle values=",alt"}">
 			<td class="mid">
 				<div class="movcover">
-				<a class="title" title="View details" href="{$smarty.const.WWW_TOP}/details/{$result.guid}/{$result.searchname|escape:"seourl"}">
-					<img class="shadow img-polaroid" src="{$smarty.const.WWW_TOP}/covers/music/{if $result.cover == 1}{$result.musicinfoID}.jpg{else}no-cover.jpg{/if}" width="120" border="0" alt="{$result.artist|escape:"htmlall"} - {$result.title|escape:"htmlall"}" />
-				</a>
-				<div class="movextra">
-					{if $result.nfoID > 0}<a href="{$smarty.const.WWW_TOP}/nfo/{$result.guid}" title="View Nfo" class="rndbtn modal_nfo badge" rel="nfo">Nfo</a>{/if}
-					{if $result.url != ""}<a class="rndbtn badge badge-amaz" target="_blank" href="{$site->dereferrer_link}{$result.url}" name="amazon{$result.musicinfoID}" title="View amazon page">Amazon</a>{/if}
-					<a class="rndbtn badge" href="{$smarty.const.WWW_TOP}/browse?g={$result.group_name}" title="Browse releases in {$result.group_name|replace:"alt.binaries":"a.b"}">Grp</a>
-				</div>
+					<a class="title" title="View details" href="{$smarty.const.WWW_TOP}/details/{$result.guid}/{$result.searchname|escape:"seourl"}">
+						<img class="shadow img-polaroid" src="{$smarty.const.WWW_TOP}/covers/music/{if $result.cover == 1}{$result.musicinfoID}.jpg{else}no-cover.jpg{/if}" width="120" border="0" alt="{$result.artist|escape:"htmlall"} - {$result.title|escape:"htmlall"}" />
+					</a>
+					<div class="movextra">
+						<center>
+						{if $result.nfoID > 0}<a href="{$smarty.const.WWW_TOP}/nfo/{$result.guid}" title="View Nfo" class="rndbtn modal_nfo badge" rel="nfo">Nfo</a>{/if}
+						{if $result.url != ""}<a class="rndbtn badge badge-amaz" target="_blank" href="{$site->dereferrer_link}{$result.url}" name="amazon{$result.musicinfoID}" title="View amazon page">Amazon</a>{/if}
+						<a class="rndbtn badge" href="{$smarty.const.WWW_TOP}/browse?g={$result.group_name}" title="Browse releases in {$result.group_name|replace:"alt.binaries":"a.b"}">Grp</a>
+						</center>
+					</div>
 				</div>
 			</td>
 			
 			<td colspan="7" class="left" id="guid{$result.guid}">
 				<ul class="inline">
 					<li><h4><a class="title" title="View details" href="{$smarty.const.WWW_TOP}/details/{$result.guid}/{$result.searchname|escape:"seourl"}">{$result.artist|escape:"htmlall"} - {$result.title|escape:"htmlall"}</a> (<a class="title" title="{$result.year}" href="{$smarty.const.WWW_TOP}/music?year={$result.year}">{$result.year}</a>)</h4></li>
-					<li><div class="icon"><input type="checkbox" class="nzb_check" value="{$result.guid}" /></div></li>
-					<li><div class="icon icon_nzb"><a title="Download Nzb" href="{$smarty.const.WWW_TOP}/getnzb/{$result.guid}/{$result.searchname|escape:"url"}"><img src="/views/images/icons/nzbup.png"></a></div></li>
-					<li><div class="icon icon_cart" title="Add to Cart"><img src="/views/images/icons/cartup.png"></div></li>
-					<li>{if $sabintegrated}<div class="icon icon_sab" title="Send to my Sabnzbd"><img src="/views/images/icons/sabup.png"></div>{/if}</li>
+					<li style="vertical-align:text-bottom;"><div class="icon"><input type="checkbox" class="nzb_check" value="{$result.guid}" /></div></li>
+					<li style="vertical-align:text-bottom;"><div class="icon icon_nzb"><a title="Download Nzb" href="{$smarty.const.WWW_TOP}/getnzb/{$result.guid}/{$result.searchname|escape:"url"}"><img src="/views/images/icons/nzbup.png"></a></div></li>
+					<li style="vertical-align:text-bottom;"><div class="icon icon_cart" title="Add to Cart"><img src="/views/images/icons/cartup.png"></div></li>
+					<li style="vertical-align:text-bottom;">{if $sabintegrated}<div class="icon icon_sab" title="Send to my Sabnzbd"><img src="/views/images/icons/sabup.png"></div>{/if}</li>
 				</ul>
 				
 				{if $result.genre != ""}<b>Genre:</b> <a href="{$smarty.const.WWW_TOP}/music/?genre={$result.genreID}">{$result.genre|escape:"htmlall"}</a><br />{/if}

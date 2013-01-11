@@ -76,16 +76,18 @@ View: <b>Covers</b> | <a href="{$smarty.const.WWW_TOP}/browse?t=7020">List</a><b
 						<img class="shadow img-polaroid" src="{$smarty.const.WWW_TOP}/covers/book/{if $result.cover == 1}{$result.bookinfoID}.jpg{else}no-cover.jpg{/if}" width="120" border="0" alt="{$result.author|escape:"htmlall"} - {$result.title|escape:"htmlall"}" />
 					</a>
 					<div class="movextra">
+						<center>
 						{if $result.url != ""}<a class="rndbtn badge badge-amaz" target="_blank" href="{$site->dereferrer_link}{$result.url}" name="amazon{$result.bookinfoID}" title="View amazon page">Amazon</a>{/if}
 						<a class="rndbtn badge" href="{$smarty.const.WWW_TOP}/browse?g={$result.group_name}" title="Browse releases in {$result.group_name|replace:"alt.binaries":"a.b"}">Grp</a>
+						</center>
 					</div>
 				</div>
 			</td>
 			<td colspan="3" class="left">
-				<h2><a href="{$smarty.const.WWW_TOP}/books/?author={$result.author}">{$result.author|escape:"htmlall"}</a> - {$result.title|escape:"htmlall"}</h2>
+				<h4><a href="{$smarty.const.WWW_TOP}/books/?author={$result.author}">{$result.author|escape:"htmlall"}</a> - {$result.title|escape:"htmlall"}</h4>
 
 				{if $result.review != ""}
-				<span class="descfull">{$result.review|escape:"htmlall"|nl2br|magicurl}</span><br />
+				<span class="descfull">{$result.review|escape:"htmlall"|nl2br|magicurl}</span><br /><br />
 				{/if}
 				
 				{if $result.publisher != ""}<b>Publisher:</b> {$result.publisher|escape:"htmlall"}<br />{/if}

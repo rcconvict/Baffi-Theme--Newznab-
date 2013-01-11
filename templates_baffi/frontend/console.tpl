@@ -4,13 +4,13 @@
 <center>
 <form class="form-inline" name="browseby" action="console" style="margin:0;">
 		
-		<i class="fa-icon-font fa-icon-large fa-midt"></i>
+		<i class="fa-icon-font fa-midt"></i>
 		<input class="input input-medium" id="title" type="text" name="title" value="{$title}" placeholder="Title" />
 		
-		<i class="fa-icon-desktop fa-icon-large fa-midt"></i>
+		<i class="fa-icon-desktop fa-midt"></i>
 		<input class="input input-medium" id="platform" type="text" name="platform" value="{$platform}" placeholder="Platform" />
 			
-		<i class="fa-icon-inbox fa-icon-large fa-midt"></i>
+		<i class="fa-icon-inbox fa-midt"></i>
 			<select class="input input-small" id="genre" name="genre">
 				<option class="grouping" value=""></option>
 				{foreach from=$genres item=gen}
@@ -18,7 +18,7 @@
 				{/foreach}
 			</select>
 			
-		<i class="fa-icon-flag fa-icon-large fa-midt"></i>
+		<i class="fa-icon-flag fa-midt"></i>
 			<select class="input input-small" id="category" name="t">
 			<option class="grouping" value="1000"></option>
 				{foreach from=$catlist item=ct}
@@ -54,7 +54,7 @@ View: <b>Covers</b> | <a href="{$smarty.const.WWW_TOP}/browse?t={$category}">Lis
 	</div>
 </div>
 
-<table style="width:100%;" class="data highlight icons" id="coverstable">
+<table style="width:100%;" class="data highlight icons table table-striped" id="coverstable">
 	<tr>
 		<th width="130">
 			<input type="checkbox" class="nzb_check_all" />
@@ -153,7 +153,19 @@ View: <b>Covers</b> | <a href="{$smarty.const.WWW_TOP}/browse?t={$category}">Lis
 				</div>
 			</td>
 			<td colspan="8" class="left" id="guid{$result.guid}">
+				
+				<ul class="inline">
+					<li><h4><a class="title" title="View details" href="{$smarty.const.WWW_TOP}/details/{$result.guid}/{$result.searchname|escape:"seourl"}">{$result.title|escape:"htmlall"} - {$result.platform|escape:"htmlall"}</a></h4></li>
+					<li><div class="icon"><input type="checkbox" class="nzb_check" value="{$result.guid}" /></div></li>
+					<li><div class="icon icon_nzb"><a title="Download Nzb" href="{$smarty.const.WWW_TOP}/getnzb/{$result.guid}/{$result.searchname|escape:"url"}"><img src="/views/images/icons/nzbup.png"></a></div></li>
+					<li><div class="icon icon_cart" title="Add to Cart"><img src="/views/images/icons/cartup.png"></div></li>
+					<li>{if $sabintegrated}<div class="icon icon_sab" title="Send to my Sabnzbd"><img src="/views/images/icons/sabup.png"></div>{/if}</li>
+				</ul>
+				
 				<h2><a class="title" title="View details" href="{$smarty.const.WWW_TOP}/details/{$result.guid}/{$result.searchname|escape:"seourl"}">{$result.title|escape:"htmlall"} - {$result.platform|escape:"htmlall"}</a></h2>
+				
+				
+				
 				{if $result.genre != ""}<b>Genre:</b> {$result.genre}<br />{/if}
 				{if $result.esrb != ""}<b>Rating:</b> {$result.esrb}<br />{/if}
 				{if $result.publisher != ""}<b>Publisher:</b> {$result.publisher}<br />{/if}
@@ -161,29 +173,21 @@ View: <b>Covers</b> | <a href="{$smarty.const.WWW_TOP}/browse?t={$category}">Lis
 				{if $result.review != ""}<b>Review:</b> {$result.review|escape:'htmlall'}<br />{/if}
 				<br />
 				<div class="movextra">
-					<b>{$result.searchname|escape:"htmlall"}</b> <a class="rndbtn btn btn-mini" href="{$smarty.const.WWW_TOP}/console?platform={$result.platform}" title="View similar nzbs">Similar</a>
+					<b>{$result.searchname|escape:"htmlall"}</b> <a class="rndbtn btn btn-mini btn-info" href="{$smarty.const.WWW_TOP}/console?platform={$result.platform}" title="View similar nzbs">Similar</a>
 					{if $isadmin}
 						<a class="rndbtn btn btn-mini btn-warning" href="{$smarty.const.WWW_TOP}/admin/release-edit.php?id={$result.releaseID}&amp;from={$smarty.server.REQUEST_URI|escape:"url"}" title="Edit Release">Edit</a> <a class="rndbtn confirm_action btn btn-mini btn-danger" href="{$smarty.const.WWW_TOP}/admin/release-delete.php?id={$result.releaseID}&amp;from={$smarty.server.REQUEST_URI|escape:"url"}" title="Delete Release">Delete</a>
 					{/if}
 					<br />
-					<b>Info:</b> {$result.postdate|timeago},  {$result.size|fsize_format:"MB"},  <a title="View file list" href="{$smarty.const.WWW_TOP}/filelist/{$result.guid}">{$result.totalpart} files</a>,  <a title="View comments for {$result.searchname|escape:"htmlall"}" href="{$smarty.const.WWW_TOP}/details/{$result.guid}/#comments">{$result.comments} cmt{if $result.comments != 1}s{/if}</a>, {$result.grabs} grab{if $result.grabs != 1}s{/if}
-					<br />
-					<div class="icon">
-						<input type="checkbox" class="nzb_check" value="{$result.guid}" />
-					</div>
-					<div class="icon icon_nzb">
-						<a title="Download Nzb" href="{$smarty.const.WWW_TOP}/getnzb/{$result.guid}/{$result.searchname|escape:"url"}">
-							<img src="{$smarty.const.WWW_TOP}/views/images/icons/nzbup.png"/>
-						</a>
-					</div>
-					<div class="icon icon_cart" title="Add to Cart">
-						<img src="{$smarty.const.WWW_TOP}/views/images/icons/cartup.png"/>
-					</div>
-					{if $sabintegrated}
-					<div class="icon icon_sab" title="Send to my Sabnzbd">	
-						<img src="{$smarty.const.WWW_TOP}/views/images/icons/sabup.png"/>
-					</div>
-					{/if}
+					
+					<ul class="inline">
+						<li width="50px"><b>Info:</b></li>
+						<li width="100px">Posted {$result.postdate|timeago}</li>
+						<li width="80px">{$result.size|fsize_format:"MB"}</li>
+						<li width="50px"><a title="View file list" href="{$smarty.const.WWW_TOP}/filelist/{$result.guid}">{$result.totalpart}</a> <i class="fa-icon-file"></i></li>
+						<li width="50px"><a title="View comments for {$result.searchname|escape:"htmlall"}" href="{$smarty.const.WWW_TOP}/details/{$result.guid}/#comments">{$result.comments}</a> <i class="fa-icon-comments-alt"></i></li>
+						<li width="50px">{$result.grabs} <i class="fa-icon-download-alt"></i></li>
+					</ul>
+					
 				</div>
 			</td>
 		</tr>

@@ -31,7 +31,7 @@
 
 <ul class="navigator">
 	<li class="active">Groups<span class="divider">/</span></li>
-	<li><a href="{$smarty.const.WWW_TOP}/group-list.php">View</a><span class="divider">/</span></li>
+	<li><a href="{$smarty.const.WWW_TOP}/group-list.php?active=1&groupname=">View</a><span class="divider">/</span></li>
 	<li><a style="padding:0;" href="{$smarty.const.WWW_TOP}/group-edit.php">Add</a><span class="divider">/</span></li>
 	<li><a style="padding:0;" href="{$smarty.const.WWW_TOP}/group-bulk.php">BulkAdd</a></li>
 </ul>

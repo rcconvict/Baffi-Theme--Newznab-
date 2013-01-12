@@ -1,5 +1,5 @@
 <div class="page-header">
-	<h1>{$page->title}</h1>
+	<h2>{$page->title}</h2>
 </div>
 
 <div class="alert alert-block">
@@ -7,10 +7,18 @@
 	Below is a list of all usenet groups available to be indexed. Click 'Activate' to enable a group to be indexed.<br/>
 	&bull; <strong>Reset</strong> will update the last indexed date of the group so it will appear as the first time you have ever activated that group.<br/>
 	&bull; <strong>Delete</strong> will delete the group but leave all releases.<br/>
-	&bull; <strong>Purge</strong> will delete all releases for the group.
-	&bull; You can <a href="group-edit.php">add your own groups</a>. Here is a <a target="_blank" href="http://www.lightningnews.com/grouplist.txt">fairly comprehensive list of newsgroups</a>.<br/>
+	&bull; <strong>Purge</strong> will delete all releases for the group.<br/>
+	&bull; <strong><a href="group-edit.php">Add your own groups</a></strong> - Here is a <a target="_blank" href="http://www.lightningnews.com/grouplist.txt">fairly comprehensive list of newsgroups</a>.<br/>
 </div>
 
+
+<script language='JavaScript'>
+function getURLParameter(name) {
+    return decodeURI(
+        (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]
+    );
+}
+</script>
 
 {if $grouplist}
 <br/>
@@ -20,16 +28,29 @@
 				<h5>Filter </h5>
 			</div>
 			<div style="margin-left:100px; margin-top:-40px;">
-			{html_radios id="active" name='active' values=$active_ids output=$active_names selected=$active separator=' '}
+			{html_radios id="active" name='active' values=$active_ids output=$active_names selected=$active separator=''}
 			</div>
-				<div class="input-append" style="margin-left:200px; margin-top:-40px;">
-					<input id="groupname" class="input-xlarge" name="groupname" value="{$groupname}" type="text" placeholder="Search text">
-					<input id="search_search_button" class="btn btn-success" type="submit" value="Go">
+			<div class="input-append" style="margin-left:200px; margin-top:-40px;">
+				<input id="groupname" class="input-xlarge" name="groupname" value="{$groupname}" type="text" placeholder="Search text">
+				<input id="search_search_button" class="btn btn-success" type="submit" value="Go">
+			</div>
+				<div class="pull-right" style="margin-top:-33px;">
+					<script language='JavaScript'>
+					if(getURLParameter('active') == 0){
+						document.write('<a class="btn btn-small btn-success" href="{$smarty.const.WWW_TOP}/group-list.php?active=1">Active</a>');
+					}
+					else{
+						document.write('<a class="btn btn-small btn-info" href="{$smarty.const.WWW_TOP}/group-list.php?active=0">All</a>');
+					}
+				</script>
 				</div>
+			
 		</form>
 </div>
 
+<div class="pagination pagination-centered">
 {$pager}
+</div>
 
 <div id="message" class="alert alert-info" style="display: none;"></div>
 <table class="data highlight table table-striped">

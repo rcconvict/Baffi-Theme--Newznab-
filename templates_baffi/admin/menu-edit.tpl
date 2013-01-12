@@ -1,5 +1,5 @@
 <div class="page-header">
-	<h1>{if $page->title ==''}Add Menu Item{else}{$page->title}{/if}</h1>
+	<h2>{if $page->title ==''}Add Menu Item{else}{$page->title}{/if}</h2>
 </div>
 
 <form class="form-horizontal" action="{$SCRIPT_NAME}?action=submit" method="POST">

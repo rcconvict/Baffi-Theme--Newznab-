@@ -1,5 +1,5 @@
 <div class="page-header">
-	<h1>{$page->title}</h1>
+	<h2>{$page->title}</h2>
 </div>
 
 {if $regex.ID > 0 && $regex.ID < 100000 && $site->reqidurl != ""}

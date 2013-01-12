@@ -2,7 +2,6 @@
 	<h2>{$page->title}</h2>
 </div>
 
-
 <div class="accordion" id="sitestatus">
 	
 	{if $topgrabs|count > 0}

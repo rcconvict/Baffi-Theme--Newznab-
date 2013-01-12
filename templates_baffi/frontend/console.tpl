@@ -35,24 +35,35 @@
 
 {if $results|@count > 0}
 
-<div {if $section != ''}style="margin-bottom:-40px;"{else}style="margin-bottom:-20px;"{/if}>
-	{$pager}
-</div>
 
 <form id="nzb_multi_operations_form" action="get">
-
-View: <b>Covers</b> | <a href="{$smarty.const.WWW_TOP}/browse?t={$category}">List</a><br />
-
-<div class="well well-small">
-	<div class="nzb_multi_operations">
-		With Selected:
-		<div class="btn-group">
-			<input type="button" class="nzb_multi_operations_download btn btn-small btn-success" value="Download NZBs" />
-			<input type="button" class="nzb_multi_operations_cart btn btn-small btn-info" value="Add to Cart" />
-			{if $sabintegrated}<input type="button" class="nzb_multi_operations_sab btn btn-small btn-primary" value="Send to SAB" />{/if}
+	<div class="well well-small">
+		<div class="nzb_multi_operations">
+			<table width="100%">
+				<tr>
+					<td width="33%">
+						With Selected:
+						<div class="btn-group">
+							<input type="button" class="nzb_multi_operations_download btn btn-small btn-success" value="Download NZBs" />
+							<input type="button" class="nzb_multi_operations_cart btn btn-small btn-info" value="Add to Cart" />
+							{if $sabintegrated}<input type="button" class="nzb_multi_operations_sab btn btn-small btn-primary" value="Send to SAB" />{/if}
+						</div>
+					</td>
+					<td width="33%">
+						<center>
+							{$pager}
+						</center>
+					</td>
+					<td width="33%">
+						<div class="pull-right">
+							<a href="{$smarty.const.WWW_TOP}/browse?t={$category}"><i class="fa-icon-align-justify"></i></a>
+							&nbsp;
+						</div>
+					</td>
+				</tr>
+			</table>
 		</div>
 	</div>
-</div>
 
 <table style="width:100%;" class="data highlight icons table table-striped" id="coverstable">
 	<tr>

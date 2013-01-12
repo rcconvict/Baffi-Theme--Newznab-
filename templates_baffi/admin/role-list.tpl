@@ -1,6 +1,7 @@
 <div class="page-header">
-	<h1>{$page->title}</h1>
+	<h2>{$page->title}</h2>
 </div>
+
 <table class="data highlight table table-striped">
 
 	<tr>

@@ -1,5 +1,5 @@
 <div class="page-header">
-	<h1>{if $page->title != '' }{$page->title}{else}Add User{/if}</h1>
+	<h2>{if $page->title != '' }{$page->title}{else}Add User{/if}</h2>
 </div>
 
 {if $error != ''}

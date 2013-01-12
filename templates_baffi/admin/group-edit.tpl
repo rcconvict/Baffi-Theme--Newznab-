@@ -1,7 +1,6 @@
 <div class="page-header">
-	<h1>{$page->title}</h1>
+	<h2>{$page->title}</h2>
 </div>
-
 
 <form class="form-horizontal" action="{$SCRIPT_NAME}?action=submit" method="POST">
 

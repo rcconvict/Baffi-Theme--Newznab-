@@ -176,9 +176,17 @@
 								</ul>
 							</td>
 							<td class="icons">
-								<div class="icon icon_nzb"><a title="Download Nzb" href="{$smarty.const.WWW_TOP}/getnzb/{$mguid[$m@index]}/{$mname[$m@index]|escape:"url"}">&nbsp;</a></div>
-								<div class="icon icon_cart" title="Add to Cart"></div>
-								{if $sabintegrated}<div class="icon icon_sab" title="Send to my Sabnzbd"></div>{/if}
+								<div class="icon icon_nzb">
+									<a title="Download Nzb" href="{$smarty.const.WWW_TOP}/getnzb/{$mguid[$m@index]}/{$mname[$m@index]|escape:"url"}"><img src="/views/images/icons/nzbup.png"></a>
+								</div>
+								<div class="icon icon_cart" title="Add to Cart">
+									<img src="/views/images/icons/cartup.png">
+								</div>
+								{if $sabintegrated}
+									<div class="icon icon_sab" title="Send to my Sabnzbd">
+										<img src="/views/images/icons/sabup.png">
+									</div>
+								{/if}
 							</td>
 						</tr>
 						{/foreach}		

@@ -1,5 +1,5 @@
 <div class="page-header">
-	<h1>{$page->title}</h1>
+	<h2>{$page->title}</h2>
 </div>
 <table style="margin-top:10px;" class="data Sortable table table-striped">
 

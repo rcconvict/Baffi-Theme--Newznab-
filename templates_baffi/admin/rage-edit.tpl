@@ -1,5 +1,5 @@
 <div class="page-header">
-	<h1>{$page->title}</h1>
+	<h2>{$page->title}</h2>
 </div>
 
 <a class="btn btn-small" href="?action=update&id={$rage.ID}">Update from TV Rage</a>

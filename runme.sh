@@ -73,10 +73,16 @@ read WISH0
 
 if [ $WISH0 = "1" ] ; then
 	Install
+	echo " "
+	echo "Reseting cache, if it failes it just because there is no cache for the theme :)"
+	Reset
 fi
 
 if [ $WISH0 = "2" ] ; then
 	Remove
+	echo " "
+	echo "Reseting cache, if it failes it just because there is no cache for the theme :)"
+	Reset
 fi
 
 if [ $WISH0 = "3" ] ; then
@@ -114,21 +120,23 @@ if [ $WISH0 = "3" ] ; then
 		Reset
 	
 		echo "Done"
+		
+	else
+	
+		echo "Updating"
+	
+		git pull
+	
+		echo "Installing"
+		Install
+	
+		echo " "
+		echo "Reseting cache, if it failes it just because there is no cache for the theme :)"
+		Reset
+	
+		echo "Done"
+	
 	fi
-	
-	echo "Updating"
-	
-	git pull
-	
-	echo "Installing"
-	Install
-	
-	echo " "
-	echo "Reseting cache, if it failes it just because there is no cache for the theme :)"
-	Reset
-	
-	echo "Done"
-	
 	
 fi
 

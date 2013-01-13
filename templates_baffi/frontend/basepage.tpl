@@ -17,6 +17,8 @@
 	<link href="{$smarty.const.WWW_TOP}/views/themes/{$site->style}/style.css" rel="stylesheet" type="text/css" media="screen" />
 {/if}
 
+	
+
 	<!-- FAVICON -->
 	<link rel="shortcut icon" type="image/ico" href="{$smarty.const.WWW_TOP}/views/images/favicon.ico"/>
 	<link rel="search" type="application/opensearchdescription+xml" href="{$smarty.const.WWW_TOP}/opensearch" title="{$site->title|escape}" />
@@ -30,6 +32,11 @@
 	
 	<!-- Added the Bootstrap JS -->
 	<script type="text/javascript" src="{$smarty.const.WWW_TOP}/views/scripts/bootstrap.js"></script>
+	
+	<!-- Pines Notify -->
+	<script type="text/javascript" src="{$smarty.const.WWW_TOP}/views/scripts/jquery.pnotify.js"></script>
+	
+	
 	
 	<script type="text/javascript">
 	/* <![CDATA[ */	

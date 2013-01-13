@@ -7,10 +7,10 @@
 	{/if}
 </ul>
 
-<table class="data table">
+<table class="data table" width="100%">
 	<tr>
-		<th>Username:</th>
-		<td>{$user.username|escape:"htmlall"}</td>
+		<th width="30%">Username:</th>
+		<td width="70%">{$user.username|escape:"htmlall"}</td>
 	</tr>
 	
 	{if $user.ID==$userdata.ID || $userdata.role==2}
@@ -78,11 +78,14 @@
 			<a id="lnkSendInvite" onclick="return false;" class="btn btn-small btn-info" href="#">Send Invite</a>
 			
 			<div style="display:none; margin-top:20px;" id="divInvite">
-				<div style="display:none;" class="invitesuccess alert alert-success " id="divInviteSuccess">Invite Sent</div>
+			
+				<div style="display:none;" class="invitesuccess alert alert-success " id="divInviteSuccess"><strong>Invite Sent</strong><br/></div>
 				<div style="display:none;" class="invitefailed alert alert-error" id="divInviteError"></div>
+				
 				<form id="frmSendInvite" method="GET">
 					<input class="input-block-level" type="text" id="txtInvite" placeholder="Email"/>
 					<input class="btn btn-success" type="submit" value="Send"/>
+					<a id="lnkCancelInvite" onclick="return false;" class="btn btn-warning" href="#">Cancel</a>
 				</form>
 			</div>
 		{/if}

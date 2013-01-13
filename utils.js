@@ -49,13 +49,22 @@ jQuery(function($){
 		});
 	});
 
+
+/* SMALL GREY ICONS CART - DOWNLOAD - SAB */
 	// browse.tpl, search.tpl
 	$('.icon_cart').click(function(e){
 		if ($(this).hasClass('icon_cart_clicked')) return false;
 		var guid = $(this).parent().parent().parent().parent().attr('id').substring(4);
 		$.post( SERVERROOT + "cart?add=" + guid, function(resp){
 			$(e.target).addClass('icon_cart_clicked').attr('title','Added to Cart');
-	        createGrowl( 'Added to Cart' );
+	        
+	        $.pnotify({
+		        title: 'ADDED!',
+		        text: 'Its now in your Cart! ^_^',
+		        type: 'success',
+		        icon: 'fa-icon-info-sign'
+		    });
+	        
 		});
 		return false;
 	});
@@ -67,7 +76,13 @@ jQuery(function($){
 
 		$.post(nzburl, function(resp){
 			$(e.target).addClass('icon_sab_clicked').attr('title','Added to Queue');
-	        createGrowl( 'Added to Queue' );
+			
+	        $.pnotify({
+		        title: 'ADDED TO SAB!',
+		        text: 'Its now in the que!! ^_^',
+		        type: 'info',
+		        icon: 'fa-icon-info-sign'
+		    });
 		});
 		return false;
 	});
@@ -78,8 +93,14 @@ jQuery(function($){
 		var guid = $(this).parent().attr('id');
 		$.post( SERVERROOT + "cart?add=" + guid, function(resp){
 			$(e.target).addClass('icon_cart_clicked').attr('title','Added to Cart');
-	        createGrowl( 'Added to Cart' );
-		});
+	        
+	        $.pnotify({
+		        title: 'ADDED!',
+		        text: 'Its now in your Cart! ^_^',
+		        type: 'success',
+		        icon: 'fa-icon-info-sign'
+		    });
+	    });
 		return false;
 	});
 	$('.icon_nzb_sab').click(function(e){ // replace with cookies?
@@ -90,12 +111,20 @@ jQuery(function($){
 
 		$.post(nzburl, function(resp){
 			$(e.target).addClass('icon_sab_clicked').attr('title','Added to Queue');
-	        createGrowl( 'Added to Queue' );
+	        
+	        $.pnotify({
+		        title: 'ADDED TO SAB!',
+		        text: 'Its now in the que!! ^_^',
+		        type: 'info',
+		        icon: 'fa-icon-info-sign'
+		    });
+		    
 		});
 		return false;
 	});
+/* END OFF - SMALL GREY ICONS CART - DOWNLOAD - SAB */	
 	
-	
+/* MODAL */
 	$("table.data a.modal_nfo").colorbox({	 // NFO modal
 		href: function(){ return $(this).attr('href') +'&modal'; },
 		title: function(){ return $(this).parent().parent().children('a.title').text(); },
@@ -133,8 +162,10 @@ jQuery(function($){
 	}).click(function(){
 		$('#colorbox').removeClass().addClass('cboxBook');	
 	});	
+/* END OFF - MODAL */
 
 
+/* nzb_multi_operations_form */
 	$('#nzb_multi_operations_form').submit(function(){return false;});
 	$('input.nzb_multi_operations_download').click(function(){
 		var newFormName = 'nzbmulti' + Math.round(+new Date()/1000);
@@ -174,6 +205,7 @@ jQuery(function($){
 			$(this).attr('checked', false);
 		});
 	});
+	
 	//front end admin functions
 	$('input.nzb_multi_operations_edit').click(function(){
 		var ids = "";
@@ -241,7 +273,7 @@ jQuery(function($){
 	    });
 	});	
 
-	
+/* END OFF - nzb_multi_operations_form */	
 
 	// headermenu.tpl
 	$('#headsearch')
@@ -388,6 +420,13 @@ jQuery(function($){
 	$('#lnkSendInvite').click(function()
 	{
 		$('#divInvite').slideToggle('fast');
+		$("#lnkSendInvite").hide();
+	});
+	
+	$('#lnkCancelInvite').click(function()
+	{
+		$('#divInvite').slideToggle('fast');
+		$("#lnkSendInvite").show();
 	});
 	
 	// send an invite
@@ -406,9 +445,16 @@ jQuery(function($){
 			  success   : function(data)
 			  {
 				$("#txtInvite").val("");
-				$('#divInvite').slideToggle('fast');
+				$('#frmSendInvite').slideToggle('fast');
 				$("#divInviteSuccess").text(data).show();
 				$("#divInviteError").hide();
+				setTimeout(function() {
+					$("#divInviteSuccess").slideToggle(400);
+					$('#divInvite').slideToggle('fast');
+					$('#frmSendInvite').slideToggle('fast');
+					
+				}, 3500);
+				$("#lnkSendInvite").show();
 			  },
 			  error: function(xhr,err,e) { alert( "Error in ajax_profile: " + err ); }
 			});			
@@ -417,6 +463,10 @@ jQuery(function($){
 		{
 			$("#divInviteSuccess").hide();
 			$("#divInviteError").text("Invalid email").show();
+			setTimeout(function() {
+					$("#divInviteError").slideToggle(400);
+					
+				}, 3500);
 		}
 		return false;
 	});
@@ -427,7 +477,9 @@ jQuery(function($){
 		$(this).parent().parent().parent().children(".mlextra").show();
 		return false;
 	});
-	
+
+
+
 	// lookup tmdb for a movie
 	$('#frmMyMovieLookup').submit(function() 
 	{
@@ -498,6 +550,8 @@ jQuery(function($){
 	});
 	
 	// seriesinfo tooltip
+
+	// seriesinfo tooltip
 	$(".seriesinfo").each(function() {
 		var guid = $(this).attr('title');
 	  	$(this).qtip({
@@ -520,6 +574,8 @@ jQuery(function($){
 			}
 		});
 	});
+
+	
 
 	// mediainfo tooltip
 	$(".mediainfo").each(function() {
@@ -635,84 +691,6 @@ function mymovie_add(imdbID, btn)
 		return false;
 }
 
-
-// qtip growl
-$(document).ready(function()
-{
-   
-   window.createGrowl = function(tipText ) {
-      
-      var target = $('.qtip.jgrowl:visible:last');
-      var tipTitle = 'Attention!';
-      var persistent = false;
-      
-      $(document.body).qtip({
-         content: {
-            text: tipText,
-            title: {
-               text: tipTitle,
-               button: true
-            }
-         },
-         position: {
-            my: 'top right', 
-            at: (target.length ? 'bottom' : 'top') + ' right', 
-            target: target.length ? target : $(document.body), 
-            adjust: { y: 5 }
-         },
-         show: {
-            event: false, 
-            ready: true, 
-            effect: function() { $(this).stop(0,1).fadeIn(400); }, 
-            
-            persistent: persistent
-         },
-         hide: {
-            event: false, 
-            effect: function(api) { 
-               $(this).stop(0,1).fadeOut(400).queue(function() {
-                  api.destroy();
-                  updateGrowls();
-               })
-            }
-         },
-         style: {
-            classes: 'jgrowl ui-tooltip-newznab ui-tooltip-rounded', 
-            tip: false
-         },
-         events: {
-            render: function(event, api) {
-               timer.call(api.elements.tooltip, event);
-            }
-         }
-      })
-      .removeData('qtip');
-   };
- 
-   window.updateGrowls = function() {
-      var each = $('.qtip.jgrowl:not(:animated)');
-      each.each(function(i) {
-         var api = $(this).data('qtip');
- 
-         api.options.position.target = !i ? $(document.body) : each.eq(i - 1);
-         api.set('position.at', (!i ? 'top' : 'bottom') + ' right');
-      });
-   };
- 
-   function timer(event) {
-      var api = $(this).data('qtip'),
-         lifespan = 5000; 
-      
-      if(api.get('show.persistent') === true) { return; }
- 
-      clearTimeout(api.timer);
-      if(event.type !== 'mouseover') {
-         api.timer = setTimeout(api.hide, lifespan);
-      }
-   }
- 
-   $(document).delegate('.qtip.jgrowl', 'mouseover mouseout', timer);
-});
 
 //reset users api counts
 function resetapireq(uid, type)

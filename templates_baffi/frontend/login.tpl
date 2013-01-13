@@ -22,8 +22,8 @@ border: 1px solid #e1e1e8;
 				  {$error}
 			</div>
 		{/if}
-		<input class="input-block-level" type="text" id="username prependedInput" value="{$username}" name="username" placeholder="Username" style="margin-bottom:5px;">
-		<input class="input-block-level" id="password" name="password" type="password" placeholder="Password" style="margin-bottom:20px;">
+		<input class="span6" type="text" id="username prependedInput" value="{$username}" name="username" placeholder="Username" style="margin-bottom:5px;">
+		<input class="span6" id="password" name="password" type="password" placeholder="Password" style="margin-bottom:20px;">
 		
 		<input id="rememberme" {if $rememberme == 1}checked="checked"{/if} name="rememberme" type="checkbox"/> <span class="help-inline" style="vertical-align:sub;">Remember me </span>
 		<button type="submit" class="btn btn-success pull-right">Login</button>

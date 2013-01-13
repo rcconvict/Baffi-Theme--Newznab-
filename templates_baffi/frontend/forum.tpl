@@ -3,9 +3,12 @@
 
 {if $results|@count > 0}
 
-{$pager}
+<div class=".pagination pagination-centered">
+	{$pager}
+</div>
 
-<div style="float:right;margin-bottom:5px;"><a class="btn btn-small btn-primary" href="#new">New Post</a></div>
+<div style="float:right;margin-bottom:5px;"><a href="#new" role="button" class="btn btn-small btn-primary" data-toggle="modal">New post</a></div>
+
 
 <a id="top"></a>
 
@@ -43,14 +46,19 @@
 
 <br/>
 
-{$pager}
+<div class=".pagination pagination-centered">
+	{$pager}
+</div>
 
 {/if}
 
-<div style="margin-top:10px;">
-	<a id="new"></a>
-	<h3>Add New Post</h3>
-	<form class="form-horizontal" action="" method="post">
+<div id="new" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+	    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+	    <h3 id="myModalLabel">Add New Post</h3>
+	</div>
+    <div class="modal-body">
+    	<form id="new-forum-thread" class="form-horizontal" action="" method="post">
 
 		<div class="control-group">
 			<label class="control-label" for="addSubject">Subject</label>
@@ -65,14 +73,22 @@
 				<textarea cols="100" rows="3" class="input input-xlarge" maxlength="5000" id="addMessage" name="addMessage" rows="6" cols="60"></textarea>
 			</div>
 		</div>
-
-		<div class="control-group">
-			<label class="control-label" ></label>
-			<div class="controls">
-				<input class="forumpostsubmit btn btn-success" type="submit" value="submit"/>
-			</div>
-		</div>
-	</form>
+		</form>
+    </div>
+    <div class="modal-footer">
+    	<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    	<input id="new-forum-thread-submit" class="forumpostsubmit btn btn-success" type="submit" value="submit"/>
+    </div>
 </div>
+
+<script>
+  $('#new-forum-thread-submit').on('click', function(e){
+    // We don't want this to act as a link so cancel the link action
+    e.preventDefault();
+
+    // Find form and submit it
+    $('#new-forum-thread').submit();
+  });
+</script>
 
 <br/><br/><br/>

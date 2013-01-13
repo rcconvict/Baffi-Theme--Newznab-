@@ -158,11 +158,11 @@
 				
 				{if $result.actors != ''}
 					<b>Starring:</b> {$result.actors}
-					<br />
+					<br /> <br />
 				{/if}
 				
 				<div class="movextra">
-					<table class="table" style="margin-bottom:0px;">
+					<table class="table" style="margin-bottom:0px; margin-top:10px">
 					
 						{assign var="msplits" value=","|explode:$result.grp_release_id}
 						{assign var="mguid" value=","|explode:$result.grp_release_guid}
@@ -198,7 +198,6 @@
 									<li width="80px">{if $minnerfiles[$m@index] > 0}<a href="#" onclick="return false;" class="mediainfo label" title="{$mguid[$m@index]}">Media</a>{/if}</li>
 								</ul>
 							</td>
-							<br/>
 							<td class="icons" style='width:100px;'>
 								<ul class="inline">
 									<li>

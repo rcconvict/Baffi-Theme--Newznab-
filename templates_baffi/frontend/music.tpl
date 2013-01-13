@@ -63,6 +63,14 @@
 					</td>
 					<td width="33%">
 						<div class="pull-right">
+							{if $isadmin}
+								Admin: 	
+								<div class="btn-group">	
+									<input type="button" class="nzb_multi_operations_edit btn btn-small btn-warning" value="Edit" />
+									<input type="button" class="nzb_multi_operations_delete btn btn-small btn-danger" value="Delete" />
+								</div>
+								&nbsp;
+							{/if}
 							<a href="{$smarty.const.WWW_TOP}/browse?t={$category}"><i class="fa-icon-align-justify"></i></a>
 							&nbsp;
 						</div>
@@ -191,19 +199,40 @@
 	
 </table>
 {if $results|@count > 10}
-<div class="well well-small" style="margin-bottom:-9px;">
-	<div class="nzb_multi_operations">
-		With Selected:
-		<div class="btn-group">
-			<input type="button" class="nzb_multi_operations_download btn btn-small btn-success" value="Download NZBs" />
-			<input type="button" class="nzb_multi_operations_cart btn btn-small btn-info" value="Add to Cart" />
-			{if $sabintegrated}<input type="button" class="nzb_multi_operations_sab btn btn-small btn-primary" value="Send to SAB" />{/if}
+<div class="well well-small">
+		<div class="nzb_multi_operations">
+			<table width="100%">
+				<tr>
+					<td width="33%">
+						With Selected:
+						<div class="btn-group">
+							<input type="button" class="nzb_multi_operations_download btn btn-small btn-success" value="Download NZBs" />
+							<input type="button" class="nzb_multi_operations_cart btn btn-small btn-info" value="Add to Cart" />
+							{if $sabintegrated}<input type="button" class="nzb_multi_operations_sab btn btn-small btn-primary" value="Send to SAB" />{/if}
+						</div>
+					</td>
+					<td width="33%">
+						<center>
+							{$pager}
+						</center>
+					</td>
+					<td width="33%">
+						<div class="pull-right">
+							{if $isadmin}
+								Admin: 	
+								<div class="btn-group">	
+									<input type="button" class="nzb_multi_operations_edit btn btn-small btn-warning" value="Edit" />
+									<input type="button" class="nzb_multi_operations_delete btn btn-small btn-danger" value="Delete" />
+								</div>
+								&nbsp;
+							{/if}
+							<a href="{$smarty.const.WWW_TOP}/browse?t={$category}"><i class="fa-icon-align-justify"></i></a>
+							&nbsp;
+						</div>
+					</td>
+				</tr>
+			</table>
 		</div>
 	</div>
-</div>
-{/if}
-<div style="margin-top:-10px;">
-	{$pager}
-</div>
 
 {/if}

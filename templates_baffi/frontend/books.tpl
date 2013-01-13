@@ -39,6 +39,16 @@
 						</center>
 					</td>
 					<td width="33%">
+							<div class="pull-right">
+							{if $isadmin}
+								Admin: 	
+								<div class="btn-group">	
+									<input type="button" class="nzb_multi_operations_edit btn btn-small btn-warning" value="Edit" />
+									<input type="button" class="nzb_multi_operations_delete btn btn-small btn-danger" value="Delete" />
+								</div>
+								&nbsp;
+							{/if}
+							</div>
 					</td>
 				</tr>
 			</table>
@@ -102,8 +112,8 @@
 				{if $result.pages != ""}<b>Pages:</b> {$result.pages}<br />{/if}
 				{if $result.isbn != ""}<b>ISBN:</b> {$result.isbn}<br />{/if}
 				
-				<div class="movextra">
-					<table>
+				<div class="movextra" style="margin-top:10px">
+					<table class="table">
 						{assign var="msplits" value=","|explode:$result.grp_release_id}
 						{assign var="mguid" value=","|explode:$result.grp_release_guid}
 						{assign var="mnfo" value=","|explode:$result.grp_release_nfoID}
@@ -188,7 +198,16 @@
 					</center>
 				</td>
 				<td width="33%">
-					
+					<div class="pull-right">
+							{if $isadmin}
+								Admin: 	
+								<div class="btn-group">	
+									<input type="button" class="nzb_multi_operations_edit btn btn-small btn-warning" value="Edit" />
+									<input type="button" class="nzb_multi_operations_delete btn btn-small btn-danger" value="Delete" />
+								</div>
+								&nbsp;
+							{/if}
+					</div>
 				</td>
 			</tr>
 		</table>

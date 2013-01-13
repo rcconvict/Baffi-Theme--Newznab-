@@ -28,19 +28,6 @@ Working on: `frontend`
 
 ####### NB! If you are using nginx, and the instalation ran smooth. But it's doesn't look like the previews. Try rebooting the nginx and php5..
 
-## More info
-
-### Not fully skinned:
-
-Admin
-* `ajax_release-edit`
- 
-Main
-* `Download page via SAB`
-* `Anime`
-* `PreList`
-
-
 ####### If the site gets a smarty error after removal of the theme. There is a file named `basepage_old_original.php` that you have to use as the real `basepage.php`, located in the `/lib/framework/`.
 
 ## Thanks to

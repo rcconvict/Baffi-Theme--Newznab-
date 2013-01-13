@@ -31,7 +31,7 @@
 		
 		{if $rage.description != ""}
 			<dt>Descrition</dt>
-			<dd>{$rage.description|escape:"htmlall"|nl2br|magicurl}</dd>
+			<dd><span class="descinitial">{$rage.description|escape:"htmlall"|nl2br|magicurl|truncate:"350":"</span><a class=\"descmore\" href=\"#\"> more...</a>"}{if $rage.description|strlen > 350}<span class="descfull">{$rage.description|escape:"htmlall"|nl2br|magicurl}</span>{else}</span>{/if}</dd>
 		{/if}
 		
 		{if $rage.genre != ""}
@@ -131,26 +131,60 @@
 	{/if}
 	
 	{if $anidb && $release.anidbID > 0}
-		<tr><th>Anime Info:</th><td>
-			<strong>{if $release.tvtitle != ""}{$release.tvtitle|escape:"htmlall"}{/if}</strong><br />
-			{if $anidb.description != ""}<span class="descinitial">{$anidb.description|escape:"htmlall"|nl2br|magicurl|truncate:"350":"</span><a class=\"descmore\" href=\"#\">more...</a>"}{if $anidb.description|strlen > 350}<span class="descfull">{$anidb.description|escape:"htmlall"|nl2br|magicurl}</span>{else}</span>{/if}<br /><br />{/if}
-			{if $anidb.categories != ""}<strong>Categories:</strong> {$anidb.categories|escape:"htmlall"|replace:"|":", "}<br />{/if}
-			{if $release.tvairdate != "0000-00-00 00:00:00"}<strong>Aired:</strong> {$release.tvairdate|date_format}<br/>{/if}
-			{if $episode && $release.episodeinfoID > 0}
-				{if $episode.overview != ""}<strong>Overview:</strong> {$episode.overview}</br>{/if}
-				{if $episode.rating > 0}<strong>Rating:</strong> {$episode.rating}</br>{/if}
-				{if $episode.director != ""}<strong>Director:</strong> {$episode.director|escape:"htmlall"|replace:"|":", "}</br>{/if}
-				{if $episode.gueststars != ""}<strong>Guest Stars:</strong> {$episode.gueststars|escape:"htmlall"|replace:"|":", "}</br>{/if}
-				{if $episode.writer != ""}<strong>Writer:</strong> {$episode.writer|escape:"htmlall"|replace:"|":", "}</br>{/if}
+	<dl class="dl-horizontal" style="margin-right:300px;">
+		<dt>Anime Info</dt>
+		<dd>{if $release.tvtitle != ""}{$release.tvtitle|escape:"htmlall"}{/if}</dd>
+		
+		{if $anidb.description != ""}
+		<dt>Description</dt>
+		<dd><span class="descinitial">{$anidb.description|escape:"htmlall"|nl2br|magicurl|truncate:"350":"</span><a class=\"descmore\" href=\"#\"> more...</a>"}{if $anidb.description|strlen > 350}<span class="descfull">{$anidb.description|escape:"htmlall"|nl2br|magicurl}</span>{else}</span>{/if}</dd>
+		{/if}
+		
+		{if $anidb.categories != ""}
+		<dt>Categories</dt> 
+		<dd>{$anidb.categories|escape:"htmlall"|replace:"|":", "}</dd>
+		{/if}
+		
+		{if $release.tvairdate != "0000-00-00 00:00:00"}
+		<dt>Aired</dt> 
+		<dd>{$release.tvairdate|date_format}</dd>
+		{/if}
+		
+		{if $episode && $release.episodeinfoID > 0}
+		
+			{if $episode.overview != ""}
+			<dt>Overview</dt> 
+			<dd>{$episode.overview}</dd>
 			{/if}
-			<div style="margin-top:10px;">
-				<a class="rndbtn" title="View all episodes from this anime" href="{$smarty.const.WWW_TOP}/anime/{$release.anidbID}">All Episodes</a> 
-				<a class="rndbtn" target="_blank" href="{$site->dereferrer_link}http://anidb.net/perl-bin/animedb.pl?show=anime&aid={$anidb.anidbID}" title="View at AniDB">AniDB</a>
-				{if $release.tvdbID > 0}<a class="rndbtn" target="_blank" href="{$site->dereferrer_link}http://thetvdb.com/?tab=series&id={$release.tvdbID}&lid=7" title="View at TheTVDB">TheTVDB</a>{/if}
-				<a class="rndbtn" href="{$smarty.const.WWW_TOP}/rss?anidb={$release.anidbID}&amp;dl=1&amp;i={$userdata.ID}&amp;r={$userdata.rsstoken}" title="RSS feed for this anime">Anime RSS Feed</a>
-			</div>
-			</td>
-		</tr>
+			
+			{if $episode.rating > 0}
+			<dt>Rating</dt> 
+			<dd>{$episode.rating}</dd>
+			{/if}
+
+			{if $episode.director != ""}			
+			<dt>Director</dt> 
+			<dd>{$episode.director|escape:"htmlall"|replace:"|":", "}</dd>
+			{/if}
+			
+			{if $episode.gueststars != ""}
+			<dt>Guest Stars</dt> 
+			<dd>{$episode.gueststars|escape:"htmlall"|replace:"|":", "}</dd>
+			{/if}
+			
+			{if $episode.writer != ""}
+			<dt>Writer</dt> 
+			<dd>{$episode.writer|escape:"htmlall"|replace:"|":", "}</dd>
+			{/if}
+		{/if}	
+		
+		<div style="margin-left: 180px;">		
+			<a class="rndbtn badge" title="View all episodes from this anime" href="{$smarty.const.WWW_TOP}/anime/{$release.anidbID}">All Episodes</a> 
+			<a class="rndbtn badge badge-inverse" target="_blank" href="{$site->dereferrer_link}http://anidb.net/perl-bin/animedb.pl?show=anime&aid={$anidb.anidbID}" title="View at AniDB">AniDB</a>
+			{if $release.tvdbID > 0}<a class="rndbtn badge" target="_blank" href="{$site->dereferrer_link}http://thetvdb.com/?tab=series&id={$release.tvdbID}&lid=7" title="View at TheTVDB">TheTVDB</a>{/if}
+			<a class="rndbtn badge badge-info" href="{$smarty.const.WWW_TOP}/rss?anidb={$release.anidbID}&amp;dl=1&amp;i={$userdata.ID}&amp;r={$userdata.rsstoken}" title="RSS feed for this anime">Anime RSS Feed</a>
+		</div>
+	</dl>
 	{/if}
 	
 	{if $con}
@@ -171,21 +205,52 @@
 	{/if}
 	
 	{if $book}
-	<tr><th>Book Info:</th><td>
-		<strong>{$book.author|escape:"htmlall"} - {$book.title|escape:"htmlall"}</strong><br />
-		{if $book.review != ""}<span class="descinitial">{$book.review|escape:"htmlall"|nl2br|magicurl|truncate:"350":"</span><a class=\"descmore\" href=\"#\">more...</a>"}{if $book.review|strlen > 350}<span class="descfull">{$book.review|escape:"htmlall"|nl2br|magicurl}</span>{else}</span>{/if}<br /><br />{/if}
-		{if $book.ean != ""}<strong>EAN:</strong> {$book.ean|escape:"htmlall"}<br />{/if}
-		{if $book.isbn != ""}<strong>ISBN:</strong> {$book.isbn|escape:"htmlall"}<br />{/if}
-		{if $book.pages != ""}<strong>Pages:</strong> {$book.pages|escape:"htmlall"}<br />{/if}
-		{if $book.dewey != ""}<strong>Dewey:</strong> {$book.dewey|escape:"htmlall"}<br />{/if}
-		{if $book.publisher != ""}<strong>Publisher:</strong> {$book.publisher|escape:"htmlall"}<br />{/if}
-		{if $book.publishdate != ""}<strong>Publish Date:</strong> {$book.publishdate|date_format}{/if}
+	<dl class="dl-horizontal" style="margin-right:300px;">
+		<dt>Book Info</dt>
+		<dd>{$book.author|escape:"htmlall"} - {$book.title|escape:"htmlall"}</dd>
+	
+		{if $book.review != ""}
+		<dt>Review</dt>
+		<dd><span class="descinitial">{$book.review|escape:"htmlall"|nl2br|magicurl|truncate:"350":"</span><a class=\"descmore\" href=\"#\"> more...</a>"}{if $book.review|strlen > 350}<span class="descfull">{$book.review|escape:"htmlall"|nl2br|magicurl}</span>{else}</span>{/if}</dd>
+		{/if}
+	
+		{if $book.ean != ""}
+		<dt>EAN</dt>
+		<dd>{$book.ean|escape:"htmlall"}</dd>
+		{/if}
+		
+		{if $book.isbn != ""}
+		<dt>ISBN</dt>
+		<dd>{$book.isbn|escape:"htmlall"}</dd>
+		{/if}
+		
+		{if $book.pages != ""}
+		<dt>Pages</dt>
+		<dd>{$book.pages|escape:"htmlall"}</dd>
+		{/if}
+		
+		{if $book.dewey != ""}
+		<dt>Dewey</dt>
+		<dd>{$book.dewey|escape:"htmlall"}</dd>
+		{/if}
+		
+		{if $book.publisher != ""}
+		<dt>Publisher</dt>
+		<dd>{$book.publisher|escape:"htmlall"}</dd>
+		{/if}
+		
+		{if $book.publishdate != ""}
+		<dt>Publish Date</dt>
+		<dd>{$book.publishdate|date_format}</dd>
+		{/if}
+		
 		{if $book.url != ""}
-		<div style="margin-top:10px;">
-			<a class="rndbtn" target="_blank" href="{$site->dereferrer_link}{$book.url}/" title="View book at Amazon">Amazon</a>
+		<br/>
+		<div style="margin-left: 180px;">
+			<a class="rndbtn badge badge-amaz" target="_blank" href="{$site->dereferrer_link}{$book.url}/" title="View book at Amazon">Amazon</a>
 		</div>
 		{/if}
-	</td></tr>
+	</dl>
 	{/if}	
 	
 	{if $music}
@@ -399,7 +464,7 @@
 		<dd>{$release.size|fsize_format:"MB"}{if $release.completion > 0}&nbsp;{if $release.completion < 100}<span class="badge badge-warning">{$release.completion}%</span>{else}<span class="badge badge-success">{$release.completion}%{/if}</span>{/if}</dt>
 		
 		<dt>Grabs</dt>
-		<dd>{$release.grabs} <i class="icon-download-alt"></i></dd>
+		<dd>{$release.grabs} <i class="fa-icon-download-alt"></i></dd>
 		
 		<dt>Files</dt>
 		<dd><a title="View file list" href="{$smarty.const.WWW_TOP}/filelist/{$release.guid}">{$release.totalpart}</a> <i class="fa-icon-file"></i></dd>
@@ -442,11 +507,11 @@
 		<dd>{$release.adddate|date_format} ({$release.adddate|daysago} )</dd>
 		
 		<dt style="margin-top:15px; margin-bottom:15px;">Download</dt>
-		<dd style="margin-top:15px; margin-bottom:15px;">
+		<dd style="margin-top:15px; margin-bottom:15px;" id="{$release.guid}">
 			<a class="icon icon_nzb" title="Download Nzb" href="{$smarty.const.WWW_TOP}/getnzb/{$release.guid}/{$release.searchname|escape:"url"}"><img src="{$smarty.const.WWW_TOP}/views/images/icons/nzbup.png"/></a>
-			<a class="icon icon_cart" href="#" title="Add to Cart"><img src="{$smarty.const.WWW_TOP}/views/images/icons/cartup.png"/></a>
+			<a class="icon icon_nzb_cart" href="#" title="Add to Cart"><img src="{$smarty.const.WWW_TOP}/views/images/icons/cartup.png"/></a>
 			{if $sabintegrated}
-			<a class="icon icon_sab" href="#" title="Send to my Sabnzbd"><img src="{$smarty.const.WWW_TOP}/views/images/icons/sabup.png"/></a>
+			<a class="icon icon_nzb_sab" href="#" title="Send to my Sabnzbd"><img src="{$smarty.const.WWW_TOP}/views/images/icons/sabup.png"/></a>
 			{/if}
 		</dd>
 

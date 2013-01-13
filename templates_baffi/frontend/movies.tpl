@@ -135,13 +135,35 @@
 			</td>
 			<td colspan="3" class="left">
 				<h4><a title="View Movie" href="{$smarty.const.WWW_TOP}/movies/?imdb={$result.imdbID}">{$result.title|escape:"htmlall"}</a> (<a class="title" title="{$result.year}" href="{$smarty.const.WWW_TOP}/movies?year={$result.year}">{$result.year}</a>) {if $result.rating != ''}{$result.rating}/10{/if}</h4>
-				{if $result.tagline != ''}<b>{$result.tagline}</b><br />{/if}
-				{if $result.plot != ''}{$result.plot}<br /><br />{/if}
-				{if $result.genre != ''}<b>Genre:</b> {$result.genre}<br />{/if}
-				{if $result.director != ''}<b>Director:</b> {$result.director}<br />{/if}
-				{if $result.actors != ''}<b>Starring:</b> {$result.actors}<br /><br />{/if}
+				
+				{if $result.tagline != ''}
+					<b>{$result.tagline}</b>
+					<br />
+				{/if}
+				
+				{if $result.plot != ''}
+					{$result.plot}<br />
+					<br />
+				{/if}
+				
+				{if $result.genre != ''}
+					<b>Genre:</b> {$result.genre}
+					<br />
+				{/if}
+				
+				{if $result.director != ''}
+					<b>Director:</b> {$result.director}
+					<br />
+				{/if}
+				
+				{if $result.actors != ''}
+					<b>Starring:</b> {$result.actors}
+					<br />
+				{/if}
+				
 				<div class="movextra">
 					<table class="table" style="margin-bottom:0px;">
+					
 						{assign var="msplits" value=","|explode:$result.grp_release_id}
 						{assign var="mguid" value=","|explode:$result.grp_release_guid}
 						{assign var="mnfo" value=","|explode:$result.grp_release_nfoID}
@@ -155,6 +177,7 @@
 						{assign var="mpass" value=","|explode:$result.grp_release_password}
 						{assign var="minnerfiles" value=","|explode:$result.grp_rarinnerfilecount}
 						{assign var="mhaspreview" value=","|explode:$result.grp_haspreview}
+						
 						{foreach from=$msplits item=m}
 						
 						<tr id="guid{$mguid[$m@index]}" {if $m@index > 1}class="mlextra"{/if}>
@@ -175,20 +198,36 @@
 									<li width="80px">{if $minnerfiles[$m@index] > 0}<a href="#" onclick="return false;" class="mediainfo label" title="{$mguid[$m@index]}">Media</a>{/if}</li>
 								</ul>
 							</td>
-							<td class="icons">
-								<div class="icon icon_nzb">
-									<a title="Download Nzb" href="{$smarty.const.WWW_TOP}/getnzb/{$mguid[$m@index]}/{$mname[$m@index]|escape:"url"}"><img src="/views/images/icons/nzbup.png"></a>
-								</div>
-								<div class="icon icon_cart" title="Add to Cart">
-									<img src="/views/images/icons/cartup.png">
-								</div>
-								{if $sabintegrated}
-									<div class="icon icon_sab" title="Send to my Sabnzbd">
-										<img src="/views/images/icons/sabup.png">
-									</div>
-								{/if}
+							<br/>
+							<td class="icons" style='width:100px;'>
+								<ul class="inline">
+									<li>
+										<div class="icon icon_nzb">
+											<a title="Download Nzb" href="{$smarty.const.WWW_TOP}/getnzb/{$mguid[$m@index]}/{$mname[$m@index]|escape:"url"}"><img src="/views/images/icons/nzbup.png"></a>
+										</div>
+									</li>
+									<li>
+										<a class="icon icon_cart" href="#" title="Add to Cart">
+											<img src="/views/images/icons/cartup.png">
+										</a>
+									</li>
+									{if $sabintegrated}
+									<li>
+										<a class="icon icon_sab" href="#" title="Send to Sab">
+											<img class="icon icon_sab" alt="Send to my Sabnzbd" src="/views/images/icons/sabup.png">
+										</a>
+									</li>
+									{/if}
+								</ul>
 							</td>
 						</tr>
+						{if $m@index == 1 && $m@total > 2}
+							<tr>
+								<td colspan="5">
+									<a class="mlmore" href="#">{$m@total-2} more...</a>
+								</td>
+							</tr>
+						{/if}
 						{/foreach}		
 					</table>
 				</div>
@@ -197,22 +236,36 @@
 	{/foreach}
 	
 </table>
+
 {if $results|@count > 10}
-<div class="well well-small" style="margin-bottom:-9px;">
-	<div class="nzb_multi_operations">
-		With Selected:
-		<div class="btn-group">
-			<input type="button" class="nzb_multi_operations_download btn btn-small btn-success" value="Download NZBs" />
-			<input type="button" class="nzb_multi_operations_cart btn btn-small btn-info" value="Add to Cart" />
-			{if $sabintegrated}<input type="button" class="nzb_multi_operations_sab btn btn-small btn-primary" value="Send to SAB" />{/if}
+<div class="well well-small">
+		<div class="nzb_multi_operations">
+			<table width="100%">
+				<tr>
+					<td width="33%">
+						With Selected:
+						<div class="btn-group">
+							<input type="button" class="nzb_multi_operations_download btn btn-small btn-success" value="Download NZBs" />
+							<input type="button" class="nzb_multi_operations_cart btn btn-small btn-info" value="Add to Cart" />
+							{if $sabintegrated}<input type="button" class="nzb_multi_operations_sab btn btn-small btn-primary" value="Send to SAB" />{/if}
+						</div>
+					</td>
+					<td width="33%">
+						<center>
+							{$pager}
+						</center>
+					</td>
+					<td width="33%">
+						<div class="pull-right">
+							<a href="{$smarty.const.WWW_TOP}/browse?t={$category}"><i class="fa-icon-align-justify"></i></a>
+							&nbsp;
+						</div>
+					</td>
+				</tr>
+			</table>
 		</div>
 	</div>
-</div>
 {/if}
-<div style="margin-top:-20px;">
-	{$pager}
-</div>
-
 </form>
 
 {/if}

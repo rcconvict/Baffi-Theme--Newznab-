@@ -17,7 +17,9 @@ body{
 
 
 
-
+.descfull, .mlextra{
+	display:none
+}
 
 
 /* Do not touch this below */

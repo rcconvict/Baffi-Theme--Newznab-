@@ -141,24 +141,6 @@ fi
 
 if [ $WISH0 = "3" ] ; then
 	
-	echo -n "Is Baffi:theme installed? [y/n] "
-	read WISH2
-
-	if [ $WISH2 = "y" ] ; then
-		
-		echo -n "You need to run the removal of the Baffi:theme. Want to start? [y/n] "
-		read WISH21
-		
-		if [ $WISH21 = "y" ] ; then
-			Remove
-			
-		else
-			echo "Good bye."
-			exit
-			
-		fi
-	fi
-	
 	echo "Updating to the newest files from GitHub."
 	git pull
 	

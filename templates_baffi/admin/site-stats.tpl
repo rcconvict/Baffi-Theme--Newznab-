@@ -6,11 +6,11 @@
 	
 	<div class="accordion-group">
 		<div class="accordion-heading">
-			<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#sitestatus" href="#signups">
+			<a class="accordion-toggle" data-toggle="collapse" data-parent="#sitestatus" href="#signups">
 				Signups
 			</a>
 		</div>
-		<div id="signups" class="accordion-body collapse" style="height: 0px;">
+		<div id="signups" class="accordion-body collapse in" style="height: 0px;">
 			<div class="accordion-inner">
 				<table class="data highlight table table-striped">
 					<tr>

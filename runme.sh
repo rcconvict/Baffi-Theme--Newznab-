@@ -92,8 +92,12 @@ Remove () {
 }
 # Define Resting of the cache
 Reset () {
-	
 	rm -r ../www/lib/smarty/templates_c/*
+}
+
+Cacheinfo () {
+	echo " "
+	echo "Reseting cache, if it failes it is just because there is no cache for the theme :)"
 }
 
 clear
@@ -108,15 +112,17 @@ read WISH0
 
 if [ $WISH0 = "1" ] ; then
 	Install
-	echo " "
-	echo "Reseting cache, if it failes it just because there is no cache for the theme :)"
+	
+	Cacheinfo
+	
 	Reset
 fi
 
 if [ $WISH0 = "2" ] ; then
 	Remove
-	echo " "
-	echo "Reseting cache, if it failes it just because there is no cache for the theme :)"
+	
+	Cacheinfo
+	
 	Reset
 fi
 
@@ -127,7 +133,7 @@ if [ $WISH0 = "3" ] ; then
 
 	if [ $WISH2 = "y" ] ; then
 		
-		echo -n "Want to run removal of the Baffi:theme? [y/n] "
+		echo -n "You need to run the removal of the Baffi:theme. Want to start? [y/n] "
 		read WISH21
 		
 		if [ $WISH21 = "y" ] ; then
@@ -148,8 +154,8 @@ if [ $WISH0 = "3" ] ; then
 	if [ $WISH22 = "y" ] ; then
 		Install
 		
-		echo " "
-		echo "Reseting cache, if it failes it just because there is no cache for the theme :)"
+		Cacheinfo
+		
 		Reset
 		
 		echo "All good, bye."
@@ -158,8 +164,9 @@ if [ $WISH0 = "3" ] ; then
 fi
 
 if [ $WISH0 = "4" ] ; then
-	echo " "
-	echo "Reseting cache, if it failes it just because there is no cache for the theme :)"
+	
+	Cacheinfo
+	
 	Reset
 fi
 

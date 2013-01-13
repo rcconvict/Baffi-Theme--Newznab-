@@ -4,8 +4,6 @@
 
 <h3>{$results[0].subject|escape:"htmlall"}</h3>
 
-<div style="float:right;margin-bottom:5px;"><a href="#new" role="button" class="btn btn-small btn-primary" data-toggle="modal">Reply</a></div>
-
 <a id="top"></a>
 <table style="width:100%;" class="data highlight table table-striped" id="forumtable">
 	<tr>

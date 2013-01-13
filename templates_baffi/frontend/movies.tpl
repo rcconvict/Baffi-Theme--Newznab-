@@ -74,6 +74,14 @@
 					</td>
 					<td width="33%">
 						<div class="pull-right">
+							{if $isadmin}
+								Admin: 	
+								<div class="btn-group">	
+									<input type="button" class="nzb_multi_operations_edit btn btn-small btn-warning" value="Edit" />
+									<input type="button" class="nzb_multi_operations_delete btn btn-small btn-danger" value="Delete" />
+								</div>
+								&nbsp;
+							{/if}
 							<a href="{$smarty.const.WWW_TOP}/browse?t={$category}"><i class="fa-icon-align-justify"></i></a>
 							&nbsp;
 						</div>
@@ -256,6 +264,14 @@
 					</td>
 					<td width="33%">
 						<div class="pull-right">
+							{if $isadmin}
+								Admin: 	
+								<div class="btn-group">	
+									<input type="button" class="nzb_multi_operations_edit btn btn-small btn-warning" value="Edit" />
+									<input type="button" class="nzb_multi_operations_delete btn btn-small btn-danger" value="Delete" />
+								</div>
+								&nbsp;
+							{/if}
 							<a href="{$smarty.const.WWW_TOP}/browse?t={$category}"><i class="fa-icon-align-justify"></i></a>
 							&nbsp;
 						</div>

@@ -20,6 +20,8 @@ Install () {
 		cp -r baffi-red ../www/views/themes/
 	
 		cp bootstrap.js ../www/views/scripts/
+		cp utils.js ../www/views/scripts/
+		cp jquery.pnotify.js ../www/views/scripts/
 		
 		echo " "
 		echo -n "Go and select the Baffi theme in admin->site edit. Have you done it? [y/n] "
@@ -39,7 +41,7 @@ Install () {
 			
 			echo "Feeding the Baffi:basepage"
 			cp basepage.php ../www/lib/framework/
-			cp utils.js ../www/views/scripts/utils.js
+			
 	
 		fi
 	
@@ -51,6 +53,9 @@ Install () {
 		cp -r baffi-red ../www/views/themes/
 	
 		cp bootstrap.js ../www/views/scripts/
+		mv ../www/views/scripts/utils.js ../www/views/scripts/utils_old.js
+		cp utils.js ../www/views/scripts/
+		cp jquery.pnotify.js ../www/views/scripts/
 	
 		echo " "
 		echo -n "Go and select the Baffi theme in admin->site edit. Have you done it? [y/n] "
@@ -63,12 +68,9 @@ Install () {
 		
 			echo "Backuping the basepage"
 			mv ../www/lib/framework/basepage.php ../www/lib/framework/basepage_old.php 
-			mv ../www/views/scripts/utils.js ../www/views/scripts/utils_old.js
-
 
 			echo "Feeding the Baffi:basepage"
 			cp basepage.php ../www/lib/framework/
-			cp utils.js ../www/views/scripts/utils.js
 	
 		fi
 		
@@ -84,6 +86,9 @@ Remove () {
 	rm -r ../www/views/themes/baffi-green
 	rm -r ../www/views/themes/baffi-red
 	rm ../www/views/scripts/bootstrap.js
+	rm ../www/views/scripts/utils.js
+	mv ../www/views/scripts/utils_old.js ../www/views/scripts/utils.js
+	rm ../www/views/scripts/jquery.pnotify.js
 	
 	echo "Removing the Baffi:Templates"
 	
@@ -91,12 +96,10 @@ Remove () {
 
 	echo "Removing the Baffi:basepage"
 	rm ../www/lib/framework/basepage.php 
-	rm ../www/views/scripts/utils.js
 
 
 	echo "Reverting back to the backup of the basepage"
 	mv ../www/lib/framework/basepage_old.php ../www/lib/framework/basepage.php 
-	mv ../www/views/scripts/utils_old.js ../www/views/scripts/utils.js
 
 
 }

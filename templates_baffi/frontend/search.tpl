@@ -83,29 +83,40 @@
 
 <form style="padding-top:10px;" id="nzb_multi_operations_form" method="get" action="{$smarty.const.WWW_TOP}/search">
 
-<div class="well well-small">
-	<div class="nzb_multi_operations">
-		With Selected:
-		<div class="btn-group">
-			<input type="button" class="nzb_multi_operations_download btn btn-small btn-success" value="Download NZBs" />
-			<input type="button" class="nzb_multi_operations_cart btn btn-small btn-info" value="Add to Cart" />
-			{if $sabintegrated}<input type="button" class="nzb_multi_operations_sab btn btn-small btn-primary" value="Send to SAB" />{/if}
+	<form id="nzb_multi_operations_form" action="get">
+		<div class="well well-small">
+			<div class="nzb_multi_operations">
+				<table width="100%">
+					<tr>
+						<td width="33%">
+							With Selected:
+							<div class="btn-group">
+								<input type="button" class="nzb_multi_operations_download btn btn-small btn-success" value="Download NZBs" />
+								<input type="button" class="nzb_multi_operations_cart btn btn-small btn-info" value="Add to Cart" />
+								{if $sabintegrated}<input type="button" class="nzb_multi_operations_sab btn btn-small btn-primary" value="Send to SAB" />{/if}
+							</div>
+						</td>
+						<td width="33%">
+							<center>
+								{$pager}
+							</center>
+						</td>
+						<td width="33%">
+							{if $isadmin}
+								<div class="pull-right">
+									Admin: 	
+									<div class="btn-group">	
+										<input type="button" class="nzb_multi_operations_edit btn btn-small btn-warning" value="Edit" />
+										<input type="button" class="nzb_multi_operations_delete btn btn-small btn-danger" value="Delete" />
+									</div>
+									&nbsp;
+								</div>
+								{/if}
+						</td>
+					</tr>
+				</table>
+			</div>
 		</div>
-		{if $isadmin}
-		<div class="btn-group pull-right">	
-			Admin: 		
-			<input type="button" class="nzb_multi_operations_edit btn btn-small btn-warning" value="Edit" />
-			<input type="button" class="nzb_multi_operations_delete btn btn-small btn-danger" value="Delete" />
-			<input type="button" class="nzb_multi_operations_rebuild btn btn-small btn-warning" value="Rebuild" />
-		</div>
-		{/if}	
-	</div>
-</div>
-{if $results|@count == 50}
-<div {if $section != ''}style="margin-bottom:-40px;"{else}style="margin-bottom:-20px;"{/if}>
-	{$pager}
-</div>
-{/if}
 
 <table style="100%" class="data highlight icons table table-striped" id="browsetable">
 
@@ -179,7 +190,9 @@
 			
 			<td class="item">
 				<label for="chk{$result.guid|substr:0:7}">
-					<a class="title" title="View details" href="{$smarty.const.WWW_TOP}/details/{$result.guid}/{$result.searchname|escape:"seourl"}"><h4>{$result.searchname|escape:"htmlall"|replace:".":" "}</h4></a>
+					<a class="title" title="View details" href="{$smarty.const.WWW_TOP}/details/{$result.guid}/{$result.searchname|escape:"seourl"}">
+						<h4>{$result.searchname|escape:"htmlall"|replace:".":" "}</h4>
+					</a>
 				</label>
 
 				{if $result.passwordstatus == 2}
@@ -252,7 +265,7 @@
 				</div>
 			</td>
 			
-			<td class="less">
+			<td width="100px" class="less">
 				<a title="Browse {$result.category_name}" href="{$smarty.const.WWW_TOP}/browse?t={$result.categoryID}">{$result.category_name}</a>
 			</td>
 
@@ -280,9 +293,9 @@
 			</td>
 			<td class="less nowrap">
 				<a title="View comments" href="{$smarty.const.WWW_TOP}/details/{$result.guid}/#comments">{$result.comments}</a> <i class="fa-icon-comments-alt"></i>
-				<br/>{$result.grabs} <i class="icon-download-alt"></i>
+				<br/>{$result.grabs} <i class="fa-icon-download-alt"></i>
 			</td>
-			<td class="icons">
+			<td width="20px" class="icons">
 				<div class="icon icon_nzb">
 					<a title="Download Nzb" href="{$smarty.const.WWW_TOP}/getnzb/{$result.guid}/{$result.searchname|escape:"url"}">
 						<img src="{$smarty.const.WWW_TOP}/views/images/icons/nzbup.png"/>
@@ -303,25 +316,38 @@
 </table>
 <br/>
 
-{$pager}
-
 {if $results|@count > 10}
-<div class="well">
+<div class="well well-small">
 	<div class="nzb_multi_operations">
-		With Selected:
-		<div class="btn-group">
-			<input type="button" class="nzb_multi_operations_download btn btn-small btn-success" value="Download NZBs" />
-			<input type="button" class="nzb_multi_operations_cart btn btn-small btn-info" value="Add to Cart" />
-			{if $sabintegrated}<input type="button" class="nzb_multi_operations_sab btn btn-small btn-primary" value="Send to SAB" />{/if}
-		</div>
-		{if $isadmin}
-		<div class="btn-group pull-right">	
-			Admin: 		
-			<input type="button" class="nzb_multi_operations_edit btn btn-small btn-warning" value="Edit" />
-			<input type="button" class="nzb_multi_operations_delete btn btn-small btn-danger" value="Delete" />
-			<input type="button" class="nzb_multi_operations_rebuild btn btn-small btn-warning" value="Rebuild" />
-		</div>
-		{/if}	
+		<table width="100%">
+			<tr>
+				<td width="33%">
+					With Selected:
+					<div class="btn-group">
+						<input type="button" class="nzb_multi_operations_download btn btn-small btn-success" value="Download NZBs" />
+						<input type="button" class="nzb_multi_operations_cart btn btn-small btn-info" value="Add to Cart" />
+						{if $sabintegrated}<input type="button" class="nzb_multi_operations_sab btn btn-small btn-primary" value="Send to SAB" />{/if}
+					</div>
+				</td>
+				<td width="33%">
+					<center>
+						{$pager}
+					</center>
+				</td>
+				<td width="33%">
+					{if $isadmin}
+						<div class="pull-right">
+							Admin: 	
+							<div class="btn-group">	
+								<input type="button" class="nzb_multi_operations_edit btn btn-small btn-warning" value="Edit" />
+								<input type="button" class="nzb_multi_operations_delete btn btn-small btn-danger" value="Delete" />
+							</div>
+							&nbsp;
+						</div>
+						{/if}
+				</td>
+			</tr>
+		</table>
 	</div>
 </div>
 {/if}

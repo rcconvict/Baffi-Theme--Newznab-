@@ -168,21 +168,27 @@
 						</td>
 						<td width="40" class="less nowrap">
 							<a title="View comments for {$result.searchname|escape:"htmlall"}" href="{$smarty.const.WWW_TOP}/details/{$result.guid}/#comments">{$result.comments} <i class="fa-icon-comments-alt"></i></a>
-							<br/>{$result.grabs} <i class="icon-download-alt"></i></td>
-						<td class="icons">
-							<div class="icon icon_nzb">
-								<a title="Download Nzb" href="{$smarty.const.WWW_TOP}/getnzb/{$result.guid}/{$result.searchname|escape:"url"}">
-									<img src="{$smarty.const.WWW_TOP}/views/images/icons/nzbup.png"/>
-								</a>
-							</div>
-							<div class="icon icon_cart" title="Add to Cart">
-								<img src="{$smarty.const.WWW_TOP}/views/images/icons/cartup.png"/>
-							</div>
-							{if $sabintegrated}
-							<div class="icon icon_sab" title="Send to my Sabnzbd">	
-								<img src="{$smarty.const.WWW_TOP}/views/images/icons/sabup.png"/>
-							</div>
-							{/if}
+							<br/>{$result.grabs} <i class="fa-icon-download-alt"></i></td>
+						<td class="icons" style='width:100px;'>
+							<ul class="inline">
+								<li>
+									<div class="icon icon_nzb">
+										<a title="Download Nzb" href="{$smarty.const.WWW_TOP}/getnzb/{$mguid[$m@index]}/{$mname[$m@index]|escape:"url"}"><img src="/views/images/icons/nzbup.png"></a>
+									</div>
+								</li>
+								<li>
+									<a class="icon icon_cart" href="#" title="Add to Cart">
+										<img src="/views/images/icons/cartup.png">
+									</a>
+								</li>
+								{if $sabintegrated}
+								<li>
+									<a class="icon icon_sab" href="#" title="Send to Sab">
+										<img class="icon icon_sab" alt="Send to my Sabnzbd" src="/views/images/icons/sabup.png">
+									</a>
+								</li>
+								{/if}
+							</ul>
 						</td>
 					</tr>
 					{/foreach}

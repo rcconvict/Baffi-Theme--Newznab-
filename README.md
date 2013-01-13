@@ -11,7 +11,7 @@ Working on: `frontend`
 #### Preview
 
 * [Series View](http://cl.ly/image/3i023e0M2f3h "Series View")
-* [Movie List View](http://cl.ly/image/3C3D0X1D2t1M "Movie List View")
+* [Movie List View](http://cl.ly/image/2L1B2s1y2R2p "Movie List View")
 
 #### Quick start
 
@@ -22,10 +22,11 @@ Working on: `frontend`
 
 ## Installation and removal
 
-####### First Unzip to the root of the `newznab`
-1. Run the `runme.sh` (linux) 
+1. Change dir : ` cd Baffi-Theme--Newznab-`
+1. Run the run the script : `sudo ./runme.sh` (linux) 
 2. Follow the instructions
 
+####### NB! If you are using nginx, and the instalation ran smooth. But it's doesn't look like the previews. Try rebooting the nginx and php5..
 
 ## More info
 

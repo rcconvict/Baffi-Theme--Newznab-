@@ -18,7 +18,6 @@ Working on: `frontend`
 ####### Recommended is the git-way, since the runme script can update via git.
 
 * Clone the repo: `git clone git://github.com/Frikish/Baffi-Theme--Newznab-.git` inside the `/newznab` folder
-* [Download the latest release](https://github.com/Frikish/Baffi-Theme--Newznab-/zipball/master).
 
 
 ## Installation and removal
@@ -37,13 +36,11 @@ Admin
  
 Main
 * `Download page via SAB`
-* `Book`
 * `Anime`
-* `Console`
 * `PreList`
 
 
-
+####### If the site gets a smarty error after removal of the theme. There is a file named `basepage_old_original.php` that you have to use as the real `basepage.php`, located in the `/lib/framework/`.
 
 ## Thanks to
 

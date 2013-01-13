@@ -20,15 +20,21 @@
     Work: Lead Product Designer @ http://kyruus.com
 
     */
-	
+
+@font-face{	
+	font-family:FontAwesome;
+	src:url(//netdna.bootstrapcdn.com/font-awesome/2.0/font//fontawesome-webfont.eot?#iefix) format('eot'),
+		url(//netdna.bootstrapcdn.com/font-awesome/2.0/font//fontawesome-webfont.woff) format('woff'),
+		url(//netdna.bootstrapcdn.com/font-awesome/2.0/font//fontawesome-webfont.ttf) format('truetype'),
+		url(//netdna.bootstrapcdn.com/font-awesome/2.0/font//fontawesome-webfont.svg#FontAwesome) format('svg');
+	font-weight:400;
+	font-style:normal;
+}
+/*	
 @font-face {
 	font-family: "FontAwesome";
-	/*
-	src: 	url('fontawesome-webfont.eot');
-	src: 	url('fontawesome-webfont.eot?#iefix') format('embedded-opentype'),
-	    	url('fontawesome-webfont.woff') format('woff'),
-	   	 	url('fontawesome-webfont.ttf') format('truetype');
-	*/
+	
+	
 	src: 	url("//fortawesome.github.com/Font-Awesome/assets/font/fontawesome-webfont.eot");
 	src: 	local("☺"),
 			url("//fortawesome.github.com/Font-Awesome/assets/font/fontawesome-webfont.eot?#iefix") format("embedded-opentype"),
@@ -38,6 +44,7 @@
 	font-weight: normal;
 	font-style: normal;
 }
+*/
 
 /*  Font Awesome styles
     ------------------------------------------------------- */

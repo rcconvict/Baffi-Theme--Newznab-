@@ -500,19 +500,6 @@ jQuery(function($){
 		return false;
 	});	
 	
-	// season selector in TV
-	$('a[id^="seas_"]').click(function(){
-		seas = $(this).attr("ID").replace("seas_","");
-
-		$('table[class^="tb_"]').hide();
-		$('.tb_' + seas).show();
-		
-		$("li", $(this).closest("ul")).removeClass("active");
-		$(this).closest("li").addClass("active");
-		
-		return false;
-	});	
-	
 	// file list tooltip
 	$(".rarfilelist").each(function() {
 		var guid = $(this).children('img').attr('alt');

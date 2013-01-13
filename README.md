@@ -45,5 +45,5 @@ Main
 
 ## Thanks to
 
-Themed with [Bootstrap](http://getbootstrap.com) and [FontAwesome](http://fortawesome.github.com/Font-Awesome/)
+Themed with [Bootstrap](http://getbootstrap.com), [FontAwesome](http://fortawesome.github.com/Font-Awesome/) and [Pines Notification](http://pinesframework.org/pnotify/).
 

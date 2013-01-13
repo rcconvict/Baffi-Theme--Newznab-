@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<!--[if IE 6]>
+    <link href="ie6.min.css" rel="stylesheet">
+<![endif]-->
+
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=9" />

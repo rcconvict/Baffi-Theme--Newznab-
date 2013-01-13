@@ -30,12 +30,16 @@ Install () {
 			echo "Copying the Baffi:Templates"
 			cp -r templates_baffi ../www/views/
 		
+		
 			echo "Backuping the basepage, and since this is a first time install, I make a super secret fall back file."
 			cp ../www/lib/framework/basepage.php ../www/lib/framework/basepage_old.php 
 			mv ../www/lib/framework/basepage.php ../www/lib/framework/basepage_old_original.php 
-
+			cp ../www/views/scripts/utils.js ../www/views/scripts/utils_old_original.js
+			mv ../www/views/scripts/utils.js ../www/views/scripts/utils_old.js
+			
 			echo "Feeding the Baffi:basepage"
 			cp basepage.php ../www/lib/framework/
+			cp utils.js ../www/views/scripts/utils.js
 	
 		fi
 	
@@ -59,9 +63,12 @@ Install () {
 		
 			echo "Backuping the basepage"
 			mv ../www/lib/framework/basepage.php ../www/lib/framework/basepage_old.php 
+			mv ../www/views/scripts/utils.js ../www/views/scripts/utils_old.js
+
 
 			echo "Feeding the Baffi:basepage"
 			cp basepage.php ../www/lib/framework/
+			cp utils.js ../www/views/scripts/utils.js
 	
 		fi
 		
@@ -84,9 +91,12 @@ Remove () {
 
 	echo "Removing the Baffi:basepage"
 	rm ../www/lib/framework/basepage.php 
+	rm ../www/views/scripts/utils.js
+
 
 	echo "Reverting back to the backup of the basepage"
 	mv ../www/lib/framework/basepage_old.php ../www/lib/framework/basepage.php 
+	mv ../www/views/scripts/utils_old.js ../www/views/scripts/utils.js
 
 
 }
@@ -149,18 +159,7 @@ if [ $WISH0 = "3" ] ; then
 	echo "Updating to the newest files from GitHub."
 	git pull
 	
-	echo -n "Want to install the Baffi:theme? [y/n] "
-	read WISH22
-	if [ $WISH22 = "y" ] ; then
-		Install
-		
-		Cacheinfo
-		
-		Reset
-		
-		echo "All good, bye."
-		exit
-	fi
+	echo -n "Please run the script again and choose install :) "
 fi
 
 if [ $WISH0 = "4" ] ; then

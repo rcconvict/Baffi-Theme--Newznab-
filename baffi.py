@@ -71,7 +71,7 @@ def uninstall(update=False):
 			#revert utils.js
 			os.rename('../www/views/scripts/utils_old.js', '../www/views/scripts/utils.js')
 		except OSError, e:
-			print 'Unable to rever to old files: %s' % e
+			print 'Unable to revert to old files: %s' % e
 
 def preflight():
 	if os.name != 'posix':
@@ -90,28 +90,28 @@ def delcache():
 				try:
 					os.remove(os.path.join(root, name))
 				except OSError, e:
-					print 'Warning: Could not clear smarty cache: %s' % e
+					sys.exit('Warning: Could not clear smarty cache: %s' % e)
 
 def main(switch):
 	preflight()
 	if switch == 'install':
 		install()
-		print 'Finished!'
+		print 'Installation finished.'
 	if switch == 'uninstall':
 		uninstall()
-		print 'Finished!'
+		print 'Uninstall finished.'
 	if switch == 'update':
 		uninstall(True)
 		install(True)
-		print 'Finished!'
+		print 'Update finished.'
 	if switch == 'delcache':
 		delcache()
-		print 'Finished!'
+		print 'Smarty cache deletion completed.'
 
 if __name__ == '__main__':
 	args = ['install', 'uninstall', 'update', 'delcache']
-	usage = '''./runme.py [install, uninstall, update, delcache]
-	!This folder must be located in the root of the newznab folder to run properly!'''
+	usage = '''python baffi.py [install, uninstall, update, delcache]
+	This folder must be located in the root of the newznab folder to run properly!'''
 
 	if len(sys.argv) < 2:
 		sys.exit(usage)

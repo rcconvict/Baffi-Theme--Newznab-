@@ -1,20 +1,15 @@
-<div class="span6 offset2" 
-style="
-background-color:#d9edf7; 
-padding:40px;
-background-color: #f7f7f9;
-border: 1px solid #e1e1e8;
-  -webkit-border-radius: 4px;
-     -moz-border-radius: 4px;
-          border-radius: 4px;
-">
- 
-<h1>Register</h1>
-	<p>
-		Enter you information below, all the fields are required.
-	</p>
-<br/>
 {if $showregister != "0"}
+	<div class="span6 offset2"
+	  style="background-color:#d9edf7; padding:40px; background-color: #f7f7f9; border: 1px solid #e1e1e8;
+	    -webkit-border-radius: 4px;
+	    -moz-border-radius: 4px;
+	    border-radius: 4px; 
+	">
+	<h1>Register</h1><br/>
+        <p>
+                Enter you information below, all the fields are required.
+        </p>
+
 	<form class="form-horizontal" action="register?action=submit" method="post">
 		<table class="data">
 
@@ -43,6 +38,18 @@ border: 1px solid #e1e1e8;
 			<button type="submit" class="btn btn-success pull-right">Register</button>
 		</table>
 	</form>
+{else}
+	<div class="span6 offset2"
+	  style="background-color:#d9edf7; padding:40px; background-color: #f2dede; border: 1px solid #eed3d7;
+	    -webkit-border-radius: 4px;
+	    -moz-border-radius: 4px;
+	    border-radius: 4px;
+	">
+
+	<h1>Register</h1><br/>
+
+		We are sorry, registrations are currently disabled.<br/>
+		Please <a href="contact-us">contact the administratior</a> if you feel like you reached this page in error.
 {/if}
 
 </div>

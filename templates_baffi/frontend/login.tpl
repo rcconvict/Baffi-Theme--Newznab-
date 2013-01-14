@@ -1,6 +1,9 @@
 <div class="span4 offset3" 
 style="
+background-color:#d9edf7; 
 padding:40px;
+background-color: #f7f7f9;
+border: 1px solid #e1e1e8;
   -webkit-border-radius: 4px;
      -moz-border-radius: 4px;
           border-radius: 4px;
@@ -19,8 +22,8 @@ padding:40px;
 				  {$error}
 			</div>
 		{/if}
-		<input class="span12" style="min-width:200px;" type="text" id="username prependedInput" value="{$username}" name="username" placeholder="Username" style="margin-bottom:5px;"><br />
-		<input class="span12" style="min-width:200px;" id="password" name="password" type="password" placeholder="Password" style="margin-bottom:20px;"><br />
+		<input class="span12" type="text" id="username prependedInput" value="{$username}" name="username" placeholder="Username" style="margin-bottom:5px;"><br />
+		<input class="span12" id="password" name="password" type="password" placeholder="Password" style="margin-bottom:20px;"><br />
 		
 		<input id="rememberme" {if $rememberme == 1}checked="checked"{/if} name="rememberme" type="checkbox"/> <span class="help-inline" style="vertical-align:sub;">Remember me </span>
 		<button type="submit" class="btn btn-success pull-right">Login</button>

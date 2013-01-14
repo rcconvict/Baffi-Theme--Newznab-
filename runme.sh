@@ -20,6 +20,8 @@ Install () {
 		cp -r baffi-red ../www/views/themes/
 	
 		cp bootstrap.js ../www/views/scripts/
+		cp ../www/views/scripts/utils.js ../www/views/scripts/utils_old_original.js
+		mv ../www/views/scripts/utils.js ../www/views/scripts/utils_old.js
 		cp utils.js ../www/views/scripts/
 		cp jquery.pnotify.js ../www/views/scripts/
 		
@@ -36,8 +38,7 @@ Install () {
 			echo "Backuping the basepage, and since this is a first time install, I make a super secret fall back file."
 			cp ../www/lib/framework/basepage.php ../www/lib/framework/basepage_old.php 
 			mv ../www/lib/framework/basepage.php ../www/lib/framework/basepage_old_original.php 
-			cp ../www/views/scripts/utils.js ../www/views/scripts/utils_old_original.js
-			mv ../www/views/scripts/utils.js ../www/views/scripts/utils_old.js
+			
 			
 			echo "Feeding the Baffi:basepage"
 			cp basepage.php ../www/lib/framework/
@@ -55,6 +56,7 @@ Install () {
 		cp bootstrap.js ../www/views/scripts/
 		mv ../www/views/scripts/utils.js ../www/views/scripts/utils_old.js
 		cp utils.js ../www/views/scripts/
+		
 		cp jquery.pnotify.js ../www/views/scripts/
 	
 		echo " "

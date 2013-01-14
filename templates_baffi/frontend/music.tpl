@@ -48,7 +48,7 @@
 		<div class="nzb_multi_operations">
 			<table width="100%">
 				<tr>
-					<td width="33%">
+					<td width="30%">
 						With Selected:
 						<div class="btn-group">
 							<input type="button" class="nzb_multi_operations_download btn btn-small btn-success" value="Download NZBs" />
@@ -56,13 +56,14 @@
 							{if $sabintegrated}<input type="button" class="nzb_multi_operations_sab btn btn-small btn-primary" value="Send to SAB" />{/if}
 						</div>
 					</td>
-					<td width="33%">
+					<td width="50%">
 						<center>
 							{$pager}
 						</center>
 					</td>
-					<td width="33%">
-						<div class="pull-right">
+					<td width="20%">
+						{if $section != ''}
+							<div class="pull-right">
 							{if $isadmin}
 								Admin: 	
 								<div class="btn-group">	
@@ -71,14 +72,17 @@
 								</div>
 								&nbsp;
 							{/if}
-							<a href="{$smarty.const.WWW_TOP}/browse?t={$category}"><i class="fa-icon-align-justify"></i></a>
+							<a href="{$smarty.const.WWW_TOP}/{$section}?t={$category}"><i class="fa-icon-th-list"></i></a>
 							&nbsp;
-						</div>
+							</div>
+						{/if}
 					</td>
 				</tr>
 			</table>
 		</div>
 	</div>
+	
+	
 
 <table style="width:100%;" class="data highlight icons table table-striped" id="coverstable">
 	<tr>
@@ -197,13 +201,13 @@
 		</tr>
 	{/foreach}
 	
-</table>
-{if $results|@count > 10}
-<div class="well well-small">
+	</table>
+	{if $results|@count > 10}
+	<div class="well well-small">
 		<div class="nzb_multi_operations">
 			<table width="100%">
 				<tr>
-					<td width="33%">
+					<td width="30%">
 						With Selected:
 						<div class="btn-group">
 							<input type="button" class="nzb_multi_operations_download btn btn-small btn-success" value="Download NZBs" />
@@ -211,13 +215,14 @@
 							{if $sabintegrated}<input type="button" class="nzb_multi_operations_sab btn btn-small btn-primary" value="Send to SAB" />{/if}
 						</div>
 					</td>
-					<td width="33%">
+					<td width="50%">
 						<center>
 							{$pager}
 						</center>
 					</td>
-					<td width="33%">
-						<div class="pull-right">
+					<td width="20%">
+						{if $section != ''}
+							<div class="pull-right">
 							{if $isadmin}
 								Admin: 	
 								<div class="btn-group">	
@@ -226,13 +231,18 @@
 								</div>
 								&nbsp;
 							{/if}
-							<a href="{$smarty.const.WWW_TOP}/browse?t={$category}"><i class="fa-icon-align-justify"></i></a>
+							<a href="{$smarty.const.WWW_TOP}/{$section}?t={$category}"><i class="fa-icon-th-list"></i></a>
 							&nbsp;
-						</div>
+							</div>
+						{/if}
 					</td>
 				</tr>
 			</table>
 		</div>
 	</div>
 
-{/if}
+
+	{/if}
+
+	</form>
+{}/if}

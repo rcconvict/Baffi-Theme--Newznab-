@@ -25,7 +25,7 @@
 		<div class="nzb_multi_operations">
 			<table width="100%">
 				<tr>
-					<td width="33%">
+					<td width="30%">
 						With Selected:
 						<div class="btn-group">
 							<input type="button" class="nzb_multi_operations_download btn btn-small btn-success" value="Download NZBs" />
@@ -33,12 +33,13 @@
 							{if $sabintegrated}<input type="button" class="nzb_multi_operations_sab btn btn-small btn-primary" value="Send to SAB" />{/if}
 						</div>
 					</td>
-					<td width="33%">
+					<td width="50%">
 						<center>
 							{$pager}
 						</center>
 					</td>
-					<td width="33%">
+					<td width="20%">
+						{if $section != ''}
 							<div class="pull-right">
 							{if $isadmin}
 								Admin: 	
@@ -49,11 +50,13 @@
 								&nbsp;
 							{/if}
 							</div>
+						{/if}
 					</td>
 				</tr>
 			</table>
 		</div>
 	</div>
+	
 
 
 <table style="width:100%;" class="data highlight icons table table-striped" id="coverstable">
@@ -184,7 +187,7 @@
 	<div class="nzb_multi_operations">
 		<table width="100%">
 			<tr>
-				<td width="33%">
+				<td width="30%">
 					With Selected:
 					<div class="btn-group">
 						<input type="button" class="nzb_multi_operations_download btn btn-small btn-success" value="Download NZBs" />
@@ -192,28 +195,32 @@
 						{if $sabintegrated}<input type="button" class="nzb_multi_operations_sab btn btn-small btn-primary" value="Send to SAB" />{/if}
 					</div>
 				</td>
-				<td width="33%">
+				<td width="50%">
 					<center>
 						{$pager}
 					</center>
 				</td>
-				<td width="33%">
-					<div class="pull-right">
-							{if $isadmin}
-								Admin: 	
-								<div class="btn-group">	
-									<input type="button" class="nzb_multi_operations_edit btn btn-small btn-warning" value="Edit" />
-									<input type="button" class="nzb_multi_operations_delete btn btn-small btn-danger" value="Delete" />
-								</div>
-								&nbsp;
-							{/if}
-					</div>
+				<td width="20%">
+					{if $section != ''}
+						<div class="pull-right">
+						{if $isadmin}
+							Admin: 	
+							<div class="btn-group">	
+								<input type="button" class="nzb_multi_operations_edit btn btn-small btn-warning" value="Edit" />
+								<input type="button" class="nzb_multi_operations_delete btn btn-small btn-danger" value="Delete" />
+							</div>
+							&nbsp;
+						{/if}
+						</div>
+					{/if}
 				</td>
 			</tr>
 		</table>
 	</div>
 </div>
+
 {/if}
+</form>
 
 
 {/if}

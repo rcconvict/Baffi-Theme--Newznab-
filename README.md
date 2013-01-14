@@ -23,7 +23,7 @@ Working on: `frontend`
 ## Installation and removal
 
 1. Change dir : ` cd Baffi-Theme--Newznab-`
-1. Run the run the script : `sudo ./runme.sh` (linux) 
+1. Run the baffi.py script : `python baffi.py` with  install, uninstall, update, delcache as argument. eg. `python baffy.py install`
 2. Follow the instructions
 
 ####### NB! If you are using nginx, and the instalation ran smooth. But it's doesn't look like the previews. Try rebooting the nginx and php5..
@@ -31,6 +31,8 @@ Working on: `frontend`
 ####### If the site gets a smarty error after removal of the theme. There is a file named `basepage_old_original.php` that you have to use as the real `basepage.php`, located in the `/lib/framework/`.
 
 ## Thanks to
+
+convict @ #newznab-baffi for makeing the awesome install script in python.
 
 Themed with [Bootstrap](http://getbootstrap.com), [FontAwesome](http://fortawesome.github.com/Font-Awesome/) and [Pines Notification](http://pinesframework.org/pnotify/).
 

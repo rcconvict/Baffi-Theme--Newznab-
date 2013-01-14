@@ -32,7 +32,7 @@ Working on: `frontend`
 
 ## Thanks to
 
-convict @ #newznab-baffi for makeing the awesome install script in python.
+convict @ #newznab-baffi for making the awesome install script in python.
 
 Themed with [Bootstrap](http://getbootstrap.com), [FontAwesome](http://fortawesome.github.com/Font-Awesome/) and [Pines Notification](http://pinesframework.org/pnotify/).
 

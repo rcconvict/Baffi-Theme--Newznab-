@@ -22,11 +22,13 @@ def install(update=False):
 			os.rename('../www/views/scripts/utils.js', '../www/views/scripts/utils_old.js')
 			shutil.copy('../www/lib/framework/basepage.php', '../www/lib/framework/basepage_old_original.php')
 			os.rename('../www/lib/framework/basepage.php', '../www/lib/framework/basepage_old.php')
+			shutil.copy('../www/views/scripts/utils-admin.js', '../www/views/scripts/utils-admin_old_origional.js')
+			os.rename('../www/views/scripts/utils-admin.js', '../www/views/scripts/utils-admin_old.js')
 		except OSError, e:
 			print 'Error copying/renaming frameworks: %s' % e
 
 	# copy files to www/views/scripts
-	files = ['bootstrap.js', 'utils.js', 'jquery.pnotify.js']
+	files = ['bootstrap.js', 'utils.js', 'jquery.pnotify.js', 'utils-admin.js']
 	for fname in files:
 		destination = os.path.join('../www/views/scripts/', fname)
 		try:
@@ -51,7 +53,7 @@ def uninstall(update=False):
 		print 'Error removing themes: %s' % e
 	# remove old scripts
 	try:
-		files = ['bootstrap.js', 'utils.js', 'jquery.pnotify.js']
+		files = ['bootstrap.js', 'utils.js', 'jquery.pnotify.js', 'utils-admin.js']
 		for fname in files:
 			os.remove(os.path.join('../www/views/scripts/', fname))
 	except OSError, e:
@@ -70,6 +72,8 @@ def uninstall(update=False):
 			os.rename('../www/lib/framework/basepage_old.php', '../www/lib/framework/basepage.php')
 			#revert utils.js
 			os.rename('../www/views/scripts/utils_old.js', '../www/views/scripts/utils.js')
+			#revert utils-admin.js
+			os.rename('../www/views/scripts/utils-admin_old.js', '../www/views/scripts/utils-admin.js')
 		except OSError, e:
 			print 'Unable to revert to old files: %s' % e
 

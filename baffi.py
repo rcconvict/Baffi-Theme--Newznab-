@@ -17,15 +17,19 @@ def install(update=False):
 	# if this is not an update then backup pre-existing files
 	if update == False:
 		raw_input('Go and select the baffi theme in admin->site edit. Press enter to continue...')
-		try:
+	# make sure backups are in place
+	try:
+		if not os.path.isfile('../www/views/scripts/utils_old_original.js'):
 			shutil.copy('../www/views/scripts/utils.js', '../www/views/scripts/utils_old_original.js')
 			os.rename('../www/views/scripts/utils.js', '../www/views/scripts/utils_old.js')
+		if not os.path.isfile('../www/lib/framework/basepage_old_original.php'):
 			shutil.copy('../www/lib/framework/basepage.php', '../www/lib/framework/basepage_old_original.php')
 			os.rename('../www/lib/framework/basepage.php', '../www/lib/framework/basepage_old.php')
-			shutil.copy('../www/views/scripts/utils-admin.js', '../www/views/scripts/utils-admin_old_origional.js')
+		if not os.path.isfile('../www/views/scripts/utils-admin_old_original.js'):
+			shutil.copy('../www/views/scripts/utils-admin.js', '../www/views/scripts/utils-admin_old_original.js')
 			os.rename('../www/views/scripts/utils-admin.js', '../www/views/scripts/utils-admin_old.js')
-		except OSError, e:
-			print 'Error copying/renaming frameworks: %s' % e
+	except OSError, e:
+		print 'Error copying/renaming frameworks: %s' % e
 
 	# copy files to www/views/scripts
 	files = ['bootstrap.js', 'utils.js', 'jquery.pnotify.js', 'utils-admin.js']

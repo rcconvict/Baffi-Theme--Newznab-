@@ -5,7 +5,7 @@
 	    -moz-border-radius: 4px;
 	    border-radius: 4px; 
 	">
-	<h1>Register</h1><br/>
+	<h3>Register</h3><br/>
         <p>
                 Enter you information below, all the fields are required.
         </p>
@@ -46,10 +46,9 @@
 	    border-radius: 4px;
 	">
 
-	<h1>Register</h1><br/>
+	<h3>Register</h3><br/>
 
-		We are sorry, registrations are currently disabled.<br/>
-		Please <a href="contact-us">contact the administratior</a> if you feel like you reached this page in error.
+		Registration is currently disabled, please check back again later.<br/>
 {/if}
 
 </div>

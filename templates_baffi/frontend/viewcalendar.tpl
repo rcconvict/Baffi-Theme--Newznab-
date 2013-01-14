@@ -10,7 +10,7 @@
 	</div>
 </center>
 
-<table>
+<table width="100%;">
 	<tr valign="top">
 		<td width="33%";>
 			

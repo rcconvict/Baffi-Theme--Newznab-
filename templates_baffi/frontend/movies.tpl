@@ -250,7 +250,7 @@
 		<div class="nzb_multi_operations">
 			<table width="100%">
 				<tr>
-					<td width="33%">
+					<td width="30%">
 						With Selected:
 						<div class="btn-group">
 							<input type="button" class="nzb_multi_operations_download btn btn-small btn-success" value="Download NZBs" />
@@ -258,12 +258,12 @@
 							{if $sabintegrated}<input type="button" class="nzb_multi_operations_sab btn btn-small btn-primary" value="Send to SAB" />{/if}
 						</div>
 					</td>
-					<td width="33%">
+					<td width="50%">
 						<center>
 							{$pager}
 						</center>
 					</td>
-					<td width="33%">
+					<td width="20%">
 						<div class="pull-right">
 							{if $isadmin}
 								Admin: 	

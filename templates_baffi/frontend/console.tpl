@@ -65,7 +65,7 @@
 								</div>
 								&nbsp;
 							{/if}
-							<a href="{$smarty.const.WWW_TOP}/{$section}?t={$category}"><i class="fa-icon-th-list"></i></a>
+							<a href="{$smarty.const.WWW_TOP}/browse?t={$category}"><i class="fa-icon-th-list"></i></a>
 							&nbsp;
 							</div>
 						{/if}
@@ -246,7 +246,7 @@
 							</div>
 							&nbsp;
 						{/if}
-						<a href="{$smarty.const.WWW_TOP}/{$section}?t={$category}"><i class="fa-icon-th-list"></i></a>
+						<a href="{$smarty.const.WWW_TOP}/browse?t={$category}"><i class="fa-icon-th-list"></i></a>
 						&nbsp;
 						</div>
 					{/if}

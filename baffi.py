@@ -122,9 +122,8 @@ def uninstall(update=False):
 
 	# remove baffi:templates and basepage
 	try:
-		if platform.system().lower() == 'windows':
-			shutil.rmtree(os.path.join('..', 'www', 'views', 'templates_baffi'))
-			os.remove(os.path.join('..', 'www', 'lib', 'framework', 'basepage.php'))
+		shutil.rmtree(os.path.join('..', 'www', 'views', 'templates_baffi'))
+		os.remove(os.path.join('..', 'www', 'lib', 'framework', 'basepage.php'))
 	except OSError, e:
 		print 'Error removing templates/basepage: %s' % e
 

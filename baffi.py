@@ -153,10 +153,10 @@ def delcache():
 	cache_dir = '../www/lib/smarty/templates_c'
 	for root, dirs, files in os.walk(cache_dir):
 		for name in files:
-				try:
-					os.remove(os.path.join(root, name))
-				except OSError, e:
-					sys.exit('Warning: Could not clear smarty cache: %s' % e)
+			try:
+				os.remove(os.path.join(root, name))
+			except OSError, e:
+				sys.exit('Warning: Could not clear smarty cache: %s' % e)
 
 def main(switch):
 	preflight()

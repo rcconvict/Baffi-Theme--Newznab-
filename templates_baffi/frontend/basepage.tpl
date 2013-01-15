@@ -76,6 +76,11 @@
 									</li>
 									<li class="divider"></li>
 									<li class="">
+										<a href="{$smarty.const.WWW_TOP}/cart">My Cart</a>
+										<a href="{$smarty.const.WWW_TOP}/mymovies">My Movies</a>
+									</li>
+									<li class="divider"></li>
+									<li class="">
 										<a href="{$smarty.const.WWW_TOP}/logout">Logout</a>
 									</li>
 								</ul>
@@ -116,7 +121,6 @@
 			<div class="container">
 				<p>{$site->footer} All rights reserved {$smarty.now|date_format:"%Y"}</p>
 				<ul class="footer-links">
-					<li><a href="//github.com/Frikish/Baffi-Theme--Newznab-">Themed by Frikish <i class="fa-icon-github-alt"></i></a></li>
 					<li class="muted">·</li>
 					<li><a href="{$smarty.const.WWW_TOP}/terms-and-conditions">{$site->title} terms and conditions</a></li>
 				</ul>

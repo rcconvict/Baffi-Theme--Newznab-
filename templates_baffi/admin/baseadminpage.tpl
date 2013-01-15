@@ -22,6 +22,9 @@
 	<!-- Added the Bootstrap JS -->
 	<script type="text/javascript" src="{$smarty.const.WWW_TOP}/../views/scripts/bootstrap.js"></script>
 	
+	<!-- Pines Notify -->
+	<script type="text/javascript" src="{$smarty.const.WWW_TOP}/../views/scripts/jquery.pnotify.js"></script>
+	
 	{$page->head}	
 </head>
 
@@ -62,7 +65,7 @@
 		<div class="container">
 			<p>{$site->footer} All rights reserved {$smarty.now|date_format:"%Y"}</p>
 			<ul class="footer-links">
-				<li><a href="//github.com/Frikish/Baffi-Theme--Newznab-">Themed by Frikish <i class="fa-icon-github-alt"></i></a></li>
+				<li><a href="//github.com/Frikish/">Themed by Frikish <i class="fa-icon-github-alt"></i></a></li>
 				<li class="muted">·</li>
 				<li><a href="{$smarty.const.WWW_TOP}/terms-and-conditions">{$site->title} terms and conditions</a></li>
 			</ul>

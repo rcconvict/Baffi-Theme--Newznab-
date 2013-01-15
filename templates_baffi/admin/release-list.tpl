@@ -3,20 +3,8 @@
 </div>
 
 {if $releaselist}
-        <div class="well well-small">
-                <div class="nzb_multi_operations">
-                        <table width="100%">
-                                <tr>
-                                        <td width="100%">
-                                                <center>
-                                                        {$pager}
-                                                </center>
-                                        </td>
-                                </tr>
-                        </table>
-                </div>
-        </div>
-
+	<div class="well well-small pagination pagination-centered"> {$pager} </div>
+	</div>
 	<table class="data Sortable highlight table table-striped">
 
 		<tr>

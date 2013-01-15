@@ -122,7 +122,7 @@
 						<td width="20" class="static"><h4>{$episodes@key}</h4></td>
 						{/if}
 						<td>
-							<a title="View details" href="{$smarty.const.WWW_TOP}/details/{$result.guid}/{$result.searchname|escape:"seourl"}"><h4>{$result.searchname|escape:"htmlall"|replace:".":" "}</h4></a>
+							<a title="View details" href="{$smarty.const.WWW_TOP}/details/{$result.guid}/{$result.searchname|escape:"seourl"}"><h5>{$result.searchname|escape:"htmlall"|replace:".":" "}</h5></a>
 
 							<div class="resextra">
 								<div class="btns">

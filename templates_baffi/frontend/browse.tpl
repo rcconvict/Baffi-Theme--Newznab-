@@ -130,7 +130,7 @@
 
 			<td class="item">
 				<label for="chk{$result.guid|substr:0:7}">
-					<a class="title" title="View details"  href="{$smarty.const.WWW_TOP}/details/{$result.guid}/{$result.searchname|escape:"seourl"}"><h4>{$result.searchname|escape:"htmlall"|replace:".":" "}</h4></a>
+					<a class="title" title="View details"  href="{$smarty.const.WWW_TOP}/details/{$result.guid}/{$result.searchname|escape:"seourl"}"><h5>{$result.searchname|escape:"htmlall"|replace:".":" "}</h5></a>
 				</label>
 
 				{if $result.passwordstatus == 2}
@@ -210,7 +210,7 @@
 
 			<td class="less right">
 				{$result.size|fsize_format:"MB"}
-				{if $result.completion > 0}<br />
+				{if $result.completion > 0}<br/>
 				{if $result.completion < 100}
 				<span class="label label-important">{$result.completion}%</span>
 				{else}

@@ -60,9 +60,15 @@ def commitsBehind():
 	return git['total_commits']
 
 def backupFiles():
-	backup = {'utils.js' : '../www/views/scripts/',
-		'basepage.php' : '../www/lib/framework/',
-		'utils-admin.js' : '../www/views/scripts/'}
+	if platform.system().lower() == 'windows':
+		backup = {'utils.js' : '..\\www\\views\\scripts',
+			'basepage.php' : '..\\www\\lib\\framework',
+			'utils-admin.js' : '..\\www\\views\\scripts'}
+	else:
+		backup = {'utils.js' : '../www/views/scripts/',
+			'basepage.php' : '../www/lib/framework/',
+			'utils-admin.js' : '../www/views/scripts/'}
+
 	for filename, folder in backup.iteritems():
 		try:
 			if not os.path.isfile(os.path.join(folder, filename+'.old')):
@@ -75,7 +81,10 @@ def install(update=False):
 	# copy theme folders
 	folders = ['baffi', 'baffi-green', 'baffi-red']
 	for fname in folders:
-		destination = os.path.join('../www/views/themes/', fname)
+		if platform.system().lower() == 'windows':
+			destination = os.path.join('..\\www\\views\\themes', fname)
+		else:
+			destination = os.path.join('../www/views/themes/', fname)
 		try:
 			shutil.copytree(fname, destination)
 		except OSError, e:
@@ -88,7 +97,10 @@ def install(update=False):
 	# copy files to www/views/scripts
 	scriptFiles = ['bootstrap.js', 'utils.js', 'jquery.pnotify.js', 'utils-admin.js']
 	for fname in scriptFiles:
-		destination = os.path.join('../www/views/scripts/', fname)
+		if platform.system().lower() == 'windows':
+			destination = os.path.join('..\\www\\views\\scripts', fname)
+		else:
+			destination = os.path.join('../www/views/scripts/', fname)
 		try:
 			shutil.copy(fname, destination)
 		except OSError, e:
@@ -96,8 +108,12 @@ def install(update=False):
 
 	# copy over baffi template folder and basepage.php
 	try:
-		shutil.copytree('templates_baffi', '../www/views/templates_baffi')
-		shutil.copy('basepage.php', '../www/lib/framework/')
+		if platform.system().lower() == 'windows':
+			shutil.copytree('templates_baffi', '..\\www\\views\\templates_baffi')
+			shutil.copy('basepage.php', '..\\www\\lib\\framework')
+		else:
+			shutil.copytree('templates_baffi', '../www/views/templates_baffi')
+			shutil.copy('basepage.php', '../www/lib/framework/')
 	except OSError, e:
 			print 'Error copying template/basepage: %s' % e
 	if update == False: print 'Installation finished.'
@@ -107,7 +123,10 @@ def uninstall(update=False):
 	try:
 		folders = ['baffi', 'baffi-green', 'baffi-red']
 		for fname in folders:
-			shutil.rmtree(os.path.join('../www/views/themes/', fname))
+			if platform.system().lower() == 'windows':
+				shutil.rmtree(os.path.join('..\\www\\views\\themes', fname))
+			else:
+				shutil.rmtree(os.path.join('../www/views/themes/', fname))
 	except OSError, e:
 		print 'Error removing themes: %s' % e
 
@@ -115,26 +134,41 @@ def uninstall(update=False):
 	try:
 		scriptFiles = ['bootstrap.js', 'utils.js', 'jquery.pnotify.js', 'utils-admin.js']
 		for fname in scriptFiles:
-			os.remove(os.path.join('../www/views/scripts/', fname))
+			if platform.system().lower() == 'windows':
+				os.remove(os.path.join('..\\www\\views\\scripts', fname))
+			else:
+				os.remove(os.path.join('../www/views/scripts/', fname))
 	except OSError, e:
 		print 'Error removing %s: %s' % (fname, e)
 
 	# remove baffi:templates and basepage
 	try:
-		shutil.rmtree('../www/views/templates_baffi')
-		os.remove('../www/lib/framework/basepage.php')
+		if platform.system().lower() == 'windows':
+			shutil.rmtree('..\\www\\views\\templates_baffi')
+			os.remove('..\\www\\lib\\framework\\basepage.php')
+		else:
+			shutil.rmtree('../www/views/templates_baffi')
+			os.remove('../www/lib/framework/basepage.php')
 	except OSError, e:
 		print 'Error removing templates/basepage: %s' % e
 
 	# If this is an update, we don't want to revert old files
 	if update == False:
 		try:
-			#revert to basepage backup
-			os.rename('../www/lib/framework/basepage.php.old', '../www/lib/framework/basepage.php')
-			#revert utils.js
-			os.rename('../www/views/scripts/utils.js.old', '../www/views/scripts/utils.js')
-			#revert utils-admin.js
-			os.rename('../www/views/scripts/utils-admin.js.old', '../www/views/scripts/utils-admin.js')
+			if platform.system().lower() == 'windows':
+					#revert to basepage backup
+				os.rename('..\\www\\lib\\framework\\basepage.php.old', '..\\www\\lib\\framework\\basepage.php')
+				#revert utils.js
+				os.rename('..\\www\\views\\scripts\\utils.js.old', '..\\www\\views\\scripts\\utils.js')
+				#revert utils-admin.js
+				os.rename('..\\www\\views\\scripts\\utils-admin.js.old', '..\\www\\views\\scripts\\utils-admin.js')
+			else:
+				#revert to basepage backup
+				os.rename('../www/lib/framework/basepage.php.old', '../www/lib/framework/basepage.php')
+				#revert utils.js
+				os.rename('../www/views/scripts/utils.js.old', '../www/views/scripts/utils.js')
+				#revert utils-admin.js
+				os.rename('../www/views/scripts/utils-admin.js.old', '../www/views/scripts/utils-admin.js')
 		except OSError, e:
 			print 'Unable to revert to old files: %s' % e
 		print 'Uninstall finished.'
@@ -149,17 +183,19 @@ def update():
 	print 'Update finished.'
 
 def preflight():
-	if os.name != 'posix':
-		sys.exit('This script is designed for linux. If you run this on windows and ask why it does not work I will come into your home and make a mess of your pots and pans.')
-	if  os.geteuid() != 0:
-		print "If you're having troubles or errors with this script please run it as root to see if the problem persists."
-	dirs = ['../www/views/', '../www/views/scripts', '../www/views/themes', '../www/lib/', '../www/lib/framework', '../www/lib/smarty/templates_c']
+	if platform.system().lower() == 'windows':
+		dirs = ['..\\www\\views', '..\\www\\views\\scripts', '..\\www\\views\\themes', '..\\www\\lib', '..\\www\\lib\\framework', '..\\www\\lib\\smarty\\templates_c']
+	else:
+		dirs = ['../www/views/', '../www/views/scripts', '../www/views/themes', '../www/lib/', '../www/lib/framework', '../www/lib/smarty/templates_c']
 	for folder in dirs:
 		if os.path.isdir(folder) != True:
 			sys.exit('ERROR: %s is not a directory. Are you calling this script from the right folder?' % folder)
 
 def delcache():
-	cache_dir = '../www/lib/smarty/templates_c'
+	if platform.system().lower() == 'windows':
+		cache_dir = '..\\www\\lib\\smarty\\templates_c'
+	else:
+		cache_dir = '../www/lib/smarty/templates_c'
 	for root, dirs, filenames in os.walk(cache_dir):
 		for name in filenames:
 			try:

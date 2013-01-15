@@ -1,22 +1,27 @@
 <h1>{$page->title}</h1>
 
-<div style="float:right;margin-bottom:5px;">
 
-	<form name="predbsearch" action="" method="get">
-		<label for="title">Search:</label>
-		&nbsp;&nbsp;<input id="q" type="text" name="q" value="{$query}" size="25" />
-		&nbsp;&nbsp;
-		<input type="submit" value="Go" />
-	</form>
+<div class="well well-small pagination pagination-small pagination-centered">
+	<table width="100%">
+		<tr>
+			<td width="70%">
+				{if $results|@count > 0}
+				{$pager}
+			</td>
+			<td width="30%">
+        			<form class="form-inline" name="predbsearch" action="" method="get" style="margin:0;">
+                			<input class="input input-medium" id="q" type="text" name="q" value="{$query}" placeholder="Search" />
+					<input class="btn btn-success" type="submit" value="Go" />
+        			</form>
+			</td>
+		</tr>
+	</table>
 </div>
 
 {$site->adbrowse}	
 
-{if $results|@count > 0}
 
-{$pager}
-
-<table style="width:100%;" class="data highlight icons" id="browsetable">
+<table style="width:100%;" class="data Sortable highlight table table-striped">
 	<tr>
 		<th width="125" class="mid">Date</th>
 		<th class="left">Directory</th>
@@ -41,10 +46,11 @@
 	{/foreach}
 </table>
 
-</br>
-
-{$pager}
+<div class="well well-small pagination pagination-small pagination-centered"> {$pager} </div>
 
 {else}
-<h2>No results.</h2>
+        <div class="alert">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                <strong>Ups!</strong> No releases available.
+        </div>
 {/if}

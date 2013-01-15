@@ -1,9 +1,10 @@
 <h2>My Cart</h2>
 
-<p>
-	Your cart can be downloaded as an <a href="{$smarty.const.WWW_TOP}/rss?t=-2&amp;dl=1&amp;i={$userdata.ID}&amp;r={$userdata.rsstoken}&amp;del=1">Rss Feed</a>.
-</p>
-
+<div class="alert-info">
+	<p>
+		Your cart can be downloaded as an <a href="{$smarty.const.WWW_TOP}/rss?t=-2&amp;dl=1&amp;i={$userdata.ID}&amp;r={$userdata.rsstoken}&amp;del=1">Rss Feed</a>.
+	</p>
+</div>
 {if $results|@count > 0}
 
 <form id="nzb_multi_operations_form" action="get">
@@ -18,7 +19,6 @@
 			</div>
 		</div>
 	</div>
-
 	<table style="width:100%;" class="data highlight table table-striped" id="browsetable">
 		<tr>
 			<th width="50"><input id="chkSelectAll" type="checkbox" class="nzb_check_all" /><label for="chkSelectAll" style="display:none;">Select All</label></th>
@@ -44,7 +44,7 @@
 </form>
 
 {else}
-<div class="alert alert-info">
+<div class="alert">
 	<button type="button" class="close" data-dismiss="alert">&times;</button>
 	<h4>Sorry!</h4>
 	There is no NZBs in your cart. Sorry!

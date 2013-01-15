@@ -1,10 +1,11 @@
 <h2>{$page->title}</h2>
 
-
-<p>
-Using 'My Movies' you can search for movies, and add them to a wishlist. If the movie becomes available it will be added to an <a href="{$smarty.const.WWW_TOP}/rss?t=-4&amp;dl=1&amp;i={$userdata.ID}&amp;r={$userdata.rsstoken}">Rss Feed</a> you can use to automatically download. <br>
-You can <a href="{$smarty.const.WWW_TOP}/mymoviesedit">Manage Your Movie List</a> to remove old items.
-</p>
+<div class="alert-info">
+	<p>
+		Using 'My Movies' you can search for movies, and add them to a wishlist. If the movie becomes available it will be added to an <a href="{$smarty.const.WWW_TOP}/rss?t=-4&amp;dl=1&amp;i={$userdata.ID}&amp;r={$userdata.rsstoken}">Rss Feed</a> you can use to automatically download. <br>
+		You can <a href="{$smarty.const.WWW_TOP}/mymoviesedit">Manage Your Movie List</a> to remove old items.
+	</p>
+</div>
 
 <div class="navbar">
 	<div class="navbar-inner">

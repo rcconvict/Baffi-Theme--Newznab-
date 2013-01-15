@@ -40,6 +40,6 @@
 {else}
 <div class="alert">
 	<button type="button" class="close" data-dismiss="alert">&times;</button>
-	<strong>Ups!</strong> No shows bookmarked
+	<strong>Sorry!</strong> No shows bookmarked
 </div>
 {/if}

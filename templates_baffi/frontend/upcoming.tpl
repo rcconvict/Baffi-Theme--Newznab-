@@ -65,7 +65,8 @@
 
 {else}
 <div class="alert">
-	<strong>Ups!</strong>
-	No results.
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<strong>Sorry!</strong>
+	No results found.
 </div>
 {/if}

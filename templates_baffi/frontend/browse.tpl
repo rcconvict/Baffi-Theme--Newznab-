@@ -302,6 +302,6 @@
 {else}
 <div class="alert">
 	<button type="button" class="close" data-dismiss="alert">&times;</button>
-	<strong>Ups!</strong> There is nothing here at the moment.
+	<strong>Sorry!</strong> There is nothing here at the moment.
 </div>
 {/if}

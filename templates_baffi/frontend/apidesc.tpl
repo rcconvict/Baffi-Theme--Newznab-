@@ -5,7 +5,8 @@
 {if $site->apienabled != "1"}
 
 <div class="alert">
-	<strong>Ups!</strong>
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<strong>Sorry!</strong>
 	The api is currently disabled. <a href="{$smarty.const.WWW_TOP}/contact-us">Contact us</a> if you require api access.
 </div>		
 

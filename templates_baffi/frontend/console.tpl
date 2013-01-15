@@ -263,7 +263,7 @@
 {else}
 <div class="alert">
 	<button type="button" class="close" data-dismiss="alert">&times;</button>
-	<strong>Ups!</strong> Either some amazon key is wrong, or there is nothing in this section.
+	<strong>Sorry!</strong> Either some amazon key is wrong, or there is nothing in this section.
 </div>
 {/if}
 

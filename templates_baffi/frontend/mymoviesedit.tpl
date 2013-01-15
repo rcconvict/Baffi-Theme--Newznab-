@@ -1,12 +1,13 @@
 <h2>{$page->title}</h2>
 
-<p>
-Use this page to manage movies added to your personal list. If the movie becomes available it will be added to an <a href="{$smarty.const.WWW_TOP}/rss?t=-4&amp;dl=1&amp;i={$userdata.ID}&amp;r={$userdata.rsstoken}">Rss Feed</a> you can use to automatically download. <br>
-To add more movies use the <a href="{$smarty.const.WWW_TOP}/mymovies">My Movies</a> search feature.
-</p>
+<div class="alert-info">
+	<p>
+		Use this page to manage movies added to your personal list. If the movie becomes available it will be added to an <a href="{$smarty.const.WWW_TOP}/rss?t=-4&amp;dl=1&amp;i={$userdata.ID}&amp;r={$userdata.rsstoken}">Rss Feed</a> you can use to automatically download. <br>
+		To add more movies use the <a href="{$smarty.const.WWW_TOP}/mymovies">My Movies</a> search feature.
+	</p>
+</div>
 
 {if $movies|@count > 0}
-
 <table class="data highlight Sortable table table-striped" id="browsetable">
 	<tr>
 

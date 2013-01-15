@@ -3,7 +3,8 @@
 <h2>View TV Series</h2>
 
 <div class="alert">
-	<strong>Ups!</strong>
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<strong>Sorry!</strong>
 	{$nodata}
 </div>
 {else}

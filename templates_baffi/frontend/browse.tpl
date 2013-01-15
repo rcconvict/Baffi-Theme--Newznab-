@@ -210,7 +210,7 @@
 
 			<td class="less right">
 				{$result.size|fsize_format:"MB"}
-				{if $result.completion > 0}<br/>
+				{if $result.completion > 0}<br />
 				{if $result.completion < 100}
 				<span class="label label-important">{$result.completion}%</span>
 				{else}

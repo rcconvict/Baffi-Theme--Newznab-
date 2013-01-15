@@ -163,7 +163,7 @@
 							</td>
 							<td class="icons">
 								<ul class="inline">
-									<li><div class="icon icon_nzb"><a title="Download Nzb" href="{$smarty.const.WWW_TOP}/getnzb/{$result.guid}/{$result.searchname|escape:"url"}"><img src="/views/images/icons/nzbup.png"></a></div></li>
+									<li><div class="icon icon_nzb"><a title="Download Nzb" href="{$smarty.const.WWW_TOP}/getnzb/{$mguid[$m@index]}/{$mname[$m@index]|escape:"url"}"><img src="/views/images/icons/nzbup.png"></a></div></li>
 									<li><a href="#" class="icon icon_cart" title="Add to Cart"><img src="/views/images/icons/cartup.png"></a></li>
 									<li>{if $sabintegrated}<a href="#" class="icon icon_sab" title="Send to my Sabnzbd"><img src="/views/images/icons/sabup.png"></a>{/if}</li>
 								</ul>

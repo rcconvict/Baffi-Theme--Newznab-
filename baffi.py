@@ -63,13 +63,13 @@ def backupFiles():
 	backup = {'utils.js' : '../www/views/scripts/',
 		'basepage.php' : '../www/lib/framework/',
 		'utils-admin.js' : '../www/views/scripts/'}
-	for	file, folder in backup.iteritems():
+	for filename, folder in backup.iteritems():
 		try:
-			if not os.path.isfile(os.path.join(folder, file+'.old')):
-				shutil.copy(os.path.join(folder, file), os.path.join(folder, file+'.oldoriginal'))
-				os.rename(os.path.join(folder, file), os.path.join(folder, file+'.old'))
+			if not os.path.isfile(os.path.join(folder, filename+'.old')):
+				shutil.copy(os.path.join(folder, filename), os.path.join(folder, filename+'.oldoriginal'))
+				os.rename(os.path.join(folder, filename), os.path.join(folder, filename+'.old'))
 		except OSError, e:
-			print 'Error copying/renaming %s. Message: %s' % (os.path.join(folder, file), e)
+			print 'Error copying/renaming %s. Message: %s' % (os.path.join(folder, filename), e)
 
 def install(update=False):
 	# copy theme folders
@@ -86,13 +86,13 @@ def install(update=False):
 		raw_input('Go and select the baffi theme in admin->site edit. Press enter to continue...')
 
 	# copy files to www/views/scripts
-	files = ['bootstrap.js', 'utils.js', 'jquery.pnotify.js', 'utils-admin.js']
-	for fname in files:
+	scriptFiles = ['bootstrap.js', 'utils.js', 'jquery.pnotify.js', 'utils-admin.js']
+	for fname in scriptFiles:
 		destination = os.path.join('../www/views/scripts/', fname)
 		try:
 			shutil.copy(fname, destination)
 		except OSError, e:
-			print 'Error copying scripts: %s' % e
+			print 'Error copying %s: %s' % (fname, e)
 
 	# copy over baffi template folder and basepage.php
 	try:
@@ -113,11 +113,11 @@ def uninstall(update=False):
 
 	# remove old scripts
 	try:
-		files = ['bootstrap.js', 'utils.js', 'jquery.pnotify.js', 'utils-admin.js']
-		for fname in files:
+		scriptFiles = ['bootstrap.js', 'utils.js', 'jquery.pnotify.js', 'utils-admin.js']
+		for fname in scriptFiles:
 			os.remove(os.path.join('../www/views/scripts/', fname))
 	except OSError, e:
-		print 'Error removing old scripts: %s' % e
+		print 'Error removing %s: %s' % (fname, e)
 
 	# remove baffi:templates and basepage
 	try:
@@ -160,8 +160,8 @@ def preflight():
 
 def delcache():
 	cache_dir = '../www/lib/smarty/templates_c'
-	for root, dirs, files in os.walk(cache_dir):
-		for name in files:
+	for root, dirs, filenames in os.walk(cache_dir):
+		for name in filenames:
 			try:
 				os.remove(os.path.join(root, name))
 			except OSError, e:

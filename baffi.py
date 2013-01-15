@@ -130,11 +130,11 @@ def uninstall(update=False):
 	if update == False:
 		try:
 			#revert to basepage backup
-			os.rename('../www/lib/framework/basepage_old.php', '../www/lib/framework/basepage.php')
+			os.rename('../www/lib/framework/basepage.php.old', '../www/lib/framework/basepage.php')
 			#revert utils.js
-			os.rename('../www/views/scripts/utils_old.js', '../www/views/scripts/utils.js')
+			os.rename('../www/views/scripts/utils.js.old', '../www/views/scripts/utils.js')
 			#revert utils-admin.js
-			os.rename('../www/views/scripts/utils-admin_old.js', '../www/views/scripts/utils-admin.js')
+			os.rename('../www/views/scripts/utils-admin.js.old', '../www/views/scripts/utils-admin.js')
 		except OSError, e:
 			print 'Unable to revert to old files: %s' % e
 		print 'Uninstall finished.'

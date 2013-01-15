@@ -29,7 +29,7 @@
 
 <table style="width:100%;" class="data Sortable highlight table table-striped" id="browsetable">
 	<tr>
-		<th width="125" class="mid">Date</th>
+		<th style="width:150px;" class="mid">Date</th>
 		<th class="left">Directory</th>
 		<th class="mid">Category</th>
 		<th class="mid">FS/FC</th>

@@ -24,7 +24,7 @@
 	<tr>
 		<th style="width:50px;">rageid</th>
 		<th>title</th>
-		<th style="width:80px;">date</th>
+		<th style="width:100px;">date</th>
 		<th style="width:100px;" class="right">options</th>
 	</tr>
 	

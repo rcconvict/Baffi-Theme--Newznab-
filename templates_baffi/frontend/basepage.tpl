@@ -74,6 +74,17 @@
 									<li class="">
 										<a href="{$smarty.const.WWW_TOP}/profile">Profile</a>
 									</li>
+                                                                        <li class="divider"></li>
+                                                                        <li class="">
+                                                                                <a href="{$smarty.const.WWW_TOP}/cart">My Cart</a>
+                                                                                <a href="{$smarty.const.WWW_TOP}/mymovies">My Movies</a>
+                                                                        </li>
+                                                                        {if $isadmin}
+                                                                                <li class="divider"></li>
+                                                                                <li class="">
+                                                                                        <a href="{$smarty.const.WWW_TOP}/admin">Site Admin</a>
+                                                                                </li>
+                                                                        {/if}
 									<li class="divider"></li>
 									<li class="">
 										<a href="{$smarty.const.WWW_TOP}/logout">Logout</a>

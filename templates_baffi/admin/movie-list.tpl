@@ -4,20 +4,21 @@
 
 {if $movielist}
 
-<div class="navbar">
-	<div class="navbar-inner">
-		<form method="get" class="navbar-form pull-left" name="moviesearch" action="">
-			<div class="input-append">
-				<input class="input input-xlagre" id="moviename" type="text" name="moviename" value="{$moviename}" placeholder="Title" />
-				<input class="btn btn-success" type="submit" value="Search" />
-			</div>
-		</form>
-	</div>
+<div class="well well-small pagination pagination-small pagination-centered">
+        <table width="100%">
+                <tr>
+                        <td width="70%">
+                                {$pager}
+                        </td>
+                        <td width="30%">
+                                <form class="form-inline" name="moviesearch" action="" method="get" style="margin:0;">
+                                        <input class="input input-medium" id="moviename" type="text" name="moviename" value="{$moviename}" placeholder="Title" />
+                                        <input class="btn btn-success" type="submit" value="Search" />
+                                </form>
+                        </td>
+                </tr>
+        </table>
 </div>
-
-{$pager}
-
-<br/><br/>
 
 <table class="data Sortable highlight table table-striped">
 
@@ -49,9 +50,13 @@
 	{/foreach}
 
 </table>
+
+<div class="well well-small pagination pagination-small pagination-centered"> {$pager} </div>
+
 {else}
 <div class="alert">
-	<strong>Ups!</strong>
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<h4>Sorry!</h4>
 	No Movies available.
 </div>
 {/if}

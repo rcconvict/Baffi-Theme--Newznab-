@@ -20,7 +20,6 @@
 	</div>
 </div>
 
-
 <table class="data Sortable highlight table table-bordered" style="table-layout:fixed;">
 
 	<tr>

@@ -3,20 +3,21 @@
 </div>
 
 {if $tvragelist}
-
-<div class="navbar">
-	<div class="navbar-inner">
-		<form method="get" class="navbar-form pull-left" name="ragesearch" action="">
-			<div class="input-append">
-				<input class="input input-xlagre" id="ragename" type="text" name="ragename" value="{$ragename}" placeholder="Title" />
-				<input class="btn btn-success" type="submit" value="Search" />
-			</div>
-		</form>
-	</div>
+<div class="well well-small pagination pagination-small pagination-centered">
+        <table width="100%">
+                <tr>
+                        <td width="70%">
+                                {$pager}
+                        </td>
+                        <td width="30%">
+                                <form class="form-inline" name="ragesearch" action="" method="get" style="margin:0;">
+                                        <input class="input input-medium" id="ragename" type="text" name="ragename" value="{$ragename}" placeholder="Title" />
+                                        <input class="btn btn-success" type="submit" value="Search" />
+                                </form>
+                        </td>
+                </tr>
+        </table>
 </div>
-
-{$pager}
-
 
 <table class="data Sortable highlight table table-striped">
 
@@ -42,10 +43,15 @@
 	{/foreach}
 
 </table>
+
+<div class="well well-small pagination pagination-small pagination-centered"> {$pager} </div>
+
 {else}
 
 <div class="alert">
-	<strong>Ups!</strong>
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<h4>Sorry!</h4>
 	No TVRage episodes available.
 </div>
+
 {/if}

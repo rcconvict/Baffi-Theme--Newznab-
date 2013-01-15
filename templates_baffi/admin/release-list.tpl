@@ -90,6 +90,7 @@
 {else}
 	<div class="alert">
         	<button type="button" class="close" data-dismiss="alert">&times;</button>
-     		<strong>Ups!</strong> No releases available.
+     		<h4>Sorry!</h4> 
+		No releases available.
 	</div>
 {/if}

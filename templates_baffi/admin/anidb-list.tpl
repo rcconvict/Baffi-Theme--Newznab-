@@ -4,20 +4,21 @@
 
 {if $anidblist}
 
-<div class="navbar">
-	<div class="navbar-inner">
-		<form method="get" class="navbar-form pull-left" name="anidbsearch" action="">
-			<div class="input-append">
-				<input class="input input-xlagre" id="animetitle" type="text" name="animetitle" value="{$animetitle}" placeholder="Title" />
-				<input class="btn btn-success" type="submit" value="Search" />
-			</div>
-		</form>
-	</div>
+<div class="well well-small pagination pagination-small pagination-centered">
+        <table width="100%">
+                <tr>
+                        <td width="70%">
+                                {$pager}
+                        </td>
+                        <td width="30%">
+                                <form class="form-inline" name="anidbsearch" action="" method="get" style="margin:0;">
+                                        <input class="input input-medium" id="anidbtitle" type="text" name="anidbtitle" value="{$anidbtitle}" placeholder="Title" />
+                                        <input class="btn btn-success" type="submit" value="Search" />
+                                </form>
+                        </td>
+                </tr>
+        </table>
 </div>
-
-{$pager}
-
-<br/><br/>
 
 <table class="data Sortable highlight table table-striped">
 
@@ -41,9 +42,13 @@
 	{/foreach}
 
 </table>
+
+<div class="well well-small pagination pagination-small pagination-centered"> {$pager} </div>
+
 {else}
 <div class="alert">
-	<strong>Ups!</strong>
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<strong>Sorry!</strong>
 	No AniDB episodes available.
 </div>
 {/if}

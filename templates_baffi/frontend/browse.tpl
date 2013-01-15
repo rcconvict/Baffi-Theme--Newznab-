@@ -235,7 +235,7 @@
 				<ul class="inline">
 					<li>
 						<div class="icon icon_nzb">
-							<a title="Download Nzb" href="{$smarty.const.WWW_TOP}/getnzb/{$mguid[$m@index]}/{$mname[$m@index]|escape:"url"}"><img src="/views/images/icons/nzbup.png"></a>
+							<a title="Download Nzb" href="{$smarty.const.WWW_TOP}/getnzb/{$result.guid}/{$result.searchname|escape:"url"}"><img src="/views/images/icons/nzbup.png"></a>
 						</div>
 					</li>
 					<li>

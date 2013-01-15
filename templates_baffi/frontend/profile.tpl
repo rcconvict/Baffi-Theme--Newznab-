@@ -147,7 +147,7 @@
 <div style="padding-top:20px;">
 	<h3>Downloads for User and Host</h3>
 
-	<table style="margin-top:10px;" class="data table">
+	<table style="margin-top:10px;" class="data Sortable highlight table table-striped id="downloadtable">
 
 		<tr>
 			<th>date</th>
@@ -160,7 +160,7 @@
 			<tr class="more"><td colspan="3"><a onclick="$('tr.extra').toggle();$('tr.more').toggle();return false;" href="#">show all...</a></td></tr>
 		{/if}
 		<tr {if $download@iteration >= 10}class="extra" style="display:none;"{/if}>
-			<td width="80" title="{$download.timestamp}">{$download.timestamp|date_format}</td>
+			<td class="less" title="{$download.timestamp}">{$download.timestamp|date_format}</td>
 			<td title="{$download.hosthash}">{if $download.hosthash == ""}n/a{else}{$download.hosthash|truncate:10}{/if}</td>
 			<td>{if $download.guid == ""}n/a{else}<a href="{$smarty.const.WWW_TOP}/details/{$download.guid}/{$download.searchname|escape:"seourl"}">{$download.searchname}</a>{/if}</td>
 		</tr>

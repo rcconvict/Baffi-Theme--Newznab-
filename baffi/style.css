@@ -12,11 +12,6 @@ body{
 
 }
 
-/* Unhide the footer? Comment this. */
-   .footer {display:none;} 
-
-
-
 
 .descfull, .mlextra{
 	display:none

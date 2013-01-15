@@ -21,7 +21,7 @@
 {$site->adbrowse}	
 
 
-<table style="width:100%;" class="data Sortable highlight table table-striped id="browsetable">
+<table style="width:100%;" class="data Sortable highlight table table-striped" id="browsetable">
 	<tr>
 		<th width="125" class="mid">Date</th>
 		<th class="left">Directory</th>

@@ -110,22 +110,18 @@
 					{$page->content}
 				</div>
 
-
 			</div>
 		</div>
 		<footer class="footer navbar-fixed-bottom">
 			<div class="container">
 				<p>{$site->footer} All rights reserved {$smarty.now|date_format:"%Y"}</p>
 				<ul class="footer-links">
-					<li><a href="http://getbootstrap.com">Themed with Bootstrap</a></li>
-					<li class="muted">·</li>
-					<li><a href="http://fortawesome.github.com/Font-Awesome/">Icons from FontAwesome</a></li>
+					<li><a href="//github.com/Frikish/Baffi-Theme--Newznab-">Themed by Frikish <i class="fa-icon-github-alt"></i></a></li>
 					<li class="muted">·</li>
 					<li><a href="{$smarty.const.WWW_TOP}/terms-and-conditions">{$site->title} terms and conditions</a></li>
 				</ul>
 			</div>
 		</footer>
-
 			{if $loggedin=="true"}
 				<input type="hidden" name="UID" value="{$userdata.ID}" />
 				<input type="hidden" name="RSSTOKEN" value="{$userdata.rsstoken}" />

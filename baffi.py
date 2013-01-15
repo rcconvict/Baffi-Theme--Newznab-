@@ -3,6 +3,73 @@
 # Written by convict
 
 import sys, os, shutil
+import platform, subprocess, re, os, json, urllib2
+
+def runGit(args):
+	git_locations = ['git']
+	run_dir = os.getcwd()
+	
+	if platform.system().lower() == 'darwin':
+		git_locations.append('/usr/local/git/bin/git')
+	
+	output = err = None
+	for cur_git in git_locations:
+		cmd = cur_git + ' ' + args
+		try:
+			p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True, cwd=run_dir)
+			output, err = p.communicate()
+		except OSError:
+			print 'Command "%s" did not work. Could not find git.' % cmd
+			continue
+	
+		if 'not found' in output or 'not recognized as an internal or external command' in output:
+			print 'Unable to find git with command "%s"' % cmd
+			output = None
+		elif 'fatal:' in output or err:
+			print 'Git returned bad info. Are you sure this is a git installation?'
+			output = None
+		elif output:
+			break
+	return (output, err)
+
+def gitCurrentVersion():
+	output, err = runGit('rev-parse HEAD')
+
+	if not output:
+		print 'Could not find latest installed version with git.'
+		return None
+
+	current_commit = output.strip()
+
+	if not re.match('^[a-z0-9]+$', current_commit):
+		print 'Git output does not look like a hash, not using it.'
+		return None
+
+	return current_commit
+
+def latestCommit():
+	url = 'https://api.github.com/repos/Frikish/Baffi-Theme--Newznab-/commits/master'
+	result = urllib2.urlopen(url).read()
+	git = json.JSONDecoder().decode(result)
+	return git['sha']
+
+def commitsBehind():
+	url = 'https://api.github.com/repos/Frikish/Baffi-Theme--Newznab-/compare/%s...%s' % (gitCurrentVersion(), latestCommit())
+	result = urllib2.urlopen(url).read()
+	git = json.JSONDecoder().decode(result)
+	return git['total_commits']
+
+def backupFiles():
+	backup = {'utils.js' : '../www/views/scripts/',
+		'basepage.php' : '../www/lib/framework/',
+		'utils-admin.js' : '../www/views/scripts/'}
+	for filename, folder in backup.iteritems():
+		try:
+			if not os.path.isfile(os.path.join(folder, filename+'.old')):
+				shutil.copy(os.path.join(folder, filename), os.path.join(folder, filename+'.oldoriginal'))
+				os.rename(os.path.join(folder, filename), os.path.join(folder, filename+'.old'))
+		except OSError, e:
+			print 'Error copying/renaming %s. Message: %s' % (os.path.join(folder, filename), e)
 
 def install(update=False):
 	# copy theme folders
@@ -14,27 +81,18 @@ def install(update=False):
 		except OSError, e:
 			print 'Error copying theme folders: %s' % e
 
-	# if this is not an update then backup pre-existing files
+	# give user a chance to switch themes
 	if update == False:
 		raw_input('Go and select the baffi theme in admin->site edit. Press enter to continue...')
-		try:
-			shutil.copy('../www/views/scripts/utils.js', '../www/views/scripts/utils_old_original.js')
-			os.rename('../www/views/scripts/utils.js', '../www/views/scripts/utils_old.js')
-			shutil.copy('../www/lib/framework/basepage.php', '../www/lib/framework/basepage_old_original.php')
-			os.rename('../www/lib/framework/basepage.php', '../www/lib/framework/basepage_old.php')
-			shutil.copy('../www/views/scripts/utils-admin.js', '../www/views/scripts/utils-admin_old_origional.js')
-			os.rename('../www/views/scripts/utils-admin.js', '../www/views/scripts/utils-admin_old.js')
-		except OSError, e:
-			print 'Error copying/renaming frameworks: %s' % e
 
 	# copy files to www/views/scripts
-	files = ['bootstrap.js', 'utils.js', 'jquery.pnotify.js', 'utils-admin.js']
-	for fname in files:
+	scriptFiles = ['bootstrap.js', 'utils.js', 'jquery.pnotify.js', 'utils-admin.js']
+	for fname in scriptFiles:
 		destination = os.path.join('../www/views/scripts/', fname)
 		try:
 			shutil.copy(fname, destination)
 		except OSError, e:
-			print 'Error copying scripts: %s' % e
+			print 'Error copying %s: %s' % (fname, e)
 
 	# copy over baffi template folder and basepage.php
 	try:
@@ -42,6 +100,7 @@ def install(update=False):
 		shutil.copy('basepage.php', '../www/lib/framework/')
 	except OSError, e:
 			print 'Error copying template/basepage: %s' % e
+	if update == False: print 'Installation finished.'
 
 def uninstall(update=False):
 	# remove old theme folders
@@ -51,13 +110,15 @@ def uninstall(update=False):
 			shutil.rmtree(os.path.join('../www/views/themes/', fname))
 	except OSError, e:
 		print 'Error removing themes: %s' % e
+
 	# remove old scripts
 	try:
-		files = ['bootstrap.js', 'utils.js', 'jquery.pnotify.js', 'utils-admin.js']
-		for fname in files:
+		scriptFiles = ['bootstrap.js', 'utils.js', 'jquery.pnotify.js', 'utils-admin.js']
+		for fname in scriptFiles:
 			os.remove(os.path.join('../www/views/scripts/', fname))
 	except OSError, e:
-		print 'Error removing old scripts: %s' % e
+		print 'Error removing %s: %s' % (fname, e)
+
 	# remove baffi:templates and basepage
 	try:
 		shutil.rmtree('../www/views/templates_baffi')
@@ -69,13 +130,23 @@ def uninstall(update=False):
 	if update == False:
 		try:
 			#revert to basepage backup
-			os.rename('../www/lib/framework/basepage_old.php', '../www/lib/framework/basepage.php')
+			os.rename('../www/lib/framework/basepage.php.old', '../www/lib/framework/basepage.php')
 			#revert utils.js
-			os.rename('../www/views/scripts/utils_old.js', '../www/views/scripts/utils.js')
+			os.rename('../www/views/scripts/utils.js.old', '../www/views/scripts/utils.js')
 			#revert utils-admin.js
-			os.rename('../www/views/scripts/utils-admin_old.js', '../www/views/scripts/utils-admin.js')
+			os.rename('../www/views/scripts/utils-admin.js.old', '../www/views/scripts/utils-admin.js')
 		except OSError, e:
 			print 'Unable to revert to old files: %s' % e
+		print 'Uninstall finished.'
+
+def update():
+	comm = commitsBehind()
+	if comm > 0:
+		print 'You are %s commits behind. It\'s recommended to run "git pull" then re-run python baffi.py update' % comm
+	backupFiles()
+	uninstall(True)
+	install(True)
+	print 'Update finished.'
 
 def preflight():
 	if os.name != 'posix':
@@ -89,28 +160,24 @@ def preflight():
 
 def delcache():
 	cache_dir = '../www/lib/smarty/templates_c'
-	for root, dirs, files in os.walk(cache_dir):
-		for name in files:
-				try:
-					os.remove(os.path.join(root, name))
-				except OSError, e:
-					sys.exit('Warning: Could not clear smarty cache: %s' % e)
+	for root, dirs, filenames in os.walk(cache_dir):
+		for name in filenames:
+			try:
+				os.remove(os.path.join(root, name))
+			except OSError, e:
+				sys.exit('Warning: Could not clear smarty cache: %s' % e)
+	print 'Smarty cache deletion completed.'
 
 def main(switch):
 	preflight()
 	if switch == 'install':
 		install()
-		print 'Installation finished.'
 	if switch == 'uninstall':
 		uninstall()
-		print 'Uninstall finished.'
 	if switch == 'update':
-		uninstall(True)
-		install(True)
-		print 'Update finished.'
+		update()
 	if switch == 'delcache':
 		delcache()
-		print 'Smarty cache deletion completed.'
 
 if __name__ == '__main__':
 	args = ['install', 'uninstall', 'update', 'delcache']

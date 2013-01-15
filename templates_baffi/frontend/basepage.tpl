@@ -76,17 +76,6 @@
 									</li>
 									<li class="divider"></li>
 									<li class="">
-										<a href="{$smarty.const.WWW_TOP}/cart">My Cart</a>
-										<a href="{$smarty.const.WWW_TOP}/mymovies">My Movies</a>
-									</li>
-									{if $isadmin}
-										<li class="divider"></li>
-										<li class="">
-											<a href="{$smarty.const.WWW_TOP}/admin">Site Admin</a>
-										</li>
-									{/if}
-									<li class="divider"></li>
-									<li class="">
 										<a href="{$smarty.const.WWW_TOP}/logout">Logout</a>
 									</li>
 								</ul>
@@ -126,11 +115,11 @@
 		<footer class="footer navbar-fixed-bottom">
 			<div class="container">
 				<p>{$site->footer} All rights reserved {$smarty.now|date_format:"%Y"}</p>
-                                <ul class="footer-links">
-                                        <li><a href="//github.com/Frikish">Themed by Frikish <i class="fa-icon-github-alt"></i></a></li>
-                                        <li class="muted"><C2><B7></li>
-                                        <li><a href="{$smarty.const.WWW_TOP}/terms-and-conditions">{$site->title} terms and conditions</a></li>
-                                </ul>
+				<ul class="footer-links">
+					<li><a href="//github.com/Frikish">Themed by Frikish <i class="fa-icon-github-alt"></i></a></li>
+					<li class="muted">·</li>
+					<li><a href="{$smarty.const.WWW_TOP}/terms-and-conditions">{$site->title} terms and conditions</a></li>
+				</ul>
 			</div>
 		</footer>
 			{if $loggedin=="true"}

@@ -59,6 +59,18 @@ def commitsBehind():
 	git = json.JSONDecoder().decode(result)
 	return git['total_commits']
 
+def backupFiles():
+	backup = {'utils.js' : '../www/views/scripts/',
+		'basepage.php' : '../www/lib/framework/',
+		'utils-admin.js' : '../www/views/scripts/'}
+	for	file, folder in backup.iteritems():
+		try:
+			if not os.path.isfile(os.path.join(folder, file+'.old')):
+				shutil.copy(os.path.join(folder, file), os.path.join(folder, file+'.oldoriginal'))
+				os.rename(os.path.join(folder, file), os.path.join(folder, file+'.old'))
+		except OSError, e:
+			print 'Error copying/renaming %s. Message: %s' % (os.path.join(folder, file), e)
+
 def install(update=False):
 	# copy theme folders
 	folders = ['baffi', 'baffi-green', 'baffi-red']
@@ -69,25 +81,9 @@ def install(update=False):
 		except OSError, e:
 			print 'Error copying theme folders: %s' % e
 
-	# if this is not an update then backup pre-existing files
+	# give user a chance to switch themes
 	if update == False:
 		raw_input('Go and select the baffi theme in admin->site edit. Press enter to continue...')
-
-	# make sure backups are in place
-	try:
-		if not os.path.isfile('../www/views/scripts/utils_old_original.js'):
-			shutil.copy('../www/views/scripts/utils.js', '../www/views/scripts/utils_old_original.js')
-			os.rename('../www/views/scripts/utils.js', '../www/views/scripts/utils_old.js')
-		if not os.path.isfile('../www/lib/framework/basepage_old_original.php'):
-			shutil.copy('../www/lib/framework/basepage.php', '../www/lib/framework/basepage_old_original.php')
-			os.rename('../www/lib/framework/basepage.php', '../www/lib/framework/basepage_old.php')
-		if not os.path.isfile('../www/views/scripts/utils-admin_old_original.js'):
-			shutil.copy('../www/views/scripts/utils-admin.js', '../www/views/scripts/utils-admin_old_original.js')
-			os.rename('../www/views/scripts/utils-admin.js', '../www/views/scripts/utils-admin_old.js')
-	except OSError, e:
-		print 'Error copying/renaming frameworks: %s' % e
-	except IOError, e:
-		sys.exit('ERROR! Files are missing. Go to your newznab folder and run "svn up" to restore them. %s' % e)
 
 	# copy files to www/views/scripts
 	files = ['bootstrap.js', 'utils.js', 'jquery.pnotify.js', 'utils-admin.js']
@@ -104,6 +100,7 @@ def install(update=False):
 		shutil.copy('basepage.php', '../www/lib/framework/')
 	except OSError, e:
 			print 'Error copying template/basepage: %s' % e
+	if update == False: print 'Installation finished.'
 
 def uninstall(update=False):
 	# remove old theme folders
@@ -113,6 +110,7 @@ def uninstall(update=False):
 			shutil.rmtree(os.path.join('../www/views/themes/', fname))
 	except OSError, e:
 		print 'Error removing themes: %s' % e
+
 	# remove old scripts
 	try:
 		files = ['bootstrap.js', 'utils.js', 'jquery.pnotify.js', 'utils-admin.js']
@@ -120,6 +118,7 @@ def uninstall(update=False):
 			os.remove(os.path.join('../www/views/scripts/', fname))
 	except OSError, e:
 		print 'Error removing old scripts: %s' % e
+
 	# remove baffi:templates and basepage
 	try:
 		shutil.rmtree('../www/views/templates_baffi')
@@ -138,6 +137,16 @@ def uninstall(update=False):
 			os.rename('../www/views/scripts/utils-admin_old.js', '../www/views/scripts/utils-admin.js')
 		except OSError, e:
 			print 'Unable to revert to old files: %s' % e
+		print 'Uninstall finished.'
+
+def update():
+	comm = commitsBehind()
+	if comm > 0:
+		print 'You are %s commits behind. It\'s recommended to run "git pull" then re-run python baffi.py update' % comm
+	backupFiles()
+	uninstall(True)
+	install(True)
+	print 'Update finished.'
 
 def preflight():
 	if os.name != 'posix':
@@ -157,25 +166,18 @@ def delcache():
 				os.remove(os.path.join(root, name))
 			except OSError, e:
 				sys.exit('Warning: Could not clear smarty cache: %s' % e)
+	print 'Smarty cache deletion completed.'
 
 def main(switch):
 	preflight()
 	if switch == 'install':
 		install()
-		print 'Installation finished.'
 	if switch == 'uninstall':
 		uninstall()
-		print 'Uninstall finished.'
 	if switch == 'update':
-		comm = commitsBehind()
-		if comm > 0:
-			print 'You are %s commits behind. It\'s recommended to run "git pull" then re-run python baffi.py update' % comm
-		uninstall(True)
-		install(True)
-		print 'Update finished.'
+		update()
 	if switch == 'delcache':
 		delcache()
-		print 'Smarty cache deletion completed.'
 
 if __name__ == '__main__':
 	args = ['install', 'uninstall', 'update', 'delcache']

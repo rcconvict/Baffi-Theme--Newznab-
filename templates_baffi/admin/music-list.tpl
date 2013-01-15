@@ -26,7 +26,8 @@
 </table>
 {else}
 <div class="alert">
-	<strong>Ups!</strong>
+	<button type="button" class="close" data-dismiss="alert">&times;</button>
+	<h4>Sorry!</h4>
 	No Music available.
 </div>
 {/if}

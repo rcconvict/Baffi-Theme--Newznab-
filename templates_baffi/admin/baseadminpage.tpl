@@ -61,7 +61,11 @@
 		<div class="container">
 			<p>{$site->footer} All rights reserved {$smarty.now|date_format:"%Y"}</p>
 			<ul class="footer-links">
-				<a href="{$smarty.const.WWW_TOP}/terms-and-conditions">{$site->title} terms and conditions</a>
+				<li><a href="http://getbootstrap.com">Themed with Bootstrap</a></li>
+				<li class="muted">·</li>
+				<li><a href="http://fortawesome.github.com/Font-Awesome/">Icons from FontAwesome</a></li>
+				<li class="muted">·</li>
+				<li><a href="{$smarty.const.WWW_TOP}/terms-and-conditions">{$site->title} terms and conditions</a></li>
 			</ul>
 		</div>
 	</footer>

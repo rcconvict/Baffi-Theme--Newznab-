@@ -11,7 +11,7 @@
 			<td width="30%">
         			<form class="form-inline" name="predbsearch" action="" method="get" style="margin:0;">
                 			<input class="input input-medium" id="q" type="text" name="q" value="{$query}" placeholder="Search" />
-					<input class="btn btn-success" type="submit" value="Go" />
+					<input class="btn btn-success" type="submit" value="Search" />
         			</form>
 			</td>
 		</tr>

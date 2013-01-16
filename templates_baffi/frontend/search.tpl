@@ -7,8 +7,8 @@
 		<form method="get" class="navbar-form pull-left" action="{$smarty.const.WWW_TOP}/search">
 			<div id="sbasic" style="text-align:center;{if $sadvanced} display:none;{/if}">
 				<div class="input-append">
-				<input id="search" class="input-large" name="search" value="{$search|escape:'html'}" type="text" placeholder="Search text" />
-				<input id="search_search_button" class="btn btn-success" type="submit" value="search" />
+				<input id="search" class="input-large" name="search" value="{$search|escape:'html'}" type="text" placeholder="What are you looking for?" />
+				<input id="search_search_button" class="btn btn-success" type="submit" value="Search" />
 				</div>
 				<input type="hidden" name="t" value="{if $category[0]!=""}{$category[0]}{else}-1{/if}" id="search_cat" />
 				<input type="hidden" name="search_type" value="basic" id="search_type" />

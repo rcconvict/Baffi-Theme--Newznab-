@@ -305,7 +305,7 @@
 					<img src="{$smarty.const.WWW_TOP}/views/images/icons/cartup.png"/>
 				</div>
 				{if $sabintegrated}
-				<div class="icon icon_sab" title="Send to my Sabnzbd">	
+				<div class="icon icon_sab_search" title="Send to my Sabnzbd">	
 					<img src="{$smarty.const.WWW_TOP}/views/images/icons/sabup.png"/>
 				</div>
 				{/if}

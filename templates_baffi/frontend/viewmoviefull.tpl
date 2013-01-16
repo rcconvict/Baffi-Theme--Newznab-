@@ -190,8 +190,12 @@
 						<img src="{$smarty.const.WWW_TOP}/views/images/icons/cartup.png"/>
 					</div>
 					{if $sabintegrated}
-						<div class="icon icon_sab" title="Send to my Sabnzbd">	
-							<img src="{$smarty.const.WWW_TOP}/views/images/icons/sabup.png"/>
+						<div class="icon">
+							<div id="sab">
+								<div class="icon_sab" title="Send to my Sabnzbd">	
+									<img src="{$smarty.const.WWW_TOP}/views/images/icons/sabup.png"/>
+								</div>
+							</div>
 						</div>
 					{/if}
 				</td>

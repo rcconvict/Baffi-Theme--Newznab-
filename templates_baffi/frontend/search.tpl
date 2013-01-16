@@ -118,6 +118,17 @@
 			</div>
 		</div>
 
+{if $sabintegrated}
+	<div class="alert-error">
+		<button type="button" class="close" data-dismiss="alert">&times;</button>
+		<h4>Notice of Bug:</h4>
+		There is an error currently with the search page that prevents "Send To SAB" from working properly. The bug only affects the "SAB" button on the table rows below.<br/>
+		The Send to SAB function works on all other pages at the current moment. <br/>
+		To work around this issue, go into the movie details and choose Send to SAB from there, or  you can choose the "Send to Sab" in the top toolbar. <br/>
+		This issue only affects the "SAB" button on the table rows.
+	</div>
+{/if}
+
 <table style="100%" class="data highlight icons table table-striped" id="browsetable">
 
 	<tr>

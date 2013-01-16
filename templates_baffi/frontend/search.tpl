@@ -299,8 +299,12 @@
 						<img src="{$smarty.const.WWW_TOP}/views/images/icons/nzbup.png"/>
 					</a>
 				</div>
-				<div class="icon icon_cart" title="Add to Cart">
-					<img src="{$smarty.const.WWW_TOP}/views/images/icons/cartup.png"/>
+				<div class="icon">
+					<div id="cart">
+						<div class="icon_cart" title="Add to Cart">
+							<img src="{$smarty.const.WWW_TOP}/views/images/icons/cartup.png"/>
+						</div>
+					</div>
 				</div>
 				{if $sabintegrated}
 				        <div class="icon">

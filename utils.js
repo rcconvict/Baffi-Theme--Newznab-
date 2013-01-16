@@ -79,7 +79,7 @@ jQuery(function($){
 			
 	        $.pnotify({
 		        title: 'ADDED TO SAB!',
-		        text: 'Its now in the que!! ^_^',
+		        text: 'Its now in the queue!! ^_^',
 		        type: 'info',
 		        icon: 'fa-icon-info-sign'
 		    });
@@ -114,7 +114,7 @@ jQuery(function($){
 	        
 	        $.pnotify({
 		        title: 'ADDED TO SAB!',
-		        text: 'Its now in the que!! ^_^',
+		        text: 'Its now in the queue!! ^_^',
 		        type: 'info',
 		        icon: 'fa-icon-info-sign'
 		    });
@@ -206,7 +206,7 @@ jQuery(function($){
 					$sabIcon.addClass('icon_sab_clicked').attr('title','Added to Queue');
                				$.pnotify({
                 			        title: 'ADDED TO SAB!',
-                			        text: 'Its now in the que!! ^_^',
+                			        text: 'Its now in the queue!! ^_^',
                 			        type: 'info',
                 			        icon: 'fa-icon-info-sign'
                			        });					
@@ -280,7 +280,7 @@ jQuery(function($){
 			$.post( nzburl, function(resp){
                			$.pnotify({
                 		        title: 'ADDED TO SAB!',
-                		        text: 'Its now in the que!! ^_^',
+                		        text: 'Its now in the queue!! ^_^',
                 		        type: 'info',
                 		        icon: 'fa-icon-info-sign'
                 		 });

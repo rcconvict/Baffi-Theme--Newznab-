@@ -34,5 +34,9 @@
 
 </table>
 {else}
-<p>No comments available</p>
+	<div class="alert">
+	    <button type="button" class="close" data-dismiss="alert">&times;</button>
+	    <h4>Sorry!</h4>
+	        No comments available.
+	</div>
 {/if}

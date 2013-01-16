@@ -68,7 +68,7 @@ def backupFiles():
 		try:
 			if not os.path.isfile(os.path.join(folder, filename+'.old')):
 				shutil.copy(os.path.join(folder, filename), os.path.join(folder, filename+'.oldoriginal'))
-				os.rename(os.path.join(folder, filename), os.path.join(folder, filename+'.old'))
+				shutil.copy(os.path.join(folder, filename), os.path.join(folder, filename+'.old'))
 		except OSError, e:
 			print 'Error copying/renaming %s. Message: %s' % (os.path.join(folder, filename), e)
 

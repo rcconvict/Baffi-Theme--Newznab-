@@ -10,7 +10,7 @@
 <br/><br/><br/>
 
 {if $msg != ""}
-<div class="alert alert-success span8">
+<div class="alert alert-success">
 	<center>{$msg}</center>
 </div>
 

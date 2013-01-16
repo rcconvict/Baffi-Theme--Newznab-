@@ -4,17 +4,23 @@
 
 {if $anidblist}
 
-<div class="well well-small pagination pagination-small pagination-centered">
-        <table width="100%">
+<div class="navbar-inner">
+        <table width="100%" style="margin-top: 4px;">
                 <tr>
+                        <td width="30%">
+                                <div class="pull-left">
+                                        <form class="form-inline" name="anidbsearch" action="" method="get" style="margin:0;">
+                                                <div class="input-append">
+                                                <input class="input input-large" id="anidbtitle" type="text" name="anidbtitle" value="{$anidbtitle}" placeholder="Title" />
+                                                <input class="btn btn-success" type="submit" value="Search" />
+                                                </div>
+                                        </form>
+                                </div>
+
+
+                        </td>
                         <td width="70%">
                                 {$pager}
-                        </td>
-                        <td width="30%">
-                                <form class="form-inline" name="anidbsearch" action="" method="get" style="margin:0;">
-                                        <input class="input input-medium" id="anidbtitle" type="text" name="anidbtitle" value="{$anidbtitle}" placeholder="Title" />
-                                        <input class="btn btn-success" type="submit" value="Search" />
-                                </form>
                         </td>
                 </tr>
         </table>

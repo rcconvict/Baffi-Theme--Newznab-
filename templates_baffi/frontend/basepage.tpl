@@ -127,11 +127,33 @@
 			<div class="container">
 				<p>{$site->footer} All rights reserved {$smarty.now|date_format:"%Y"}</p>
 				<ul class="footer-links">
+					<li><a href="//github.com/Frikish">Themed by Frikish <i class="fa-icon-github-alt"></i></a></li>
 					<li class="muted">·</li>
 					<li><a href="{$smarty.const.WWW_TOP}/terms-and-conditions">{$site->title} terms and conditions</a></li>
 				</ul>
 			</div>
 		</footer>
+
+		        {if $site->google_analytics_acc != ''}
+		        {literal}
+		        <script type="text/javascript">
+		        /* <![CDATA[ */
+		          var _gaq = _gaq || [];
+		          _gaq.push(['_setAccount', '{/literal}{$site->google_analytics_acc}{literal}']);
+		          _gaq.push(['_trackPageview']);
+		          _gaq.push(['_trackPageLoadTime']);
+		
+		          (function() {
+		                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		          })();
+		        /* ]]> */
+		        </script>
+		
+		        {/literal}
+		        {/if}
+
 			{if $loggedin=="true"}
 				<input type="hidden" name="UID" value="{$userdata.ID}" />
 				<input type="hidden" name="RSSTOKEN" value="{$userdata.rsstoken}" />

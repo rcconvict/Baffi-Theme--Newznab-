@@ -131,16 +131,6 @@
 									{if $result.tvairdate != ""}<span class="rndbtn badge badge-success halffade" title="{$result.tvtitle} Aired on {$result.tvairdate|date_format}">Aired {if $result.tvairdate|strtotime > $smarty.now}in future{else}{$result.tvairdate|daysago}{/if}</span>{/if}
 									{if $result.reID > 0}<span class="mediainfo rndbtn badge halffade" title="{$result.guid}">Media</span>{/if}
 								</div>
-								
-								{if $isadmin}
-								<br/>
-								<div class="admin pull-right" style="margin-top:-40px;">
-									<div class="btn-group">
-										<a class="rndbtn btn btn-mini btn-warning" href="{$smarty.const.WWW_TOP}/admin/release-edit.php?id={$result.ID}&amp;from={$smarty.server.REQUEST_URI|escape:"url"}" title="Edit Release">Edit</a>
-										<a class="rndbtn confirm_action btn btn-mini btn-danger" href="{$smarty.const.WWW_TOP}/admin/release-delete.php?id={$result.ID}&amp;from={$smarty.server.REQUEST_URI|escape:"url"}" title="Delete Release">Delete</a>
-									</div>
-								</div>
-								{/if}			
 							</div>
 						</td>
 						<td class="check"><input id="chk{$result.guid|substr:0:7}" type="checkbox" class="nzb_check" name="{$seasonnum}" value="{$result.guid}" /></td>
@@ -189,6 +179,16 @@
 									</a>
 								</li>
 								{/if}
+
+                                                                {if $isadmin}
+                                                                	<br/><br/>
+                                                                	<div class="admin" style="margin-bottom:-40px;">
+                                                                        	<div class="btn-group">
+                                                                                	<a class="rndbtn btn btn-mini btn-warning" href="{$smarty.const.WWW_TOP}/admin/release-edit.php?id={$result.ID}&amp;from={$smarty.server.REQUEST_URI|escape:"url"}" title="Edit Release">Edit</a>
+                                                                                	<a class="rndbtn confirm_action btn btn-mini btn-danger" href="{$smarty.const.WWW_TOP}/admin/release-delete.php?id={$result.ID}&amp;from={$smarty.server.REQUEST_URI|escape:"url"}" title="Delete Release">Delete</a>
+                                                                        	</div>
+                                                                	</div>
+                                                                {/if}
 							</ul>
 						</td>
 					</tr>

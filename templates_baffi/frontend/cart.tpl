@@ -2,7 +2,7 @@
 
 <div class="alert-info">
 	<p>
-		Your cart can be downloaded as an <a href="{$smarty.const.WWW_TOP}/rss?t=-2&amp;dl=1&amp;i={$userdata.ID}&amp;r={$userdata.rsstoken}&amp;del=1">Rss Feed</a>.
+		Your cart can be downloaded as an <a href="{$smarty.const.WWW_TOP}/rss?t=-2&amp;dl=1&amp;i={$userdata.ID}&amp;r={$userdata.rsstoken}&amp;del=1">RSS Feed</a>.
 	</p>
 </div>
 {if $results|@count > 0}
@@ -47,6 +47,6 @@
 <div class="alert">
 	<button type="button" class="close" data-dismiss="alert">&times;</button>
 	<h4>Sorry!</h4>
-	There is no NZBs in your cart. Sorry!
+	There are no NZBs in your cart.
 </div>
 {/if}

@@ -1,9 +1,7 @@
 <h2>Search</h2>
-
 <div style="display:none;text-align:right;">
 	<a href="#" onclick="if(jQuery(this).text()=='Advanced Search')jQuery(this).text('Basic Search');else jQuery(this).text('Advanced Search');jQuery('#sbasic,#sadvanced').toggle();return false;">{if $sadvanced}Basic{else}Advanced{/if} Search</a>
 </div>
-	
 <div class="navbar">
 	<div class="navbar-inner">
 		<form method="get" class="navbar-form pull-left" action="{$smarty.const.WWW_TOP}/search">
@@ -305,9 +303,13 @@
 					<img src="{$smarty.const.WWW_TOP}/views/images/icons/cartup.png"/>
 				</div>
 				{if $sabintegrated}
-				<div class="icon icon_sab_search" title="Send to my Sabnzbd">	
-					<img src="{$smarty.const.WWW_TOP}/views/images/icons/sabup.png"/>
-				</div>
+				        <div class="icon">
+						<div id="sab">
+							<div class="icon_sab" title="Send to my Sabnzbd">	
+								<img src="{$smarty.const.WWW_TOP}/views/images/icons/sabup.png"/>
+							</div>
+						</div>
+					</div>
 				{/if}
 			</td>
 		</tr>
@@ -354,4 +356,3 @@
 </form>
 
 {/if}
-

@@ -72,7 +72,6 @@ jQuery(function($){
 		if ($(this).hasClass('icon_sab_clicked')) return false;
 
 		var guid = $(this).parent().parent().parent().parent().attr('id').substring(4);
-		//var guid = $(this).parent().parent().attr('id').substring(4);
 		var nzburl = SERVERROOT + "sendtosab/" + guid;
 
 		$.post(nzburl, function(resp){
@@ -87,25 +86,6 @@ jQuery(function($){
 		});
 		return false;
 	});
-        $('.icon_sab_search').click(function(e){ // replace with cookies?
-                if ($(this).hasClass('icon_sab_clicked')) return false;
-
-                var guid = $(this).parent().parent().attr('id').substring(4);
-                var nzburl = SERVERROOT + "sendtosab/" + guid;
-
-                $.post(nzburl, function(resp){
-                        $(e.target).addClass('icon_sab_clicked').attr('title','Added to Queue');
-
-                $.pnotify({
-                        title: 'ADDED TO SAB!',
-                        text: 'Its now in the que!! ^_^',
-                        type: 'info',
-                        icon: 'fa-icon-info-sign'
-                    });
-                });
-                return false;
-        });
-
 	
 	// viewnzb.tpl, 
 	$('.icon_nzb_cart').click(function(e){
@@ -211,21 +191,20 @@ jQuery(function($){
 		});
 		$.post( SERVERROOT + "cart?add", { 'add': guids });
 	});
-
-        $('input.nzb_multi_operations_sab').click(function(){
-            $("table.data INPUT[type='checkbox']:checked").each( function(i, row) {
-                var $sabIcon = $(row).parent().parent().children('td.icons').children('.icon_sab');
-                var guid = $(row).val();
-                        if (guid && !$sabIcon.hasClass('icon_sab_clicked')) {
-                                var nzburl = SERVERROOT + "sendtosab/" + guid;
-                                $.post( nzburl, function(resp){
-                                        $sabIcon.addClass('icon_sab_clicked').attr('title','Added to Queue');
-                                createGrowl( 'Added to Queue' );
-                                });
-                        }
-                        $(this).attr('checked', false);
-                });
-        });
+	$('input.nzb_multi_operations_sab').click(function(){
+	    $("table.data INPUT[type='checkbox']:checked").each( function(i, row) {
+	    	var $sabIcon = $(row).parent().parent().children('td.icons').children('.icon_sab');
+	    	var guid = $(row).val();
+			if (guid && !$sabIcon.hasClass('icon_sab_clicked')) {
+				var nzburl = SERVERROOT + "sendtosab/" + guid;
+				$.post( nzburl, function(resp){
+					$sabIcon.addClass('icon_sab_clicked').attr('title','Added to Queue');
+			        createGrowl( 'Added to Queue' );
+				});
+			}
+			$(this).attr('checked', false);
+		});
+	});
 	
 	//front end admin functions
 	$('input.nzb_multi_operations_edit').click(function(){

@@ -23,10 +23,10 @@ Working on: `frontend`
 ## Installation and removal
 
 1. Change dir : `cd Baffi-Theme--Newznab-`
-2. Run the baffi.py script : `python baffi.py` with  install, uninstall, update, delcache as argument. eg. `python baffy.py install`
+2. Run the baffi.py script : `python baffi.py` with  --install, --uninstall, --update, --delcache as argument. eg. `python baffy.py --install`
 3. Follow the instructions
 
-* To update do first `git pull` from inside the `Baffi-Theme--Newznab-`, then a `python baffy.py update`
+* To update do first `git pull` from inside the `Baffi-Theme--Newznab-`, then a `python baffy.py --update`
 
 ####### NB! If you are using nginx, and the instalation ran smooth. But it's doesn't look like the previews. Try rebooting the nginx and php5..
 

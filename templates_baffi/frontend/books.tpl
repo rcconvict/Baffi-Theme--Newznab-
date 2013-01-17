@@ -106,12 +106,19 @@
 			</td>
 			<td colspan="3" class="left">
 				<h4><a href="{$smarty.const.WWW_TOP}/books/?author={$result.author}">{$result.author|escape:"htmlall"}</a> - {$result.title|escape:"htmlall"}</h4>
-				{if $result.review != ""}<span class="descinitial">{$result.review|escape:"htmlall"|nl2br|magicurl|truncate:"350":"</span><a class=\"descmore\" href=\"#\">more...</a>"}{if $result.review|strlen > 350}<span class="descfull">{$result.review|escape:"htmlall"|nl2br|magicurl}</span>{else}</span>{/if}<br /><br />{/if}
-
 				{if $result.review != ""}
-				<span class="descfull">{$result.review|escape:"htmlall"|nl2br|magicurl}</span><br /><br />
+					<span class="descinitial">
+						{$result.review|escape:"htmlall"|nl2br|magicurl|truncate:"350":"
+					</span>
+					<a class=\"descmore\" href=\"#\">more...</a>"}
+					{if $result.review|strlen > 350}
+						<span class="descfull">{$result.review|escape:"htmlall"|nl2br|magicurl}</span>
+					{else}
+						</span>
+					{/if}
+					<br /><br />
 				{/if}
-				
+
 				{if $result.publisher != ""}<b>Publisher:</b> {$result.publisher|escape:"htmlall"}<br />{/if}
 				{if $result.publishdate != ""}<b>Published:</b> {$result.publishdate|date_format}<br />{/if}
 				{if $result.pages != ""}<b>Pages:</b> {$result.pages}<br />{/if}

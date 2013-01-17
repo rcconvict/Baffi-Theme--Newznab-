@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 # Written by convict
-
+import argparse
 import sys, os, shutil
 import platform, subprocess, re, os, json, urllib2
 
@@ -55,7 +55,10 @@ def latestCommit():
 
 def commitsBehind():
 	url = 'https://api.github.com/repos/Frikish/Baffi-Theme--Newznab-/compare/%s...%s' % (gitCurrentVersion(), latestCommit())
-	result = urllib2.urlopen(url).read()
+	try:
+		result = urllib2.urlopen(url).read()
+	except urllib2.HTTPError:
+		return None
 	git = json.JSONDecoder().decode(result)
 	return git['total_commits']
 
@@ -73,6 +76,8 @@ def backupFiles():
 			print 'Error copying/renaming %s. Message: %s' % (os.path.join(folder, filename), e)
 
 def install(update=False):
+	# check if backup files exist and back them up
+	backupFiles()
 	# copy theme folders
 	folders = ['baffi', 'baffi-green', 'baffi-red']
 	for fname in folders:
@@ -143,7 +148,7 @@ def uninstall(update=False):
 def update():
 	comm = commitsBehind()
 	if comm > 0:
-		print 'You are %s commits behind. It\'s recommended to run "git pull" then re-run python baffi.py update' % comm
+		print 'You are %s commits behind. Run "git pull" then run \'python baffi.py --update\' again' % comm
 	backupFiles()
 	uninstall(True)
 	install(True)
@@ -170,25 +175,31 @@ def delcache():
 				sys.exit('Warning: Could not clear smarty cache: %s' % e)
 	print 'Smarty cache deletion completed.'
 
-def main(switch):
-	preflight()
-	if switch == 'install':
-		install()
-	if switch == 'uninstall':
-		uninstall()
-	if switch == 'update':
-		update()
-	if switch == 'delcache':
-		delcache()
-
 if __name__ == '__main__':
-	args = ['install', 'uninstall', 'update', 'delcache']
-	usage = '''python baffi.py [install, uninstall, update, delcache]
-	This folder must be located in the root of the newznab folder to run properly!'''
+	parser = argparse.ArgumentParser(description='Installation script for baffi themes for newznab.', epilog='This script must be ran in the baffi theme folder in the newznab folder to run properly.')
+	parser.add_argument('-i', '--install', action='store_true', default=False, dest='install', help='Install the baffi theme to newznab.')
+	parser.add_argument('-x', '--uninstall', action='store_true', default=False, dest='uninstall', help='Uninsatll the baffi theme from newznab.')
+	parser.add_argument('-u', '--update', action='store_true', default=False, dest='update', help='Update the baffi newznab theme.')
+	parser.add_argument('-d', '--delcache', action='store_true', default=False, dest='delcache', help='Delete smarty cache.')
+	arguments = vars(parser.parse_args())
 
-	if len(sys.argv) < 2:
-		sys.exit(usage)
-	if sys.argv[1] in args:
-		main(sys.argv[1])
+	if len(sys.argv) > 2:
+		print 'Whoa, whoa. One command at a time please.'
+		parser.print_help()
+		sys.exit(1)
+
+	# check that directories exist
+	if len(sys.argv) == 2: preflight()
+
+	# switch case 
+	if arguments['install']:
+		install()
+	elif arguments['uninstall']:
+		uninstall()
+	elif arguments['update']:
+		update()
+	elif arguments['delcache']:
+		delcache()
 	else:
-		sys.exit(usage)
+		parser.print_help()
+		sys.exit(1)

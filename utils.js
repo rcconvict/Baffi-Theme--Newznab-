@@ -79,7 +79,7 @@ jQuery(function($){
 			
 	        $.pnotify({
 		        title: 'ADDED TO SAB!',
-		        text: 'Its now in the que!! ^_^',
+		        text: 'Its now in the queue!! ^_^',
 		        type: 'info',
 		        icon: 'fa-icon-info-sign'
 		    });
@@ -114,7 +114,7 @@ jQuery(function($){
 	        
 	        $.pnotify({
 		        title: 'ADDED TO SAB!',
-		        text: 'Its now in the que!! ^_^',
+		        text: 'Its now in the queue!! ^_^',
 		        type: 'info',
 		        icon: 'fa-icon-info-sign'
 		    });
@@ -185,7 +185,12 @@ jQuery(function($){
 			if (guid && !$cartIcon.hasClass('icon_cart_clicked')){
 				$cartIcon.addClass('icon_cart_clicked').attr('title','Added to Cart');	// consider doing this only upon success
 				guids.push(guid);
-		        createGrowl( 'Added to Cart' );
+				$.pnotify({
+					title: 'ADDED!',
+					text: 'Its now in your Cart! ^_^',
+					type: 'success',
+					icon: 'fa-icon-info-sign'
+				});
 			}
 			$(this).attr('checked', false);
 		});
@@ -199,7 +204,12 @@ jQuery(function($){
 				var nzburl = SERVERROOT + "sendtosab/" + guid;
 				$.post( nzburl, function(resp){
 					$sabIcon.addClass('icon_sab_clicked').attr('title','Added to Queue');
-			        createGrowl( 'Added to Queue' );
+               				$.pnotify({
+                			        title: 'ADDED TO SAB!',
+                			        text: 'Its now in the queue!! ^_^',
+                			        type: 'info',
+                			        icon: 'fa-icon-info-sign'
+               			        });					
 				});
 			}
 			$(this).attr('checked', false);
@@ -268,8 +278,13 @@ jQuery(function($){
 	    	var guid = $(row).val();
 			var nzburl = SERVERROOT + "sendtosab/" + guid;
 			$.post( nzburl, function(resp){
-			        createGrowl( 'Added to Queue' );
-				});
+               			$.pnotify({
+                		        title: 'ADDED TO SAB!',
+                		        text: 'Its now in the queue!! ^_^',
+                		        type: 'info',
+                		        icon: 'fa-icon-info-sign'
+                		 });
+			});
 	    });
 	});	
 

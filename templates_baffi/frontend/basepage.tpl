@@ -133,6 +133,27 @@
 				</ul>
 			</div>
 		</footer>
+
+		        {if $site->google_analytics_acc != ''}
+		        {literal}
+		        <script type="text/javascript">
+		        /* <![CDATA[ */
+		          var _gaq = _gaq || [];
+		          _gaq.push(['_setAccount', '{/literal}{$site->google_analytics_acc}{literal}']);
+		          _gaq.push(['_trackPageview']);
+		          _gaq.push(['_trackPageLoadTime']);
+		
+		          (function() {
+		                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		          })();
+		        /* ]]> */
+		        </script>
+		
+		        {/literal}
+		        {/if}
+
 			{if $loggedin=="true"}
 				<input type="hidden" name="UID" value="{$userdata.ID}" />
 				<input type="hidden" name="RSSTOKEN" value="{$userdata.rsstoken}" />

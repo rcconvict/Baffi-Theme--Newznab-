@@ -38,7 +38,6 @@
 						</center>
 					</td>
 					<td width="20%">
-						{if $section != ''}
 							<div class="pull-right">
 							{if $isadmin}
 								Admin: 	
@@ -48,10 +47,11 @@
 								</div>
 								&nbsp;
 							{/if}
+							{if $section != ''}
 								<a href="{$smarty.const.WWW_TOP}/{$section}?t={$category}"><i class="fa-icon-th-list"></i></a>
 								&nbsp;
+							{/if}
 							</div>
-						{/if}
 					</td>
 				</tr>
 			</table>

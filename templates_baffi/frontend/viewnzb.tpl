@@ -12,11 +12,13 @@
 
 	{if $isadmin}
 	<div class="well well-small">
+		<div class="pull-right">
 			Admin :   	
 			<div class="btn-group">	
 				<a href="{$smarty.const.WWW_TOP}/admin/release-edit.php?id={$release.ID}&amp;from={$smarty.server.REQUEST_URI}" class="btn btn-small btn-warning" >Edit</a>
 				<a href="{$smarty.const.WWW_TOP}/admin/release-delete.php?id={$release.ID}&amp;from={$smarty.server.HTTP_REFERER}" class=" btn btn-small btn-danger" >Delete</a>
 			</div>
+		</div>
 	</div>
 	{/if}
 	
@@ -188,20 +190,48 @@
 	{/if}
 	
 	{if $con}
-	<tr><th>Console Info:</th><td>
-		<strong>{$con.title|escape:"htmlall"} ({$con.releasedate|date_format:"%Y"})</strong><br />
-		{if $con.review != ""}<span class="descinitial">{$con.review|escape:"htmlall"|nl2br|magicurl|truncate:"350":"</span><a class=\"descmore\" href=\"#\">more...</a>"}{if $con.review|strlen > 350}<span class="descfull">{$con.review|escape:"htmlall"|nl2br|magicurl}</span>{else}</span>{/if}<br /><br />{/if}
-		{if $con.esrb != ""}<strong>ESRB:</strong> {$con.esrb|escape:"htmlall"}<br />{/if}
-		{if $con.genres != ""}<strong>Genre:</strong> {$con.genres|escape:"htmlall"}<br />{/if}
-		{if $con.publisher != ""}<strong>Publisher:</strong> {$con.publisher|escape:"htmlall"}<br />{/if}
-		{if $con.platform != ""}<strong>Platform:</strong> {$con.platform|escape:"htmlall"}<br />{/if}
-		{if $con.releasedate != ""}<strong>Released:</strong> {$con.releasedate|date_format}{/if}
-		{if $con.url != ""}
-		<div style="margin-top:10px;">
-			<a class="rndbtn" target="_blank" href="{$site->dereferrer_link}{$con.url}/" title="View game at Amazon">Amazon</a>
-		</div>
+	
+	<dl class="dl-horizontal" style="margin-right:300px;">
+		
+		<dt>Console Info</dt>
+		<dd>{$con.title|escape:"htmlall"} ({$con.releasedate|date_format:"%Y"})</dd>
+		
+		{if $con.review != ""}
+		<dt>Review</dt>
+		<dd><span class="descinitial">{$con.review|escape:"htmlall"|nl2br|magicurl|truncate:"350":"</span><a class=\"descmore\" href=\"#\">more...</a>"}{if $con.review|strlen > 350}<span class="descfull">{$con.review|escape:"htmlall"|nl2br|magicurl}</span>{else}</span>{/if}</dd>
 		{/if}
-	</td></tr>
+		
+		{if $con.esrb != ""}
+		<dt>ESRB</dt> 
+		<dd>{$con.esrb|escape:"htmlall"}</dd>
+		{/if}
+		
+		{if $con.genres != ""}
+		<dt>Genre</dt> 
+		<dd>{$con.genres|escape:"htmlall"}</dd>
+		{/if}
+		
+		{if $con.publisher != ""}
+		<dt>Publisher</dt> 
+		<dd>{$con.publisher|escape:"htmlall"}</dd>
+		{/if}
+		
+		{if $con.platform != ""}
+		<dt>Platform</dt> 
+		<dd>{$con.platform|escape:"htmlall"}</dd>
+		{/if}
+		
+		{if $con.releasedate != ""}
+		<dt>Released</dt> 
+		<dd>{$con.releasedate|date_format}</dd>
+		{/if}
+		
+		{if $con.url != ""}
+		<dt></dt> 
+		<dd><a class="rndbtn badge badge-amaz" target="_blank" href="{$site->dereferrer_link}{$con.url}/" title="View game at Amazon">Amazon</a></dd>
+		{/if}
+	</dl>
+	
 	{/if}
 	
 	{if $book}
@@ -254,28 +284,47 @@
 	{/if}	
 	
 	{if $music}
-	<tr><th>Music Info:</th><td>
-		<strong>{$music.title|escape:"htmlall"} {if $music.year != ""}({$music.year}){/if}</strong><br />
-		{if $music.review != ""}<span class="descinitial">{$music.review|nl2br|magicurl|truncate:"350":"</span><a class=\"descmore\" href=\"#\">more...</a>"}{if $music.review|strlen > 350}<span class="descfull">{$music.review|escape:"htmlall"|nl2br|magicurl}</span>{else}</span>{/if}<br /><br />{/if}
-		{if $music.genres != ""}<strong>Genre:</strong> {$music.genres|escape:"htmlall"}<br />{/if}
-		{if $music.publisher != ""}<strong>Publisher:</strong> {$music.publisher|escape:"htmlall"}<br />{/if}
-		{if $music.releasedate != ""}<strong>Released:</strong> {$music.releasedate|date_format}<br />{/if}
-		{if $music.url != ""}
-		<div style="margin-top:10px;">
-			<a class="rndbtn" target="_blank" href="{$site->dereferrer_link}{$music.url}/" title="View record at Amazon">Amazon</a>
-		</div>
+	<dl class="dl-horizontal" style="margin-right:300px;">
+		<dt>Music Info</dt>
+		<dd>{$music.title|escape:"htmlall"} {if $music.year != ""}({$music.year}){/if}</dd>
+		
+		{if $music.review != ""}
+		<dt>Review</dt>
+		<dd><span class="descinitial">{$music.review|nl2br|magicurl|truncate:"350":"</span><a class=\"descmore\" href=\"#\">more...</a>"}{if $music.review|strlen > 350}<span class="descfull">{$music.review|escape:"htmlall"|nl2br|magicurl}</span>{else}</span>{/if}</dd>
 		{/if}
-	</td></tr>
-	{if $music.tracks != ""}
-	<tr><th>Track Listing:</th><td>
-		<ol class="tracklist">
-			{assign var="tracksplits" value="|"|explode:$music.tracks}
-			{foreach from=$tracksplits item=tracksplit}
-			<li>{$tracksplit|trim|escape:"htmlall"}</li>
-			{/foreach}		
-		</ol>
-	</td></tr>
-	{/if}
+		
+		{if $music.genres != ""}
+		<dt>Genre</dt>
+		<dd>{$music.genres|escape:"htmlall"}</dd>
+		{/if}
+		
+		{if $music.publisher != ""}
+		<dt>Publisher</dt>
+		<dd>{$music.publisher|escape:"htmlall"}</dd>
+		{/if}
+		
+		{if $music.releasedate != ""}
+		<dt>Released</dt>
+		<dd>{$music.releasedate|date_format}</dd>
+		{/if}
+		
+		{if $music.url != ""}
+		<dt></dt>
+		<dd><a class="rndbtn badge badge-amaz" target="_blank" href="{$site->dereferrer_link}{$music.url}/" title="View record at Amazon">Amazon</a></dd>
+		{/if}
+		
+		{if $music.tracks != ""}
+		<dt>Track Listing</dt>
+		<dd>
+			<ol>
+				{assign var="tracksplits" value="|"|explode:$music.tracks}
+				{foreach from=$tracksplits item=tracksplit}
+					<li>{$tracksplit|trim|escape:"htmlall"}</li>
+				{/foreach}		
+			</ol>
+		</dd>
+		{/if}
+	</dl>
 	{/if}
 	<dl class="dl-horizontal" style="margin-right:300px;">
 		<dt>Group</dt>

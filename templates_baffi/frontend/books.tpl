@@ -94,6 +94,7 @@
 				<div class="movcover">
 					<a class="title" href="{$site->dereferrer_link}{$result.url}">
 						<img class="shadow img-polaroid" src="{$smarty.const.WWW_TOP}/covers/book/{if $result.cover == 1}{$result.bookinfoID}.jpg{else}no-cover.jpg{/if}" width="120" border="0" alt="{$result.author|escape:"htmlall"} - {$result.title|escape:"htmlall"}" />
+
 					</a>
 					<div class="movextra">
 						<center>
@@ -105,6 +106,7 @@
 			</td>
 			<td colspan="3" class="left">
 				<h4><a href="{$smarty.const.WWW_TOP}/books/?author={$result.author}">{$result.author|escape:"htmlall"}</a> - {$result.title|escape:"htmlall"}</h4>
+				{if $result.review != ""}<span class="descinitial">{$result.review|escape:"htmlall"|nl2br|magicurl|truncate:"350":"</span><a class=\"descmore\" href=\"#\">more...</a>"}{if $result.review|strlen > 350}<span class="descfull">{$result.review|escape:"htmlall"|nl2br|magicurl}</span>{else}</span>{/if}<br /><br />{/if}
 
 				{if $result.review != ""}
 				<span class="descfull">{$result.review|escape:"htmlall"|nl2br|magicurl}</span><br /><br />

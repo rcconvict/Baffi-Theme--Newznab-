@@ -38,20 +38,20 @@
 						</center>
 					</td>
 					<td width="20%">
-							<div class="pull-right">
-							{if $isadmin}
-								Admin: 	
-								<div class="btn-group">	
-									<input type="button" class="nzb_multi_operations_edit btn btn-small btn-warning" value="Edit" />
-									<input type="button" class="nzb_multi_operations_delete btn btn-small btn-danger" value="Delete" />
-								</div>
-								&nbsp;
-							{/if}
-							{if $section != ''}
-								<a href="{$smarty.const.WWW_TOP}/{$section}?t={$category}"><i class="fa-icon-th-list"></i></a>
-								&nbsp;
-							{/if}
+						<div class="pull-right">
+						{if $isadmin}
+							Admin: 	
+							<div class="btn-group">	
+								<input type="button" class="nzb_multi_operations_edit btn btn-small btn-warning" value="Edit" />
+								<input type="button" class="nzb_multi_operations_delete btn btn-small btn-danger" value="Delete" />
 							</div>
+							&nbsp;
+						{/if}
+						{if $section != ''}
+							<a href="{$smarty.const.WWW_TOP}/{$section}?t={$category}"><i class="fa-icon-th-list"></i></a>
+							&nbsp;
+						{/if}
+						</div>
 					</td>
 				</tr>
 			</table>
@@ -275,20 +275,20 @@
 						</center>
 					</td>
 					<td width="20%">
-						{if $section != ''}
-							<div class="pull-right">
-							{if $isadmin}
-								Admin: 	
-								<div class="btn-group">	
-									<input type="button" class="nzb_multi_operations_edit btn btn-small btn-warning" value="Edit" />
-									<input type="button" class="nzb_multi_operations_delete btn btn-small btn-danger" value="Delete" />
-								</div>
-								&nbsp;
-							{/if}
-								<a href="{$smarty.const.WWW_TOP}/{$section}?t={$category}"><i class="fa-icon-th-list"></i></a>
-								&nbsp;
+						<div class="pull-right">
+						{if $isadmin}
+							Admin: 	
+							<div class="btn-group">	
+								<input type="button" class="nzb_multi_operations_edit btn btn-small btn-warning" value="Edit" />
+								<input type="button" class="nzb_multi_operations_delete btn btn-small btn-danger" value="Delete" />
 							</div>
+							&nbsp;
 						{/if}
+						{if $section != ''}
+							<a href="{$smarty.const.WWW_TOP}/{$section}?t={$category}"><i class="fa-icon-th-list"></i></a>
+							&nbsp;
+						{/if}
+						</div>
 					</td>
 				</tr>
 			</table>

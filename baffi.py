@@ -100,6 +100,12 @@ def install(update=False):
 		except OSError, e:
 			print 'Error copying %s: %s' % (fname, e)
 
+	# copy no-backdrop.jpg
+	try:
+		shutil.copy('no-backdrop.jpg', os.path.join('..', 'www', 'views', 'covers', 'movies'))
+	except OSError, e:
+			print 'Error copying no-backdrop.jpg: %s' % e
+
 	# copy over baffi template folder and basepage.php
 	try:
 		shutil.copytree('templates_baffi', os.path.join('..', 'www', 'views', 'templates_baffi'))
@@ -132,6 +138,12 @@ def uninstall(update=False):
 	except OSError, e:
 		print 'Error removing templates/basepage: %s' % e
 
+	# remove no-backdrop.jpg
+	try:
+		os.remove(os.path.join('..', 'www', 'views', 'covers', 'movies', 'no-backdrop.jpg'))
+	except OSError, e:
+		print 'Error removing no-backdrop.jpg: %s' % e
+
 	# If this is an update, we don't want to revert old files
 	if update == False:
 		try:
@@ -159,11 +171,16 @@ def preflight():
 		os.path.join('..', 'www', 'views'),
 		os.path.join('..', 'www', 'views', 'scripts'),
 		os.path.join('..', 'www', 'lib', 'framework'),
-		os.path.join('..', 'www', 'lib', 'smarty', 'templates_c')]
+		os.path.join('..', 'www', 'lib', 'smarty', 'templates_c'),
+		os.path.join('..', 'www', 'views', 'covers', 'movies')]
 
 	for folder in dirs:
 		if os.path.isdir(folder) != True:
 			sys.exit('ERROR: %s is not a directory. Are you calling this script from the right folder?' % folder)
+
+	for folder in dirs:
+		if os.access(folder, os.W_OK)  != True:
+			sys.exit('We don\'t have write permissions for %s. Check your permissions' % folder)
 
 def delcache():
 	cache_dir = os.path.join('..', 'www', 'lib', 'smarty', 'templates_c')
